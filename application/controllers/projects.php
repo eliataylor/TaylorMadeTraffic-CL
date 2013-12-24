@@ -22,8 +22,12 @@ class Projects extends CI_Controller {
             "industries" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Industries"), "method" => "industries"),
             
             "taylormade" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("TaylorMade"), "method" => "taylormade"),
-            "eli" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Eli"), "method" => "projects"),
+            "eli" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Eli"), "method" => "eli"),
+
+            "projects" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Projects"), "method" => "projects"),
             
+            "team" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Team"), "method" => "team"),
+            "roles" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Roles"), "method" => "team"),
             
             "stylesheet" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("stylesheet"), "method" => "stylesheet"),
             "import" => array("role" => 1, 'icon'=>'', "title" => $this->lang->line("import"), "method" => "importXML")
@@ -106,49 +110,90 @@ class Projects extends CI_Controller {
         }
     }
     
-    // project list views
+    public function team() {
+        if (empty($this->data['qtfilter'])) {
+            $this->data['headers'] = array(
+            'count'=>$this->lang->line("Total"),
+            'tag_key'=>$this->data['docTitle'],
+            'tag_date'=>$this->lang->line("Last Used")
+                );            
+            if ($this->data['qtags'] == "roles") $this->data['tableRows'] = $this->projects->getTagsTeamRoles();
+            else $this->data['tableRows'] = $this->projects->getTagsTeamMembers();
+            $this->sendOut('tags_table', 'cms_shell');
+        } else{
+            $this->data['headers'] = array(
+                'image_src'=>$this->lang->line("Pics"), // + id, editor?
+                'project_title'=>$this->lang->line("Title"), // + subtitle html, desc
+                'project_startdate'=>$this->lang->line("Details"),
+            );            
+            if ($this->data['qtags'] == "roles") 
+                $this->data['tableRows'] = $this->projects->getTagsTeamRoles($this->data['qtfilter']);
+            else 
+                $this->data['tableRows'] = $this->projects->getProjectsByTag(null, $this->data['qtfilter']); 
+            $this->sendOut('projects_table', 'cms_shell');
+        }
+    }     
+    
+    // just URL predefines qtags
     function taylormade(){
         $this->data['qtags'] = 'companies';
-        $this->data['qtfilter'] = 'Taylor Made Management';
+        $this->data['qtfilter'] = 'TaylorMadeTraffic';
         $this->getTableForProjects();
         $this->sendOut('projects_table', 'cms_shell');
     }
+    function eli(){
+        $this->data['qtags'] = 'team';
+        $this->data['qtfilter'] = 'E.A.Taylor';        
+        $this->team();
+    }    
+    
     function projects(){
-        $this->data['qtags'] = '';
-        $this->data['qtfilter'] = null;
-        $this->getTableForProjects();
-        $this->sendOut('projects_table', 'cms_shell');
+        $pid = $this->input->get_post('pid');
+        if (empty($this->data['qtfilter']) && empty($pid)) {
+            $this->getTableForProjects();
+            $this->sendOut('projects_table', 'cms_shell');
+        } else{
+            $this->data['docTitle'] = $this->data['qtfilter'];
+            $this->data['headers'] = array(
+                'image_src'=>$this->lang->line("Pics"), // + id, editor?
+                'project_title'=>$this->lang->line("Title"), // + subtitle html, desc
+                'project_startdate'=>$this->lang->line("Details"),
+            );
+            $val = (empty($this->data['qtfilter'])) ? $pid : $this->data['qtfilter'];
+            $this->data['project'] = $this->projects->getProject($val);
+            $this->sendOut('project_profile', 'cms_shell');
+        }        
     }    
     
     function images() {      
-            $this->data['headers'] = array();
-            $this->data['tableRows'] = $this->projects->getImages(); 
-            $head = $this->projects->getTableHeaders('images');
-            array_unshift($head, 'project_id');
-            array_unshift($head, 'project_title');
-            foreach($head as $h) {
-                $this->data['headers'][$h] = (strpos($h,'image_') === 0) ? substr($h, strlen('image_')) : $h;
-            }
-            $this->sendOut('cms_table', 'cms_shell');
+        $this->data['headers'] = array();
+        $this->data['tableRows'] = $this->projects->getImages(); 
+        $head = $this->projects->getTableHeaders('images');
+        array_unshift($head, 'project_id');
+        array_unshift($head, 'project_title');
+        foreach($head as $h) {
+            $this->data['headers'][$h] = (strpos($h,'image_') === 0) ? substr($h, strlen('image_')) : $h;
+        }
+        $this->sendOut('cms_table', 'cms_shell');
     }   
 
     
     function getTableForTags() {
+        $this->data['headers'] = array(
+            'count'=>$this->lang->line("Total"),
+            'tag_key'=>$this->data['docTitle'],
+            'tag_date'=>$this->lang->line("Last Used")
+                );
         $this->data['tableRows'] = $this->projects->getTags($this->data['qtags']); 
-        $this->data['headers'] = array('count'=>$this->lang->line("Total"),'tag_key'=>$this->data['docTitle'],'tag_date'=>$this->lang->line("Last Used"));
     }
 
     function getTableForProjects() {
-        $this->data['tableRows'] = $this->projects->getTags($this->data['qtags']); 
-        
         $this->data['headers'] = array(
             'image_src'=>$this->lang->line("Pics"), // + id, editor?
             'project_title'=>$this->lang->line("Title"), // + subtitle html, desc
             'project_startdate'=>$this->lang->line("Details"),
             );
-            
         $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter']); 
-        $head = $this->projects->getTableHeaders('projects');
     }
 
     public function importXML() {
@@ -187,36 +232,6 @@ class Projects extends CI_Controller {
                 } else {
                      unset($obj->project_launchdate);
                 }
-                
-                /*
-                if (isset($obj->project_thumbSrc)) {
-                    $imgs = explode(',',$obj->project_thumbSrc);
-                    foreach($imgs as $index=>$img) {
-                        $img = trim($img);
-                        $img = $this->testImg($img, $index);
-                        $t = new StdClass();
-                        $t->image_src = $img;
-                        $t->image_weight = $index + 1;
-                        $t->project_id = $pid;
-                        $this->projects->insertImage($t);
-                    }
-                    unset($obj->project_thumbSrc);
-                }                
-                
-                if (isset($obj->project_xlSrc)) {
-                    $imgs = explode(',',$obj->project_xlSrc);
-                    foreach($imgs as $index=>$img) {
-                        $img = trim($img);
-                        $img = $this->testImg($img, $index);                                                
-                        $t = new StdClass();
-                        $t->image_src = $img;
-                        $t->image_weight = $index + 1;
-                        $t->project_id = $pid;
-                        $this->projects->insertImage($t);
-                    }
-                    unset($obj->project_xlSrc);
-                }
-                */
                 
                 if ((isset($obj->project_xlSrc) && !empty($obj->project_xlSrc)) || (isset($obj->project_xlDir) && !empty($obj->project_xlDir))) {
                     if (isset($obj->project_xlDir) && !empty($obj->project_xlDir)) {
@@ -297,6 +312,21 @@ class Projects extends CI_Controller {
                     }
                 }
                 
+                if (isset($obj->project_industries)) {
+                    $tags = explode(',',$obj->project_industries);
+                    foreach($tags as $tag) {
+                        $tag = trim($tag);
+                        if (empty($tag)) return true;
+                        $t = new StdClass();
+                        $t->tag_type = 'industries';
+                        $t->tag_key = $tag;
+                        if (isset($obj->project_launchdate) && !empty($obj->project_launchdate))  $t->tag_date = $obj->project_launchdate;
+                        elseif (isset($obj->project_startdate) && !empty($obj->project_startdate))  $t->tag_date = $obj->project_startdate;
+                        $t->project_id = $pid;
+                        $this->projects->insertTag($t);
+                    }
+                }                
+                
                 if (isset($obj->project_team) && !empty($obj->project_team)) {
                     $role_users = explode(';',$obj->project_team);
                     foreach($role_users as $role_user) {
@@ -339,25 +369,7 @@ class Projects extends CI_Controller {
 
             
         }
-    }
-    
-    private function testImg ($img, $index) {
-        if (!is_file(STATIC_CD.$img)) {
-            $parts = explode('/', $img);
-
-            $filename = strrchr($img, '/');
-            $ext = strrchr($img, '.');
-
-            $testName = '/' . $parts[2];
-            $testName .= ($index+1 > 9) ? '_'.($index+1) : '_0'.($index+1);
-            $testName .= $ext;
-
-            if (is_file(STATIC_CD.$nameName)) {
-                $img = $nameName;
-            }
-        }
-        return $img;
-    }    
+    }   
 
 }
 
