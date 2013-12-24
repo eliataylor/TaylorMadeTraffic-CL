@@ -142,7 +142,7 @@ class Projects extends CI_Controller {
         $this->data['tableRows'] = $this->projects->getTags($this->data['qtags']); 
         
         $this->data['headers'] = array(
-            'image_src'=>'', // + id, editor?
+            'image_src'=>$this->lang->line("Pics"), // + id, editor?
             'project_title'=>$this->lang->line("Title"), // + subtitle html, desc
             'project_startdate'=>$this->lang->line("Details"),
             );
