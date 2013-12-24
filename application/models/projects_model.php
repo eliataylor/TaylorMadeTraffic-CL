@@ -10,59 +10,58 @@ class Projects_Model extends CI_Model {
     }
     
     function getTags($type) {
-        if ($type=='technologies') return $this->getTagsCodes();
-        if ($type=='years') return $this->getTagsYears();
-        if ($type=='companies') return $this->getTagsCompanies();
-        if ($type=='team_members') return $this->getTagsTeamMembers();
-        if ($type=='team_roles') return $this->getTagsTeamRoles();        
-        else return $this->getTagsCodes();
+        if (!in_array($type, array('technologies','years','industries','companies'))) $type = 'technologies';
+        $sql = "SELECT count(tag_id) as count, tag_key, tag_type, tag_date FROM `tags` where tag_type = ? group by tag_key ";
+        if ($type == 'years') $sql .= ' order by tag_key desc';
+        else $sql .= ' order by tag_date desc, count desc';
+        $query = $this->db->query($sql, array($type));
+        if ($query->num_rows() > 0) return $query->result_object();
+        return array();   
     } 
     
+    function getProjectsByTag($type=false, $value=false) {
+        $params = array();
+        $sql = "SELECT P.*, T.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN tags T on P.project_id = T.project_id LEFT JOIN images I on P.project_id = I.project_id ";
+        
+        $wheres = array();
+        if (!empty($type)) {
+            array_push($wheres, " T.tag_type = ?");
+            array_push($params, $type);
+        }
+        if (!empty($value)) {
+            array_push($wheres, " T.tag_key = ? ");
+            
+            array_push($params, $value);
+        }
+        if (count($wheres) > 0) {
+            $sql .= " WHERE " . implode(" AND ", $wheres);            
+        }
+        
+        $sql .= ' group by P.project_id order by P.project_startdate desc';        
+        $query = $this->db->query($sql, $params);
+        //echo $this->db->last_query();
+        if ($query->num_rows() > 0) return $query->result_object();
+        return array();
+    } 
+    
+    function getProject($pid) {
+        $params = array();
+        $sql = "SELECT P.*, group_concat(I.image_src) as image_srcs FROM projects P, images I WHERE P.project_id = I.project_id ";
+        if (is_numeric($pid)) $sql .= " AND P.project_id = ? ";
+        else $sql .= " AND P.project_title = ? ";
+        $sql .= 'order by I.image_weight asc';        
+        $query = $this->db->query($sql, array($pid));
+        //echo $this->db->last_query();
+        if ($query->num_rows() > 0) return $query->row();
+        return array();
+    }        
+
     function getImages($pid=false) {
         $sql = "SELECT P.project_id, P.project_title, I.* FROM `projects` P, images I WHERE P.project_id = I.project_id order by I.project_id asc, I.image_weight asc";
         $query = $this->db->query($sql, array($type));
         if ($query->num_rows() > 0) return $query->result_object();
         return array();
     }  
-    
-    // projects
-    function getProjectsByTag($type=false, $value=false) {
-        $params = array();
-        $sql = "SELECT P.*, T.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN tags T on P.project_id = T.project_id LEFT JOIN images I on P.project_id = I.project_id ";
-        if (!empty($type) && !empty($value)) {
-            $sql .= " WHERE T.tag_type = ? and T.tag_key = ?";
-            array_push($params, $type, $value);
-        }
-        $sql .= 'group by P.project_id order by P.project_startdate desc';        
-        $query = $this->db->query($sql, $params);
-        //echo $this->db->last_query();
-        if ($query->num_rows() > 0) return $query->result_object();
-        return array();
-    }       
-
-    // code 
-    function getTagsCodes() {
-        $sql = "SELECT count(tag_id) as count, tag_key, tag_type, tag_date FROM `tags` where tag_type = 'technologies' group by tag_key order by tag_date desc, count desc;";
-        $query = $this->db->query($sql);
-        if ($query->num_rows() > 0) return $query->result_object();
-        return array();
-    }      
-    
-    // years
-    function getTagsYears() {
-        $sql = "SELECT COUNT( tag_id ) AS count, tag_key, tag_type, tag_date FROM  `tags`  WHERE tag_type =  'years' GROUP BY tag_key ORDER BY tag_key DESC , count DESC";
-        $query = $this->db->query($sql);
-        if ($query->num_rows() > 0) return $query->result_object();
-        return array();
-    }      
-    
-    // companies
-    function getTagsCompanies() {
-        $sql = "SELECT COUNT( tag_id ) AS count, tag_key, tag_type, tag_date FROM  `tags`  WHERE tag_type =  'companies' GROUP BY tag_key ORDER BY tag_date desc , count DESC";
-        $query = $this->db->query($sql);
-        if ($query->num_rows() > 0) return $query->result_object();
-        return array();
-    }      
     
     // team members
     function getTagsTeamMembers() {
@@ -73,9 +72,16 @@ class Projects_Model extends CI_Model {
     }      
 
     // roles
-    function getTagsTeamRoles() {
-        $sql = "SELECT COUNT( tag_id ) AS count, SUBSTRING(tag_type, 6) as tag_key, tag_type, tag_date FROM  `tags`  WHERE tag_type LIKE  'team%' GROUP BY tag_type ORDER BY tag_date desc , count DESC";
-        $query = $this->db->query($sql);
+    function getTagsTeamRoles($type=false) {
+        $params = array();
+        $sql = "SELECT COUNT( tag_id ) AS count, SUBSTRING(tag_type, 6) as tag_key, tag_type, tag_date FROM tags WHERE ";
+        if (!$type) $sql .= " tag_type LIKE 'team%' ";
+        else {
+            $sql .= " tag_type = ? ";
+            array_push($params, 'team_'.$type);
+        }
+        $sql .= " GROUP BY tag_type ORDER BY tag_date DESC, count DESC";                
+        $query = $this->db->query($sql, $params);
         if ($query->num_rows() > 0) return $query->result_object();
         return array();
     }      

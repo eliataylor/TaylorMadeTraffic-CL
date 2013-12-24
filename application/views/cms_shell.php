@@ -46,7 +46,15 @@
             
             <?if (isset($qtfilter) && !empty($qtfilter)):?>
             <div class="moduleBlock qParams" style="margin:10px 0;">
-                <h2><?=$qtfilter?></h2>
+                <h2><?=$qtfilter?>
+                    
+                <?if (isset($tableRows) && count($tableRows) > 1):?>    
+                    <span style="float:right;" class="pageTotal">
+                        <?=count($tableRows)?>
+                        <?=$this->lang->line('Projects')?>
+                    </span>
+                <?endif?>
+                </h2>                
             </div>            
             <?endif;?>                           
             
@@ -69,6 +77,14 @@
         </div>
         <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1368477918"></script>
         <div class="clearer"></div>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function(){
+                $(".tablesorter").each(function(){
+                   if ($(this).find('tr').length > 3) // more than header + one content row + one spacer
+                       $(".tablesorter").tablesorter({widgets: ['zebra']});
+                });                
+            });
+        </script>            
         <? if (ENVIRONMENT == 'production'):?>
         <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

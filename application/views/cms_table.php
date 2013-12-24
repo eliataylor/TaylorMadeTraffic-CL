@@ -28,6 +28,7 @@
                         </td>
                 <? endforeach; ?>
             </tr>
+            <tr class="spacer"></tr>
         <? endforeach; ?>
     </tbody>
 </table>
