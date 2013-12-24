@@ -1,0 +1,93 @@
+@font-face {
+  font-family: 'Strait';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Strait'), local('Strait-Regular'), url(http://themes.googleusercontent.com/static/fonts/strait/v1/lUDxGkKH3HNEwBuYK6j2SQ.woff) format('woff');
+}
+
+body { background:#000; color:#fff; font-family:Arial, Sans-Serif; margin:0; }
+ul, li { list-style: none; margin:0; padding:0; }
+.page a, .page a:visited { color:#ED2024 }
+#navMenu a, #navMenu a:visited, #navMenu a:hover { border:0 none; outline:0 none; padding:0; margin:0; }
+#menuList a, #menuList a:visited, #menuList a:hover { text-decoration:none; color:#fff; } 
+#menuList img { border:0 none;}
+.clearer { float:left; position:relative; clear:both; width:100%; height:1px; }
+#tmmCube { position:absolute; background:transparent url(/wwwroot/images/tumble_sprite.png) no-repeat top left; width: 100px; height:100px; overflow: hidden; margin:0; }
+#tmmOpening { position:absolute; background:transparent url(/wwwroot/images/open_sprite.png) no-repeat top left; width: 100px; height:90px; overflow: hidden; top:50px; left:50px; margin:0; z-index:100;}
+
+.page {  float:right; clear:none; margin:40px 20px 5px 0; padding:5px; width:40%; border:1px solid #fff; } 
+.pageTitle { margin:-30px 0 0 0; clear:both; position: relative; }
+.pageBlock { text-align: justify; height:100%; clear:both; position: relative; overflow-y:auto; margin:0 10px 0 10px; }
+.postDate { float: right; font-size: 16px; vertical-align: bottom; color: red; }
+#pageImg, #taPreloader {  position:fixed; bottom:5px; left:50px; margin:0; z-index:1; }
+
+
+#navMenu { float:left; position:fixed; clear:none; left:0; margin:57px auto 20px 60px; padding:0; z-index:101; }
+#menuLabel { position:absolute; width:100%; bottom:5px; left:3px; font-size:22px; font-weight: bolder; margin:5px 0 0 5px; 
+        font-size:15px; font-weight: bolder; width:100%; letter-spacing: 2px; }
+#menuList { float:left; clear:both; position: relative;  margin:8px 0 0 8px; }
+#menuList li { padding: 5px; }
+#menuList li img { height:20px; float:left; margin-right:7px; }
+
+.menuBox > img { opacity:.50; filter:alpha(opacity=50); width:100%; }
+.menuBox, .menuEmpty { background: none; position:relative; float:left; width:18px; height:18px; margin:0; cursor:pointer; padding:0; }
+.menuBox { border:1px solid #fff; overflow: hidden; }
+.menuBox.menuEmpty { border:none; cursor:pointer; overflow:visible;}
+
+.lineName { font-style: italic; color:#a0a09f;}
+.technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; font-family:courier, monospace; font-size: 12px; line-height: 18px; }
+.technotes p { margin:5px 0; list-style:circle; }
+.technotes li { margin: 5px 0 0 15px; list-style:square; list-style-position: outside; }
+.prjDesc { font-size: 12px; line-height: 18px; }
+.odd .technotes { background:#000; }
+.even .technotes { background:#090909;  }
+
+.projectImg { width: 100%;   }
+.projectImgMask { overflow: hidden; width:100%; max-height:400px; }
+
+
+/* .menuBox:hover { border-style:outset; } */
+
+.hl_menu { text-align: left; }
+
+#navMenu .menuEmpty:last { width:auto; height:auto; }
+
+#menuBtn { position: absolute; bottom:3px; right:5px; cursor:pointer; font-size:9px; font-weight: bolder; margin:5px 0 0 5px; letter-spacing: 2px; color:#ED2024;  }
+#closeBtn { position:absolute; right:3px; top:5px; cursor:pointer; font-size:9px; font-weight: bolder; letter-spacing: 2px; }
+
+#navMenu .tc{ clear:none; }        
+#navMenu .ll{ clear:left; }        
+#navMenu .lc{ clear:none; border:none; }        
+#navMenu .rc{ clear:none; }        
+#navMenu .rr{ clear:right; }       
+#navMenu .bc{ clear:none; }        
+
+.optionsHeader { margin-top:-30px;}
+.pItem { margin:10px 0 10px 0; padding:0; clear:both; }
+.pItem h3 { margin:0; padding:0; font-size:110%; font-weight:lighter; }
+.pItem h4 { color:#ED2024; margin:0; padding:0; font-size:90%; font-weight:lighter; }
+.pItem p {margin:0 0 10px 0; line-height:25px;}
+.pItem .firstPara { margin-top:10px;}
+.redtxt { color:#ED2024; }
+.graytxt { color:#6D6D6D; }
+
+.thWrap { width:50px; float:left; clear:none; margin:0 5px 5px 0; }
+.thWrap img {width:50px; margin:0 5px 5px 0;}
+
+/* override for mobile / isMobie devices */
+body.isMobile > .page { margin:20px auto 10px auto; clear:both; float:none; position:relative; width:100%; max-width:auto; } /* width is set explicitly by js */
+body.isMobile > #navMenu { position:relative; float:left; margin-bottom:20px; left:auto; }
+body.isMobile > #pageImg, body.isMobile > #taPreloader { position:relative; float:right; clear:right; margin:10px 5px 20px auto; left:auto; }
+
+@media only screen 
+    and (min-width : 300px) 
+    and (max-width : 800px) {
+    body.isMobile > .page { width:91%; }
+    body.isMobile > #pageImg { width:100%; }
+}
+
+.pageSnap { width:100%; clear:both; position:relative; margin:5px auto; }
+
+.list { margin:20px; list-style:disc; }
+
+.starSprite { background:transparent url(http://trackauthoritymusic.com/wwwroot/images/characterRotateSprite.png?v=1358932174) 0 0 no-repeat; padding:0; overflow:hidden; width:175px; height:175px; z-index:9999999; }
