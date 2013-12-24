@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<navigationXML>
+    <design>
+        <item>
+            <title>The LoveQuest Tour</title>
+            <liveurl></liveurl>
+            <devurl></devurl>
+            <copyright>Taylor Made Management</copyright>
+            <thumbDir>images/design/lovequest/th</thumbDir>
+            <xlDir>images/design/lovequest</xlDir>
+            <startdate>September 2007</startdate>
+            <launchdate>February 2008</launchdate>
+            <devtools>Illustrator, Photoshop, Flash</devtools>
+            <team>Design:E.A.Taylor;Animation:Justin Herman</team>
+            <desc>3 city concert tour featuring the Legendary ?uestLove Live</desc>
+            <thumbSrc>images/design/lovequest/th/allshows.jpg,images/design/lovequest/th/questlove300.jpg,images/design/lovequest/th/questlove_3shows.jpg,images/design/lovequest/th/questlove_allshows.jpg,images/design/lovequest/th/questlove_avalon.jpg,images/design/lovequest/th/questlove_avalonB1.jpg,images/design/lovequest/th/questlove_avalonF1.jpg,images/design/lovequest/th/questlove_avalonF2.jpg,images/design/lovequest/th/questlove_avalonF3.jpg,images/design/lovequest/th/questlove_avalonF4.jpg,images/design/lovequest/th/questlove_avalonF5.jpg,images/design/lovequest/th/questlove_avalonGOLD700.jpg,images/design/lovequest/th/questlove_avalonGold.jpg,images/design/lovequest/th/questlove_avalonRED700.jpg,images/design/lovequest/th/questlove_highlands.jpg,images/design/lovequest/th/questlove_highlandsB2-small.jpg,images/design/lovequest/th/questlove_highlandsF3.jpg,images/design/lovequest/th/questlove_highlandsF4.jpg,images/design/lovequest/th/questlove_highlandsF5.jpg,images/design/lovequest/th/questlove_highlandsP1.jpg,images/design/lovequest/th/questlove_highlandsP2.jpg,images/design/lovequest/th/questlove_highlands_back.jpg,images/design/lovequest/th/questlove_highlands_back2.jpg,images/design/lovequest/th/questlove_highlands_back3.jpg,images/design/lovequest/th/questlove_highlands_back4.jpg,images/design/lovequest/th/questlove_limo.jpg,images/design/lovequest/th/questlove_mock10.jpg,images/design/lovequest/th/questlove_mock10B.jpg,images/design/lovequest/th/questlove_mock11.jpg,images/design/lovequest/th/questlove_mock12.jpg,images/design/lovequest/th/questlove_mock13.jpg,images/design/lovequest/th/questlove_mock14.jpg,images/design/lovequest/th/questlove_mock15.jpg,images/design/lovequest/th/questlove_mock16.jpg,images/design/lovequest/th/questlove_mock17.jpg,images/design/lovequest/th/questlove_mock17B.jpg,images/design/lovequest/th/questlove_mock17HI.jpg,images/design/lovequest/th/questlove_mock18.jpg,images/design/lovequest/th/questlove_mock19.jpg,images/design/lovequest/th/questlove_mock20.jpg,images/design/lovequest/th/questlove_mock21.jpg,images/design/lovequest/th/questlove_mock22.jpg,images/design/lovequest/th/questlove_mock23.jpg,images/design/lovequest/th/questlove_mock24.jpg,images/design/lovequest/th/questlove_mock25.jpg,images/design/lovequest/th/questlove_mock26.jpg,images/design/lovequest/th/questlove_mock28.jpg,images/design/lovequest/th/questlove_mock4.jpg,images/design/lovequest/th/questlove_mock5.jpg,images/design/lovequest/th/questlove_mock6.jpg,images/design/lovequest/th/questlove_mock7.jpg,images/design/lovequest/th/questlove_mock8.jpg,images/design/lovequest/th/questlove_mock9.jpg,images/design/lovequest/th/questlove_mock9B.jpg,images/design/lovequest/th/questlove_pipeline.jpg,images/design/lovequest/th/questlove_pipelineB1.jpg,images/design/lovequest/th/questlove_pipelineB2.jpg,images/design/lovequest/th/questlove_pipelineB3.jpg,images/design/lovequest/th/questlove_pipelineF1.jpg,images/design/lovequest/th/questlove_pipelineF2.jpg,images/design/lovequest/th/questlove_pipelineF3.jpg,images/design/lovequest/th/questlove_pipelineF4.jpg,images/design/lovequest/th/questlove_pipelineF5.jpg,images/design/lovequest/th/questlove_pipelineP1.jpg,images/design/lovequest/th/questlove_simple1.jpg,images/design/lovequest/th/questlove_simple2.jpg,images/design/lovequest/th/questlove_simple3.jpg</thumbSrc>
+            <xlSrc>images/design/lovequest/allshows.gif,images/design/lovequest/quest322text.swf,images/design/lovequest/questbantext.swf,images/design/lovequest/questlove300.jpg,images/design/lovequest/questlove_3shows.gif,images/design/lovequest/questlove_allshows.gif,images/design/lovequest/questlove_avalon.jpg,images/design/lovequest/questlove_avalonB1.gif,images/design/lovequest/questlove_avalonB1.jpg,images/design/lovequest/questlove_avalonF1.gif,images/design/lovequest/questlove_avalonF1.jpg,images/design/lovequest/questlove_avalonF2.gif,images/design/lovequest/questlove_avalonF2.jpg,images/design/lovequest/questlove_avalonF3.gif,images/design/lovequest/questlove_avalonF3.jpg,images/design/lovequest/questlove_avalonF4.gif,images/design/lovequest/questlove_avalonF4.jpg,images/design/lovequest/questlove_avalonF5.gif,images/design/lovequest/questlove_avalonF5.jpg,images/design/lovequest/questlove_avalonGOLD700.jpg,images/design/lovequest/questlove_avalonGold.jpg,images/design/lovequest/questlove_avalonRED700.jpg,images/design/lovequest/questlove_butterflyPoster.jpg,images/design/lovequest/questlove_highlands.jpg,images/design/lovequest/questlove_highlandsB1.gif,images/design/lovequest/questlove_highlandsB1.jpg,images/design/lovequest/questlove_highlandsB2-small.gif,images/design/lovequest/questlove_highlandsB2.gif,images/design/lovequest/questlove_highlandsF1.gif,images/design/lovequest/questlove_highlandsF1.jpg,images/design/lovequest/questlove_highlandsF2-small.gif,images/design/lovequest/questlove_highlandsF2.gif,images/design/lovequest/questlove_highlandsF2.jpg,images/design/lovequest/questlove_highlandsF3.gif,images/design/lovequest/questlove_highlandsF3.jpg,images/design/lovequest/questlove_highlandsF4.gif,images/design/lovequest/questlove_highlandsF5.gif,images/design/lovequest/questlove_highlandsP1.gif,images/design/lovequest/questlove_highlandsP2.gif,images/design/lovequest/questlove_highlands_back.jpg,images/design/lovequest/questlove_highlands_back2.jpg,images/design/lovequest/questlove_highlands_back3.jpg,images/design/lovequest/questlove_highlands_back4.jpg,images/design/lovequest/questlove_limo.jpg,images/design/lovequest/questlove_mock10.jpg,images/design/lovequest/questlove_mock10B.jpg,images/design/lovequest/questlove_mock11.jpg,images/design/lovequest/questlove_mock12.jpg,images/design/lovequest/questlove_mock13.jpg,images/design/lovequest/questlove_mock14.jpg,images/design/lovequest/questlove_mock15.jpg,images/design/lovequest/questlove_mock16.jpg,images/design/lovequest/questlove_mock17.jpg,images/design/lovequest/questlove_mock17B.jpg,images/design/lovequest/questlove_mock17HI.jpg,images/design/lovequest/questlove_mock18.jpg,images/design/lovequest/questlove_mock19.jpg,images/design/lovequest/questlove_mock20.jpg,images/design/lovequest/questlove_mock21.jpg,images/design/lovequest/questlove_mock22.jpg,images/design/lovequest/questlove_mock23.jpg,images/design/lovequest/questlove_mock24.jpg,images/design/lovequest/questlove_mock25.jpg,images/design/lovequest/questlove_mock26.jpg,images/design/lovequest/questlove_mock28.jpg,images/design/lovequest/questlove_mock4.jpg,images/design/lovequest/questlove_mock5.jpg,images/design/lovequest/questlove_mock6.jpg,images/design/lovequest/questlove_mock7.jpg,images/design/lovequest/questlove_mock8.jpg,images/design/lovequest/questlove_mock9.jpg,images/design/lovequest/questlove_mock9B.jpg,images/design/lovequest/questlove_pipeline.jpg,images/design/lovequest/questlove_pipelineB1.gif,images/design/lovequest/questlove_pipelineB1.jpg,images/design/lovequest/questlove_pipelineB2.gif,images/design/lovequest/questlove_pipelineB2.jpg,images/design/lovequest/questlove_pipelineB3.gif,images/design/lovequest/questlove_pipelineB3.jpg,images/design/lovequest/questlove_pipelineF1.gif,images/design/lovequest/questlove_pipelineF1.jpg,images/design/lovequest/questlove_pipelineF2.gif,images/design/lovequest/questlove_pipelineF2.jpg,images/design/lovequest/questlove_pipelineF3.gif,images/design/lovequest/questlove_pipelineF3.jpg,images/design/lovequest/questlove_pipelineF4.gif,images/design/lovequest/questlove_pipelineF4.jpg,images/design/lovequest/questlove_pipelineF5.gif,images/design/lovequest/questlove_pipelineP1.gif,images/design/lovequest/questlove_simple1.jpg,images/design/lovequest/questlove_simple2.jpg,images/design/lovequest/questlove_simple3.jpg,images/design/lovequest/questsqtext.swf</xlSrc>
+        </item>
+        <item>
+            <title>Flavor</title>
+            <liveurl></liveurl>
+            <devurl></devurl>
+            <copyright>Taylor Made Management</copyright>
+            <startdate>September 2007</startdate>
+            <launchdate></launchdate>
+            <devtools>Illustrator,Photoshop</devtools>
+            <team>Design:E.A.Taylor</team>
+            <desc>An unrealized campaign pitch to MetroPCS in Southern California</desc>
+            <thumbSrc>images/design/flavor/th/flavor_FlyerRound.jpg,images/design/flavor/th/flavor_FlyerRound300.jpg,images/design/flavor/th/flavor_FlyerRoundAll.jpg,images/design/flavor/th/flavor_FlyerRoundAll2.jpg,images/design/flavor/th/flavor_artists.jpg,images/design/flavor/th/flavor_campaign.jpg,images/design/flavor/th/flavor_campaignGeneric.jpg,images/design/flavor/th/flavor_cover.jpg,images/design/flavor/th/flavor_id_corners.jpg,images/design/flavor/th/flavor_logo_drip.jpg,images/design/flavor/th/flavor_tpain_front2.jpg,images/design/flavor/th/flavor_venue_boulevard.jpg,images/design/flavor/th/flavor_venue_element.jpg,images/design/flavor/th/flavor_venue_highlands.jpg,images/design/flavor/th/flavor_venue_keyclub.jpg,images/design/flavor/th/flavor_venue_republic.jpg,images/design/flavor/th/metro_sales.jpg</thumbSrc>
+            <xlSrc>images/design/flavor/flavor_FlyerRound.jpg,images/design/flavor/flavor_FlyerRound300.jpg,images/design/flavor/flavor_FlyerRoundAll.gif,images/design/flavor/flavor_FlyerRoundAll2.jpg,images/design/flavor/flavor_FlyerRoundAll2.png,images/design/flavor/flavor_artists.jpg,images/design/flavor/flavor_campaign.jpg,images/design/flavor/flavor_campaignGeneric.jpg,images/design/flavor/flavor_cover.jpg,images/design/flavor/flavor_id_corners.gif,images/design/flavor/flavor_id_corners.jpg,images/design/flavor/flavor_id_corners.png,images/design/flavor/flavor_logo_drip.jpg,images/design/flavor/flavor_tpain_front2.jpg,images/design/flavor/flavor_venue_boulevard.jpg,images/design/flavor/flavor_venue_element.jpg,images/design/flavor/flavor_venue_highlands.jpg,images/design/flavor/flavor_venue_keyclub.jpg,images/design/flavor/flavor_venue_republic.jpg,images/design/flavor/metro_sales.jpg</xlSrc>
+        </item>
+        <item>
+            <title>Black Fire</title>
+            <liveurl>http://www.blackfirepress.com/</liveurl>
+            <devurl></devurl>
+            <thumbDir>images/design/biko/th</thumbDir>
+            <xlDir>images/design/biko</xlDir>
+            <client>BlackFire</client>
+            <startdate>September 2007</startdate>
+            <launchdate>February 2008</launchdate>
+            <devtools>Illustrator, Photoshop</devtools>
+            <team>Design:E.A.Taylor;Arist:Biko</team>
+            <desc>Two incredible artists, musicians, and educators that light up stages of multiple mediums</desc>
+            <thumbSrc>images/design/biko/th/biko300.jpg,images/design/biko/th/biko_album1.jpg,images/design/biko/th/biko_album_back10.jpg,images/design/biko/th/biko_album_back6.jpg,images/design/biko/th/biko_album_front13.jpg,images/design/biko/th/biko_cdfoto5.jpg,images/design/biko/th/biko_cdfoto5_black.jpg,images/design/biko/th/biko_cdfoto_1.jpg,images/design/biko/th/biko_cdfoto_1Black.jpg,images/design/biko/th/biko_flyer_backB.jpg,images/design/biko/th/biko_logo.jpg,images/design/biko/th/biko_logo_birth.jpg,images/design/biko/th/biko_logo_birth2.jpg,images/design/biko/th/biko_logo_birth2W.jpg,images/design/biko/th/biko_logo_birthW.jpg,images/design/biko/th/biko_logo_black.jpg,images/design/biko/th/biko_logo_blackGlow.jpg,images/design/biko/th/biko_logo_trojan.jpg,images/design/biko/th/shirt_biko2.jpg,images/design/biko/th/shirt_biko6.jpg,images/design/biko/th/tongo_logo_mock4_tight.jpg</thumbSrc>
+            <xlSrc>images/design/biko/biko300.jpg,images/design/biko/biko_album1.jpg,images/design/biko/biko_album2.jpg,images/design/biko/biko_album_back10.jpg,images/design/biko/biko_album_back6.jpg,images/design/biko/biko_album_front13.jpg,images/design/biko/biko_cdfoto5.jpg,images/design/biko/biko_cdfoto5_black.jpg,images/design/biko/biko_cdfoto_1.jpg,images/design/biko/biko_cdfoto_1Black.jpg,images/design/biko/biko_flyer_backB.jpg,images/design/biko/biko_logo.jpg,images/design/biko/biko_logo.png,images/design/biko/biko_logo_birth.jpg,images/design/biko/biko_logo_birth2.jpg,images/design/biko/biko_logo_birth2W.jpg,images/design/biko/biko_logo_birthW.jpg,images/design/biko/biko_logo_black.jpg,images/design/biko/biko_logo_blackGlow.jpg,images/design/biko/biko_logo_blackNew.jpg,images/design/biko/biko_logo_trojan.jpg,images/design/biko/shirt_biko2.jpg,images/design/biko/shirt_biko6.jpg</xlSrc>
+        </item>
+        <item>
+            <title>Ambitions</title>
+            <liveurl></liveurl>
+            <devurl></devurl>
+            <thumbDir>images/design/ambitions/th</thumbDir>
+            <xlDir>images/design/ambitions</xlDir>
+            <copyright>Taylor Made Management</copyright>
+            <startdate>September 2005</startdate>
+            <launchdate>September 2006</launchdate>
+            <devtools>Illustrator, Photoshop</devtools>
+            <team>Design:E.A.Taylor;Business Development:Paul Roberson,Yellow</team>
+            <desc>An Annual HBCU Reunion Party for the West Coast residents</desc>
+            <thumbSrc>images/design/ambitions/th/Ambitions_Back_3.jpg,images/design/ambitions/th/Ambitions_Front.jpg,images/design/ambitions/th/Ambitions_Front_2.jpg,images/design/ambitions/th/Ambitions_purpB_550.jpg</thumbSrc>
+            <xlSrc>images/design/ambitions/Ambitions_Back_3.jpg,images/design/ambitions/Ambitions_Front.jpg,images/design/ambitions/Ambitions_Front_2.jpg,images/design/ambitions/Ambitions_Front_3.jpg,images/design/ambitions/Ambitions_purpB_550.jpg</xlSrc>
+        </item>
+        <item>
+            <title>Nina Vidal</title>
+            <liveurl></liveurl>
+            <devurl/>
+            <thumbDir>images/design/ninavidal/th</thumbDir>
+            <xlDir>images/design/ninavidal</xlDir>
+            <copyright></copyright>
+            <startdate>January 2005</startdate>
+            <launchdate>February 2005</launchdate>
+            <devtools>Illustrator, Photoshop</devtools>
+            <team>Design:E.A.Taylor</team>
+            <desc></desc>
+            <thumbSrc>images/design/ninavidal/th/nina_back1.jpg,images/design/ninavidal/th/nina_back2.jpg,images/design/ninavidal/th/nina_back3.jpg,images/design/ninavidal/th/nina_back4.jpg,images/design/ninavidal/th/nina_back5.jpg,images/design/ninavidal/th/nina_back6.jpg,images/design/ninavidal/th/nina_back7.jpg,images/design/ninavidal/th/nina_flyer_finalBack.jpg,images/design/ninavidal/th/nina_front10.jpg,images/design/ninavidal/th/nina_front2.jpg,images/design/ninavidal/th/nina_front3.jpg,images/design/ninavidal/th/nina_front4.jpg,images/design/ninavidal/th/nina_front5.jpg,images/design/ninavidal/th/nina_front8.jpg,images/design/ninavidal/th/nina_front9.jpg</thumbSrc>
+            <xlSrc>images/design/ninavidal/nina_back1.gif,images/design/ninavidal/nina_back1.jpg,images/design/ninavidal/nina_back2.gif,images/design/ninavidal/nina_back2.jpg,images/design/ninavidal/nina_back3.gif,images/design/ninavidal/nina_back3.jpg,images/design/ninavidal/nina_back4.gif,images/design/ninavidal/nina_back4.jpg,images/design/ninavidal/nina_back5.gif,images/design/ninavidal/nina_back6.gif,images/design/ninavidal/nina_back7.gif,images/design/ninavidal/nina_flyer_finalBack.jpg,images/design/ninavidal/nina_front1.gif,images/design/ninavidal/nina_front1.jpg,images/design/ninavidal/nina_front10.jpg,images/design/ninavidal/nina_front2.gif,images/design/ninavidal/nina_front2.jpg,images/design/ninavidal/nina_front3-5.jpg,images/design/ninavidal/nina_front3.gif,images/design/ninavidal/nina_front3.jpg,images/design/ninavidal/nina_front4.gif,images/design/ninavidal/nina_front4.jpg,images/design/ninavidal/nina_front5.gif,images/design/ninavidal/nina_front5.jpg,images/design/ninavidal/nina_front6.gif,images/design/ninavidal/nina_front6.jpg,images/design/ninavidal/nina_front7.jpg,images/design/ninavidal/nina_front8.jpg,images/design/ninavidal/nina_front9.jpg,images/design/ninavidal/nina_mock1.gif,images/design/ninavidal/nina_mock2.gif,images/design/ninavidal/nina_mock3.gif,images/design/ninavidal/nina_mock4.gif,images/design/ninavidal/nina_mock5.gif,images/design/ninavidal/nina_mock7.gif,images/design/ninavidal/nina_mock9.jpg</xlSrc>
+        </item>
+        <item>
+            <title>WSCC</title>
+            <liveurl></liveurl>
+            <devurl/>
+            <thumbDir>images/design/wscc/th</thumbDir>
+            <xlDir>images/design/wscc</xlDir>
+            <copyright>WSCC</copyright>
+            <startdate>January 2006</startdate>
+            <launchdate>January 2006</launchdate>
+            <devtools>Illustrator, Photoshop, Flash</devtools>
+            <team>Design:E.A.Taylor</team>
+            <desc></desc>
+            <thumbSrc>images/design/wscc/th/wscc_bizcard_front.jpg,images/design/wscc/th/wscc_flyer.jpg</thumbSrc>
+            <xlSrc>images/design/wscc/wscc_bizcard_front.jpg,images/design/wscc/wscc_flyer.jpg</xlSrc>
+        </item>
+        <item>
+            <title>Traffic</title>
+            <liveurl>http://www.taylormadetraffic.com/TMT/Traffic/</liveurl>
+            <devurl/>
+            <thumbDir>images/design/traffic/th</thumbDir>
+            <xlDir>images/design/traffic</xlDir>
+            <copyright>Taylor Made Management</copyright>
+            <startdate>August 2003</startdate>
+            <launchdate>August 2004</launchdate>
+            <devtools>Illustrator, Photoshop, Flash</devtools>
+            <team>Design:Dan Wilson;Producer:E.A.Taylor</team>
+            <desc>Raised $7,000 in cash corporate sponsorships, $10,000 in booth sales, and saved $12,000 through cross promotions with local printing press, SF Guardian, KMEL and online media.</desc>
+        </item>
+    </design>
+    <development>
+      
+        <item>
+            <title>LealtadCard</title>
+            <liveurl></liveurl>
+            <devurl></devurl>
+            <client>SuperWashingWell Laundromat</client>
+            <copyright>Taylor Made Management</copyright>
+            <thumbDir>images/sites/lealtad/th</thumbDir>
+            <xlDir>images/sites/lealtad</xlDir>
+            <startdate>May 2013</startdate>
+            <launchdate></launchdate>
+            <devtools>Native Android SDK,Facebook APIs,Chord Framework,All-Share Frameword</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development: Sam Taylor</team>
+            <desc>A tool for independent retailers to public and track product promotions and their returned value. And a tool for consumers to search promotions and publish their own controlled requests for good deals.</desc>
+            <technotes>The promotions can be sent via SMS and Galaxy's Chord Framework</technotes>
+        </item>
+    
+        <item>
+            <title>Track Authority</title>
+            <liveurl>http://trackauthoritymusic.com</liveurl>
+            <devurl></devurl>
+            <copyright>Taylor Made Management</copyright>
+            <thumbDir>images/sites/ta/th</thumbDir>
+            <xlDir>images/sites/ta</xlDir>
+            <startdate>December 2012</startdate>
+            <launchdate>December 2012</launchdate>
+            <devtools>PHP,mySQL,AJAX,JavaScript,LAMP,Bash,Android,Facebook APIs</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:E.A.Taylor,Andrew Williams</team>
+            <desc>My dream project has included designing and developing this music game that rewards high rated users with free music, gift certificates, concert tickets and cash. </desc>
+            <technotes>The website's codebase uses a LAMP environment, but is highly optimized by several Bash scripts. One is run from a CRON to use ImageMagick for cropping and resizing images based on automated cue table maintained when a size or shape is requested that has not yet been cut.  Another is for re-indexing the music catalogue - of 20,000 songs and growing. It extends a tool called Beets to correct mp3 meta-data, download artwork and lyrics, and determine sound-wave averages such as BPM (beats-per-minute) and Replay Gain (used to determine average encoded decibel volume of the sound wave). The backend system also includes an asynchronous email service which I linked seamlessly to the front-end webpage templates with a CSS inliner script. The site scales perfectly to all screen widths above 320 pixels wide, but I am well underway with a native Android version of the player with 0-100 scale music ratings to refine the rotation of songs.</technotes>
+        </item>
+
+   
+        <item>
+            <title>ID Dashboard</title>
+            <liveurl>http://analytics.idinteractive.co</liveurl>
+            <devurl></devurl>
+            <client></client>
+            <copyright>ID Interactive</copyright>
+            <thumbDir></thumbDir>
+            <xlDir>images/sites/iddashboard</xlDir>
+            <startdate>July 2013</startdate>
+            <launchdate>December 2013</launchdate>
+            <devtools>PHP,mySQL,AJAX,JavaScript,Google APIs,Facebook APIs,YouTube APIs,Twitter APIs</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:Juan Ruiz,Claudia Herez;QA:Alejandra F</team>
+            <desc>The tool automates monthly reports due to Unilever, Kraft, and their other clients by aggregating data from all marketing channels and tracking tools such as Twitter, Facebook Insights, Google Anayltics, Youtube, and the Apple AppStore. </desc>
+            <technotes>Over 45 Google Visualization Graphs can be created in less than 10 seconds, and by entering just a few project goals in the form of KPIs (Key Performance Indicators), graphs are automatically colorized in to indicate how they are performing. Project &amp; account managers can also using a simple CMS built within the reports to comment on specific metrics, add headers, group graphics, change sizes and drill on the data through AJAX connections to all the original API services. The permissions matrix is controlled per client, brand, and project with 6 levels of access, including approving static publically visible reports with encrypted URLs.</technotes>
+        </item>
+
+        <item>
+            <title>Oreo Navidad</title>
+            <liveurl>http://www.ganaoreo.com</liveurl>
+            <devurl></devurl>
+            <client>ID Interactive</client>
+            <copyright>Oreo</copyright>
+            <startdate>November 2013</startdate>
+            <launchdate>December 2013</launchdate>
+            <devtools>PHP,mySQL,JavaScript,PHP,mySQL</devtools>
+            <team>Design:Camilo;Front-End:E.A.Taylor;Back-End:E.A.Taylor</team>
+            <desc>ID builds marketing platforms for a long list of great clients with creative projects and campaigns. One of the most fun I built in a quick 4 weeks was Oreo Navidad. The campaign was based on 20 million codes printed on Oreo packages throughout Colombia. There were 5 types of prizes to win in varying amounts with a total of 287 to give.  No one code could be considered a winner in advance, and the prizes should be distributed evenly throughout the 60 day campaign. I wrote the probability to be related to the average number of people playing daily and distributed all prizes - by number and type – evenly until the last day. I also included several backend tracking tools to and secure testing tools to simulate varying degrees of traffic, code searches, and minimum probabilities.</desc>
+            <thumbSrc></thumbSrc>
+            <xlDir>images/sites/ganaoreo</xlDir>
+        </item>
+    
+        <item>
+            <title>Healthline Navigator</title>
+            <liveurl>http://www.healthline.com/corporate/navigator/prod/demo.html</liveurl>
+            <devurl></devurl>
+            <copyright>Healthline Networks</copyright>
+            <thumbDir>images/sites/hlnavigator/th</thumbDir>
+            <xlDir>images/sites/hlnavigator</xlDir>
+            <startdate>May 2009</startdate>
+            <launchdate>July 2012</launchdate>
+            <devtools>Java,Spring,Oracle,JavaScript,JSONP</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Backend-End:E.A.Taylor,AJ Chen,Steve Jackson</team>
+            <desc>Best described at healthline.com/corporate/navigator/prod/demo.html, Navigator is a cross-domain script tag used to inject contextual ads and content onto any web page from a single line of JavaScript.</desc>
+            <technotes>
+            
+            <![CDATA[<ul>
+                    <li>The system supports up to 60 requests per second including tracking pixels and over 50,000 SQL inserts batched daily through an asynchronous SQL loader. (Clients included healthline.com, sharecare.com, health.yahoo.net, drugs.com and others)</li>
+                    <li>Units can be injected on-load and by user-engagement, directly on the page, or by hyper-linking keywords in the page source. Keywords can be pre-selected during the crawling process or via a client-side DOM scanner searching common semantics and other ad tags running simultaneously. This allows well targeted advertising services without a backend processor for contextualization</li>
+                    <li>Navigator can automatically detect appropriate ad placement via another DOM scanner that measures element's amount of text, dimensions, DOM structure and tag types. It also can be more tightly controlled via Dashboard described below.</li>
+                    <li>Injected content - where hyper-links remain on the host website – can be placed to provide additional navigation tools for the user. However this requires pre-indexing the client's entire site. This process is targeted, cued and controlled by Navigator and its Dashboard, described below.</li>
+                </ul>]]>
+            
+            
+            </technotes>
+        </item>        
+        <item>
+            <title>Healthline Dashboard</title>
+            <liveurl>http://nav.healthline.com/healthstat/nav/dashboard/login</liveurl>
+            <devurl></devurl>
+            <copyright>Healthline Networks</copyright>
+            <thumbDir>images/sites/hldashboard/th</thumbDir>
+            <xlDir>images/sites/hldashboard</xlDir>
+            <startdate>May 2009</startdate>
+            <launchdate>July 2012</launchdate>
+            <devtools>Java,Spring,Oracle,JavaScript,AJAX</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:EliTaylor</team>
+            <desc>Dashboard is a Content-Management-System and debugging tool for reviewing Navigator, healthSTAT, and internal crawler's performance across various installations.</desc>
+            <technotes>
+                <![CDATA[<ul>
+                    <li>Dashboard aids in backend debugging of the Healthline Taxonomy and search decisions. It also provides the crawler additional controls for prioritizing areas of the page to parse, skip, and flag for changes or inter-linking .</li>
+                    <li>Through Dashboard you can rebuild any webpage within a proxy environment on Healthline servers in order to install, test, and demonstrate Navigation functionality on any URL</li>
+                </ul>]]>
+            </technotes>
+        </item>        
+    
+        <item>
+            <title>Healthline computeQA </title>
+            <liveurl>http://www.healthline.com/corporate/navigator/prod/crawler.html?domain=healthline</liveurl>
+            <devurl></devurl>
+            <copyright>Healthline Networks</copyright>
+            <thumbDir>images/sites/hlcomputeqa/th</thumbDir>
+            <xlDir>images/sites/hlcomputeqa</xlDir>
+            <startdate>May 2009</startdate>
+            <launchdate>July 2012</launchdate>
+            <devtools>WebSQL-lite,JavaScript,Google Chrome Extension,LocalStorage</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:EliTaylor</team>
+            <desc>A Google Chrome Extension and browser-based Crawler to automate QA of both source code, flash ads, any JavaScript installation.</desc>
+            <technotes>
+                
+            <![CDATA[
+                <ul>
+                    <li>Builds automated reports on how pages are categorized by many different engines and APIs, while tracking the web of links between each page. Everything is stored in SQLite LocalStorage via Lawnchair. Ex. healthline.com/corporate/navigator/stage/crawler.html?domain=sharecare  or ?domain=healthline (both take a while to load all 30K rows)</li>
+                    <li>Takes .jpg screenshots of every page crawled. It can also first render watermarks or outline all areas of the page by targeting categories for easier review &amp; debugging.</li>
+                </ul>
+            ]]>
+            
+            </technotes>
+        </item>            
+      
+      
+        <item>
+            <title>Studio En Vivo</title>
+            <liveurl></liveurl>
+            <devurl></devurl>
+            <status></status>
+            <copyright>Taylor Made Management</copyright>
+            <thumbDir>images/sites/studioenvivo/th</thumbDir>
+            <xlDir>images/sites/studioenvivo</xlDir>
+            <startdate>August 2013</startdate>
+            <launchdate></launchdate>
+            <devtools>Native Android SDK,Illustrator,Chord Framework,All-Share Frameword</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
+            <desc>An mobile beat machine to create and share music with friends</desc>
+            <technotes>The music is shared a runtime using Galaxy's All-Share and Chord Framework</technotes>
+        </item>
+      
+        <item>
+            <title>Known Your Numbers</title>
+            <liveurl>http://www.healthline.com/corporate/widgets/OptumTools/index.html</liveurl>
+            <devurl>http://www.healthline.com/corporate/widgets/OptumTools/demo.html</devurl>
+            <client>Healthline</client>
+            <copyright>OptumHealth</copyright>
+            <thumbDir>images/sites/hlnumbers/th</thumbDir>
+            <xlDir>images/sites/hlnumbers</xlDir>
+            <startdate>May 2010</startdate>
+            <launchdate>July 2011</launchdate>
+            <devtools>Flex,AS3</devtools>
+            <team>Design:Matt;Front-End:E.A.Taylor;Project Management:Steve Berley</team>
+            <desc>A set of 30 tools developed for OptumTool</desc>
+            <technotes>The business requirements insisted - without much good reason - that the tool be distrutable as a single self-contained file which could be easily reskinned for other brands. It was not clear if their target device's would run Java (Applets), but certain they had browsers with Flash, so used Flex and AS3.</technotes>
+        </item>   
+    
+        <item>
+            <title>Munchie Madness</title>
+            <liveurl>http://www.healthline.com/tournaments/healthy-frozen-dinners-tournament</liveurl>
+            <devurl>http://www.healthline.com/channel/healthy-fast-food-video</devurl>
+            <copyright>Healthline Networks</copyright>
+            <thumbDir>images/sites/hlfastfood/th</thumbDir>
+            <xlDir>images/sites/hlfastfood</xlDir>
+            <startdate>May 2010</startdate>
+            <launchdate>July 2011</launchdate>
+            <devtools>Flex,AS3</devtools>
+            <team>Design:Matt;Front-End:E.A.Taylor</team>
+            <technotes>These two links are just a few of the very interactive microsites / applications I built for Healthline's editorial team or sponsoring partners.</technotes>
+        </item>       
+    
+        <item>
+            <title>TaylorMadeTraffic.com - Flash</title>
+            <liveurl>flash.taylormadetraffic.com</liveurl>
+            <devurl></devurl>
+            <copyright>Healthline Networks</copyright>
+            <thumbDir>images/sites/tmm-flash/th</thumbDir>
+            <xlDir>images/sites/tmm-flash</xlDir>
+            <startdate>August 2009</startdate>
+            <launchdate>October 2009</launchdate>
+            <devtools>Flex,AS3</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
+            <desc></desc>
+        </item>           
+      
+        <item>
+            <title>Elite Wedding Locations</title>
+            <liveurl>http://www.eliteweddinglocations.com</liveurl>
+            <devurl>http://www.weddinglocations.com/clientpass/index.php</devurl>
+            <client>Noospheric LLC</client>
+            <copyright>Elite Wedding Locations</copyright>
+            <thumbDir>images/sites/wl/th</thumbDir>
+            <xlDir>images/sites/wl</xlDir>
+            <startdate>May 2009</startdate>
+            <launchdate>July 2009</launchdate>
+            <devtools>AJAX,AS3,Flex,PHP,mySQL,JavaScript</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:EliTaylor;Project Management:Jacquas Habra,Kevin Kent,James McCorkle</team>
+            <desc>A reporting system for advertisers to view site traffic, user inquiries on their properties, and return-on-investment figures. </desc>
+            <technotes>This system included 3 levels of access with top level administrators being able to change cost values per account or property, receive notifications upon account logins, and scheduling custom reports to be email at any frequency or timespan, to anyone. The system provides complete drilling capabilities on any data set for any time frame; and populates both Flex graphs and DHTML tables and charts with a single click.</technotes>
+        </item>
+        <item>
+            <title>Black Panther Party</title>
+            <liveurl>http://www.blackpanther.org</liveurl>
+            <devurl>http://skye.taylormadetraffic.com/bpp/</devurl>
+            <client>Huey P. Newton Foundation</client>
+            <thumbDir>images/sites/bpp/th</thumbDir>
+            <xlDir>images/sites/bpp</xlDir>
+            <startdate>July 2009</startdate>
+            <launchdate>August 2009</launchdate>
+            <devtools>AS3,PHP,mySQL,AJAX,JavaScript</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:EliTaylor;Project Management:Dorion Hillard</team>
+            <desc>Design &amp; developed a unique interface for navigating articles, essays, events, and new program initiatives.</desc>
+            <technotes>Implemented the Google Language API (php) to translate entire site and individual articles to nearly any language using an asynchronous AJAX cue-engine to control http request priorities, frequency and timeouts. Extended open source CMS OpenCart with configuration options to map and re-stylize all products and profiles</technotes>
+        </item>
+        <item>
+            <title>ChartMedica</title>
+            <liveurl>http://www.chartmedica.com</liveurl>
+            <devurl></devurl>
+            <copyright>Noospheric LLC</copyright>
+            <copyright>ChartMedica LLC</copyright>
+            <thumbDir>images/sites/cm/th</thumbDir>
+            <xlDir>images/sites/cm</xlDir>
+            <startdate>March 2009</startdate>
+            <launchdate>October 2009</launchdate>
+            <devtools>AS3,Flex,PHP,mySQL</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:EliTaylor,Roy,David</team>
+            <desc>Features included an advanced pdf viewing tool, autocompletes searching over 600K records, and automated faxing via MyFax API.</desc>
+            <technotes>Developed Flex-based interface for a patient's medical records system. Extended the server-side services to generate dynamic PDF (fpdf) of records and record requests. PDFs were then automatically faxed to physician offices when 5 available incoming fax lines to parse and import records (using myFax.com API). The application also included other libraries and components such as e-signing with Flex and hospital searches by location and specialty.</technotes>
+        </item>
+        <item>
+            <title>The Means</title>
+            <liveurl>http://www.TheMeans.info</liveurl>
+            <devurl>http://www.TheMeans.info/_dev/web40.php</devurl>
+            <client>Berkeley High School</client>
+            <copyright>Taylor Made Management</copyright>
+            <license_id>1</license_id>
+            <thumbDir>images/sites/means/th</thumbDir>
+            <xlDir>images/sites/means</xlDir>
+            <startdate>September 2008</startdate>
+            <launchdate>February 2009</launchdate>
+            <devtools>AS3,PHP,mySQL,AJAX,JavaScript</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:EliTaylor;Product Development:Biko Eisen-Martin</team>
+            <desc>A tool for teachers and students to develop the writing process. Modeled after a traditional newsroom, students and teachers can develop assignements, work on multiple versions of a story, share ideas within the class, and more. UI Tools include tinyMCE text editor, advance sourcing maps, and multi-category search options</desc>
+        </item>
+    
+        <item>
+            <title>MyCubi.com</title>
+            <liveurl></liveurl>
+            <devurl></devurl>
+            <copyright>MyCubi</copyright>
+            <license_id>1</license_id>
+            <thumbDir>images/sites/mycubi/th</thumbDir>
+            <xlDir>images/sites/mycubi</xlDir>
+            <startdate>September 2009</startdate>
+            <launchdate>January 2010</launchdate>
+            <devtools>PHP,mySQL,Facebook APIs,JavaScript,AJAX</devtools>
+            <team>Front-End:E.A.Taylor,Anatoliy Yastreb;Back-End:EliTaylor,Anatoliy Yastreb;Product Development:Danielle McCormick,Maeve Hackett,Will McCormick,Michael D Montoya,Colm Walsh</team>
+            <technotes>
+                
+            <![CDATA[A social networking tool for connecting sellers, buyers, and services
+                <ul>
+                    <li>Wrote advanced search logic for finding and filtering results by type, distance, price, date, time and other criteria.</li>
+                    <li>Plotted all search results on a Google mapping application - by distance using the Haversine formula - with custom markers for Cubi type. Upon clicking markers expanded with tabbed windows to provide additional StreetViews, ‘cubi' details, and directions (using Google maps v2 api).</li>
+                    <li>Built Facebook application (using FBConnect) to post on user walls and send messages to friend's inboxes.</li>
+                    <li>Integrated and upgraded social networking ‘inviter' script to share/publish user profiles and details across a dozen email clients and two dozen social networks.</li>
+                </ul>
+            ]]>
+            
+            </technotes>
+        </item>
+    
+        <item>
+            <title>Planet Maple</title>
+            <liveurl>http://pmsk8.com</liveurl>
+            <devurl></devurl>
+            <client>Planet Maple</client>
+            <copyright>Planet Maple</copyright>
+            <license_id>1</license_id>
+            <thumbDir>images/sites/pm/th</thumbDir>
+            <xlDir>images/sites/pm</xlDir>
+            <startdate>March 2010</startdate>
+            <launchdate>June 2010</launchdate>
+            <devtools>PHP,mySQL,Facebook APIs,JavaScript,AJAX</devtools>
+            <team>Front-End:E.A.Taylor;Back-End:EliTaylor;Design:E.A.Taylor;Product Development:Lisa Vasquez,Cedric Bell,William Lamar</team>
+            <desc></desc>
+        </item>    
+
+        <item>
+            <title>BCBGMaxAzriaGroup</title>
+            <liveurl>http://www.bcbgmaxazriagroup.com/Fall2009</liveurl>
+            <devurl/>
+            <client></client>
+            <copyright>BCBGMaxAzriaGroup</copyright>
+            <thumbDir>images/sites/bcbg/th</thumbDir>
+            <xlDir>images/sites/bcbg</xlDir>
+            <startdate>April 2008</startdate>
+            <launchdate>August 2008</launchdate>
+            <devtools>AS2,PHP,mySQL</devtools>
+            <team>Design:Natasha Li;Front-End:E.A.Taylor,Robert Baindourve;Back-End:Edwin Ado,Ray;Artistic Direction:Edwin Roses</team>
+            <desc>A major overhaul of the corporate branding home</desc>
+            <technotes>
+              <![CDATA[
+                <ul>
+                    <li>Created Fall 2008 BCBGMaxAzriaGroup company site and flash catalogue with another team member</li>
+                    <li>Built BCBG.tv to archive all video content with search and sorting capabilities. Delivered thumbnail and text descriptions of every video with content pulled from static XML, Flash Media Server, and mySQL/PHP</li>
+                    <li>Created Tell-A-Friend applications for users to email their friends products and links directly from our site</li>
+                    <li>Added client side features for saving settings and style preferences via Local Shared Objects (flash cookies)</li>
+                </ul>
+              ]]>
+            </technotes>
+        </item>
+        <item>
+            <title>HerveLeger</title>
+            <liveurl>http://www.herveleger.com</liveurl>
+            <devurl/>
+            <client>BCBGMaxAzriaGroup</client>
+            <copyright>HerveLeger</copyright>
+            <thumbDir>images/sites/herveleger/th</thumbDir>
+            <xlDir>images/sites/herveleger</xlDir>
+            <startdate>July 2008</startdate>
+            <launchdate>August 2008</launchdate>
+            <devtools>AS2,PHP,mySQL</devtools>
+            <team>Design:Joe;Front-End:E.A.Taylor;Back-End:Edwin Ado</team>
+            <desc>The highest priced brand from the BCBGMaxAzriaGroup</desc>
+            <technotes>Developed store location profiles &amp; finder, alongwith runway/fashion show video presentations</technotes>
+        </item>
+        <item>
+            <title>Building Safety Solutions</title>
+            <liveurl>http://www.bssnet.com</liveurl>
+            <devurl/>
+            <client></client>
+            <copyright>Building Safety Solutions</copyright>
+            <thumbDir>images/sites/bss/th</thumbDir>
+            <xlDir>images/sites/bss</xlDir>
+            <startdate>August 2008</startdate>
+            <launchdate>December 2008</launchdate>
+            <devtools>AS2,JSFL,Scorm</devtools>
+            <team>3DModeling:Umberto Polanco;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:Hector Gomez</team>
+            <desc>Commercial software providing interactive emergency evacuation training for skyscrapers and public buildings throughout the US. Advanced UI tools include detail floor maps of emergency equipment and exit routes with controls for sorting and searching</desc>
+            <technotes>                
+            <![CDATA[
+                <ul>           
+                <li>Integrated Building-Safety-Solution’s (www.bssnet.com) emergency evacuation training program with Ameriprise Financial’s Learning-Management-System (LMS). Wrote an External-Interface class to allow Flash buttons to communicate with the LMS through a JavaScript-based API called SCORM 1.2</li>
+                <li>Wrote a JSFL script to export, convert and organize named layers directly from Illustrator CS3 into a single Flash movie clip. A naming convention for each layer in Illustrator specified how movie clips were named and embedded within each other. This provided the core content for a standalone Flash product which I built to allow safety professionals and engineers to zoom and locate safety equipment, stairwells, sprinklers and more, on every floor, throughout multiple skyscrapers.</li>
+                </ul>                
+            ]]>
+            </technotes>
+        </item>
+        <item>
+            <title>The A&amp;E Advisor</title>
+            <liveurl></liveurl>
+            <devurl></devurl>
+            <copyright>Taylor Made Management</copyright>
+            <thumbDir>images/sites/ae/th</thumbDir>
+            <xlDir>images/sites/ae</xlDir>
+            <startdate>August 2004</startdate>
+            <launchdate></launchdate>
+            <devtools>AS3,Illustrator, Photoshop, Flash</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Design:E.A.Taylor;Business Development:E.A.Taylor;Legal Consul:Che Hashim</team>
+            <desc>Before E-books, this has been a dream to produce a fully interactive textbook for the Legal and Strategical Aspects of the Music Recording Industry</desc>
+            <technotes>Through predictive questioning, the tool was meant to create completely customized contracts from a intelligent questionnaire about the parties involved, their interests, and needs. Provides bi-partisian advice from attorneys, artists, and industry professionals</technotes>
+        </item>
+        <item>
+            <title>Good Life With Gabby</title>
+            <liveurl>http://www.goodlifewithgabby.com</liveurl>
+            <devurl/>
+            <client></client>
+            <copyright>Good Life With Gabby</copyright>
+            <thumbDir>images/sites/gabby/th</thumbDir>
+            <xlDir>images/sites/gabby</xlDir>
+            <startdate>August 2008</startdate>
+            <launchdate>January 2009</launchdate>
+            <devtools>AS2,PHP,mySQL,JavaScript,AJAX,Google APIs</devtools>
+            <team>Front-End:E.A.Taylor;Back-End:E.A.Taylor;Free-Hand:Unknown;Business Development:Lisa Vasquez</team>
+            <desc>A fun, educational site for kids and parents to learn about, and find recipes on healthy lifestyles and nutrition. Includes tooling book, jquery shopping page, recipes table, videos, and translation of virtually everything into 12 languages at runtime via google's language API.</desc>
+            <technotes>Designed and developed all animation and interactivity for a kids' website on healthy eating habits and recipes (AS2/XML/PHP: www.goodlifewithgabby.com / flash.goodlifewithgabby.com). Applications included coloring book, recipes sorter, dynamic video player, and language translator via Google Language API</technotes>
+        </item>
+        <item>
+            <title>Ruth Raser</title>
+            <liveurl>http://www.ruthraser.com</liveurl>
+            <devurl>http://www.ruthraser.com/newRaser.html</devurl>
+            <copyright>Ruth Raser</copyright>
+            <thumbDir>images/sites/ruth/th</thumbDir>
+            <xlDir>images/sites/ruth</xlDir>
+            <startdate>May 2008</startdate>
+            <launchdate>June 2009</launchdate>
+            <devtools>AS3,Flex</devtools>
+            <team>Design:E.A.Taylor;Development:E.A.Taylor</team>
+            <desc>A unique approach to navigation, with advance controls for restyling the site's backgrounds, panels, and colors at runtime.</desc>
+        </item>
+        <item>
+            <title>Margaret Timbrell</title>
+            <liveurl></liveurl>
+            <devurl/>
+            <copyright>Margaret Timbrell</copyright>
+            <thumbDir>images/sites/margaret/th</thumbDir>
+            <xlDir>images/sites/margaret</xlDir>
+            <startdate>January 2009</startdate>
+            <launchdate>February 2009</launchdate>
+            <devtools>AS3</devtools>
+            <team>Front-End:E.A.Taylor;Design:E.A.Taylor</team>
+            <desc>A simple and effective layout with clean animation and some customizing features</desc>
+        </item>
+        <item>
+            <title>Fuse Green</title>
+            <liveurl></liveurl>
+            <devurl/>
+            <copyright>Fuse Green</copyright>
+            <thumbDir>images/sites/fuse/th</thumbDir>
+            <xlDir>images/sites/fuse</xlDir>
+            <startdate>March 2009</startdate>
+            <launchdate>April 2009</launchdate>
+            <devtools>AS3,Flash</devtools>
+            <team>Front-End:E.A.Taylor;Back-End:E.A.Taylor;Design:Fuse Green</team>
+            <desc>A graphic designer's portfolio offering zooming tools on every image and easy access to every page and image at once.</desc>
+        </item>    
+        <item>
+            <title>Ankh Marketing</title>
+            <liveurl></liveurl>
+            <devurl></devurl>
+            <copyright>Ankh Marketing</copyright>
+            <thumbDir>images/sites/ankh/th</thumbDir>
+            <xlDir>images/sites/ankh</xlDir>
+            <startdate>April 2004</startdate>
+            <launchdate>February 2006</launchdate>
+            <devtools>AS2</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
+            <desc>A few very old flash sites and email blass for friends and the former employer of Ankh</desc>
+        </item>
+    </development>
+  <!--<theories>
+    <item> 
+    <![CDATA[
+    I was born at home to a black river raft guide working as a social worker, and the daughter of holocaust survivor, in school studying and later to become a world class neurosurgeon. My first three years of college went towards pure sciences  - physics and astronomy.  However, my other half, in love with the music, art, and event promotions made pure science a difficult commitment. I found design and development as the perfect blend between artistry and intellect. In the end, I received my degree in Industrial Design, seeing it as the most applicable tool for bringing visions to reality.
+      
+      My focus now is finding projects that help 'flatten the world'. The Means and The A&amp;E Advisor are just few of my open source ventures to help connect  people, knowledge, services, and opportunities. 
+      
+      &lt;font color="#000000" size="10"&gt;In short, I believe:&lt;/span&gt;
+      ...Knowledge is power, but &#x2018;money makes the world go around'; (unfortunate or otherwise)
+      ...Social Networking is a key to unity, but not necessarily relationships.
+      ...Patience is optional, but composure is mandatory.
+      ...Capitalism is cold, but competition is critical. 
+      ...Self-interest is inevitable, but true goodness is the effort and interest in helping other people.
+      ...I am my brother's (and sister's) keeper, but ultimately you own your own destiny.
+      ...'Live as if to die tomorrow, but learn as if to live forever' 
+      ]]>
+      </item>
+  </theories>
+  <means>
+    <item> The essence of effective marketing starts with Design. It is the first impression to communicate a message and commanding a response. While a piece of art can be criticized or acclaimed depending who you ask, effective design is based on instincts and a universal order of how information is absorbed by the eye. For example, a poster for a Rock concert will look extremely different from one for a Hip-Hop concert. However, those are aesthetic differences up to the artist or client, depending on the target demographic. As important as they are, the organization of text and information is based on the consistent objective to send their message as clearly and quickly as possible.Richard Wurman, author of Information Architects, uses the anemogram, L.A.T.C.H., to describe five ways in which information can be organized in any publication or product assortment. The letters stand for - Location - Alphabet - Time - Category &#x2013; Hierarchy, and suggest that information can be grouped or prioritized accordingly. The trick is then choosing which to apply and making it work. I make my objective to find the best approach and angle for each individual brand, service, or event. 
+	</item>
+  </means>
+  <stories>
+    <item>
+      <![CDATA[E.A.Taylor legally founded his first company, Four Corners Coalition, in San Francisco at 17 years old. Spending his months of savings from retail and paper route jobs, he produced Graffiti in the Gardens, a live art production, at the Bandshell Auditorium between the former Asian Art Museum and Academy of Sciences in Golden Gate Park. Intentionally entitled after the famous concert and theatrical series 'Shakespear in the Park', Eli planned to bring the same artistic appreciation for Graffiti as was devoted to Shakespeare. Through college Eli explored his curiousity for science, studying physics and mechnical engineering, however as he experience managing events and activites on and off the campus, he decided to focus on design, seeing as the most applicable tool for brining his visions to reality. This was realized when he Founded Taylor Made Management in 2003 after returning from Howard University for family concerns. Back in his hometown he found entertainment an easy outlet.]]>
+    </item>
+  </stories>
+  <contact>
+    <item>eli@taylormadetraffic.com</item>
+  </contact>-->
+</navigationXML>

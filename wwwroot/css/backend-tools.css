@@ -1,0 +1,75 @@
+/* Author : Eli A. Taylor */
+.narrowscreen .master { width:100%!important; max-width:100%!important;}
+.widescreen .master { width:100%; max-width: 1000px; margin: 0 auto; }
+
+.mainMenu .navRow:first-child { border-radius:10px 0 0 0; -moz-border-radius:10px 0 0 0; }
+.mainMenu .navRow:last-child { border-radius:0 10px 0 0; -moz-border-radius:0 10px 0 0; }
+.mainMenu .navRow { background:#242424; color:#fff; font-size:15px; vertical-align: middle; padding-top:4px; padding-bottom:4px;  }
+.mainMenu .navRow a { color: #fff; }
+
+table .header { width:auto; } /* very different elements */
+
+body, #backSplash { font-family:Calibri, Arial, Sans-Serif; }
+a, a:visited, .alink { color:#5B74AB; }
+
+/* tables */
+table.tablesorter {
+	margin:10px 0 15px 0;
+	font-size: 8pt;
+	width: 100%;
+	text-align: left;
+        position: relative;        
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	border: 1px solid #FFF;
+	font-size: 8pt;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(/wwwroot/images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+        float:none;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #fff;
+	padding: 4px;
+	vertical-align: top;
+}
+table.tablesorter h3 { color: #fff; margin:0; font-size:120%;}
+table.tablesorter tbody tr.odd td {
+    background-color:#090909;
+}
+
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(/wwwroot/images/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(/wwwroot/images/desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+}
+.tablesorter p { margin:3px 0 0 0; }
+.narrowscreen .image_src { width:25%;}
+#ruleSlide { position:fixed; top:89px; right:-450px; width:450px; z-index: 999; 
+    border-radius:0 0 0 20px; -moz-border-radius:0 0 0 20px;
+}
+#rSlideHead { opacity:0.8; filter:alpha(opacity=80); }
+
+.rSlideBG {
+    position:absolute; width:100%; height:100%; z-index:1; top:0; 
+    background:#000; opacity:0.8; filter:alpha(opacity=80); 
+    moz-box-shadow:1px 1px 2px #000; -webkit-box-shadow:1px 1px 2px #000; 
+    box-shadow:1px 1px 2px #000; 
+    border-radius:0 0 0 20px; -moz-border-radius:0 0 0 20px;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=165, Color='#000000');
+}
+
+.iconImg { max-height:50px; }
+td a.popInfo { text-decoration:none;}
+
+.rowProgress { display:table-row; float:left; width:100%; height: 20px;}
+
+table.tablesorter th.collapsed, table.tablesorter td.collapsed { display: none; }
+.chkSelector { float:left; padding:2px 5px 0 5px; vertical-align:top; margin:0 5px 5px 0; background:#8dbdd8; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; }

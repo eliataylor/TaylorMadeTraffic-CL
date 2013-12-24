@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Eli A. Taylor - Personal Resume | October 2013</title>
+<style type="text/css">
+img { max-width:1000px; width:100%; }
+#tracer{ position:fixed; top:2px; right:2px; padding:4px; background:yellow; opacity:.8; width:100px; font-weight:bold; }
+</style>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div>
+<!--
+ID:
+
+EDUCATION
+the means
+a and e advisor
+
+MUSIC AND ART
+track authority
+studio en vivo
+
+COMMERCE AND MARKETING
+lealtadTarjeta
+PromoAlPaso
+
+-->
+    
+<a target="_blank" href="http://cube.taylormadetraffic.com/wwwroot/js/EliT_Resume_Oct13.pdf">download as pdf</a>
+<br />
+<br />
+<img usemap="#pg1" src="http://cube.taylormadetraffic.com/wwwroot/images/EliT_Resume_Oct13_Page_1.jpg?v=2" style="max-width:1000px" alt="resume page 1" />
+<img usemap="#pg2" src="http://cube.taylormadetraffic.com/wwwroot/images/EliT_Resume_Oct13_Page_2.jpg?v=2" style="max-width1000px" alt="resume page 2" />
+<img usemap="#pg3" src="http://cube.taylormadetraffic.com/wwwroot/images/EliT_Resume_Oct13_Page_3.jpg?v=2" style="max-width:1000px" alt="resume page 3" />
+<img usemap="#pg4" src="http://cube.taylormadetraffic.com/wwwroot/images/EliT_Resume_Oct13_Page_4.jpg?v=2" style="max-width:1000px" alt="resume page 4" />
+</div>
+	<map name="pg1">
+	  <area shape="rect" coords="107,411,236,425" href="http://analytics.idinteractive.co" alt="ID Dashboard" target="_blank">
+	  <area shape="rect" coords="44,492,147,506" href="http://trackauthoritymusic.com" alt="Track Authority" target="_blank">	  
+	  <area shape="rect" coords="241,684,497,697" href="http://www.healthline.com/corporate/navigator/prod/demo.html" alt="Healthline Navigator" target="_blank">	  
+	</map>
+
+	<map name="pg2">
+	  <area shape="rect" coords="217,189,470,205" href="http://nav.healthline.com/healthstat/nav/dashboard/login" alt="Dashboard" target="_blank">	  
+	  <area shape="rect" coords="106,338,713,390" href="http://nav.healthline.com/healthstat/nav/page/demo?actionType=previewPageAllLinks&url=http%3A%2F%2Fwww.drugs.com%2Fpregnancy&partnerToQA=client&partnerId=client&advertiserId=90&kOverrides=cytotoxic%20agents%2Cretinoids%2Clactating&navTracer=true" alt="Dashboard" target="_blank">	  
+	  <area shape="rect" coords="104,496,472,517" href="http://www.healthline.com/corporate/navigator/prod/crawler.html?domain=sharecare" alt="ComputeQA Reporter Sharecare" target="_blank">	  
+	  <area shape="rect" coords="476,491,585,514" href="http://www.healthline.com/corporate/navigator/prod/crawler.html?domain=healthline" alt="ComputeQA Reporter Healthline" target="_blank">	  
+	  <area shape="rect" coords="27,852,123,866" href="http://wikipedia.org/wiki/Contextual_advertising" alt="Contextual Advertising" target="_blank">	  
+	</map>
+
+	<map name="pg3">
+	  <area shape="rect" coords="102,139,307,162" href="http://www.weddinglocation.com/clientpass/" alt="Elite Wedding Locations" target="_blank">
+	  <area shape="rect" coords="255,299,414,323" href="http://bpp.taylormadetraffic.com" alt="Old Black Panther Party Website" target="_blank">
+	  <area shape="rect" coords="368,623,487,637" href="http://themeans.info" alt="Berkeley High Newspaper" target="_blank">
+
+	</map>
+
+	<map name="pg4">
+	  <area shape="rect" coords="278,79,384,96" href="http://www.bssnet.com" alt="Building Safety Solutions" target="_blank">	  
+	  <area shape="rect" coords="178,283,341,299" href="http://www.goodlifewithgabby.com" alt="GLWG HTML5" target="_blank">	  
+	  <area shape="rect" coords="346,282,499,299" href="http://flash.goodlifewithgabby.com" alt="GLWG Flash" target="_blank">	  
+	</map>
+	
+
+        <script type="text/javascript">
+	COORDS = [];
+	function getCoords(e, el) {
+	    var offset_t = el.offset().top - $(window).scrollTop();
+	    var offset_l = el.offset().left - $(window).scrollLeft();
+
+	    var left = Math.round( (e.clientX - offset_l) );
+	    var top = Math.round( (e.clientY - offset_t) );
+	    return [left,top];	
+	}
+	function trace() {
+		var tracer = document.getElementById("tracer");
+		if (!tracer) {
+			tracer = document.createElement("DIV");
+			tracer.id = "tracer";
+			document.body.appendChild(tracer);
+		}
+		tracer.innerHTML += "<p>" + COORDS.join(",") + "</p>";	
+	}
+	function getBoxCoords(e)  {
+		COORDS = getCoords(e, $(this) );
+		//trace();
+		    
+		$(this).mousemove(function(e) {
+			var upPoint = getCoords(e, $(this) );
+			COORDS[2] = upPoint[0];
+			COORDS[3] = upPoint[1];
+			return false;
+		 });
+	    
+		$(this).one('mouseup', function() {
+			trace();
+			$(this).unbind();
+			$(this).mousedown(getBoxCoords);
+		});
+
+		// Using return false prevents browser's default, often unwanted mousemove actions (drag & drop)
+		return false;		
+	}	
+
+	$(document).ready(function() {
+		if (document.location.search && document.location.search.indexOf("debug") > -1) {
+			$("img").mousedown(getBoxCoords);
+		}
+	});
+	
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        try {
+		var pageTracker = _gat._getTracker("UA-7929826-3");
+		pageTracker._trackPageview();
+        } catch(err) {};
+	</script> 
+</body>
+</html>
