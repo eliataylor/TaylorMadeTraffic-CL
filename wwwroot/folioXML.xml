@@ -5,7 +5,7 @@
             <title>The LoveQuest Tour</title>
             <liveurl></liveurl>
             <devurl></devurl>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <thumbDir>images/design/lovequest/th</thumbDir>
             <xlDir>images/design/lovequest</xlDir>
             <startdate>September 2007</startdate>
@@ -20,7 +20,7 @@
             <title>Flavor</title>
             <liveurl></liveurl>
             <devurl></devurl>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <startdate>September 2007</startdate>
             <launchdate></launchdate>
             <devtools>Illustrator,Photoshop</devtools>
@@ -50,7 +50,7 @@
             <devurl></devurl>
             <thumbDir>images/design/ambitions/th</thumbDir>
             <xlDir>images/design/ambitions</xlDir>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <startdate>September 2005</startdate>
             <launchdate>September 2006</launchdate>
             <devtools>Illustrator, Photoshop</devtools>
@@ -95,7 +95,7 @@
             <devurl/>
             <thumbDir>images/design/traffic/th</thumbDir>
             <xlDir>images/design/traffic</xlDir>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <startdate>August 2003</startdate>
             <launchdate>August 2004</launchdate>
             <devtools>Illustrator, Photoshop, Flash</devtools>
@@ -110,7 +110,7 @@
             <liveurl></liveurl>
             <devurl></devurl>
             <client>SuperWashingWell Laundromat</client>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <thumbDir>images/sites/lealtad/th</thumbDir>
             <xlDir>images/sites/lealtad</xlDir>
             <startdate>May 2013</startdate>
@@ -125,12 +125,12 @@
             <title>Track Authority</title>
             <liveurl>http://trackauthoritymusic.com</liveurl>
             <devurl></devurl>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <thumbDir>images/sites/ta/th</thumbDir>
             <xlDir>images/sites/ta</xlDir>
             <startdate>December 2012</startdate>
             <launchdate>December 2012</launchdate>
-            <devtools>PHP,mySQL,AJAX,JavaScript,LAMP,Bash,Android,Facebook APIs</devtools>
+            <devtools>PHP,mySQL,AJAX,JavaScript,Bash,Android,Facebook APIs</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:E.A.Taylor,Andrew Williams</team>
             <desc>My dream project has included designing and developing this music game that rewards high rated users with free music, gift certificates, concert tickets and cash. </desc>
             <technotes>The website's codebase uses a LAMP environment, but is highly optimized by several Bash scripts. One is run from a CRON to use ImageMagick for cropping and resizing images based on automated cue table maintained when a size or shape is requested that has not yet been cut.  Another is for re-indexing the music catalogue - of 20,000 songs and growing. It extends a tool called Beets to correct mp3 meta-data, download artwork and lyrics, and determine sound-wave averages such as BPM (beats-per-minute) and Replay Gain (used to determine average encoded decibel volume of the sound wave). The backend system also includes an asynchronous email service which I linked seamlessly to the front-end webpage templates with a CSS inliner script. The site scales perfectly to all screen widths above 320 pixels wide, but I am well underway with a native Android version of the player with 0-100 scale music ratings to refine the rotation of songs.</technotes>
@@ -242,7 +242,7 @@
             <liveurl></liveurl>
             <devurl></devurl>
             <status></status>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <thumbDir>images/sites/studioenvivo/th</thumbDir>
             <xlDir>images/sites/studioenvivo</xlDir>
             <startdate>August 2013</startdate>
@@ -346,7 +346,7 @@
             <liveurl>http://www.TheMeans.info</liveurl>
             <devurl>http://www.TheMeans.info/_dev/web40.php</devurl>
             <client>Berkeley High School</client>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <license_id>1</license_id>
             <thumbDir>images/sites/means/th</thumbDir>
             <xlDir>images/sites/means</xlDir>
@@ -464,7 +464,7 @@
             <title>The A&amp;E Advisor</title>
             <liveurl></liveurl>
             <devurl></devurl>
-            <copyright>Taylor Made Management</copyright>
+            <copyright>TaylorMadeTraffic</copyright>
             <thumbDir>images/sites/ae/th</thumbDir>
             <xlDir>images/sites/ae</xlDir>
             <startdate>August 2004</startdate>
@@ -566,7 +566,7 @@
   </means>
   <stories>
     <item>
-      <![CDATA[E.A.Taylor legally founded his first company, Four Corners Coalition, in San Francisco at 17 years old. Spending his months of savings from retail and paper route jobs, he produced Graffiti in the Gardens, a live art production, at the Bandshell Auditorium between the former Asian Art Museum and Academy of Sciences in Golden Gate Park. Intentionally entitled after the famous concert and theatrical series 'Shakespear in the Park', Eli planned to bring the same artistic appreciation for Graffiti as was devoted to Shakespeare. Through college Eli explored his curiousity for science, studying physics and mechnical engineering, however as he experience managing events and activites on and off the campus, he decided to focus on design, seeing as the most applicable tool for brining his visions to reality. This was realized when he Founded Taylor Made Management in 2003 after returning from Howard University for family concerns. Back in his hometown he found entertainment an easy outlet.]]>
+      <![CDATA[E.A.Taylor legally founded his first company, Four Corners Coalition, in San Francisco at 17 years old. Spending his months of savings from retail and paper route jobs, he produced Graffiti in the Gardens, a live art production, at the Bandshell Auditorium between the former Asian Art Museum and Academy of Sciences in Golden Gate Park. Intentionally entitled after the famous concert and theatrical series 'Shakespear in the Park', Eli planned to bring the same artistic appreciation for Graffiti as was devoted to Shakespeare. Through college Eli explored his curiousity for science, studying physics and mechnical engineering, however as he experience managing events and activites on and off the campus, he decided to focus on design, seeing as the most applicable tool for brining his visions to reality. This was realized when he Founded TaylorMadeTraffic in 2003 after returning from Howard University for family concerns. Back in his hometown he found entertainment an easy outlet.]]>
     </item>
   </stories>
   <contact>

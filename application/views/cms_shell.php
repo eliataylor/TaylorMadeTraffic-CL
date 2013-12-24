@@ -33,16 +33,23 @@
     <body id="trackauthority" class="<?= ($me['con']['swidth'] < 900) ? "narrowscreen" : "widescreen"; ?>" >
         <div class="master">  
             <?if (isset($qmenu)):?>
-            <div class="moduleBlock qParams">
-                <select onchange="location.href=this.options[this.selectedIndex].value">
+            <div class="moduleBlock qParams" style="margin:10px 0;">
                 <?foreach($qmenu as $key=>$param):?>
                     <?if($param['role'] < 0):?>
-                        <option data-icon="<?=$param['icon']?>" <? if($key == $this->uri->segment(1)):?>selected='selected'<?endif;?> value="<?=$key?>"><?=$param['title']?></option>
+                        <a class='navItem <? if($key == $this->uri->segment(1)):?>selected<?endif;?>' href="<?=$key?>" data-tag-key="<?=$key?>">
+                        <?=$param['title']?>
+                        </a>
                     <?endif;?>
                 <?endforeach;?>
-                </select>
+            </div>            
+            <?endif;?>  
+            
+            <?if (isset($qtfilter) && !empty($qtfilter)):?>
+            <div class="moduleBlock qParams" style="margin:10px 0;">
+                <h2><?=$qtfilter?></h2>
             </div>            
             <?endif;?>                           
+            
              <? if (!empty($errors)): ?>
                 <div class="serverErrors">  
                     <ul>

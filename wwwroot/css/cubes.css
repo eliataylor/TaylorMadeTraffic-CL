@@ -34,6 +34,9 @@ ul, li { list-style: none; margin:0; padding:0; }
 .menuBox { border:1px solid #fff; overflow: hidden; }
 .menuBox.menuEmpty { border:none; cursor:pointer; overflow:visible;}
 
+a.navItem { margin:5px 10px 5px 0; }
+a.navItem.selected { color:#a0a09f; }
+
 .lineName { font-style: italic; color:#a0a09f;}
 .technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; font-family:courier, monospace; font-size: 12px; line-height: 18px; }
 .technotes p { margin:5px 0; list-style:circle; }
