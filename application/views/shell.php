@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
-              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = "Home"; 
+              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags; 
               else $docTitle = ucfirst(trim($docTitle)); ?>
-        <title><?= $docTitle ?> :: ID Dashboard</title>
+        <title><?= $docTitle ?> :: TaylorMadeTraffic.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta property="fb:admins" content="100000210646549"/>
         <meta name="author" content="Eli A Taylor &copy; <?= date("Y"); ?>" />
@@ -34,10 +34,8 @@
         </script>
         <? if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>        
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>            
-            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         <? else: ?>
             <script type="text/javascript" src="/wwwroot/js/jquery.min.js"></script>
-            <script type="text/javascript" src="/wwwroot/js/jquery-ui.min.js"></script>
         <? endif; ?>
         <link rel="stylesheet" href="/wwwroot/css/cubes.css" />
     </head>

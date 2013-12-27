@@ -8,21 +8,11 @@
 h1,h2,h3,h4,h5,h6 { font-family:Strait,Arial,Sans-Serif;}
 */
 
-.blackShadowBG {
-background: #000000; /* Old browsers */
-background: -moz-linear-gradient(-45deg,  #000000 32%, #2b2b2b 99%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, right bottom, color-stop(32%,#000000), color-stop(99%,#2b2b2b)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(-45deg,  #000000 32%,#2b2b2b 99%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(-45deg,  #000000 32%,#2b2b2b 99%); /* Opera 11.10+ */
-background: -ms-linear-gradient(-45deg,  #000000 32%,#2b2b2b 99%); /* IE10+ */
-background: linear-gradient(135deg,  #000000 32%,#2b2b2b 99%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#2b2b2b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
-
-
-body { background:#000; color:#fff; font-family:Arial, Sans-Serif; margin:0; }
+a, a:visited, .alink { color:#5B74CF; }
+body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:0; }
 ul, li { list-style: none; margin:0; padding:0; }
 .page a, .page a:visited { color:#ED2024 }
+
 #navMenu a, #navMenu a:visited, #navMenu a:hover { border:0 none; outline:0 none; padding:0; margin:0; }
 #menuList a, #menuList a:visited, #menuList a:hover { text-decoration:none; color:#fff; } 
 #menuList img { border:0 none;}
@@ -36,7 +26,6 @@ ul, li { list-style: none; margin:0; padding:0; }
 .postDate { float: right; font-size: 16px; vertical-align: bottom; color: red; }
 #pageImg, #taPreloader {  position:fixed; bottom:5px; left:50px; margin:0; z-index:1; }
 
-
 #navMenu { float:left; position:fixed; clear:none; left:0; margin:57px auto 20px 60px; padding:0; z-index:101; }
 #menuLabel { position:absolute; width:100%; bottom:5px; left:3px; font-size:22px; font-weight: bolder; margin:5px 0 0 5px; 
         font-size:15px; font-weight: bolder; width:100%; letter-spacing: 2px; }
@@ -49,19 +38,35 @@ ul, li { list-style: none; margin:0; padding:0; }
 .menuBox { border:1px solid #fff; overflow: hidden; }
 .menuBox.menuEmpty { border:none; cursor:pointer; overflow:visible;}
 
-a.navItem { margin:5px 10px 5px 0; }
-a.navItem.selected { color:#a0a09f; }
+a.navItem { margin:5px 15px 5px 15px; }
+.narrowscreen a.navItem { margin:5px 3px;}
+a.navItem.selected { color:red; }
 
 .lineName { font-style: italic; color:#a0a09f;}
 .technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; font-family:courier, monospace; font-size: 12px; line-height: 18px; }
 .technotes p { margin:5px 0; list-style:circle; }
 .technotes li { margin: 5px 0 0 15px; list-style:square; list-style-position: outside; }
-.prjDesc { font-size: 12px; line-height: 18px; }
-.odd .technotes { background:#000; }
-.even .technotes { background:#090909;  }
+.prjDesc { font-size: 12px; line-height: 18px; text-align:justify; }
+.technotes { background:#090909;  }
 
-.projectImg { width: 100%;   }
-.projectImgMask { overflow: hidden; width:100%; max-height:400px; }
+.projectImg { width: 100%; }
+.projectImgMask { width:100%; overflow: hidden; max-height:300px; position:relative;}
+.projectImgMask a { outline: 0 none; border:0 none; }
+.blackOutFadeBG {
+    height: 100px; /*from where it starts to fade to where it ends*/
+    position: absolute; /*so it can overlap the #container*/
+    width: 100%; /*has to be the same as #container*/
+    bottom:0; /*position it right at the bottom of the #container*/
+    background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 50%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 50%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 50%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 50%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 50%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+.narrowscreen .blackOutFadeBG { height:15px;}
+
 .project_profile .projectImg { max-width: 490px; float:left; margin:0 10px 10px 0; }
 
 /* .menuBox:hover { border-style:outset; } */
@@ -72,6 +77,8 @@ a.navItem.selected { color:#a0a09f; }
 
 #menuBtn { position: absolute; bottom:3px; right:5px; cursor:pointer; font-size:9px; font-weight: bolder; margin:5px 0 0 5px; letter-spacing: 2px; color:#ED2024;  }
 #closeBtn { position:absolute; right:3px; top:5px; cursor:pointer; font-size:9px; font-weight: bolder; letter-spacing: 2px; }
+
+.mainNav {margin:30px 0 35px 0;text-align: center;}
 
 #navMenu .tc{ clear:none; }        
 #navMenu .ll{ clear:left; }        
@@ -109,3 +116,77 @@ body.isMobile > #pageImg, body.isMobile > #taPreloader { position:relative; floa
 .list { margin:20px; list-style:disc; }
 
 .starSprite { background:transparent url(http://trackauthoritymusic.com/wwwroot/images/characterRotateSprite.png?v=1358932174) 0 0 no-repeat; padding:0; overflow:hidden; width:175px; height:175px; z-index:9999999; }
+
+/* Author : Eli A. Taylor */
+.narrowscreen .master { width:100%!important; max-width:100%!important;}
+.widescreen .master { width:100%; max-width: 1000px; margin: 0 auto; }
+
+.mainMenu .navRow:first-child { border-radius:10px 0 0 0; -moz-border-radius:10px 0 0 0; }
+.mainMenu .navRow:last-child { border-radius:0 10px 0 0; -moz-border-radius:0 10px 0 0; }
+.mainMenu .navRow { background:#242424; color:#fff; font-size:15px; vertical-align: middle; padding-top:4px; padding-bottom:4px;  }
+.mainMenu .navRow a { color: #fff; }
+
+/* tables */
+table .header { width:auto; color:#a0a09f;}
+
+.tablesorter { margin:10px 0 15px 0; font-size: 8pt; width: 100%; text-align: left; position: relative; }
+.tablesorter th, .tablesorter th { font-size: 8pt; padding: 4px; font-weight: bolder; }
+.tablesorter .header { float:none; cursor: pointer; background-image: url(/wwwroot/images/bg.png); background-repeat:no-repeat; background-position:left center;}
+.tablesorter th.col3 { background-position: right center; padding-right: 20px;}
+.tablesorter th.col2, .tablesorter th.col1 { padding-left: 20px;}
+.tablesorter tbody td { padding: 4px; vertical-align: top; }
+.tablesorter h3 { margin:0; font-size:120%; }
+/* .tablesorter tbody tr.odd td { background-color:#090909; } */
+table{ border-collapse:collapse; }
+
+/* tr.odd { border-top:1px solid #a0a09f; border-bottom:1px solid #a0a09f;  } */
+td.col3 { background: -webkit-linear-gradient(-45deg, #000000 66%, #2b2b2b 100%); }
+td.count { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 33%); }
+
+.tablesorter thead tr .headerSortUp {	background-image: url(/wwwroot/images/asc.png); color:red;}
+.tablesorter thead tr .headerSortDown {background-image: url(/wwwroot/images/desc.png); color:red;}
+.tablesorter thead tr .headerSortDown, .tablesorter thead tr .headerSortUp {}
+
+.narrowscreen .col1, .narrowscreen .col3 { width:20%; }
+.narrowscreen .col2 { width:60%; }
+
+.static td { background:none!important; height:0; display: none; }
+
+.arrowUp { 
+width: 0px;
+height: 0px;
+border-style: solid;
+border-width: 0 100px 100px 100px;
+border-color: transparent transparent #007bff transparent;
+}
+
+.tablesorter p { margin:3px 0 0 0; }
+.narrowscreen .image_src { width:25%;}
+
+.iconImg { max-height:50px; }
+td a.popInfo { text-decoration:none;}
+
+.tablesorter th.collapsed, .tablesorter td.collapsed { display: none; }
+.chkSelector { float:left; padding:2px 5px 0 5px; vertical-align:top; margin:0 5px 5px 0; background:#8dbdd8; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; }
+
+.col2 { width:40%;}
+.col2 h3 { font-size:200%; }
+.col3 { width:20%; text-align: right; }
+.tablesorter td.project_startdate { padding-top:28px; }
+.projectLink { word-break:break-all; }
+tr.spacer { height:15px; }
+.tags_table tr.spacer { height:3px; }
+.pageTotal { font-size:12px; vertical-align: baseline}
+#qTagSelector, #qTagSelector option { float: right;background:black ;color: white; outline:0 none; border: 0 none; width:138px; font-size:10px;font-weight: bolder; vertical-align: middle; margin:0 0 0 3px;}
+
+.tag_key { font-size:130%; text-align: center;  }
+.tag_key.header { color:#000; background-position: center center }
+.tag_date { text-align: right; }
+.tags_table th, .tags_table td { width:33%;}
+
+.galleryBlock { position:relative; width:100%; margin:20px 0 }
+.gallerySideBar { float:left; clear:none; width:75px; height: 100%;}
+.gallerySideBar img { cursor:pointer; }
+.galleryImg { position: relative; float:left; margin-left:8px; max-width: 90%;  }
+.narrowscreen .galleryImg { width:75%; }
+.galleryImg img { width:100%;  }

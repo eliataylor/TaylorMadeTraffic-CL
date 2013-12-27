@@ -23,6 +23,29 @@
             $("#closeBtn").hide();    
             $("#menuList").hide();
         }, 
+        autoSize : function() {
+            //window.addEventListener('onorientationchange', tautils.updateVSettings);
+            //$.ajax({type:'GET', async:false, url:"/json/setviews?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight + "&clienttime=" + new Date().getTime()});
+            VSETTINGS.swidth = Math.round($(window).width()); // set by isMobile / configs
+            var swid = (swid > 1098) ? 1098 : VSETTINGS.swidth; // max
+
+            if (VSETTINGS.swidth <= 1000 && $("body").hasClass("widescreen")) {
+                $("body").removeClass("widescreen").addClass("narrowscreen");
+            } else if ($("body").hasClass("narrowscreen") && VSETTINGS.swidth >= 1000) {
+                $("body").addClass("widescreen").removeClass("narrowscreen");
+            }
+
+//            VSETTINGS.sheight = Math.round($(window).height()); // set by isMobile / configs
+//            if(VSETTINGS.sheight > 400 && !$(".viewStyleName:first").is(":visible")) {
+//                $(".viewStyleName:first").show();
+//            } else if (VSETTINGS.sheight < 400 && $(".viewStyleName:first").is(":visible")) {
+//                $(".viewStyleName:first").hide();
+//            }
+//            
+//            if (!$(".master:first").hasClass(VSETTINGS.style)) {
+//                 $(".master:first").attr("class", "mainContent " + VSETTINGS.style);
+//            }
+        },
         init:function() {
             $("#pageImg").hide();            
             document.onmousemove = tmt.setMousePos; 
@@ -372,4 +395,5 @@
 
 $(document).ready(function() {
     //tmt.init();
+    tmt.autoSize();
 });
