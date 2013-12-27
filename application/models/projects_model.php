@@ -13,6 +13,7 @@ class Projects_Model extends CI_Model {
         if (!in_array($type, array('technologies','years','industries','companies'))) $type = 'technologies';
         $sql = "SELECT count(tag_id) as count, tag_key, tag_type, tag_date FROM `tags` where tag_type = ? group by tag_key ";
         if ($type == 'years') $sql .= ' order by tag_key desc';
+        elseif ($type == 'technologies' || $type == 'industries') $sql .= ' order by tag_key asc';
         else $sql .= ' order by tag_date desc, count desc';
         $query = $this->db->query($sql, array($type));
         if ($query->num_rows() > 0) return $query->result_object();
@@ -46,6 +47,7 @@ class Projects_Model extends CI_Model {
     
     function getProject($pid) {
         $params = array();
+        $this->db->query('SET SESSION group_concat_max_len = 1000000');        
         $sql = "SELECT P.*, group_concat(I.image_src) as image_srcs FROM projects P, images I WHERE P.project_id = I.project_id ";
         if (is_numeric($pid)) $sql .= " AND P.project_id = ? ";
         else $sql .= " AND P.project_title = ? ";

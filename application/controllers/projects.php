@@ -21,13 +21,13 @@ class Projects extends CI_Controller {
             "companies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Companies"), "method" => "companies"),
             "industries" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Industries"), "method" => "industries"),
             
-            "taylormade" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("TaylorMade"), "method" => "taylormade"),
-            "eli" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Eli"), "method" => "eli"),
+            "taylormade" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("TaylorMade"), "method" => "taylormade"),
+            "eli" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Eli"), "method" => "eli"),
 
             "projects" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Projects"), "method" => "projects"),
             
-            "team" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Team"), "method" => "team"),
-            "roles" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Roles"), "method" => "team"),
+            "team" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Team"), "method" => "team"),
+            "roles" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Roles"), "method" => "team"),
             
             "stylesheet" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("stylesheet"), "method" => "stylesheet"),
             "import" => array("role" => 1, 'icon'=>'', "title" => $this->lang->line("import"), "method" => "importXML")
@@ -45,6 +45,7 @@ class Projects extends CI_Controller {
             return $this->sendOut('forms/loginForm', "shell");
         }
         $this->data['docTitle'] = $this->data['qmenu'][$path]['title'];
+        if (!empty($this->data['qtfilter'])) $this->data['docTitle'] .= ' :: ' . $this->data['qtfilter'];
         call_user_func_array(array($this, $this->data['qmenu'][$path]['method']), array());
     }
 
@@ -123,13 +124,16 @@ class Projects extends CI_Controller {
         } else{
             $this->data['headers'] = array(
                 'image_src'=>$this->lang->line("Pics"), // + id, editor?
-                'project_title'=>$this->lang->line("Title"), // + subtitle html, desc
-                'project_startdate'=>$this->lang->line("Details"),
+                'project_title'=>$this->lang->line("Info"), // + subtitle html, desc
+                'project_startdate'=>$this->lang->line("Tags"),
             );            
-            if ($this->data['qtags'] == "roles") 
+            if ($this->data['qtags'] == "roles") $this->data['qtagOptions'] = $this->projects->getTagsTeamRoles();
+            else $this->data['qtagOptions'] = $this->projects->getTagsTeamMembers();
+            if ($this->data['qtags'] == "roles") {
                 $this->data['tableRows'] = $this->projects->getTagsTeamRoles($this->data['qtfilter']);
-            else 
+            } else {
                 $this->data['tableRows'] = $this->projects->getProjectsByTag(null, $this->data['qtfilter']); 
+            }
             $this->sendOut('projects_table', 'cms_shell');
         }
     }     
@@ -137,6 +141,7 @@ class Projects extends CI_Controller {
     // just URL predefines qtags
     function taylormade(){
         $this->data['qtags'] = 'companies';
+        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
         $this->data['qtfilter'] = 'TaylorMadeTraffic';
         $this->getTableForProjects();
         $this->sendOut('projects_table', 'cms_shell');
@@ -156,8 +161,8 @@ class Projects extends CI_Controller {
             $this->data['docTitle'] = $this->data['qtfilter'];
             $this->data['headers'] = array(
                 'image_src'=>$this->lang->line("Pics"), // + id, editor?
-                'project_title'=>$this->lang->line("Title"), // + subtitle html, desc
-                'project_startdate'=>$this->lang->line("Details"),
+                'project_title'=>$this->lang->line("Info"), // + subtitle html, desc
+                'project_startdate'=>$this->lang->line("Tags"),
             );
             $val = (empty($this->data['qtfilter'])) ? $pid : $this->data['qtfilter'];
             $this->data['project'] = $this->projects->getProject($val);
@@ -187,11 +192,13 @@ class Projects extends CI_Controller {
         $this->data['tableRows'] = $this->projects->getTags($this->data['qtags']); 
     }
 
-    function getTableForProjects() {
+    function getTableForProjects() {        
+        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
+        
         $this->data['headers'] = array(
             'image_src'=>$this->lang->line("Pics"), // + id, editor?
-            'project_title'=>$this->lang->line("Title"), // + subtitle html, desc
-            'project_startdate'=>$this->lang->line("Details"),
+            'project_title'=>$this->lang->line("Info"), // + subtitle html, desc
+            'project_startdate'=>$this->lang->line("Tags"),
             );
         $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter']); 
     }
@@ -266,12 +273,14 @@ class Projects extends CI_Controller {
                 if (isset($obj->project_thumbDir)) unset($obj->project_thumbDir);
                 if (isset($obj->project_xlDir)) unset($obj->project_xlDir);
                 
+                $humanStr = array();
                 //'technology','year','companies','team'
                 if (isset($obj->project_devtools)) {
                     $tags = explode(',',$obj->project_devtools);
                     foreach($tags as $tag) {
                         $tag = trim($tag);
                         if (empty($tag)) continue;
+                        array_push($humanStr, $tag);
                         $t = new StdClass();
                         $t->tag_type = 'technologies';
                         $t->tag_key = $tag;
@@ -280,13 +289,16 @@ class Projects extends CI_Controller {
                         $t->project_id = $pid;
                         $this->projects->insertTag($t);
                     }
+                    $obj->project_devtools = implode(', ', $humanStr); 
                 }
                 
+                $humanStr = array();
                 if (isset($obj->project_copyright)) {
                     $tags = explode(',',$obj->project_copyright);
                     foreach($tags as $tag) {
                         $tag = trim($tag);
                         if (empty($tag)) return true;
+                        array_push($humanStr, $tag);
                         $t = new StdClass();
                         $t->tag_type = 'companies';
                         $t->tag_key = $tag;
@@ -302,6 +314,7 @@ class Projects extends CI_Controller {
                     foreach($tags as $tag) {
                         $tag = trim($tag);
                         if (empty($tag)) return true;
+                        array_push($humanStr, $tag);
                         $t = new StdClass();
                         $t->tag_type = 'companies';
                         $t->tag_key = $tag;
@@ -310,13 +323,16 @@ class Projects extends CI_Controller {
                         $t->project_id = $pid;
                         $this->projects->insertTag($t);
                     }
+                    $obj->project_companies = implode(', ', $humanStr); 
                 }
                 
+                $humanStr = array();
                 if (isset($obj->project_industries)) {
                     $tags = explode(',',$obj->project_industries);
                     foreach($tags as $tag) {
                         $tag = trim($tag);
                         if (empty($tag)) return true;
+                        array_push($humanStr, $tag);
                         $t = new StdClass();
                         $t->tag_type = 'industries';
                         $t->tag_key = $tag;
@@ -325,14 +341,17 @@ class Projects extends CI_Controller {
                         $t->project_id = $pid;
                         $this->projects->insertTag($t);
                     }
+                    $obj->project_industries = implode(', ', $humanStr); 
                 }                
                 
+                $humanStr = array();
                 if (isset($obj->project_team) && !empty($obj->project_team)) {
                     $role_users = explode(';',$obj->project_team);
                     foreach($role_users as $role_user) {
                         $role_user = explode(':',$role_user);
                         $users = explode(',',$role_user[1]);
                         foreach($users as $user) {
+                            $humanStr[$user] = (!isset($humanStr[$user])) ? $user . ': ' . $role_user[0] : $humanStr[$user] . ', ' . $role_user[0];
                             $t = new StdClass();
                             $t->tag_type = 'team_' . strtolower($role_user[0]);
                             $t->tag_key = $user;
@@ -340,9 +359,11 @@ class Projects extends CI_Controller {
                             elseif (isset($obj->project_startdate) && !empty($obj->project_startdate))  $t->tag_date = $obj->project_startdate;
                             $t->project_id = $pid;
                             $this->projects->insertTag($t);
-                        }
+                        }                        
                     }
-                }
+                    if (!empty($humanStr)) $obj->project_team = implode('. ', array_values($humanStr));
+                }       
+                
                 
                 // industry: art,health,commerce,education,analytics                
                 $max = (isset($obj->project_launchyear)) ? (int)$obj->project_launchyear : (int)$obj->project_startyear;
