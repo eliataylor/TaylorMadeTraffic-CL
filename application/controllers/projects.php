@@ -30,7 +30,7 @@ class Projects extends CI_Controller {
             "team" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Team"), "method" => "team"),
             "roles" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Roles"), "method" => "team"),
             
-            "cv-format" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("CV"), "method" => "eli"),
+            "cv-format" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("CV"), "method" => "cvPrint"),
             "stylesheet" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("stylesheet"), "method" => "stylesheet"),
             "import" => array("role" => 1, 'icon'=>'', "title" => $this->lang->line("import"), "method" => "importXML")
         );
@@ -208,8 +208,25 @@ class Projects extends CI_Controller {
         if ($this->input->get("sheight")) $con['sheight'] = intval($this->input->get("sheight"));
         if ($this->input->get_post('debug')) $con['debugMode'] = (boolean) $this->input->get_post('debug');
         $this->thisvisitor->upConstants($con);
-        $this->thisvisitor->saveSession();            
+        $this->thisvisitor->saveSession();   
         return false;
+    }
+    
+    public function cvPrint() {
+        libxml_use_internal_errors(true);
+        $xml = simplexml_load_file("wwwroot/folioXML.xml");
+        $html = '';
+        foreach ($xml->children() as $child) {
+            $project_type = $child->getName(); // obsolete difference only in xml
+            foreach ($child->children() as $item) {
+                if (!empty($item->technotes) || !empty($item->desc)) {
+                    $html .= "<h4>" . $item->title . "</h4>"; 
+                    if (!empty($item->desc)) $html .= "<p>" . $item->desc . "</p>";
+                    if (!empty($item->technotes)) $html .= "<p>" . $item->technotes . "</p>";
+                }
+            }   
+        }
+        echo $html;
     }
 
     public function importXML() {

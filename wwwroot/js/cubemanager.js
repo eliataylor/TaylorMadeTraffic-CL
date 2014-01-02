@@ -27,7 +27,7 @@
             window.addEventListener('onorientationchange', tmt.autoSize);
             VSETTINGS.swidth = Math.round($(window).width()); // set by isMobile / configs
             var swid = (swid > 1000) ? 1000 : VSETTINGS.swidth; // max
-            $.ajax({type:'GET', async:false, url:"/settings?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight + "&clienttime=" + new Date().getTime()});
+            $.ajax({type:'GET', async:false, url:"/settings?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight});
 
             if (VSETTINGS.swidth <= 980 && $("body").hasClass("widescreen")) {
                 $("body").removeClass("widescreen").addClass("narrowscreen");

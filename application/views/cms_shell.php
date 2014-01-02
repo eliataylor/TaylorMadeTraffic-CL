@@ -34,7 +34,7 @@
             <? endif; ?>
         </script>
     </head>
-    <body id="trackauthority" class="<?= ($me['con']['swidth'] < 900) ? "narrowscreen" : "widescreen"; ?>" >
+    <body id="trackauthority" class="<?= ($me['con']['swidth'] < 900) ? "narrowscreen" : "widescreen"; ?> <?=$me['con']['pstyle'];?>" >
         <div class="master">  
             <?if (isset($qmenu)):?>
             <div class="moduleBlock mainNav">
