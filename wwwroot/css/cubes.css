@@ -20,6 +20,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
         .projects_table tr { border-bottom:50px solid #fff; }
 }
 
+
+body.pWhite, .pWhite .master  {background:#fff!important; color:#000!important;}
+        .pWhite .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
+.pWhite .technotes { background:#ccc!important;}
+.pWhite .projects_table tr { border-bottom:50px solid #fff; }
+.pWhite .projects_table td.col3 { background: none; }
+
 a, a:visited, .alink { color:#5B74CF; }
 body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:0; }
 ul, li { list-style: none; margin:0; padding:0; }
@@ -158,11 +171,10 @@ table .header { width:auto; color:#a0a09f;}
 .narrowscreen .tablesorter h3 {font-size: 200%;margin: 10px 0;}
 table{ border-collapse:collapse; }
 /* tr.odd { border-top:1px solid #a0a09f; border-bottom:1px solid #a0a09f;  } */
-.tags_table td.col1 { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 100%); }
-.tags_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 0%, #2b2b2b 100%); }
+.pBlack .tags_table td.col1 { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 100%); }
+.pBlack .tags_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 0%, #2b2b2b 100%); }
 
-.tags_table tr.odd .col1, .tags_table tr.odd .col3 { background:black; } 
-
+.pBlack .tags_table tr.odd .col1, .pBlack .tags_table tr.odd .col3 { background:black; }
 
 .projects_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 66%, #2b2b2b 100%); }
 

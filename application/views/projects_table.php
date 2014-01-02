@@ -49,6 +49,7 @@
                     <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
                     <?endif;?>
                     
+                    <? if (!isset($_GET['noPics'])):?>
                     <div class="projectImgMask">
                         <a href='/projects?pid=<?= $row->project_id; ?>'>
                             <img  data-owidth="<?= $row->image_width ?>" 
@@ -58,6 +59,7 @@
                         </a>
                         <div class="blackOutFadeBG"></div>
                     </div>
+                    <?endif;?>
                     
                 <? if ($me['con']['swidth'] > 600): ?>    
                 </td>

@@ -16,6 +16,11 @@ class Thisvisitor {
          
          $this->visitor['con']['lang'] = (!isset($this->visitor['con']['lang'])) ? "english" : $this->visitor['con']['lang'];
          //$CI->lang->load('messages', $this->visitor['con']['lang']);
+         
+         $pstyle = $CI->input->get_post('pstyle');
+         if (!in_array($pstyle, array('pBlack','pWhite'))) $pstyle = 'pBlack';
+         $this->visitor['con']['pstyle'] = $pstyle;         
+         
          if ($CI->input->get_post('debug')) {
              if (ENVIRONMENT == 'production'){
                  $CI->output->set_profiler_sections(array(
@@ -42,6 +47,18 @@ class Thisvisitor {
             if (!isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 550;
             $this->visitor['con']['isMobile'] = false;
         } 
+        
+        $test = $CI->session->userdata('con');
+        if(empty($test)) {
+            $this->saveSession();
+        } else {
+            foreach($test as $key => $t) {
+                if (!isset($this->visitor['con'][$key]) || $this->visitor['con'][$key] != $t) {
+                    $this->saveSession();
+                    break;
+                }
+            }
+        }
         
     }
         
