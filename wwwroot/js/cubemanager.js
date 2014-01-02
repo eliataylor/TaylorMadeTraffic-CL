@@ -24,27 +24,50 @@
             $("#menuList").hide();
         }, 
         autoSize : function() {
-            //window.addEventListener('onorientationchange', tautils.updateVSettings);
-            //$.ajax({type:'GET', async:false, url:"/json/setviews?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight + "&clienttime=" + new Date().getTime()});
+            window.addEventListener('onorientationchange', tmt.autoSize);
             VSETTINGS.swidth = Math.round($(window).width()); // set by isMobile / configs
-            var swid = (swid > 1098) ? 1098 : VSETTINGS.swidth; // max
+            var swid = (swid > 1000) ? 1000 : VSETTINGS.swidth; // max
+            $.ajax({type:'GET', async:false, url:"/settings?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight + "&clienttime=" + new Date().getTime()});
 
-            if (VSETTINGS.swidth <= 1000 && $("body").hasClass("widescreen")) {
+            if (VSETTINGS.swidth <= 980 && $("body").hasClass("widescreen")) {
                 $("body").removeClass("widescreen").addClass("narrowscreen");
             } else if ($("body").hasClass("narrowscreen") && VSETTINGS.swidth >= 1000) {
                 $("body").addClass("widescreen").removeClass("narrowscreen");
             }
 
-//            VSETTINGS.sheight = Math.round($(window).height()); // set by isMobile / configs
-//            if(VSETTINGS.sheight > 400 && !$(".viewStyleName:first").is(":visible")) {
-//                $(".viewStyleName:first").show();
-//            } else if (VSETTINGS.sheight < 400 && $(".viewStyleName:first").is(":visible")) {
-//                $(".viewStyleName:first").hide();
-//            }
-//            
-//            if (!$(".master:first").hasClass(VSETTINGS.style)) {
-//                 $(".master:first").attr("class", "mainContent " + VSETTINGS.style);
-//            }
+        },
+        initTable : function(cont) {
+            if ($(cont).find(".tags_table").length > 0)
+               $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});
+           
+            $(cont).find('a').click(function(e){
+               e.preventDefault();
+               var href = $(this).attr('href');
+               if (href && href != '') 
+                   tmt.ajaxPage(href)
+            })
+        },
+        ajaxPage : function(href) {
+           document.location.hash="!href=" + href;
+           $.ajax({
+               type: "GET",
+               url: href,
+               dataType: 'html'
+           }).done(function(html) {
+               $("#pagePreloader").fadeOut("fast");
+               $('#pageBlock').html(html);
+               tmt.initTable('#pageBlock');
+           });
+           
+           var title = (href.indexOf("?") > -1) ? href.substring(0, href.indexOf('?')) : href;
+           if (title.indexOf("/") === 0) title = title.substring(1);
+           title = title.charAt(0).toUpperCase() + title.slice(1);
+           try {
+                $("title:first").html( title );
+           } catch(e) { //ios
+                document.getElementsByTagName("title")[0].nodeValue = title;
+           }
+           
         },
         init:function() {
             $("#pageImg").hide();            
@@ -395,5 +418,14 @@
 
 $(document).ready(function() {
     //tmt.init();
+    var href = document.location.hash;
+    if (href && href.indexOf('!href=') > -1) {
+        href = href.substring(href.indexOf('!href=') + '!href='.length);
+        if (href != '' && href != document.location.pathname) {
+            tmt.ajaxPage(href);
+        }        
+    }
+    
     tmt.autoSize();
+    tmt.initTable(document.body);
 });
