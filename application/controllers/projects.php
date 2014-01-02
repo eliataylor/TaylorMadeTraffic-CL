@@ -15,6 +15,7 @@ class Projects extends CI_Controller {
         $this->data['qmenu'] = array(
             "" => array("role" => 0, 'icon'=>'' , "title" => $this->lang->line("Technologies"), "method" => "technologies"),
             "creative" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Cube Animation"), "method" => "staticPage"),
+            "settings" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Settings"), "method" => "viewSettings"),
             
             "technologies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Technologies"), "method" => "technologies"),
             "years" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Years"), "method" => "years"),
@@ -29,6 +30,7 @@ class Projects extends CI_Controller {
             "team" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Team"), "method" => "team"),
             "roles" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Roles"), "method" => "team"),
             
+            "cv-format" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("CV"), "method" => "eli"),
             "stylesheet" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("stylesheet"), "method" => "stylesheet"),
             "import" => array("role" => 1, 'icon'=>'', "title" => $this->lang->line("import"), "method" => "importXML")
         );
@@ -42,7 +44,7 @@ class Projects extends CI_Controller {
             array_push($this->data['errors'], $this->lang->line("unauthorized"));
         if (count($this->data['errors']) > 0) {
             $this->data['docTitle'] = $this->lang->line("error");
-            return $this->sendOut('forms/loginForm', "shell");
+            return $this->sendOut('cv_projects', "cv_shell");
         }
         $this->data['docTitle'] = $this->data['qmenu'][$path]['title'];
         if (!empty($this->data['qtfilter'])) $this->data['docTitle'] .= ' :: ' . $this->data['qtfilter'];
@@ -59,7 +61,9 @@ class Projects extends CI_Controller {
     private function sendOut($page, $shell="shell") {
         $this->data['pages'][$page] = $this->load->view($page, $this->data, TRUE);
         if ($this->input->is_ajax_request()) {
-            return $this->output->set_output($page);
+            return $this->output->set_output(
+                    $this->load->view($page, $this->data, TRUE)
+                    );
         }
 
         $this->load->view($shell, $this->data);
@@ -122,11 +126,10 @@ class Projects extends CI_Controller {
             else $this->data['tableRows'] = $this->projects->getTagsTeamMembers();
             $this->sendOut('tags_table', 'cms_shell');
         } else{
-            $this->data['headers'] = array(
-                'image_src'=>$this->lang->line("Pics"), // + id, editor?
-                'project_title'=>$this->lang->line("Info"), // + subtitle html, desc
-                'project_startdate'=>$this->lang->line("Tags"),
-            );            
+            $this->data['headers'] = array('image_src'=>$this->lang->line("Pics"));
+            if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->line("Info");
+            if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->line("Tags");
+            
             if ($this->data['qtags'] == "roles") $this->data['qtagOptions'] = $this->projects->getTagsTeamRoles();
             else $this->data['qtagOptions'] = $this->projects->getTagsTeamMembers();
             if ($this->data['qtags'] == "roles") {
@@ -134,7 +137,11 @@ class Projects extends CI_Controller {
             } else {
                 $this->data['tableRows'] = $this->projects->getProjectsByTag(null, $this->data['qtfilter']); 
             }
-            $this->sendOut('projects_table', 'cms_shell');
+            if (uri_string() == 'cv-format') {
+                $this->sendOut('cv_projects', 'cv_shell');
+            } else {
+                $this->sendOut('projects_table', 'cms_shell');
+            }
         }
     }     
     
@@ -158,14 +165,10 @@ class Projects extends CI_Controller {
             $this->getTableForProjects();
             $this->sendOut('projects_table', 'cms_shell');
         } else{
-            $this->data['docTitle'] = $this->data['qtfilter'];
-            $this->data['headers'] = array(
-                'image_src'=>$this->lang->line("Pics"), // + id, editor?
-                'project_title'=>$this->lang->line("Info"), // + subtitle html, desc
-                'project_startdate'=>$this->lang->line("Tags"),
-            );
+            $this->data['docTitle'] = $this->data['qtfilter'];            
             $val = (empty($this->data['qtfilter'])) ? $pid : $this->data['qtfilter'];
             $this->data['project'] = $this->projects->getProject($val);
+            $this->data['project']->images = $this->projects->getProjectImages($this->data['project']->project_id);
             $this->sendOut('project_profile', 'cms_shell');
         }        
     }    
@@ -182,7 +185,6 @@ class Projects extends CI_Controller {
         $this->sendOut('cms_table', 'cms_shell');
     }   
 
-    
     function getTableForTags() {
         $this->data['headers'] = array(
             'count'=>$this->lang->line("Total"),
@@ -194,13 +196,20 @@ class Projects extends CI_Controller {
 
     function getTableForProjects() {        
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
-        
-        $this->data['headers'] = array(
-            'image_src'=>$this->lang->line("Pics"), // + id, editor?
-            'project_title'=>$this->lang->line("Info"), // + subtitle html, desc
-            'project_startdate'=>$this->lang->line("Tags"),
-            );
+        $this->data['headers'] = array('image_src'=>$this->lang->line("Pics"));
+        if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->line("Info");
+        if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->line("Tags");
         $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter']); 
+    }
+    
+    function viewSettings(){
+        $con = $this->data['me']['con'];            
+        if ($this->input->get("swidth")) $con['swidth'] = intval ($this->input->get("swidth"));
+        if ($this->input->get("sheight")) $con['sheight'] = intval($this->input->get("sheight"));
+        if ($this->input->get_post('debug')) $con['debugMode'] = (boolean) $this->input->get_post('debug');
+        $this->thisvisitor->upConstants($con);
+        $this->thisvisitor->saveSession();            
+        return false;
     }
 
     public function importXML() {
@@ -248,14 +257,16 @@ class Projects extends CI_Controller {
                         $dir = trim($dir[0]);
                         $dir = substr($dir, 0, strpos($dir, strrchr($dir, '/')));
                     }
-                    $files1 = scandir(STATIC_CD . $dir);
+                    $files1 = scandir(ROOT_CD . $dir);
                     $index = 0;
                     foreach($files1 as $img) {
-                        if($img === '.' || $img === '..' || strpos($img, '.db') || strpos(strtolower($img), '.swf') > 0) continue;
+                        if($img === '.' || $img === '..' || strpos($img, '.db') > -1 || strpos(strtolower($img), '.swf') > 0 ||
+                                strpos($img, '_150x150') > -1 || 
+                                strpos($img, '_300x300') > -1) continue;
                         $filename = $dir."/".$img;        
                         //echo '<h1>' . $filename . '</h1>';
-                        if(is_file(STATIC_CD . $filename)) {
-                            $meta = getimagesize (STATIC_CD . $filename);
+                        if(is_file(ROOT_CD . $filename)) {
+                            $meta = getimagesize (ROOT_CD . $filename);
                             $t = new StdClass();
                             $t->image_src = $filename;
                             $t->image_weight = $index + 1;

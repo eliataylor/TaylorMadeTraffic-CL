@@ -47,16 +47,23 @@ class Projects_Model extends CI_Model {
     
     function getProject($pid) {
         $params = array();
-        $this->db->query('SET SESSION group_concat_max_len = 1000000');        
-        $sql = "SELECT P.*, group_concat(I.image_src) as image_srcs FROM projects P, images I WHERE P.project_id = I.project_id ";
+        $sql = "SELECT P.*, I.*, min(I.image_weight) FROM projects P, images I WHERE P.project_id = I.project_id ";
         if (is_numeric($pid)) $sql .= " AND P.project_id = ? ";
         else $sql .= " AND P.project_title = ? ";
+        $sql .= 'GROUP BY P.project_id ';        
         $sql .= 'order by I.image_weight asc';        
         $query = $this->db->query($sql, array($pid));
         //echo $this->db->last_query();
         if ($query->num_rows() > 0) return $query->row();
         return array();
     }        
+    
+    function getProjectImages($pid=false) {
+        $sql = "SELECT I.* FROM images I WHERE I.project_id = ? order by I.project_id asc, I.image_weight asc";
+        $query = $this->db->query($sql, array($pid));
+        if ($query->num_rows() > 0) return $query->result_object();
+        return array();
+    }  
 
     function getImages($pid=false) {
         $sql = "SELECT P.project_id, P.project_title, I.* FROM `projects` P, images I WHERE P.project_id = I.project_id order by I.project_id asc, I.image_weight asc";

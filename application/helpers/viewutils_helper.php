@@ -23,23 +23,29 @@
         return preg_replace('/([?&])'.$varname.'=[^&]+(&|$)/','$1',$url);
     }
 
-    function noSSL($url) {
-        if (strpos($url, "http:") === 0) return $url;
-        if (strpos($url, "https:") === 0) return "http:" . substr($url, 6);
-        if (strpos($url, "//") === 0) return "http:".$url;
-        if (strpos($url, "/") === 0) $url = substr($url, 1); // standardize rest to no leading /        
-        $http = (strpos(TMT_HTTP, "http:") === 0) ? TMT_HTTP : "http:" . substr(TMT_HTTP, 6);
-        return $http . $url;
-    }
     
-    function makeSSL($url) {
-        //if (ENVIRONMENT != 'production') return noSSL($url);
-        if (strpos($url, "https:") === 0) return $url;
-        if (strpos($url, "https") === 0) return "https:" . substr($url, 5);
-        if (strpos($url, "//") === 0) return "https:".$url;
-        if (strpos($url, "/") === 0) $url = substr($url, 1); // standardize rest to no leading /        
-        $http = (strpos(TMT_HTTP, "https:") === 0) ? TMT_HTTP : "https:" . substr(TMT_HTTP, 5);
-        return $http . $url;
+    function imageSize($c, $dim) {
+        preg_match('/_(\d{1,4})x(\d{1,4})/i', $c, $match); // never should actually happen, but check if any prefix is already in string. 
+        if (!empty($match)) {
+          $img = preg_replace("/".$match[0]."/", '_' . $dim, $c); // just add it 
+          if (file_exists(ROOT_CD . $img)) return $img; // check if exists
+        }
+        if (strpos($c, "//cdn")===0) {
+            $test = substr($c, strpos($c, ".com/")+5);
+            $ext = preg_replace('/^.*\./', '', $c);                      
+            $img = preg_replace("/\.".$ext."/", '_' . $dim . "." .$ext, $test);
+            if (file_exists(CDN_CD . $img)) {
+                return substr($c, 0, strpos($c, ".com/")+5) . $img;
+            }
+        } else {
+            $ext = preg_replace('/^.*\./', '', $c);                      
+            $img = preg_replace("/\.".$ext."/", '_' . $dim . "." .$ext, $c);
+            if (file_exists(ROOT_CD . $img)) return $img;
+        }
+        //if (ENVIRONMENT != 'production') {
+        //    Modules::run("info/logImgSize", $c, $dim);
+        //}
+        return $c;
     }
     
     function fnum($num, $decimals=0) { return number_format($num, $decimals, '.', ','); }

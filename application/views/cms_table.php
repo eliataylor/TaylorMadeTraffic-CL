@@ -19,7 +19,8 @@
                                 404: <?=STATIC_CD.$row->$key?> 
                             <?else:?>
                                 <div class="projectImgMask">
-                                    <img src='/wwwroot/<?=$row->$key?>' class="projectImg" />
+                                    <img src='<?=imageSize($row->key, "300x300")?>' 
+                                         class="projectImg" />
                                 </div>
                             <?endif?>
                         <?else:?>                            

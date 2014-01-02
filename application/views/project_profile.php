@@ -25,16 +25,22 @@
     </tbody>
 </table>
 
-<? if (!empty($project->image_srcs)): ?>
-<?php $project->image_srcs = explode(',', $project->image_srcs); ?>
+<? if (!empty($project->images)): ?>
 <div class="galleryBlock">    
-    <div class="gallerySideBar">    
-    <?for($i=0; $i < count($project->image_srcs); $i++):?>
-        <img onclick="$('#galleryImg<?=$project->project_id?>').attr('src',this.src);return false;" src='wwwroot/<?= trim($project->image_srcs[$i]) ?>' class="projectImg" />   
-    <?endfor?>
-    </div>
+    <?if (count($project->images) > 1):?>
+        <div class="galleryTopBar">    
+        <?foreach($project->images as $img):?>
+            <img onclick="$('#galleryImg<?=$project->project_id?>').attr('src',this.src).css({maxWidth:this.getAttribute('data-owidth')});return false;" 
+                 src='<?=imageSize(trim($img->image_src), "150x150")?>' 
+                 data-owidth="<?=$img->image_width?>" data-oheight="<?=$img->image_height?>"
+                 />   
+        <?endforeach?>
+        </div>
+    <?endif;?>
     <div class="galleryImg">
-        <img id="galleryImg<?=$project->project_id?>" src='wwwroot/<?= trim($project->image_srcs[0]) ?>' />   
+        <img id="galleryImg<?=$project->project_id?>" src='<?= trim($project->images[0]->image_src) ?>'
+             style="max-width:<?=$img->image_width?>px;"
+             />   
     </div>
 </div>
 <?endif?>

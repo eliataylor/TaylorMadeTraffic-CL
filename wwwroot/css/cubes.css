@@ -7,6 +7,18 @@
 }
 h1,h2,h3,h4,h5,h6 { font-family:Strait,Arial,Sans-Serif;}
 */
+@media print {
+        body, .master  {background:#fff!important; color:#000!important;}
+        .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
+        .technotes { background:#ccc!important;}
+        .projects_table tr { border-bottom:50px solid #fff; }
+}
 
 a, a:visited, .alink { color:#5B74CF; }
 body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:0; }
@@ -53,7 +65,7 @@ a.navItem.selected { color:red; }
 .projectImgMask { width:100%; overflow: hidden; max-height:300px; position:relative;}
 .projectImgMask a { outline: 0 none; border:0 none; }
 .blackOutFadeBG {
-    height: 100px; /*from where it starts to fade to where it ends*/
+    height: 60px; /*from where it starts to fade to where it ends*/
     position: absolute; /*so it can overlap the #container*/
     width: 100%; /*has to be the same as #container*/
     bottom:0; /*position it right at the bottom of the #container*/
@@ -65,9 +77,7 @@ a.navItem.selected { color:red; }
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 50%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
-.narrowscreen .blackOutFadeBG { height:15px;}
-
-.project_profile .projectImg { max-width: 490px; float:left; margin:0 10px 10px 0; }
+.narrowscreen .moduleBlock { padding:0 5px;}
 
 /* .menuBox:hover { border-style:outset; } */
 
@@ -104,9 +114,7 @@ body.isMobile > .page { margin:20px auto 10px auto; clear:both; float:none; posi
 body.isMobile > #navMenu { position:relative; float:left; margin-bottom:20px; left:auto; }
 body.isMobile > #pageImg, body.isMobile > #taPreloader { position:relative; float:right; clear:right; margin:10px 5px 20px auto; left:auto; }
 
-@media only screen 
-    and (min-width : 300px) 
-    and (max-width : 800px) {
+@media only screen and (min-width : 300px) and (max-width : 800px) {
     body.isMobile > .page { width:91%; }
     body.isMobile > #pageImg { width:100%; }
 }
@@ -131,21 +139,34 @@ table .header { width:auto; color:#a0a09f;}
 
 .tablesorter { margin:10px 0 15px 0; font-size: 8pt; width: 100%; text-align: left; position: relative; }
 .tablesorter th, .tablesorter th { font-size: 8pt; padding: 4px; font-weight: bolder; }
-.tablesorter .header { float:none; cursor: pointer; background-image: url(/wwwroot/images/bg.png); background-repeat:no-repeat; background-position:left center;}
 .tablesorter th.col3 { background-position: right center; padding-right: 20px;}
-.tablesorter th.col2, .tablesorter th.col1 { padding-left: 20px;}
+.tablesorter th.col1, .projects_table th.col2 { padding-left: 20px;}
+
 .tablesorter tbody td { padding: 4px; vertical-align: top; }
-.tablesorter h3 { margin:0; font-size:120%; }
-/* .tablesorter tbody tr.odd td { background-color:#090909; } */
-table{ border-collapse:collapse; }
 
-/* tr.odd { border-top:1px solid #a0a09f; border-bottom:1px solid #a0a09f;  } */
-td.col3 { background: -webkit-linear-gradient(-45deg, #000000 66%, #2b2b2b 100%); }
-td.count { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 33%); }
-
-.tablesorter thead tr .headerSortUp {	background-image: url(/wwwroot/images/asc.png); color:red;}
-.tablesorter thead tr .headerSortDown {background-image: url(/wwwroot/images/desc.png); color:red;}
+.tags_table th.col1 { background-position: left center;  }
+.tags_table th.col2 { background-position: center center; }
+.tags_table th.col3 { background-position: right center; }
+.tablesorter .header { }
+.tablesorter thead tr th { float:none; height:40px; background-image: url(/wwwroot/images/bg.png); background-repeat:no-repeat; background-position:left center;
+                          cursor: pointer; }
+.tablesorter thead tr .headerSortUp {	background-image: url(/wwwroot/images/asc.png); background-repeat: no-repeat; color:red;}
+.tablesorter thead tr .headerSortDown {background-image: url(/wwwroot/images/desc.png); background-repeat: no-repeat; color:red;}
 .tablesorter thead tr .headerSortDown, .tablesorter thead tr .headerSortUp {}
+
+.tablesorter h3 { margin:0; font-size:120%; }
+.narrowscreen .tablesorter h3 {font-size: 200%;margin: 10px 0;}
+table{ border-collapse:collapse; }
+/* tr.odd { border-top:1px solid #a0a09f; border-bottom:1px solid #a0a09f;  } */
+.tags_table td.col1 { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 100%); }
+.tags_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 0%, #2b2b2b 100%); }
+
+.tags_table tr.odd .col1, .tags_table tr.odd .col3 { background:black; } 
+
+
+.projects_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 66%, #2b2b2b 100%); }
+
+.narrowscreen tr { background: -webkit-linear-gradient(-45deg, #000000 77%, #2b2b2b  100%); padding:10px 0; }
 
 .narrowscreen .col1, .narrowscreen .col3 { width:20%; }
 .narrowscreen .col2 { width:60%; }
@@ -169,24 +190,35 @@ td a.popInfo { text-decoration:none;}
 .tablesorter th.collapsed, .tablesorter td.collapsed { display: none; }
 .chkSelector { float:left; padding:2px 5px 0 5px; vertical-align:top; margin:0 5px 5px 0; background:#8dbdd8; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; }
 
-.col2 { width:40%;}
+.col1, .col2 { text-align: left; }
+.col3 { text-align: right; }
+
+.projects_table .col1 { width:30%; }
+.projects_table .col3 { width:20%; }
+.projects_table .col2 { width:50%;}
+
 .col2 h3 { font-size:200%; }
-.col3 { width:20%; text-align: right; }
 .tablesorter td.project_startdate { padding-top:28px; }
 .projectLink { word-break:break-all; }
 tr.spacer { height:15px; }
-.tags_table tr.spacer { height:3px; }
-.pageTotal { font-size:12px; vertical-align: baseline}
-#qTagSelector, #qTagSelector option { float: right;background:black ;color: white; outline:0 none; border: 0 none; width:138px; font-size:10px;font-weight: bolder; vertical-align: middle; margin:0 0 0 3px;}
+.tags_table tr { border:1px solid #000; vertical-align:middle; padding:8px;   }
+.tags_table td.col1, .tags_table td.col3 { font-size:12px; }
+.projects_table tr { border-bottom:50px solid #000; }
 
+.pageTotal { font-size:12px; vertical-align: baseline}
+#qTagSelector, #qTagSelector option { text-transform: capitalize;
+         float:left;background:black ;color: white; outline:0 none; border: 0 none; 
+         font-weight: bolder; vertical-align: middle; margin:0 0 0 3px;}
+
+.projectsTitle { margin: 10px 0;float: left;clear: both;width: 100%;vertical-align: baseline; }
 .tag_key { font-size:130%; text-align: center;  }
-.tag_key.header { color:#000; background-position: center center }
+.tablesorter .tag_key.header { background-position: center center; padding: 0;  }
+.tag_key p { margin-top:-23px; text-align: center; }
 .tag_date { text-align: right; }
 .tags_table th, .tags_table td { width:33%;}
 
 .galleryBlock { position:relative; width:100%; margin:20px 0 }
-.gallerySideBar { float:left; clear:none; width:75px; height: 100%;}
-.gallerySideBar img { cursor:pointer; }
-.galleryImg { position: relative; float:left; margin-left:8px; max-width: 90%;  }
-.narrowscreen .galleryImg { width:75%; }
-.galleryImg img { width:100%;  }
+.galleryTopBar { float:left; clear:both; width:100%; }
+.galleryTopBar img { cursor:pointer; height:100px;  margin:0 0 5px 0; }
+.galleryImg { position: relative; float:left; width:100%; }
+.galleryImg img { width:100%; }

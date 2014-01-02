@@ -6,16 +6,16 @@
             <liveurl></liveurl>
             <devurl></devurl>
             <copyright>TaylorMadeTraffic</copyright>
-            <thumbDir>images/design/lovequest/th</thumbDir>
-            <xlDir>images/design/lovequest</xlDir>
+            <thumbDir>/wwwroot/images/design/lovequest/th</thumbDir>
+            <xlDir>/wwwroot/images/design/lovequest</xlDir>
             <industries>music,events</industries>
             <startdate>September 2007</startdate>
             <launchdate>February 2008</launchdate>
             <devtools>Illustrator, Photoshop, Flash</devtools>
             <team>Design:E.A.Taylor;Animation:Justin Herman</team>
             <desc>3 city concert tour featuring the Legendary ?uestLove Live</desc>
-            <thumbSrc>images/design/lovequest/th/allshows.jpg,images/design/lovequest/th/questlove300.jpg,images/design/lovequest/th/questlove_3shows.jpg,images/design/lovequest/th/questlove_allshows.jpg,images/design/lovequest/th/questlove_avalon.jpg,images/design/lovequest/th/questlove_avalonB1.jpg,images/design/lovequest/th/questlove_avalonF1.jpg,images/design/lovequest/th/questlove_avalonF2.jpg,images/design/lovequest/th/questlove_avalonF3.jpg,images/design/lovequest/th/questlove_avalonF4.jpg,images/design/lovequest/th/questlove_avalonF5.jpg,images/design/lovequest/th/questlove_avalonGOLD700.jpg,images/design/lovequest/th/questlove_avalonGold.jpg,images/design/lovequest/th/questlove_avalonRED700.jpg,images/design/lovequest/th/questlove_highlands.jpg,images/design/lovequest/th/questlove_highlandsB2-small.jpg,images/design/lovequest/th/questlove_highlandsF3.jpg,images/design/lovequest/th/questlove_highlandsF4.jpg,images/design/lovequest/th/questlove_highlandsF5.jpg,images/design/lovequest/th/questlove_highlandsP1.jpg,images/design/lovequest/th/questlove_highlandsP2.jpg,images/design/lovequest/th/questlove_highlands_back.jpg,images/design/lovequest/th/questlove_highlands_back2.jpg,images/design/lovequest/th/questlove_highlands_back3.jpg,images/design/lovequest/th/questlove_highlands_back4.jpg,images/design/lovequest/th/questlove_limo.jpg,images/design/lovequest/th/questlove_mock10.jpg,images/design/lovequest/th/questlove_mock10B.jpg,images/design/lovequest/th/questlove_mock11.jpg,images/design/lovequest/th/questlove_mock12.jpg,images/design/lovequest/th/questlove_mock13.jpg,images/design/lovequest/th/questlove_mock14.jpg,images/design/lovequest/th/questlove_mock15.jpg,images/design/lovequest/th/questlove_mock16.jpg,images/design/lovequest/th/questlove_mock17.jpg,images/design/lovequest/th/questlove_mock17B.jpg,images/design/lovequest/th/questlove_mock17HI.jpg,images/design/lovequest/th/questlove_mock18.jpg,images/design/lovequest/th/questlove_mock19.jpg,images/design/lovequest/th/questlove_mock20.jpg,images/design/lovequest/th/questlove_mock21.jpg,images/design/lovequest/th/questlove_mock22.jpg,images/design/lovequest/th/questlove_mock23.jpg,images/design/lovequest/th/questlove_mock24.jpg,images/design/lovequest/th/questlove_mock25.jpg,images/design/lovequest/th/questlove_mock26.jpg,images/design/lovequest/th/questlove_mock28.jpg,images/design/lovequest/th/questlove_mock4.jpg,images/design/lovequest/th/questlove_mock5.jpg,images/design/lovequest/th/questlove_mock6.jpg,images/design/lovequest/th/questlove_mock7.jpg,images/design/lovequest/th/questlove_mock8.jpg,images/design/lovequest/th/questlove_mock9.jpg,images/design/lovequest/th/questlove_mock9B.jpg,images/design/lovequest/th/questlove_pipeline.jpg,images/design/lovequest/th/questlove_pipelineB1.jpg,images/design/lovequest/th/questlove_pipelineB2.jpg,images/design/lovequest/th/questlove_pipelineB3.jpg,images/design/lovequest/th/questlove_pipelineF1.jpg,images/design/lovequest/th/questlove_pipelineF2.jpg,images/design/lovequest/th/questlove_pipelineF3.jpg,images/design/lovequest/th/questlove_pipelineF4.jpg,images/design/lovequest/th/questlove_pipelineF5.jpg,images/design/lovequest/th/questlove_pipelineP1.jpg,images/design/lovequest/th/questlove_simple1.jpg,images/design/lovequest/th/questlove_simple2.jpg,images/design/lovequest/th/questlove_simple3.jpg</thumbSrc>
-            <xlSrc>images/design/lovequest/allshows.gif,images/design/lovequest/quest322text.swf,images/design/lovequest/questbantext.swf,images/design/lovequest/questlove300.jpg,images/design/lovequest/questlove_3shows.gif,images/design/lovequest/questlove_allshows.gif,images/design/lovequest/questlove_avalon.jpg,images/design/lovequest/questlove_avalonB1.gif,images/design/lovequest/questlove_avalonB1.jpg,images/design/lovequest/questlove_avalonF1.gif,images/design/lovequest/questlove_avalonF1.jpg,images/design/lovequest/questlove_avalonF2.gif,images/design/lovequest/questlove_avalonF2.jpg,images/design/lovequest/questlove_avalonF3.gif,images/design/lovequest/questlove_avalonF3.jpg,images/design/lovequest/questlove_avalonF4.gif,images/design/lovequest/questlove_avalonF4.jpg,images/design/lovequest/questlove_avalonF5.gif,images/design/lovequest/questlove_avalonF5.jpg,images/design/lovequest/questlove_avalonGOLD700.jpg,images/design/lovequest/questlove_avalonGold.jpg,images/design/lovequest/questlove_avalonRED700.jpg,images/design/lovequest/questlove_butterflyPoster.jpg,images/design/lovequest/questlove_highlands.jpg,images/design/lovequest/questlove_highlandsB1.gif,images/design/lovequest/questlove_highlandsB1.jpg,images/design/lovequest/questlove_highlandsB2-small.gif,images/design/lovequest/questlove_highlandsB2.gif,images/design/lovequest/questlove_highlandsF1.gif,images/design/lovequest/questlove_highlandsF1.jpg,images/design/lovequest/questlove_highlandsF2-small.gif,images/design/lovequest/questlove_highlandsF2.gif,images/design/lovequest/questlove_highlandsF2.jpg,images/design/lovequest/questlove_highlandsF3.gif,images/design/lovequest/questlove_highlandsF3.jpg,images/design/lovequest/questlove_highlandsF4.gif,images/design/lovequest/questlove_highlandsF5.gif,images/design/lovequest/questlove_highlandsP1.gif,images/design/lovequest/questlove_highlandsP2.gif,images/design/lovequest/questlove_highlands_back.jpg,images/design/lovequest/questlove_highlands_back2.jpg,images/design/lovequest/questlove_highlands_back3.jpg,images/design/lovequest/questlove_highlands_back4.jpg,images/design/lovequest/questlove_limo.jpg,images/design/lovequest/questlove_mock10.jpg,images/design/lovequest/questlove_mock10B.jpg,images/design/lovequest/questlove_mock11.jpg,images/design/lovequest/questlove_mock12.jpg,images/design/lovequest/questlove_mock13.jpg,images/design/lovequest/questlove_mock14.jpg,images/design/lovequest/questlove_mock15.jpg,images/design/lovequest/questlove_mock16.jpg,images/design/lovequest/questlove_mock17.jpg,images/design/lovequest/questlove_mock17B.jpg,images/design/lovequest/questlove_mock17HI.jpg,images/design/lovequest/questlove_mock18.jpg,images/design/lovequest/questlove_mock19.jpg,images/design/lovequest/questlove_mock20.jpg,images/design/lovequest/questlove_mock21.jpg,images/design/lovequest/questlove_mock22.jpg,images/design/lovequest/questlove_mock23.jpg,images/design/lovequest/questlove_mock24.jpg,images/design/lovequest/questlove_mock25.jpg,images/design/lovequest/questlove_mock26.jpg,images/design/lovequest/questlove_mock28.jpg,images/design/lovequest/questlove_mock4.jpg,images/design/lovequest/questlove_mock5.jpg,images/design/lovequest/questlove_mock6.jpg,images/design/lovequest/questlove_mock7.jpg,images/design/lovequest/questlove_mock8.jpg,images/design/lovequest/questlove_mock9.jpg,images/design/lovequest/questlove_mock9B.jpg,images/design/lovequest/questlove_pipeline.jpg,images/design/lovequest/questlove_pipelineB1.gif,images/design/lovequest/questlove_pipelineB1.jpg,images/design/lovequest/questlove_pipelineB2.gif,images/design/lovequest/questlove_pipelineB2.jpg,images/design/lovequest/questlove_pipelineB3.gif,images/design/lovequest/questlove_pipelineB3.jpg,images/design/lovequest/questlove_pipelineF1.gif,images/design/lovequest/questlove_pipelineF1.jpg,images/design/lovequest/questlove_pipelineF2.gif,images/design/lovequest/questlove_pipelineF2.jpg,images/design/lovequest/questlove_pipelineF3.gif,images/design/lovequest/questlove_pipelineF3.jpg,images/design/lovequest/questlove_pipelineF4.gif,images/design/lovequest/questlove_pipelineF4.jpg,images/design/lovequest/questlove_pipelineF5.gif,images/design/lovequest/questlove_pipelineP1.gif,images/design/lovequest/questlove_simple1.jpg,images/design/lovequest/questlove_simple2.jpg,images/design/lovequest/questlove_simple3.jpg,images/design/lovequest/questsqtext.swf</xlSrc>
+            <thumbSrc>/wwwroot/images/design/lovequest/th/allshows.jpg,/wwwroot/images/design/lovequest/th/questlove300.jpg,/wwwroot/images/design/lovequest/th/questlove_3shows.jpg,/wwwroot/images/design/lovequest/th/questlove_allshows.jpg,/wwwroot/images/design/lovequest/th/questlove_avalon.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonB1.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonF1.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonF2.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonF3.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonF4.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonF5.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonGOLD700.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonGold.jpg,/wwwroot/images/design/lovequest/th/questlove_avalonRED700.jpg,/wwwroot/images/design/lovequest/th/questlove_highlands.jpg,/wwwroot/images/design/lovequest/th/questlove_highlandsB2-small.jpg,/wwwroot/images/design/lovequest/th/questlove_highlandsF3.jpg,/wwwroot/images/design/lovequest/th/questlove_highlandsF4.jpg,/wwwroot/images/design/lovequest/th/questlove_highlandsF5.jpg,/wwwroot/images/design/lovequest/th/questlove_highlandsP1.jpg,/wwwroot/images/design/lovequest/th/questlove_highlandsP2.jpg,/wwwroot/images/design/lovequest/th/questlove_highlands_back.jpg,/wwwroot/images/design/lovequest/th/questlove_highlands_back2.jpg,/wwwroot/images/design/lovequest/th/questlove_highlands_back3.jpg,/wwwroot/images/design/lovequest/th/questlove_highlands_back4.jpg,/wwwroot/images/design/lovequest/th/questlove_limo.jpg,/wwwroot/images/design/lovequest/th/questlove_mock10.jpg,/wwwroot/images/design/lovequest/th/questlove_mock10B.jpg,/wwwroot/images/design/lovequest/th/questlove_mock11.jpg,/wwwroot/images/design/lovequest/th/questlove_mock12.jpg,/wwwroot/images/design/lovequest/th/questlove_mock13.jpg,/wwwroot/images/design/lovequest/th/questlove_mock14.jpg,/wwwroot/images/design/lovequest/th/questlove_mock15.jpg,/wwwroot/images/design/lovequest/th/questlove_mock16.jpg,/wwwroot/images/design/lovequest/th/questlove_mock17.jpg,/wwwroot/images/design/lovequest/th/questlove_mock17B.jpg,/wwwroot/images/design/lovequest/th/questlove_mock17HI.jpg,/wwwroot/images/design/lovequest/th/questlove_mock18.jpg,/wwwroot/images/design/lovequest/th/questlove_mock19.jpg,/wwwroot/images/design/lovequest/th/questlove_mock20.jpg,/wwwroot/images/design/lovequest/th/questlove_mock21.jpg,/wwwroot/images/design/lovequest/th/questlove_mock22.jpg,/wwwroot/images/design/lovequest/th/questlove_mock23.jpg,/wwwroot/images/design/lovequest/th/questlove_mock24.jpg,/wwwroot/images/design/lovequest/th/questlove_mock25.jpg,/wwwroot/images/design/lovequest/th/questlove_mock26.jpg,/wwwroot/images/design/lovequest/th/questlove_mock28.jpg,/wwwroot/images/design/lovequest/th/questlove_mock4.jpg,/wwwroot/images/design/lovequest/th/questlove_mock5.jpg,/wwwroot/images/design/lovequest/th/questlove_mock6.jpg,/wwwroot/images/design/lovequest/th/questlove_mock7.jpg,/wwwroot/images/design/lovequest/th/questlove_mock8.jpg,/wwwroot/images/design/lovequest/th/questlove_mock9.jpg,/wwwroot/images/design/lovequest/th/questlove_mock9B.jpg,/wwwroot/images/design/lovequest/th/questlove_pipeline.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineB1.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineB2.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineB3.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineF1.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineF2.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineF3.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineF4.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineF5.jpg,/wwwroot/images/design/lovequest/th/questlove_pipelineP1.jpg,/wwwroot/images/design/lovequest/th/questlove_simple1.jpg,/wwwroot/images/design/lovequest/th/questlove_simple2.jpg,/wwwroot/images/design/lovequest/th/questlove_simple3.jpg</thumbSrc>
+            <xlSrc>/wwwroot/images/design/lovequest/allshows.gif,/wwwroot/images/design/lovequest/quest322text.swf,/wwwroot/images/design/lovequest/questbantext.swf,/wwwroot/images/design/lovequest/questlove300.jpg,/wwwroot/images/design/lovequest/questlove_3shows.gif,/wwwroot/images/design/lovequest/questlove_allshows.gif,/wwwroot/images/design/lovequest/questlove_avalon.jpg,/wwwroot/images/design/lovequest/questlove_avalonB1.gif,/wwwroot/images/design/lovequest/questlove_avalonB1.jpg,/wwwroot/images/design/lovequest/questlove_avalonF1.gif,/wwwroot/images/design/lovequest/questlove_avalonF1.jpg,/wwwroot/images/design/lovequest/questlove_avalonF2.gif,/wwwroot/images/design/lovequest/questlove_avalonF2.jpg,/wwwroot/images/design/lovequest/questlove_avalonF3.gif,/wwwroot/images/design/lovequest/questlove_avalonF3.jpg,/wwwroot/images/design/lovequest/questlove_avalonF4.gif,/wwwroot/images/design/lovequest/questlove_avalonF4.jpg,/wwwroot/images/design/lovequest/questlove_avalonF5.gif,/wwwroot/images/design/lovequest/questlove_avalonF5.jpg,/wwwroot/images/design/lovequest/questlove_avalonGOLD700.jpg,/wwwroot/images/design/lovequest/questlove_avalonGold.jpg,/wwwroot/images/design/lovequest/questlove_avalonRED700.jpg,/wwwroot/images/design/lovequest/questlove_butterflyPoster.jpg,/wwwroot/images/design/lovequest/questlove_highlands.jpg,/wwwroot/images/design/lovequest/questlove_highlandsB1.gif,/wwwroot/images/design/lovequest/questlove_highlandsB1.jpg,/wwwroot/images/design/lovequest/questlove_highlandsB2-small.gif,/wwwroot/images/design/lovequest/questlove_highlandsB2.gif,/wwwroot/images/design/lovequest/questlove_highlandsF1.gif,/wwwroot/images/design/lovequest/questlove_highlandsF1.jpg,/wwwroot/images/design/lovequest/questlove_highlandsF2-small.gif,/wwwroot/images/design/lovequest/questlove_highlandsF2.gif,/wwwroot/images/design/lovequest/questlove_highlandsF2.jpg,/wwwroot/images/design/lovequest/questlove_highlandsF3.gif,/wwwroot/images/design/lovequest/questlove_highlandsF3.jpg,/wwwroot/images/design/lovequest/questlove_highlandsF4.gif,/wwwroot/images/design/lovequest/questlove_highlandsF5.gif,/wwwroot/images/design/lovequest/questlove_highlandsP1.gif,/wwwroot/images/design/lovequest/questlove_highlandsP2.gif,/wwwroot/images/design/lovequest/questlove_highlands_back.jpg,/wwwroot/images/design/lovequest/questlove_highlands_back2.jpg,/wwwroot/images/design/lovequest/questlove_highlands_back3.jpg,/wwwroot/images/design/lovequest/questlove_highlands_back4.jpg,/wwwroot/images/design/lovequest/questlove_limo.jpg,/wwwroot/images/design/lovequest/questlove_mock10.jpg,/wwwroot/images/design/lovequest/questlove_mock10B.jpg,/wwwroot/images/design/lovequest/questlove_mock11.jpg,/wwwroot/images/design/lovequest/questlove_mock12.jpg,/wwwroot/images/design/lovequest/questlove_mock13.jpg,/wwwroot/images/design/lovequest/questlove_mock14.jpg,/wwwroot/images/design/lovequest/questlove_mock15.jpg,/wwwroot/images/design/lovequest/questlove_mock16.jpg,/wwwroot/images/design/lovequest/questlove_mock17.jpg,/wwwroot/images/design/lovequest/questlove_mock17B.jpg,/wwwroot/images/design/lovequest/questlove_mock17HI.jpg,/wwwroot/images/design/lovequest/questlove_mock18.jpg,/wwwroot/images/design/lovequest/questlove_mock19.jpg,/wwwroot/images/design/lovequest/questlove_mock20.jpg,/wwwroot/images/design/lovequest/questlove_mock21.jpg,/wwwroot/images/design/lovequest/questlove_mock22.jpg,/wwwroot/images/design/lovequest/questlove_mock23.jpg,/wwwroot/images/design/lovequest/questlove_mock24.jpg,/wwwroot/images/design/lovequest/questlove_mock25.jpg,/wwwroot/images/design/lovequest/questlove_mock26.jpg,/wwwroot/images/design/lovequest/questlove_mock28.jpg,/wwwroot/images/design/lovequest/questlove_mock4.jpg,/wwwroot/images/design/lovequest/questlove_mock5.jpg,/wwwroot/images/design/lovequest/questlove_mock6.jpg,/wwwroot/images/design/lovequest/questlove_mock7.jpg,/wwwroot/images/design/lovequest/questlove_mock8.jpg,/wwwroot/images/design/lovequest/questlove_mock9.jpg,/wwwroot/images/design/lovequest/questlove_mock9B.jpg,/wwwroot/images/design/lovequest/questlove_pipeline.jpg,/wwwroot/images/design/lovequest/questlove_pipelineB1.gif,/wwwroot/images/design/lovequest/questlove_pipelineB1.jpg,/wwwroot/images/design/lovequest/questlove_pipelineB2.gif,/wwwroot/images/design/lovequest/questlove_pipelineB2.jpg,/wwwroot/images/design/lovequest/questlove_pipelineB3.gif,/wwwroot/images/design/lovequest/questlove_pipelineB3.jpg,/wwwroot/images/design/lovequest/questlove_pipelineF1.gif,/wwwroot/images/design/lovequest/questlove_pipelineF1.jpg,/wwwroot/images/design/lovequest/questlove_pipelineF2.gif,/wwwroot/images/design/lovequest/questlove_pipelineF2.jpg,/wwwroot/images/design/lovequest/questlove_pipelineF3.gif,/wwwroot/images/design/lovequest/questlove_pipelineF3.jpg,/wwwroot/images/design/lovequest/questlove_pipelineF4.gif,/wwwroot/images/design/lovequest/questlove_pipelineF4.jpg,/wwwroot/images/design/lovequest/questlove_pipelineF5.gif,/wwwroot/images/design/lovequest/questlove_pipelineP1.gif,/wwwroot/images/design/lovequest/questlove_simple1.jpg,/wwwroot/images/design/lovequest/questlove_simple2.jpg,/wwwroot/images/design/lovequest/questlove_simple3.jpg,/wwwroot/images/design/lovequest/questsqtext.swf</xlSrc>
         </item>
         <item>
             <title>Flavor</title>
@@ -28,15 +28,15 @@
             <devtools>Illustrator,Photoshop</devtools>
             <team>Design:E.A.Taylor</team>
             <desc>An unrealized campaign pitch to MetroPCS in Southern California</desc>
-            <thumbSrc>images/design/flavor/th/flavor_FlyerRound.jpg,images/design/flavor/th/flavor_FlyerRound300.jpg,images/design/flavor/th/flavor_FlyerRoundAll.jpg,images/design/flavor/th/flavor_FlyerRoundAll2.jpg,images/design/flavor/th/flavor_artists.jpg,images/design/flavor/th/flavor_campaign.jpg,images/design/flavor/th/flavor_campaignGeneric.jpg,images/design/flavor/th/flavor_cover.jpg,images/design/flavor/th/flavor_id_corners.jpg,images/design/flavor/th/flavor_logo_drip.jpg,images/design/flavor/th/flavor_tpain_front2.jpg,images/design/flavor/th/flavor_venue_boulevard.jpg,images/design/flavor/th/flavor_venue_element.jpg,images/design/flavor/th/flavor_venue_highlands.jpg,images/design/flavor/th/flavor_venue_keyclub.jpg,images/design/flavor/th/flavor_venue_republic.jpg,images/design/flavor/th/metro_sales.jpg</thumbSrc>
-            <xlSrc>images/design/flavor/flavor_FlyerRound.jpg,images/design/flavor/flavor_FlyerRound300.jpg,images/design/flavor/flavor_FlyerRoundAll.gif,images/design/flavor/flavor_FlyerRoundAll2.jpg,images/design/flavor/flavor_FlyerRoundAll2.png,images/design/flavor/flavor_artists.jpg,images/design/flavor/flavor_campaign.jpg,images/design/flavor/flavor_campaignGeneric.jpg,images/design/flavor/flavor_cover.jpg,images/design/flavor/flavor_id_corners.gif,images/design/flavor/flavor_id_corners.jpg,images/design/flavor/flavor_id_corners.png,images/design/flavor/flavor_logo_drip.jpg,images/design/flavor/flavor_tpain_front2.jpg,images/design/flavor/flavor_venue_boulevard.jpg,images/design/flavor/flavor_venue_element.jpg,images/design/flavor/flavor_venue_highlands.jpg,images/design/flavor/flavor_venue_keyclub.jpg,images/design/flavor/flavor_venue_republic.jpg,images/design/flavor/metro_sales.jpg</xlSrc>
+            <thumbSrc>/wwwroot/images/design/flavor/th/flavor_FlyerRound.jpg,/wwwroot/images/design/flavor/th/flavor_FlyerRound300.jpg,/wwwroot/images/design/flavor/th/flavor_FlyerRoundAll.jpg,/wwwroot/images/design/flavor/th/flavor_FlyerRoundAll2.jpg,/wwwroot/images/design/flavor/th/flavor_artists.jpg,/wwwroot/images/design/flavor/th/flavor_campaign.jpg,/wwwroot/images/design/flavor/th/flavor_campaignGeneric.jpg,/wwwroot/images/design/flavor/th/flavor_cover.jpg,/wwwroot/images/design/flavor/th/flavor_id_corners.jpg,/wwwroot/images/design/flavor/th/flavor_logo_drip.jpg,/wwwroot/images/design/flavor/th/flavor_tpain_front2.jpg,/wwwroot/images/design/flavor/th/flavor_venue_boulevard.jpg,/wwwroot/images/design/flavor/th/flavor_venue_element.jpg,/wwwroot/images/design/flavor/th/flavor_venue_highlands.jpg,/wwwroot/images/design/flavor/th/flavor_venue_keyclub.jpg,/wwwroot/images/design/flavor/th/flavor_venue_republic.jpg,/wwwroot/images/design/flavor/th/metro_sales.jpg</thumbSrc>
+            <xlSrc>/wwwroot/images/design/flavor/flavor_FlyerRound.jpg,/wwwroot/images/design/flavor/flavor_FlyerRound300.jpg,/wwwroot/images/design/flavor/flavor_FlyerRoundAll.gif,/wwwroot/images/design/flavor/flavor_FlyerRoundAll2.jpg,/wwwroot/images/design/flavor/flavor_FlyerRoundAll2.png,/wwwroot/images/design/flavor/flavor_artists.jpg,/wwwroot/images/design/flavor/flavor_campaign.jpg,/wwwroot/images/design/flavor/flavor_campaignGeneric.jpg,/wwwroot/images/design/flavor/flavor_cover.jpg,/wwwroot/images/design/flavor/flavor_id_corners.gif,/wwwroot/images/design/flavor/flavor_id_corners.jpg,/wwwroot/images/design/flavor/flavor_id_corners.png,/wwwroot/images/design/flavor/flavor_logo_drip.jpg,/wwwroot/images/design/flavor/flavor_tpain_front2.jpg,/wwwroot/images/design/flavor/flavor_venue_boulevard.jpg,/wwwroot/images/design/flavor/flavor_venue_element.jpg,/wwwroot/images/design/flavor/flavor_venue_highlands.jpg,/wwwroot/images/design/flavor/flavor_venue_keyclub.jpg,/wwwroot/images/design/flavor/flavor_venue_republic.jpg,/wwwroot/images/design/flavor/metro_sales.jpg</xlSrc>
         </item>
         <item>
             <title>Black Fire</title>
             <liveurl>http://www.blackfirepress.com/</liveurl>
             <devurl></devurl>
-            <thumbDir>images/design/biko/th</thumbDir>
-            <xlDir>images/design/biko</xlDir>
+            <thumbDir>/wwwroot/images/design/biko/th</thumbDir>
+            <xlDir>/wwwroot/images/design/biko</xlDir>
             <client>BlackFire</client>
             <industries>music,art</industries>
             <startdate>September 2007</startdate>
@@ -44,15 +44,15 @@
             <devtools>Illustrator, Photoshop</devtools>
             <team>Design:E.A.Taylor;Artist:Biko</team>
             <desc>Two incredible artists, musicians, and educators that light up stages of multiple mediums</desc>
-            <thumbSrc>images/design/biko/th/biko300.jpg,images/design/biko/th/biko_album1.jpg,images/design/biko/th/biko_album_back10.jpg,images/design/biko/th/biko_album_back6.jpg,images/design/biko/th/biko_album_front13.jpg,images/design/biko/th/biko_cdfoto5.jpg,images/design/biko/th/biko_cdfoto5_black.jpg,images/design/biko/th/biko_cdfoto_1.jpg,images/design/biko/th/biko_cdfoto_1Black.jpg,images/design/biko/th/biko_flyer_backB.jpg,images/design/biko/th/biko_logo.jpg,images/design/biko/th/biko_logo_birth.jpg,images/design/biko/th/biko_logo_birth2.jpg,images/design/biko/th/biko_logo_birth2W.jpg,images/design/biko/th/biko_logo_birthW.jpg,images/design/biko/th/biko_logo_black.jpg,images/design/biko/th/biko_logo_blackGlow.jpg,images/design/biko/th/biko_logo_trojan.jpg,images/design/biko/th/shirt_biko2.jpg,images/design/biko/th/shirt_biko6.jpg,images/design/biko/th/tongo_logo_mock4_tight.jpg</thumbSrc>
-            <xlSrc>images/design/biko/biko300.jpg,images/design/biko/biko_album1.jpg,images/design/biko/biko_album2.jpg,images/design/biko/biko_album_back10.jpg,images/design/biko/biko_album_back6.jpg,images/design/biko/biko_album_front13.jpg,images/design/biko/biko_cdfoto5.jpg,images/design/biko/biko_cdfoto5_black.jpg,images/design/biko/biko_cdfoto_1.jpg,images/design/biko/biko_cdfoto_1Black.jpg,images/design/biko/biko_flyer_backB.jpg,images/design/biko/biko_logo.jpg,images/design/biko/biko_logo.png,images/design/biko/biko_logo_birth.jpg,images/design/biko/biko_logo_birth2.jpg,images/design/biko/biko_logo_birth2W.jpg,images/design/biko/biko_logo_birthW.jpg,images/design/biko/biko_logo_black.jpg,images/design/biko/biko_logo_blackGlow.jpg,images/design/biko/biko_logo_blackNew.jpg,images/design/biko/biko_logo_trojan.jpg,images/design/biko/shirt_biko2.jpg,images/design/biko/shirt_biko6.jpg</xlSrc>
+            <thumbSrc>/wwwroot/images/design/biko/th/biko300.jpg,/wwwroot/images/design/biko/th/biko_album1.jpg,/wwwroot/images/design/biko/th/biko_album_back10.jpg,/wwwroot/images/design/biko/th/biko_album_back6.jpg,/wwwroot/images/design/biko/th/biko_album_front13.jpg,/wwwroot/images/design/biko/th/biko_cdfoto5.jpg,/wwwroot/images/design/biko/th/biko_cdfoto5_black.jpg,/wwwroot/images/design/biko/th/biko_cdfoto_1.jpg,/wwwroot/images/design/biko/th/biko_cdfoto_1Black.jpg,/wwwroot/images/design/biko/th/biko_flyer_backB.jpg,/wwwroot/images/design/biko/th/biko_logo.jpg,/wwwroot/images/design/biko/th/biko_logo_birth.jpg,/wwwroot/images/design/biko/th/biko_logo_birth2.jpg,/wwwroot/images/design/biko/th/biko_logo_birth2W.jpg,/wwwroot/images/design/biko/th/biko_logo_birthW.jpg,/wwwroot/images/design/biko/th/biko_logo_black.jpg,/wwwroot/images/design/biko/th/biko_logo_blackGlow.jpg,/wwwroot/images/design/biko/th/biko_logo_trojan.jpg,/wwwroot/images/design/biko/th/shirt_biko2.jpg,/wwwroot/images/design/biko/th/shirt_biko6.jpg,/wwwroot/images/design/biko/th/tongo_logo_mock4_tight.jpg</thumbSrc>
+            <xlSrc>/wwwroot/images/design/biko/biko300.jpg,/wwwroot/images/design/biko/biko_album1.jpg,/wwwroot/images/design/biko/biko_album2.jpg,/wwwroot/images/design/biko/biko_album_back10.jpg,/wwwroot/images/design/biko/biko_album_back6.jpg,/wwwroot/images/design/biko/biko_album_front13.jpg,/wwwroot/images/design/biko/biko_cdfoto5.jpg,/wwwroot/images/design/biko/biko_cdfoto5_black.jpg,/wwwroot/images/design/biko/biko_cdfoto_1.jpg,/wwwroot/images/design/biko/biko_cdfoto_1Black.jpg,/wwwroot/images/design/biko/biko_flyer_backB.jpg,/wwwroot/images/design/biko/biko_logo.jpg,/wwwroot/images/design/biko/biko_logo.png,/wwwroot/images/design/biko/biko_logo_birth.jpg,/wwwroot/images/design/biko/biko_logo_birth2.jpg,/wwwroot/images/design/biko/biko_logo_birth2W.jpg,/wwwroot/images/design/biko/biko_logo_birthW.jpg,/wwwroot/images/design/biko/biko_logo_black.jpg,/wwwroot/images/design/biko/biko_logo_blackGlow.jpg,/wwwroot/images/design/biko/biko_logo_blackNew.jpg,/wwwroot/images/design/biko/biko_logo_trojan.jpg,/wwwroot/images/design/biko/shirt_biko2.jpg,/wwwroot/images/design/biko/shirt_biko6.jpg</xlSrc>
         </item>
         <item>
             <title>Ambitions</title>
             <liveurl></liveurl>
             <devurl></devurl>
-            <thumbDir>images/design/ambitions/th</thumbDir>
-            <xlDir>images/design/ambitions</xlDir>
+            <thumbDir>/wwwroot/images/design/ambitions/th</thumbDir>
+            <xlDir>/wwwroot/images/design/ambitions</xlDir>
             <copyright>Collectiv LLC</copyright>
             <startdate>September 2005</startdate>
             <launchdate>September 2006</launchdate>
@@ -60,15 +60,15 @@
             <devtools>Illustrator, Photoshop</devtools>
             <team>Design:E.A.Taylor;Business Development:Paul Roberson,Yellow</team>
             <desc>An Annual HBCU Reunion Party for West Coast residents</desc>
-            <thumbSrc>images/design/ambitions/th/Ambitions_Back_3.jpg,images/design/ambitions/th/Ambitions_Front.jpg,images/design/ambitions/th/Ambitions_Front_2.jpg,images/design/ambitions/th/Ambitions_purpB_550.jpg</thumbSrc>
-            <xlSrc>images/design/ambitions/Ambitions_Back_3.jpg,images/design/ambitions/Ambitions_Front.jpg,images/design/ambitions/Ambitions_Front_2.jpg,images/design/ambitions/Ambitions_Front_3.jpg,images/design/ambitions/Ambitions_purpB_550.jpg</xlSrc>
+            <thumbSrc>/wwwroot/images/design/ambitions/th/Ambitions_Back_3.jpg,/wwwroot/images/design/ambitions/th/Ambitions_Front.jpg,/wwwroot/images/design/ambitions/th/Ambitions_Front_2.jpg,/wwwroot/images/design/ambitions/th/Ambitions_purpB_550.jpg</thumbSrc>
+            <xlSrc>/wwwroot/images/design/ambitions/Ambitions_Back_3.jpg,/wwwroot/images/design/ambitions/Ambitions_Front.jpg,/wwwroot/images/design/ambitions/Ambitions_Front_2.jpg,/wwwroot/images/design/ambitions/Ambitions_Front_3.jpg,/wwwroot/images/design/ambitions/Ambitions_purpB_550.jpg</xlSrc>
         </item>
         <item>
             <title>Nina Vidal</title>
             <liveurl></liveurl>
             <devurl/>
-            <thumbDir>images/design/ninavidal/th</thumbDir>
-            <xlDir>images/design/ninavidal</xlDir>
+            <thumbDir>/wwwroot/images/design/ninavidal/th</thumbDir>
+            <xlDir>/wwwroot/images/design/ninavidal</xlDir>
             <copyright></copyright>
             <industries>music</industries>
             <startdate>January 2005</startdate>
@@ -76,15 +76,15 @@
             <devtools>Photoshop</devtools>
             <team>Design:E.A.Taylor</team>
             <desc></desc>
-            <thumbSrc>images/design/ninavidal/th/nina_back1.jpg,images/design/ninavidal/th/nina_back2.jpg,images/design/ninavidal/th/nina_back3.jpg,images/design/ninavidal/th/nina_back4.jpg,images/design/ninavidal/th/nina_back5.jpg,images/design/ninavidal/th/nina_back6.jpg,images/design/ninavidal/th/nina_back7.jpg,images/design/ninavidal/th/nina_flyer_finalBack.jpg,images/design/ninavidal/th/nina_front10.jpg,images/design/ninavidal/th/nina_front2.jpg,images/design/ninavidal/th/nina_front3.jpg,images/design/ninavidal/th/nina_front4.jpg,images/design/ninavidal/th/nina_front5.jpg,images/design/ninavidal/th/nina_front8.jpg,images/design/ninavidal/th/nina_front9.jpg</thumbSrc>
-            <xlSrc>images/design/ninavidal/nina_back1.gif,images/design/ninavidal/nina_back1.jpg,images/design/ninavidal/nina_back2.gif,images/design/ninavidal/nina_back2.jpg,images/design/ninavidal/nina_back3.gif,images/design/ninavidal/nina_back3.jpg,images/design/ninavidal/nina_back4.gif,images/design/ninavidal/nina_back4.jpg,images/design/ninavidal/nina_back5.gif,images/design/ninavidal/nina_back6.gif,images/design/ninavidal/nina_back7.gif,images/design/ninavidal/nina_flyer_finalBack.jpg,images/design/ninavidal/nina_front1.gif,images/design/ninavidal/nina_front1.jpg,images/design/ninavidal/nina_front10.jpg,images/design/ninavidal/nina_front2.gif,images/design/ninavidal/nina_front2.jpg,images/design/ninavidal/nina_front3-5.jpg,images/design/ninavidal/nina_front3.gif,images/design/ninavidal/nina_front3.jpg,images/design/ninavidal/nina_front4.gif,images/design/ninavidal/nina_front4.jpg,images/design/ninavidal/nina_front5.gif,images/design/ninavidal/nina_front5.jpg,images/design/ninavidal/nina_front6.gif,images/design/ninavidal/nina_front6.jpg,images/design/ninavidal/nina_front7.jpg,images/design/ninavidal/nina_front8.jpg,images/design/ninavidal/nina_front9.jpg,images/design/ninavidal/nina_mock1.gif,images/design/ninavidal/nina_mock2.gif,images/design/ninavidal/nina_mock3.gif,images/design/ninavidal/nina_mock4.gif,images/design/ninavidal/nina_mock5.gif,images/design/ninavidal/nina_mock7.gif,images/design/ninavidal/nina_mock9.jpg</xlSrc>
+            <thumbSrc>/wwwroot/images/design/ninavidal/th/nina_back1.jpg,/wwwroot/images/design/ninavidal/th/nina_back2.jpg,/wwwroot/images/design/ninavidal/th/nina_back3.jpg,/wwwroot/images/design/ninavidal/th/nina_back4.jpg,/wwwroot/images/design/ninavidal/th/nina_back5.jpg,/wwwroot/images/design/ninavidal/th/nina_back6.jpg,/wwwroot/images/design/ninavidal/th/nina_back7.jpg,/wwwroot/images/design/ninavidal/th/nina_flyer_finalBack.jpg,/wwwroot/images/design/ninavidal/th/nina_front10.jpg,/wwwroot/images/design/ninavidal/th/nina_front2.jpg,/wwwroot/images/design/ninavidal/th/nina_front3.jpg,/wwwroot/images/design/ninavidal/th/nina_front4.jpg,/wwwroot/images/design/ninavidal/th/nina_front5.jpg,/wwwroot/images/design/ninavidal/th/nina_front8.jpg,/wwwroot/images/design/ninavidal/th/nina_front9.jpg</thumbSrc>
+            <xlSrc>/wwwroot/images/design/ninavidal/nina_back1.gif,/wwwroot/images/design/ninavidal/nina_back1.jpg,/wwwroot/images/design/ninavidal/nina_back2.gif,/wwwroot/images/design/ninavidal/nina_back2.jpg,/wwwroot/images/design/ninavidal/nina_back3.gif,/wwwroot/images/design/ninavidal/nina_back3.jpg,/wwwroot/images/design/ninavidal/nina_back4.gif,/wwwroot/images/design/ninavidal/nina_back4.jpg,/wwwroot/images/design/ninavidal/nina_back5.gif,/wwwroot/images/design/ninavidal/nina_back6.gif,/wwwroot/images/design/ninavidal/nina_back7.gif,/wwwroot/images/design/ninavidal/nina_flyer_finalBack.jpg,/wwwroot/images/design/ninavidal/nina_front1.gif,/wwwroot/images/design/ninavidal/nina_front1.jpg,/wwwroot/images/design/ninavidal/nina_front10.jpg,/wwwroot/images/design/ninavidal/nina_front2.gif,/wwwroot/images/design/ninavidal/nina_front2.jpg,/wwwroot/images/design/ninavidal/nina_front3-5.jpg,/wwwroot/images/design/ninavidal/nina_front3.gif,/wwwroot/images/design/ninavidal/nina_front3.jpg,/wwwroot/images/design/ninavidal/nina_front4.gif,/wwwroot/images/design/ninavidal/nina_front4.jpg,/wwwroot/images/design/ninavidal/nina_front5.gif,/wwwroot/images/design/ninavidal/nina_front5.jpg,/wwwroot/images/design/ninavidal/nina_front6.gif,/wwwroot/images/design/ninavidal/nina_front6.jpg,/wwwroot/images/design/ninavidal/nina_front7.jpg,/wwwroot/images/design/ninavidal/nina_front8.jpg,/wwwroot/images/design/ninavidal/nina_front9.jpg,/wwwroot/images/design/ninavidal/nina_mock1.gif,/wwwroot/images/design/ninavidal/nina_mock2.gif,/wwwroot/images/design/ninavidal/nina_mock3.gif,/wwwroot/images/design/ninavidal/nina_mock4.gif,/wwwroot/images/design/ninavidal/nina_mock5.gif,/wwwroot/images/design/ninavidal/nina_mock7.gif,/wwwroot/images/design/ninavidal/nina_mock9.jpg</xlSrc>
         </item>
         <item>
             <title>WSCC</title>
             <liveurl></liveurl>
             <devurl/>
-            <thumbDir>images/design/wscc/th</thumbDir>
-            <xlDir>images/design/wscc</xlDir>
+            <thumbDir>/wwwroot/images/design/wscc/th</thumbDir>
+            <xlDir>/wwwroot/images/design/wscc</xlDir>
             <copyright>WSCC</copyright>
             <industries>health</industries>
             <startdate>January 2006</startdate>
@@ -92,15 +92,15 @@
             <devtools>Illustrator, Photoshop, Flash</devtools>
             <team>Design:E.A.Taylor</team>
             <desc></desc>
-            <thumbSrc>images/design/wscc/th/wscc_bizcard_front.jpg,images/design/wscc/th/wscc_flyer.jpg</thumbSrc>
-            <xlSrc>images/design/wscc/wscc_bizcard_front.jpg,images/design/wscc/wscc_flyer.jpg</xlSrc>
+            <thumbSrc>/wwwroot/images/design/wscc/th/wscc_bizcard_front.jpg,/wwwroot/images/design/wscc/th/wscc_flyer.jpg</thumbSrc>
+            <xlSrc>/wwwroot/images/design/wscc/wscc_bizcard_front.jpg,/wwwroot/images/design/wscc/wscc_flyer.jpg</xlSrc>
         </item>
         <item>
             <title>Traffic</title>
             <liveurl>http://www.taylormadetraffic.com/TMT/Traffic/</liveurl>
             <devurl/>
-            <thumbDir>images/design/traffic/th</thumbDir>
-            <xlDir>images/design/traffic</xlDir>
+            <thumbDir>/wwwroot/images/design/traffic/th</thumbDir>
+            <xlDir>/wwwroot/images/design/traffic</xlDir>
             <industries>music,art,events</industries>
             <copyright>TaylorMadeTraffic</copyright>
             <startdate>August 2003</startdate>
@@ -118,15 +118,15 @@
             <devurl></devurl>
             <client>SuperWashingWell Laundromat</client>
             <copyright>TaylorMadeTraffic</copyright>
-            <thumbDir>images/sites/lealtad/th</thumbDir>
-            <xlDir>images/sites/lealtad</xlDir>
+            <thumbDir>/wwwroot/images/sites/lealtad/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/lealtad</xlDir>
             <startdate>May 2013</startdate>
             <launchdate></launchdate>
             <industries>ecommerce,marketing,analytics</industries>
-            <devtools>Native Android SDK,Java,Facebook SDK,Chord Framework,All-Share Frameword</devtools>
+            <devtools>Native Android SDK,Java,Facebook SDK,Chord Framework,All-Share Framework</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development: Sam Taylor</team>
             <desc>A tool for independent retailers to publish and track promotions, along with their returned value and cost. For consumers, LealtadCard provides a way to search nearby promotions and publish their own controlled requests for good deals.</desc>
-            <technotes>The promotions can be sent via SMS and Galaxy's Chord Framework. The interface and CMS is still in development.</technotes>
+            <technotes>The promotions could be sent via SMS or Galaxy's Chord Framework. The interface and CMS is still in development.</technotes>
         </item>
     
         <item>
@@ -134,12 +134,12 @@
             <liveurl>http://trackauthoritymusic.com</liveurl>
             <devurl></devurl>
             <copyright>TaylorMadeTraffic</copyright>
-            <thumbDir>images/sites/ta/th</thumbDir>
-            <xlDir>images/sites/ta</xlDir>
+            <thumbDir>/wwwroot/images/sites/ta/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/ta</xlDir>
             <startdate>November 2012</startdate>
             <launchdate>January 2013</launchdate>
             <industries>music,events,gaming</industries>
-            <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Bash,Android WebView,Facebook SDK</devtools>
+            <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Bash,jQuery Mobile,Facebook SDK</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:E.A.Taylor,Drew Williams</team>
             <desc>A music-gaming application that rewards high rated users with free music, gift certificates, concert tickets and cash. </desc>
             <technotes>The website's runs in a LAMP environment, and is highly optimized by several Bash scripts. One is run from a CRON to use ImageMagick for cropping and resizing images based on automated cue table maintained when a size or shape is requested that has not yet been cut.  Another is for re-indexing the music catalogue - of 20,000 songs and growing. It extends a tool called Beets to correct mp3 meta-data, download artwork and lyrics, and determine sound-wave averages such as BPM (beats-per-minute) and Replay Gain (used to determine average encoded decibel volume of the sound wave). The backend system also includes an asynchronous email service which I linked seamlessly to the front-end webpage templates with a CSS inliner script. The site scales very well to all screen widths above 320 pixels wide, but I am well underway with a native Android version of the player with 0-100 scale music ratings to refine the rotation of songs.</technotes>
@@ -152,15 +152,14 @@
             <client></client>
             <copyright>ID Interactive</copyright>
             <thumbDir></thumbDir>
-            <xlDir>images/sites/iddashboard</xlDir>
+            <xlDir>/wwwroot/images/sites/iddashboard</xlDir>
             <startdate>July 2013</startdate>
             <launchdate>December 2013</launchdate>
             <industries>analytics</industries>
-            <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Google SDK,Facebook SDK,YouTube SDK,Twitter SDK,Laraval,</devtools>
+            <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Google Visualization,Google SDK,Facebook SDK,YouTube SDK,Twitter SDK,Laraval,</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:Juan Ruiz,Claudia Huertas;Project Management:Alejandra Farfan,David Duran</team>
-            <desc>The tool automates monthly reports due to Unilever, Kraft, and their other clients by aggregating data from all marketing channels and tracking tools such as Twitter, Facebook Insights, Google Anayltics, Youtube, and the Apple AppStore. </desc>
-            <technotes>Over 45 Google Visualization Graphs can be created in less than 10 seconds. By entering just a few project goals in the form of KPIs (Key Performance Indicators), graphs are automatically colorized in to indicate how they are performing. Project &amp; account managers can also using a simple CMS built within the reports to comment on specific metrics, add headers, group graphics, change sizes and drill on the data through AJAX connections to all the original API services. The permissions matrix is controlled per client, brand, and project with 6 levels of access, including publishing public reports with encrypted URLs. The original codebase was writen in the Laraval PHP Framework which somewhat resembles Ruby. I have since completely replaced that codebase with CodeIgniter.
-            </technotes>
+            <desc>The tool automates monthly reports due clients, by aggregating data from all active marketing channels or installed tracking tools, such as Twitter, Facebook Insights, Google Anayltics, Youtube, and the Apple AppStore. </desc>
+            <technotes>Over 45 Google Visualization Graphs can be created in less than 10 seconds. By entering just a few project goals in the form of KPIs (Key Performance Indicators), graphs are automatically colorized in to indicate how they are performing. Project &amp; account managers can also using a simple CMS built within the reports to comment on specific metrics, add headers, group graphics, change sizes and drill on the data through AJAX connections to all the original API services. The permissions matrix is controlled per client, brand, and project with 6 levels of access, including publishing public reports with encrypted URLs. The original codebase was writen in the Laraval PHP Framework which somewhat resembles Ruby. I have since completely replaced that codebase with CodeIgniter.</technotes>
         </item>
         
         <item>
@@ -170,14 +169,14 @@
             <client>ID Interactive</client>
             <copyright>Sedal</copyright>
             <thumbDir></thumbDir>
-            <xlDir>images/sites/sedal</xlDir>
+            <xlDir>/wwwroot/images/sites/sedal</xlDir>
             <startdate>June 2013</startdate>
             <launchdate>July 2013</launchdate>
             <industries>fashion,gaming</industries>
             <devtools>PHP,Slim Framework,mySQL,AJAX,JavaScript,Facebook SDK</devtools>
             <team>Design:Zandro Gil;Front-End:E.A.Taylor,Fabian Mariño;Back-End:E.A.Taylor;Project Management:Natalia Uribe</team>
             <desc>A curly-hair competition for a $250 shopping spree</desc>
-            <technotes>The site required liking Sedal's FanPpage and a regisration in order to upload videos, images, and stories. Voting was validated by IP, user agent, and cookie, while video uploads were POSTed to a public YouTube channel using their PHP SDK. The project extended ID's fork of the Slim Framework. I am not fond of such tightly namespaced PHP, nor using many closures for routing. However, the experience was an interesting introduction to the approach.</technotes>
+            <technotes>Another quick campaign application to generate FanPage likes. To compete users were required to like Sedal's FanPage, complete regisration, and upload videos, images, or a tip on maintaining their hair (ideally using Sedal products;). Voting was validated by IP, user agent, and PHP session, while video uploads were POSTed directly to a public YouTube channel using their PHP SDK. The project extended ID's fork of the Slim PHP Framework. I personally found more hurdles than helpers in the tightly namespaced codebase and odd use of closures for routing/controllers.</technotes>
         </item>        
 
         <item>
@@ -191,10 +190,10 @@
             <industries>gaming</industries>
             <devtools>PHP,mySQL,JavaScript</devtools>
             <team>Design:Cristopher Allen Lara;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Project Management:Oscar Gil;Account Manager:Sharon Lewis</team>
-            <desc>ID builds marketing platforms for a long list of great clients with creative projects and campaigns. One of the most fun I built in a quick 4 weeks was Oreo Navidad. The campaign was based on 20 million codes printed on Oreo packages throughout Colombia. There were 5 types of prizes to win in varying amounts with a total of 285 to give.  No one code could be considered a winner in advance, and the prizes should be distributed evenly throughout the ~60 day campaign. I wrote the probability to be related to the average number of people playing daily and distributed all prizes - by number and type – evenly until the last day.</desc>
-            <technotes>A search against the 20 million codes took .00020 seconds, and the site supported business rules such as Catpcha when a user searched more than 12 times in a day. I also included several backend tracking tools to and secure testing tools to simulate varying degrees of traffic, code searches, and minimum probabilities.</technotes>
+            <desc>IDinteractive builds marketing platforms for a long list of great clients with creative projects and campaigns. One of the most fun I built in a quick 4 weeks was <em>Oreo Navidad</em>. The campaign was based on 20 million codes printed on Oreo packages throughout Colombia. There were 5 types of prizes to win in varying amounts with a total of 285 to give.  No one code could be considered a winner in advance, and the prizes should be distributed evenly throughout the ~60 day campaign. I wrote the probability to be related to the average number of people playing daily and distributed all prizes - by number and type – evenly until the last day.</desc>
+            <technotes>A search against the 20 million codes took .00020 seconds, and the site supported business rules such as Catpcha when a user searched more than 12 times in a day. I also included several backend tracking tools and a automated QA tester to simulate varying degrees of traffic, code searches, and minimum probabilities.</technotes>
             <thumbSrc></thumbSrc>
-            <xlDir>images/sites/ganaoreo</xlDir>
+            <xlDir>/wwwroot/images/sites/ganaoreo</xlDir>
         </item>
         
         <item>
@@ -213,7 +212,7 @@
                 <li>The Collectiv currently sponsors three programs, Collectiv Records, Collectiv Arts & Entertainment and Collectiv Foundation. Each of these programs occupies a distinct niche within the Hip Hop community.</li>
                 </ul>]]>
             </desc>
-            <xlDir>images/sites/collectiv</xlDir>
+            <xlDir>/wwwroot/images/sites/collectiv</xlDir>
         </item>        
     
         <item>
@@ -221,8 +220,8 @@
             <liveurl>http://www.healthline.com/corporate/navigator/prod/demo.html</liveurl>
             <devurl></devurl>
             <copyright>Healthline Networks</copyright>
-            <thumbDir>images/sites/hlnavigator/th</thumbDir>
-            <xlDir>images/sites/hlnavigator</xlDir>
+            <thumbDir>/wwwroot/images/sites/hlnavigator/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/hlnavigator</xlDir>
             <startdate>May 2009</startdate>
             <launchdate>July 2012</launchdate>
             <industries>health,marketing</industries>
@@ -246,12 +245,12 @@
             <liveurl>http://nav.healthline.com/healthstat/nav/dashboard/login</liveurl>
             <devurl></devurl>
             <copyright>Healthline Networks</copyright>
-            <thumbDir>images/sites/hldashboard/th</thumbDir>
-            <xlDir>images/sites/hldashboard</xlDir>
+            <thumbDir>/wwwroot/images/sites/hldashboard/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/hldashboard</xlDir>
             <startdate>May 2009</startdate>
             <launchdate>July 2012</launchdate>
             <industries>health,analytics,marketing</industries>
-            <devtools>Java,Spring,Oracle,JavaScript,AJAX</devtools>
+            <devtools>Java,Spring,Oracle,JavaScript,AJAX,jQuery Mobile</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor</team>
             <desc>Dashboard is a Content-Management-System and debugging tool for reviewing Navigator, healthSTAT, and internal crawler's performance across various installations.</desc>
             <technotes>
@@ -266,12 +265,12 @@
             <liveurl>http://www.healthline.com/corporate/navigator/prod/crawler.html?domain=healthline</liveurl>
             <devurl></devurl>
             <copyright>Healthline Networks</copyright>
-            <thumbDir>images/sites/hlcomputeqa/th</thumbDir>
-            <xlDir>images/sites/hlcomputeqa</xlDir>
+            <thumbDir>/wwwroot/images/sites/hlcomputeqa/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/hlcomputeqa</xlDir>
             <startdate>May 2009</startdate>
             <launchdate>July 2012</launchdate>
             <industries>analytics</industries>
-            <devtools>WebSQL-lite,JavaScript,Google Chrome Extension,LocalStorage</devtools>
+            <devtools>WebSQL-lite,JavaScript,Google Chrome Extension,jQuery Mobile,LocalStorage</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor</team>
             <desc>A Google Chrome Extension and browser-based Crawler to automate QA of both source code, flash ads, any JavaScript installation.</desc>
             <technotes>
@@ -293,12 +292,12 @@
             <devurl></devurl>
             <status></status>
             <copyright>TaylorMadeTraffic</copyright>
-            <thumbDir>images/sites/studioenvivo/th</thumbDir>
-            <xlDir>images/sites/studioenvivo</xlDir>
+            <thumbDir>/wwwroot/images/sites/studioenvivo/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/studioenvivo</xlDir>
             <startdate>August 2013</startdate>
             <launchdate></launchdate>
             <industries>music,gaming</industries>
-            <devtools>Native Android SDK,Java,Chord Framework,All-Share Frameword</devtools>
+            <devtools>Native Android SDK,Java,Chord Framework,All-Share Framework</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
             <desc>An mobile beat machine to create and share music with friends</desc>
             <technotes>The music is shared a runtime using Galaxy's All-Share and Chord Framework</technotes>
@@ -310,8 +309,8 @@
             <devurl>http://www.healthline.com/corporate/widgets/OptumTools/demo.html</devurl>
             <client>Healthline Networks</client>
             <copyright>OptumHealth</copyright>
-            <thumbDir>images/sites/hlnumbers/th</thumbDir>
-            <xlDir>images/sites/hlnumbers</xlDir>
+            <thumbDir>/wwwroot/images/sites/hlnumbers/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/hlnumbers</xlDir>
             <startdate>May 2010</startdate>
             <launchdate>July 2011</launchdate>
             <devtools>Flex,AS3</devtools>
@@ -326,8 +325,8 @@
             <liveurl>http://www.healthline.com/tournaments/healthy-frozen-dinners-tournament</liveurl>
             <devurl>http://www.healthline.com/channel/healthy-fast-food-video</devurl>
             <copyright>Healthline Networks</copyright>
-            <thumbDir>images/sites/hlfastfood/th</thumbDir>
-            <xlDir>images/sites/hlfastfood</xlDir>
+            <thumbDir>/wwwroot/images/sites/hlfastfood/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/hlfastfood</xlDir>
             <startdate>May 2010</startdate>
             <launchdate>July 2011</launchdate>
             <devtools>Flex,AS3</devtools>
@@ -341,9 +340,9 @@
             <liveurl>flash.taylormadetraffic.com</liveurl>
             <devurl></devurl>
             <industries>art</industries>
-            <copyright>Healthline Networks</copyright>
-            <thumbDir>images/sites/tmm-flash/th</thumbDir>
-            <xlDir>images/sites/tmm-flash</xlDir>
+            <copyright>TaylorMadeTraffic</copyright>
+            <thumbDir>/wwwroot/images/sites/tmm-flash/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/tmm-flash</xlDir>
             <startdate>August 2009</startdate>
             <launchdate>October 2009</launchdate>
             <devtools>Flex,AS3</devtools>
@@ -357,8 +356,8 @@
             <devurl>http://www.weddinglocations.com/clientpass/index.php</devurl>
             <client>Noospheric LLC</client>
             <copyright>Elite Wedding Locations</copyright>
-            <thumbDir>images/sites/wl/th</thumbDir>
-            <xlDir>images/sites/wl</xlDir>
+            <thumbDir>/wwwroot/images/sites/wl/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/wl</xlDir>
             <startdate>May 2009</startdate>
             <launchdate>July 2009</launchdate>
             <industries>analytics,marketing</industries>
@@ -372,8 +371,8 @@
             <liveurl>http://www.blackpanther.org</liveurl>
             <devurl>http://skye.taylormadetraffic.com/bpp/</devurl>
             <client>Huey P. Newton Foundation</client>
-            <thumbDir>images/sites/bpp/th</thumbDir>
-            <xlDir>images/sites/bpp</xlDir>
+            <thumbDir>/wwwroot/images/sites/bpp/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/bpp</xlDir>
             <startdate>July 2009</startdate>
             <launchdate>August 2009</launchdate>
             <industries>education,ecommerce</industries>
@@ -388,8 +387,8 @@
             <devurl></devurl>
             <copyright>Noospheric LLC</copyright>
             <copyright>ChartMedica LLC</copyright>
-            <thumbDir>images/sites/cm/th</thumbDir>
-            <xlDir>images/sites/cm</xlDir>
+            <thumbDir>/wwwroot/images/sites/cm/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/cm</xlDir>
             <industries>health</industries>
             <startdate>March 2009</startdate>
             <launchdate>October 2009</launchdate>
@@ -405,8 +404,8 @@
             <client>Berkeley High School</client>
             <copyright>TaylorMadeTraffic</copyright>
             <license_id>1</license_id>
-            <thumbDir>images/sites/means/th</thumbDir>
-            <xlDir>images/sites/means</xlDir>
+            <thumbDir>/wwwroot/images/sites/means/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/means</xlDir>
             <industries>education,e-learning</industries>
             <startdate>September 2008</startdate>
             <launchdate>February 2009</launchdate>
@@ -422,8 +421,8 @@
             <devurl></devurl>
             <copyright>MyCubi</copyright>
             <license_id>1</license_id>
-            <thumbDir>images/sites/mycubi/th</thumbDir>
-            <xlDir>images/sites/mycubi</xlDir>
+            <thumbDir>/wwwroot/images/sites/mycubi/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/mycubi</xlDir>
             <startdate>September 2009</startdate>
             <launchdate>January 2010</launchdate>
             <devtools>PHP,CodeIgniter,mySQL,Facebook SDK,JavaScript,AJAX</devtools>
@@ -451,8 +450,8 @@
             <client></client>
             <copyright>Planet Maple</copyright>
             <license_id>1</license_id>
-            <thumbDir>images/sites/pm/th</thumbDir>
-            <xlDir>images/sites/pm</xlDir>
+            <thumbDir>/wwwroot/images/sites/pm/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/pm</xlDir>
             <industries>sports,ecommerce</industries>
             <startdate>March 2010</startdate>
             <launchdate>June 2010</launchdate>
@@ -468,8 +467,8 @@
             <devurl/>
             <client></client>
             <copyright>BCBGMaxAzriaGroup</copyright>
-            <thumbDir>images/sites/bcbg/th</thumbDir>
-            <xlDir>images/sites/bcbg</xlDir>
+            <thumbDir>/wwwroot/images/sites/bcbg/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/bcbg</xlDir>
             <startdate>April 2008</startdate>
             <launchdate>August 2008</launchdate>
             <devtools>AS2,PHP,mySQL</devtools>
@@ -493,8 +492,8 @@
             <devurl/>
             <client>BCBGMaxAzriaGroup</client>
             <copyright>HerveLeger</copyright>
-            <thumbDir>images/sites/herveleger/th</thumbDir>
-            <xlDir>images/sites/herveleger</xlDir>
+            <thumbDir>/wwwroot/images/sites/herveleger/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/herveleger</xlDir>
             <startdate>July 2008</startdate>
             <launchdate>August 2008</launchdate>
             <devtools>AS2,PHP,mySQL</devtools>
@@ -509,8 +508,8 @@
             <devurl/>
             <client></client>
             <copyright>Building Safety Solutions</copyright>
-            <thumbDir>images/sites/bss/th</thumbDir>
-            <xlDir>images/sites/bss</xlDir>
+            <thumbDir>/wwwroot/images/sites/bss/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/bss</xlDir>
             <startdate>August 2008</startdate>
             <launchdate>December 2008</launchdate>
             <devtools>AS2,JSFL,Scorm</devtools>
@@ -531,8 +530,8 @@
             <liveurl></liveurl>
             <devurl></devurl>
             <copyright>TaylorMadeTraffic</copyright>
-            <thumbDir>images/sites/ae/th</thumbDir>
-            <xlDir>images/sites/ae</xlDir>
+            <thumbDir>/wwwroot/images/sites/ae/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/ae</xlDir>
             <startdate>August 2004</startdate>
             <industries>education,e-learning</industries>
             <launchdate></launchdate>
@@ -547,8 +546,8 @@
             <devurl/>
             <client></client>
             <copyright>Good Life With Gabby</copyright>
-            <thumbDir>images/sites/gabby/th</thumbDir>
-            <xlDir>images/sites/gabby</xlDir>
+            <thumbDir>/wwwroot/images/sites/gabby/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/gabby</xlDir>
             <startdate>August 2008</startdate>
             <launchdate>January 2009</launchdate>
             <industries>kids,health</industries>
@@ -563,8 +562,8 @@
             <devurl>http://www.ruthraser.com/newRaser.html</devurl>
             <copyright>Ruth Raser</copyright>
             <industries>fashion</industries>
-            <thumbDir>images/sites/ruth/th</thumbDir>
-            <xlDir>images/sites/ruth</xlDir>
+            <thumbDir>/wwwroot/images/sites/ruth/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/ruth</xlDir>
             <startdate>May 2008</startdate>
             <launchdate>June 2009</launchdate>
             <devtools>AS3,Flex</devtools>
@@ -576,8 +575,8 @@
             <liveurl></liveurl>
             <devurl/>
             <copyright>Margaret Timbrell</copyright>
-            <thumbDir>images/sites/margaret/th</thumbDir>
-            <xlDir>images/sites/margaret</xlDir>
+            <thumbDir>/wwwroot/images/sites/margaret/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/margaret</xlDir>
             <startdate>January 2009</startdate>
             <launchdate>February 2009</launchdate>
             <devtools>AS3</devtools>
@@ -590,8 +589,8 @@
             <liveurl></liveurl>
             <devurl/>
             <copyright>Fuse Green</copyright>
-            <thumbDir>images/sites/fuse/th</thumbDir>
-            <xlDir>images/sites/fuse</xlDir>
+            <thumbDir>/wwwroot/images/sites/fuse/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/fuse</xlDir>
             <startdate>March 2009</startdate>
             <launchdate>April 2009</launchdate>
             <industries>art,fashion</industries>
@@ -604,8 +603,8 @@
             <liveurl></liveurl>
             <devurl></devurl>
             <copyright>Ankh Marketing</copyright>
-            <thumbDir>images/sites/ankh/th</thumbDir>
-            <xlDir>images/sites/ankh</xlDir>
+            <thumbDir>/wwwroot/images/sites/ankh/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/ankh</xlDir>
             <startdate>April 2004</startdate>
             <launchdate>February 2006</launchdate>
             <devtools>AS2</devtools>

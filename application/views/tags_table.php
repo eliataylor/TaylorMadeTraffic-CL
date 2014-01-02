@@ -1,16 +1,19 @@
-<table class="tablesorter">
+<table class="tablesorter tags_table">
     <thead><tr>            
             <?php $index = 1;?>
             <? foreach ($headers as $key=>$head): ?>
-                <th class="col<?=$index?> <?= $key ?> <?= ($key=='tag_date' && $qtags == 'companies') ? 'headerSortUp' : ''; ?>">
-                    <?=($key != "tag_key") ? $head : ''; ?>
+                <th class="col<?=$index?> <?= $key ?> <?= ($key=='tag_date' && $qtags == 'companies') ? 'headerSortUp' : 
+                                                          ($key=='tag_key' && $qtags != 'companies') ? 'headerSortDown' : ''; ?>"
+
+                    
+                    >
+                    <?=($key != "tag_key") ? $head : '<p>'.$this->lang->line('Tags').'</p>'; ?>
                 </th>
             <? $index++;  endforeach; ?>
         </tr></thead>        
     <tbody id="tableBody">
-        <? foreach ($tableRows as $index=>$row): ?>
-            <tr class="spacer static"><? foreach ($headers as $head): ?><td></td><?endforeach?></tr>
-            <tr id="tag_<?=$index?>" data-qtype="<?=$row->tag_type?>" data-qtfilter="<?=$row->tag_key?>" >
+        <? foreach ($tableRows as $rowNum=>$row): ?>
+            <tr class="<?=($rowNum&1)?'odd' : 'even'?>" id="tag_<?=$rowNum?>" data-qtype="<?=$row->tag_type?>" data-qtfilter="<?=$row->tag_key?>" >
                 <?php $index = 1; ?>
                 <? foreach ($headers as $key=> $head): ?>
                         <td class="col<?=$index?> <?= $key ?>">    
@@ -27,7 +30,6 @@
                         <?php $index++; ?>
                 <? endforeach; ?>
             </tr>
-            <tr class="spacer static"><? foreach ($headers as $head): ?><td></td><?endforeach?></tr>
             <? endforeach; ?>
     </tbody>
 </table>
