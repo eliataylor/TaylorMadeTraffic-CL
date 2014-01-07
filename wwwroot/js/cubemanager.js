@@ -1,5 +1,6 @@
 (function(wrap, cont) {   
     cont[wrap] = { 
+        tNotice : 0,
         spinDeg : 0,
         growInterval : null,
         spinInterval : null,
@@ -410,7 +411,35 @@
             tmt.spinInterval = next;
             document.getElementById("taPreloader").style.backgroundPosition = "0 -" + (next * 175) + "px";
             setTimeout('tmt.showTaPreloader(false);', 50);                        
-        }          
+        },
+        softNotice : function(msg, stayopen) {
+            var html = "";
+            if (typeof msg == 'object') {
+                for(var i in msg) {
+                    html += "<p class='"+i+"'>" + msg[i] + "</p>";
+                }
+            } else {
+                html = msg;
+                if (msg.length < 30) $("#softNoticeBody").css({'font-size':30});
+                else $("#softNoticeBody").css({'font-size':15});
+            }
+            $("#softNoticeBody").html(html);
+            $("#softNotice").fadeIn();
+            tmt.tNotice = 1;
+            if (!stayopen) tmt.closeNoticeIf();
+        }, 
+        closeNoticeIf : function() {
+            if (tmt.tNotice > 4) {
+                $('#softNotice').fadeOut(400);
+                tmt.tNotice = -1;
+            } else if (tmt.tNotice > -1) {
+                tmt.tNotice++;
+                setTimeout("tmt.closeNoticeIf();", 1000);
+            }
+        }, closeNotice : function() {
+            tmt.tNotice = -1;
+            $("#softNotice").fadeOut();
+        }
     };
 })("tmt", this);
         

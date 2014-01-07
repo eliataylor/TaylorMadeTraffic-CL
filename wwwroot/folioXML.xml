@@ -111,7 +111,86 @@
         </item>
     </design>
     <development>
-      
+
+        <item>
+            <title>LenguaPlus</title>
+            <liveurl></liveurl>
+            <devurl>https://github.com/taylormadetraffic/TaylorMadeTraffic-CL</devurl>
+            <status></status>
+            <client>ID Interactive</client>
+            <copyright>Track Authority Music</copyright>
+            <xlDir>/wwwroot/images/sites/lenguaplus</xlDir>
+            <startdate>December 2012</startdate>
+            <launchdate>December 2013</launchdate>
+            <industries>language</industries>
+            <devtools>PHP,mySQL,CodeIgniter,Google SDK</devtools>
+            <team>Front-End:E.A.Taylor;Back-End:E.A.Taylor</team>
+            <desc>A plugin for CodeIgniter that manages translations of system copy and user-generated content. It was built within Track Authority, this site, and extended for Interactive's Dashboard project in order to version control text changes by authorized user/authors</desc>
+            <technotes>
+                 <![CDATA[<ul>
+                 
+                 
+                <li>                
+                    How To Use:
+                    <ul>
+                        <li>$this->lang->line('some_key')</li>
+                        <li>$this->lang->es('Texto en Espanol')</li>
+                        <li>$this->lang->en('Text in English')</li>
+                        <li>$this->lang->ugc($user generated text)</li>
+                    </ul>                
+                </li>
+                 
+                <li>
+                    Required Files
+                    <ul>
+                        <li>/application/core/Lang.php</li>
+                        <li>/application/controllers/*</li>
+                        <li>/application/models/*</li>
+                        <li>/application/views/*</li>
+                        <li>/application/config/lenguaplus.php</li>
+                        <li>/wwwroot/js/lenguaplus.js</li>
+                        <li>/wwwroot/css/lenguaplus.css</li>
+                        <li>/application/libraries/Thisvisitor.php</li>
+                        <li>/application/language/en/*,/application/language/es/*</li>
+                    </ul>                                
+                
+                </li>
+                <li>                
+                    Configurations
+                    <ul>
+                        <li>USE_MSG_DATABASE: Whether to use translated text messages found in the database, as opposed to the static language files. This slows down performance since each key requires a query. Default: FALSE</li>
+                        <li>USE_UGC_DATABASE: Whether to use translated user-generated-content stored in the database, as opposed to the static language files. This slows down performance since each key requires a query. Default: FALSE</li>
+                        <li>TRACK_MSG_PRODUCTION: Whether to conditionally insert text messages from the system on production environments. This slows down performance since each key requires a query. Default: FALSE</li>
+                        <li>TRACK_UGC_PRODUCTION: Whether to conditionally insert text messages from user-generated-content on production environments. This slows down performance since each key requires a query. Default: FALSE</li>
+                    </ul>                
+                </li>
+                
+                <li>                
+                    Installation
+                    <ul>
+                        <li>Run application/models/lenguaplus.sql</li>
+                        <li>Copy the required files into your CodeIgniter project</li>
+                        <li>Adding your routing: $route['language(|.+?)'] = 'LenguaPlusController';</li>
+                        <li>Autoload:
+                            <ul>
+                            <li>$autoload['libraries'] = array('database', 'session', 'Thisvisitor');</li>
+                            <li>$autoload['helper'] = array('url', 'viewutils');</li>
+                            <li>$autoload['model'] = array('LenguaPlus_model');</li>
+                            </ul>
+                        </li>
+                    </ul>                
+                </li>
+                
+                <li>                
+                    GIT Checkout
+                    <p>https://github.com/taylormadetraffic/TaylorMadeTraffic-CL.git</p>
+                    <p>I'll eventually setup a dedicated repository for this project that doubles as these Docs. However, find the code for LenguaPlus and this website <a href='https://github.com/taylormadetraffic/TaylorMadeTraffic-CL'>here</a>: https://github.com/taylormadetraffic/TaylorMadeTraffic-CL.git</p>
+                </li>                
+                                
+                </ul>]]>
+            </technotes>
+        </item>
+        
         <item>
             <title>LealtadCard</title>
             <liveurl></liveurl>
@@ -208,7 +287,7 @@
             <team>Design:Jamie Williams,E.A.Taylor;Front-End:Jamie Williams,E.A.Taylor;Back-End:Jamie Williams;Project Management:Eli Taylor,Drew Williams,Tommy Goodwin</team>
             <desc>
                  <![CDATA[<ul>
-                <li>The Collectiv was born in the summer of 2001 in Oakland, CA. Our organization was founded by A. Williams, aka Sokrates, with a mission to "empower the Hip Hop community through education and entrepreneurship." We pursue this mission by sponsoring a diverse range of programs with distinct yet cooperative goals. We work with young entrepreneurs, activists and artists to design financially viable programs that will provide new opportunities for empowerment. We seek to create the perfect environment for turning an idea into impact.
+                <li>The Collectiv was born in the summer of 2001 in Oakland, CA. Our organization was founded by A. Williams, aka Sokrates, with a mission to "empower the Hip Hop community through education and entrepreneurship." We pursue this mission by sponsoring a diverse range of programs with distinct yet cooperative goals. We work with young entrepreneurs, activists and artists to design financially viable programs that will provide new opportunities for empowerment. We seek to create the perfect environment for turning an idea into impact.</li>
                 <li>The Collectiv currently sponsors three programs, Collectiv Records, Collectiv Arts & Entertainment and Collectiv Foundation. Each of these programs occupies a distinct niche within the Hip Hop community.</li>
                 </ul>]]>
             </desc>

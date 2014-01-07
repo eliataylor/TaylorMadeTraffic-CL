@@ -171,8 +171,8 @@ table .header { width:auto; color:#a0a09f;}
 .narrowscreen .tablesorter h3 {font-size: 200%;margin: 10px 0;}
 table{ border-collapse:collapse; }
 /* tr.odd { border-top:1px solid #a0a09f; border-bottom:1px solid #a0a09f;  } */
-.pBlack .tags_table td.col1 { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 100%); }
-.pBlack .tags_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 0%, #2b2b2b 100%); }
+.pBlack .tags_table td.col1 { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 90%); }
+.pBlack .tags_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 0%, #2b2b2b 90%); }
 
 .pBlack .tags_table tr.odd .col1, .pBlack .tags_table tr.odd .col3 { background:black; }
 

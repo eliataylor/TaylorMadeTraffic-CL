@@ -13,38 +13,41 @@ class Projects extends CI_Controller {
 
     function _remap() {
         $this->data['qmenu'] = array(
-            "" => array("role" => 0, 'icon'=>'' , "title" => $this->lang->line("Technologies"), "method" => "technologies"),
-            "creative" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Cube Animation"), "method" => "staticPage"),
-            "settings" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Settings"), "method" => "viewSettings"),
+            "" => array("role" => 0, 'icon'=>'' , "title" => $this->lang->en("Technologies"), "method" => "technologies"),
+            "creative" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Cube Animation"), "method" => "staticPage"),
+            "settings" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Settings"), "method" => "viewSettings"),
             
-            "technologies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Technologies"), "method" => "technologies"),
-            "years" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Years"), "method" => "years"),
-            "companies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Companies"), "method" => "companies"),
-            "industries" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->line("Industries"), "method" => "industries"),
+            "technologies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Technologies"), "method" => "technologies"),
+            "years" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Years"), "method" => "years"),
+            "companies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Companies"), "method" => "companies"),
+            "industries" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Industries"), "method" => "industries"),
             
-            "taylormade" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("TaylorMade"), "method" => "taylormade"),
-            "eli" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Eli"), "method" => "eli"),
+            "taylormade" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("TaylorMade"), "method" => "taylormade"),
+            "eli" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Eli"), "method" => "eli"),
 
-            "projects" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Projects"), "method" => "projects"),
+            "projects" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Projects"), "method" => "projects"),
             
-            "team" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Team"), "method" => "team"),
-            "roles" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->line("Roles"), "method" => "team"),
+            "team" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Team"), "method" => "team"),
+            "roles" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Roles"), "method" => "team"),
             
-            "cv-format" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("CV"), "method" => "cvPrint"),
-            "stylesheet" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->line("stylesheet"), "method" => "stylesheet"),
-            "import" => array("role" => 1, 'icon'=>'', "title" => $this->lang->line("import"), "method" => "importXML")
+            "cv-format" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->en("CV"), "method" => "cvPrint"),
+            "stylesheet" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->en("stylesheet"), "method" => "stylesheet"),
+            "import" => array("role" => 1, 'icon'=>'', "title" => $this->lang->en("import"), "method" => "importXML")
         );
 
         $path = uri_string();
-        if (!isset($this->data['qmenu'][$path]))
-            array_push($this->data['errors'], $this->lang->line("page404"));
-        elseif ($this->data['qmenu'][$path]['role'] < 2) {
+        if (!isset($this->data['qmenu'][$path])) {
+            array_push($this->data['errors'], $this->lang->en("Page Not Found"));
+        } elseif ($this->data['qmenu'][$path]['role'] < 1){
             /* INSECURE PAGE. Do NOTHING */
-        } elseif (!$this->thisvisitor->auth($this->data['qmenu'][$path]['role']))
-            array_push($this->data['errors'], $this->lang->line("unauthorized"));
+        } elseif (!$this->thisvisitor->auth($this->data['qmenu'][$path]['role'])) {
+            array_push($this->data['errors'], $this->lang->en("unauthorized")); 
+            $this->data['docTitle'] = $this->lang->en("Login");
+            return $this->sendOut('loginForm');
+        }
         if (count($this->data['errors']) > 0) {
-            $this->data['docTitle'] = $this->lang->line("error");
-            return $this->sendOut('cv_projects', "cv_shell");
+            $this->data['docTitle'] = $this->lang->en("error");
+            return $this->sendOut('cms_shell');
         }
         $this->data['docTitle'] = $this->data['qmenu'][$path]['title'];
         if (!empty($this->data['qtfilter'])) $this->data['docTitle'] .= ' :: ' . $this->data['qtfilter'];
@@ -118,17 +121,17 @@ class Projects extends CI_Controller {
     public function team() {
         if (empty($this->data['qtfilter'])) {
             $this->data['headers'] = array(
-            'count'=>$this->lang->line("Total"),
+            'count'=>$this->lang->en("Total"),
             'tag_key'=>$this->data['docTitle'],
-            'tag_date'=>$this->lang->line("Last Used")
+            'tag_date'=>$this->lang->en("Last Used")
                 );            
             if ($this->data['qtags'] == "roles") $this->data['tableRows'] = $this->projects->getTagsTeamRoles();
             else $this->data['tableRows'] = $this->projects->getTagsTeamMembers();
             $this->sendOut('tags_table', 'cms_shell');
         } else{
-            $this->data['headers'] = array('image_src'=>$this->lang->line("Pics"));
-            if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->line("Info");
-            if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->line("Tags");
+            $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
+            if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
+            if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
             
             if ($this->data['qtags'] == "roles") $this->data['qtagOptions'] = $this->projects->getTagsTeamRoles();
             else $this->data['qtagOptions'] = $this->projects->getTagsTeamMembers();
@@ -187,18 +190,18 @@ class Projects extends CI_Controller {
 
     function getTableForTags() {
         $this->data['headers'] = array(
-            'count'=>$this->lang->line("Total"),
+            'count'=>$this->lang->en("Total"),
             'tag_key'=>$this->data['docTitle'],
-            'tag_date'=>$this->lang->line("Last Used")
+            'tag_date'=>$this->lang->en("Last Used")
                 );
         $this->data['tableRows'] = $this->projects->getTags($this->data['qtags']); 
     }
 
     function getTableForProjects() {        
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
-        $this->data['headers'] = array('image_src'=>$this->lang->line("Pics"));
-        if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->line("Info");
-        if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->line("Tags");
+        $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
+        if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
+        if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
         $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter']); 
     }
     
@@ -216,7 +219,27 @@ class Projects extends CI_Controller {
         libxml_use_internal_errors(true);
         $xml = simplexml_load_file("wwwroot/folioXML.xml");
         $html = '';
+        $complete = $this->input->get_post("complete");
+        if  ($complete) {
+            $this->data['tableRows'] = array();
+            foreach ($xml->children() as $child) {
+                $project_type = $child->getName(); // obsolete difference only in xml
+                foreach ($child->children() as $item) {
+                    $obj = new stdClass();
+                    foreach ($item->children() as $col) {
+                        $key = (strpos($col->getName(),'_id') < 1) ? 'project_' . $col->getName() : $col->getName();
+                        $col = (string)$col;
+                        if (!empty($col))  {
+                            $obj->$key = trim((string) $col);
+                        }
+                    }
+                    array_push($this->data['tableRows'], $obj);
+                }
+            } 
+            return $this->sendOut('cv_format', 'cv_format');
+        }
         foreach ($xml->children() as $child) {
+            
             $project_type = $child->getName(); // obsolete difference only in xml
             foreach ($child->children() as $item) {
                 if (!empty($item->technotes) || !empty($item->desc)) {
@@ -230,6 +253,7 @@ class Projects extends CI_Controller {
     }
 
     public function importXML() {
+        //die("DISABLED");
         libxml_use_internal_errors(true);
         $xml = simplexml_load_file("wwwroot/folioXML.xml");
 

@@ -7,7 +7,7 @@
 
                     
                     >
-                    <?=($key != "tag_key") ? $head : '<p>'.$this->lang->line('Tags').'</p>'; ?>
+                    <?=($key != "tag_key") ? $head : '<p>'.$this->lang->en('Tags').'</p>'; ?>
                 </th>
             <? $index++;  endforeach; ?>
         </tr></thead>        
@@ -19,9 +19,9 @@
                         <td class="col<?=$index?> <?= $key ?>">    
                         <?if ($key === "tag_key"):?>
                             <? if ($qtags == 'roles'):?>
-                            <a href='/roles?qtfilter=<?=$row->tag_key?>' ><?=ucwords($row->tag_key)?></a>
+                            <a href='/roles?qtfilter=<?=$row->tag_key?>' ><?=$this->lang->en(ucwords($row->tag_key))?></a>
                             <?else:?>
-                            <a href='/<?=(strpos($row->tag_type, 'team') === 0) ? 'team' : $row->tag_type;?>?qtfilter=<?=$row->tag_key?>' ><?=  ucwords($row->tag_key)?></a>
+                            <a href='/<?=(strpos($row->tag_type, 'team') === 0) ? 'team' : $row->tag_type;?>?qtfilter=<?=$row->tag_key?>' ><?=  $this->lang->en(ucwords($row->tag_key))?></a>
                             <?endif;?>
                         <?else:?>                            
                             <?= (!isset($row->$key) || empty($row->$key)) ? "" : ucwords(ellipse($row->$key, 40)) ?>

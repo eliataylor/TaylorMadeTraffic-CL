@@ -130,4 +130,3 @@ $lang['find_your_report'] = 'Encontras su reporto';
 $lang['here'] = 'aquí';
 
 $lang['until'] = 'hasta';
-
