@@ -7,6 +7,7 @@ class Thisvisitor {
     function __construct() {
         $CI = &get_instance();
         $CI->load->model('Projects_model', 'projects');
+        $CI->load->model('Users_model', 'users');
         $CI->load->library('user_agent');
         $this->setDefaults();
     }
@@ -14,7 +15,9 @@ class Thisvisitor {
     private function setDefaults() {
          $CI = &get_instance();
          
-         $this->visitor['con']['lang'] = (!isset($this->visitor['con']['lang'])) ? "english" : $this->visitor['con']['lang'];
+         $this->visitor['con']['lang'] = $CI->input->get_post('lang'); 
+         if (!$this->visitor['con']['lang']) $this->visitor['con']['lang'] = $CI->config->item('language');
+         //if ($CI->config->lang('use_database')) {
          //$CI->lang->load('messages', $this->visitor['con']['lang']);
          
          $pstyle = $CI->input->get_post('pstyle');
@@ -73,18 +76,18 @@ class Thisvisitor {
             $user = $CI->users->checkUserByPass(md5($pass . $CI->config->item('encryption_key')), $email);
             if ($user) {
                 $this->visitor = array_merge($this->visitor,  $user); 
+                if ($this->auth()) {
+                    $this->visitor["user_2ndlast_login"] = ($this->visitor["user_last_login"] > 0) ? $this->visitor["user_last_login"] : time();
+                    $this->visitor["user_last_login"] = time();
+                    $CI->users->updateUser($this->visitor['user_id'], array("user_last_login"=>$this->visitor['user_last_login'], "user_2ndlast_login"=>$this->visitor['user_2ndlast_login']));
+                    $this->saveSession();
+                }                
             } else {            
-                array_push($this->visitor['errors'], $CI->lang->line('bad_pass_or_email'));
+                array_push($this->visitor['errors'], $CI->lang->en('Incorrect Credentials'));
                 $this->updateSession('con', $this->visitor['con']); // update lAttempts                
             }
         }
 
-        if ($this->auth()) {
-            $this->visitor["user_2ndlast_login"] = ($this->visitor["user_last_login"] > 0) ? $this->visitor["user_last_login"] : time();
-            $this->visitor["user_last_login"] = time();
-            $CI->users->updateUser($this->visitor['user_id'], array("user_last_login"=>$this->visitor['user_last_login'], "user_2ndlast_login"=>$this->visitor['user_2ndlast_login']));
-            $this->saveSession();
-        }
         return $this->visitor;
     } 
     
@@ -129,16 +132,10 @@ class Thisvisitor {
         $this->saveSession();
     }    
     
-    public function auth($isAdmin=2, $bid=false) {
+    public function auth($isAdmin=1) {
         if (isset($this->visitor['user_id']) && isset($this->visitor['user_status']) && (int)$this->visitor['user_status'] >= 1) {
-            if ($isAdmin > 1) { // admin
-                if (is_numeric($bid)) {
-                    $CI = &get_instance();
-                    $brand = $CI->brands->checkBrandMembership($bid, $this->visitor['user_id'], $isAdmin, FALSE); // probably could cache these full role matrix to avoid another query every time here
-                    if ($brand) return true;
-                    else return false;
-                } 
-                elseif($this->visitor['user_status'] >= $isAdmin) return true;
+            if ($isAdmin > 0) {
+                if($this->visitor['user_status'] >= $isAdmin) return true;
                 else return false;
             } 
             else return true;

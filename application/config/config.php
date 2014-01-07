@@ -69,7 +69,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'en'; // 'es'
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'a90#b4af!d63_1cf89463e81ab585384';
+$config['encryption_key'] = 'a90#b4af!d63_1cf89463e81hg595384';
 
 /*
 |--------------------------------------------------------------------------

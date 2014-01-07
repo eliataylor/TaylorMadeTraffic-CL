@@ -1,0 +1,39 @@
+.master, .widescreen .master, .narrowscreen .master { width:100%!important; max-width:100%!important;}
+
+table thead th { text-indent:15px; } /* very different elements */
+
+.authorInfo { float:left; clear:none; margin:10px; }
+.authorInfo h1, .authorInfo p { margin:0; }
+.flags { margin:0 0 15px 0;}
+.controllers { float:right; clear:none; }
+
+.langtracker_urls a, .langtracker_url a { display:block; }
+th img { vertical-align: middle; margin:0 0 0 2px; }
+
+textarea { height:100%; }
+.langtracker_urls { word-break:break-all; }
+.langtracker_es, .langtracker_en { width: 25%; }
+.langtracker_es textarea, .langtracker_en textarea { height:100%; width:98%; }
+.langtracker_added, .langtracker_updated { width:55px; }
+
+.controllers { width:200px; margin:10px; }
+.controllers select { width:100%; }
+#saveBtn, #publishBtn { width:49%;}
+
+
+#softNotice { display:none; position:fixed; bottom:10px; right:10px; min-width:300px; max-width:600px; 
+              border-radius:5px;-moz-border-radius:5px; -webkit-border-radius:5px; 
+              -moz-box-shadow: 3px 3px 3px #ccc; -webkit-box-shadow: 3px 3px 3px #ccc; box-shadow: 3px 3px 3px #ccc;    
+              background:rgb(100, 149, 237); }
+#softNoticeBody { padding:10px; position: relative; color:#000; font-size:15px; font-weight: bolder;  }
+.closeBtn { position: absolute; right: 0; top: 0; z-index: 99999; clear:none; margin:-8px -6px 0 0; text-align:center; font-weight: bold; background:red; width:20px; height:20px; 
+            border-radius:10px;-moz-border-radius:10px; -webkit-border-radius:10px; 
+            -moz-box-shadow: 2px 2px 2px #aaa; -webkit-box-shadow: 2px 2px 2px #aaa; box-shadow: 2px 2px 2px #aaa;    
+            color:#fff; cursor: pointer; }
+ #softNoticeBody a, #softNoticeBody a:visited { color:purple; }
+ .updateLang { background:transparent url(/wwwroot/images/fileDownWhite.png) top left no-repeat; border:0 none; text-indent: -9999px; width:15px; height:15px; overflow: hidden; }
+ 
+.lang_table th { background:#1a1a1a; }
+.lang_table td { background:black;}
+.lang_table tr.odd td { background:#1a1a1a; }
+ 

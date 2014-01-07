@@ -21,6 +21,7 @@
         <? else:?>
             <script type="text/javascript" src="/wwwroot/js/jquery.min.js"></script>
         <?endif;?>
+        <link rel="shortcut icon" href="/wwwroot/images/favicon.ico" />
         <script type="text/javascript" src="/wwwroot/js/jquery.tablesorter.min.js"></script>          
         <script language="javascript" type="text/javascript">
             var TMT_HTTP = "<?= TMT_HTTP ?>";
@@ -28,11 +29,17 @@
             var VSETTINGS = <?= (is_array($me) && isset($me['con'])) ? json_encode($me['con']) : "{}" ?>;
             <? if ($this->thisvisitor->auth()): ?>
                 var CUR_VISITOR = <?= $me['user_id'] ?>;
-                var QPARAMS = <?=json_encode($qparams);?>;
+                <? if(isset($qparams)):?> 
+                var QPARAMS = <?= json_encode($qparams); ?>;
+                <?endif;?>
             <? else: ?>
                 var CUR_VISITOR = false;
             <? endif; ?>
         </script>
+        <? if($this->uri->segment(1) == 'lenguaplus'):?>
+            <script type="text/javascript" src="/wwwroot/js/lenguaplus.js"></script>
+            <link type="text/css" rel="stylesheet" href="/wwwroot/css/lenguaplus.css" />
+        <?endif;?>
     </head>
     <body id="trackauthority" class="<?= ($me['con']['swidth'] < 900) ? "narrowscreen" : "widescreen"; ?> <?=$me['con']['pstyle'];?>" >
         <div class="master">  
@@ -66,6 +73,11 @@
             <? endif; ?>
             </div>
         </div>
+        <div id='softNotice' style="display:none;">
+            <div onclick='tmt.closeNotice();' class='closeBtn'>x</div>
+            <div id='softNoticeBody'></div>
+        </div>
+        
         <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1367262683"></script>
         <? if (ENVIRONMENT == 'production'):?>
         <script type="text/javascript">

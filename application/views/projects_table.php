@@ -29,7 +29,7 @@
     <?if (isset($tableRows) && count($tableRows) > 1):?>    
         <span style="float:right;" class="pageTotal">
             <?=count($tableRows)?>
-            <?= (count($tableRows) == 1) ? $this->lang->line('Project') : $this->lang->line('Projects');?>
+            <?= (count($tableRows) == 1) ? $this->lang->en('Project') : $this->lang->en('Projects');?>
         </span>
     <?endif?>
 
@@ -66,25 +66,25 @@
                 <td class="col2 project_title">
                     <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
                 <? endif; ?>
-                    <? if (!empty($row->project_desc)): ?><p class="prjDesc"><?= $row->project_desc; ?></p><? endif ?>
-                    <? if (!empty($row->project_technotes)): ?><p><div class="technotes"><?= $row->project_technotes; ?></div></p><? endif ?>
+                    <? if (!empty($row->project_desc)): ?><p class="prjDesc"><?= $this->lang->ugc($row->project_desc); ?></p><? endif ?>
+                    <? if (!empty($row->project_technotes)): ?><p><div class="technotes"><?= $this->lang->ugc($row->project_technotes); ?></div></p><? endif ?>
                     
                 <? if ($me['con']['swidth'] > 980): ?>    
                 </td>
                 <td class="col3 project_startdate">
                 <? endif; ?>
                     
-                    <p><span class='lineName'><?= $this->lang->line("Started:") ?>:</span> <?= $row->project_startdate; ?></p>
-                    <? if (!empty($row->project_launchdate)): ?><p><span class='lineName'><?= $this->lang->line("Launched/Lasted:") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
-                    <? if (!empty($row->project_liveurl)): ?><p  class="projectLink"><span class='lineName'><?= $this->lang->line("Live") ?>:</span>                        
+                    <p><span class='lineName'><?= $this->lang->en("Started:") ?>:</span> <?= $row->project_startdate; ?></p>
+                    <? if (!empty($row->project_launchdate)): ?><p><span class='lineName'><?= $this->lang->en("Launched/Lasted:") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
+                    <? if (!empty($row->project_liveurl)): ?><p  class="projectLink"><span class='lineName'><?= $this->lang->en("Live") ?>:</span>                        
                         <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>
                     </p><? endif ?>
-                    <? if (!empty($row->project_devurl)): ?><p class="projectLink"><span class='lineName'><?= $this->lang->line("Dev") ?>:</span><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
-                    <? if (!empty($row->project_devtools)): ?><p><span class='lineName'><?= $this->lang->line("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
-                    <? if (!empty($row->project_industries)): ?><p><span class='lineName'><?= $this->lang->line("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
-                    <? if (!empty($row->project_team)): ?><p><span class='lineName'><?= $this->lang->line("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
-                    <? if (!empty($row->project_companies)): ?><p><span class='lineName'><?= $this->lang->line("Companies/Brands:") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
-                    <? if (!empty($row->license_id)): ?><p><span class='lineName'><?= $this->lang->line("License") ?>:</span> <?= $row->license_id; ?></p><? endif ?>
+                    <? if (!empty($row->project_devurl)): ?><p class="projectLink"><span class='lineName'><?= $this->lang->en("Dev") ?>:</span><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
+                    <? if (!empty($row->project_devtools)): ?><p><span class='lineName'><?= $this->lang->en("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
+                    <? if (!empty($row->project_industries)): ?><p><span class='lineName'><?= $this->lang->en("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
+                    <? if (!empty($row->project_team)): ?><p><span class='lineName'><?= $this->lang->en("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
+                    <? if (!empty($row->project_companies)): ?><p><span class='lineName'><?= $this->lang->en("Companies/Brands:") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
+                    <? if (!empty($row->license_id)): ?><p><span class='lineName'><?= $this->lang->en("License") ?>:</span> <?= $row->license_id; ?></p><? endif ?>
                 </td>
             </tr>
 <? endforeach; ?>

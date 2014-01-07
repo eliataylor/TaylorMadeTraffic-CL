@@ -42,9 +42,6 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 
 // local configuration when testing off apps.facebook.com/trackauthority with host file change and xampp's docuemnt root as /trackauthority
-// local configuration when testing off apps.facebook.com/trackauthority with host file change and xampp's docuemnt root as /trackauthority
-define('APP_HTTP','http://taylormadetraffic.com/');
-
 if (php_sapi_name() == 'cli' || defined('STDIN') || defined('STDOUT') || isset($_SERVER['SHELL'])) {
     define('TMT_HTTP', "http://taylormadetraffic.com/");
     define('ROOT_CD', getcwd());
@@ -68,7 +65,7 @@ if (in_array(strtolower($_SERVER['SERVER_NAME']), $allowed)) {
 }
 unset($allowed);
 
-if (isset($_POST['signed_request'])) define('BOTH_HTTP', APP_HTTP);
+if (isset($_POST['signed_request'])) define('BOTH_HTTP', TMT_HTTP);
 else define('BOTH_HTTP', TMT_HTTP);
 
 define('ROOT_CD', (isset($_SERVER['DOCUMENT_ROOT'])) ? $_SERVER['DOCUMENT_ROOT'] : __DIR__);

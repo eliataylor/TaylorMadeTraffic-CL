@@ -43,6 +43,7 @@ $autoload['packages'] = array();
 
 $autoload['libraries'] = array('database', 'session', 'Thisvisitor');
 $autoload['helper'] = array('url', 'viewutils');
+$autoload['model'] = array('LenguaPlus_model');
 
 
 /*
@@ -76,18 +77,6 @@ $autoload['config'] = array();
 
 $autoload['language'] = array();
 
-
-/*
-| -------------------------------------------------------------------
-|  Auto-load Models
-| -------------------------------------------------------------------
-| Prototype:
-|
-|	$autoload['model'] = array('model1', 'model2');
-|
-*/
-
-$autoload['model'] = array();
 
 
 /* End of file autoload.php */
