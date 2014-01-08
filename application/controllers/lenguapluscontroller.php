@@ -14,11 +14,11 @@ class LenguaPlusController extends CI_Controller {
         $security = array(
             "lenguaplus/changelanguage"=>array("role"=>0,"title"=>$this->lang->en("Update"),"method"=>"changelanguage"),
             "lenguaplus/login"=>array("role"=>0,"title"=>$this->lang->en("Login"),"method"=>"login"),
-            "lenguaplus/myprofile"=>array("role"=>0,"title"=>$this->lang->en("Update"),"method"=>"myprofile"),
+            "lenguaplus/myprofile"=>array("role"=>2,"title"=>$this->lang->en("Update"),"method"=>"myprofile"),
             "lenguaplus/authors"=>array("role"=>2,"title"=>$this->lang->en("Update"),"method"=>"authors"),
             "lenguaplus/logout"=>array("role"=>2,"title"=>$this->lang->en("Logout"),"method"=>"logout"),
             "lenguaplus/update"=>array("role"=>3,"title"=>$this->lang->en("Update"),"method"=>"updateLangByKey"),
-            "lenguaplus"=>array("role"=>0,"title"=>$this->lang->en("Language"),"method"=>"debug"),
+            "lenguaplus"=>array("role"=>2,"title"=>$this->lang->en("Language"),"method"=>"debug"),
         );
         
         $path = uri_string();
@@ -170,7 +170,7 @@ class LenguaPlusController extends CI_Controller {
         $this->data['me'] = $this->thisvisitor->validateUser();      
         $this->data['errors'] = $this->thisvisitor->getErrors();
         if ($this->thisvisitor->auth()) {
-            return redirect(TMT_HTTP.'language', 'location', 301); // SUCCESS
+            return redirect(TMT_HTTP.'lenguaplus', 'location', 301); // SUCCESS
         }
         $this->data['user_email'] = $this->input->post("user_email", false); // populate form
         $this->sendOut("loginForm");
