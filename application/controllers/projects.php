@@ -13,8 +13,7 @@ class Projects extends CI_Controller {
 
     function _remap() {
         $this->data['qmenu'] = array(
-            "" => array("role" => 0, 'icon'=>'' , "title" => $this->lang->en("Technologies"), "method" => "technologies"),
-            "creative" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Cube Animation"), "method" => "staticPage"),
+            "" => array("role" => 0, 'icon'=>'' , "title" => $this->lang->en("Technologies"), "method" => "animatedIntro"),
             "settings" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Settings"), "method" => "viewSettings"),
             
             "technologies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Technologies"), "method" => "technologies"),
@@ -22,7 +21,8 @@ class Projects extends CI_Controller {
             "companies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Companies"), "method" => "companies"),
             "industries" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Industries"), "method" => "industries"),
             
-            "taylormade" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("TaylorMade"), "method" => "taylormade"),
+            "taylormade" => array("role" => 0, 'icon'=>'',  "title" => "TaylorMade", "method" => "taylormade"),
+            "taylormadedev" => array("role" => 0, 'icon'=>'',  "title" => "TaylorMade " . $this->lang->en("Development"), "method" => "taylormadedev"),
             "eli" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Eli"), "method" => "eli"),
 
             "projects" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Projects"), "method" => "projects"),
@@ -30,12 +30,11 @@ class Projects extends CI_Controller {
             "team" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Team"), "method" => "team"),
             "roles" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Roles"), "method" => "team"),
             
-            "cv-format" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->en("CV"), "method" => "cvPrint"),
-            "stylesheet" => array("role" => 1, 'icon'=>'',  "title" => $this->lang->en("stylesheet"), "method" => "stylesheet"),
-            "import" => array("role" => 1, 'icon'=>'', "title" => $this->lang->en("import"), "method" => "importXML")
+            "cv-format" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("CV"), "method" => "cvPrint"),
+            "import" => array("role" => 3, 'icon'=>'', "title" => $this->lang->en("import"), "method" => "importXML")
         );
 
-        $path = uri_string();
+        $path = uri_string();        
         if (!isset($this->data['qmenu'][$path])) {
             array_push($this->data['errors'], $this->lang->en("Page Not Found"));
         } elseif ($this->data['qmenu'][$path]['role'] < 1){
@@ -61,28 +60,31 @@ class Projects extends CI_Controller {
         if (empty($this->data['qtfilter'])) $this->data['qtfilter'] = $this->uri->segment(2);
     }
 
-    private function sendOut($page, $shell="shell") {
-        $this->data['pages'][$page] = $this->load->view($page, $this->data, TRUE);
-        if ($this->input->is_ajax_request()) {
-            return $this->output->set_output(
-                    $this->load->view($page, $this->data, TRUE)
-                    );
+    private function sendOut($page, $shell="cms_shell") {
+        if ($page == $shell) {
+          // do nothing  
+        } elseif (is_string($page)) {
+            $this->data['pages'][$page] = $this->load->view($page, $this->data, TRUE);
+        } else {
+            array_push($this->data['pages'], $page);
         }
-
-        $this->load->view($shell, $this->data);
+        if ($this->input->is_ajax_request()) {
+            return $this->output->set_output($this->load->view($page, $this->data, TRUE));
+        }        
+        $this->load->view($shell, $this->data);        
     }
 
-    public function staticPage() {$this->load->view('landing', $this->data);}
-    public function stylesheet() {$this->load->view('stylesheet', $this->data);}
+    function animatedIntro(){
+        $this->load->view('cms_shell', $this->data);
+    }               
     
-            
     // tag list views
     public function technologies() {
         $this->data['qtags'] = 'technologies';
         if (empty($this->data['qtfilter'])) {
             $this->getTableForTags();
             $this->sendOut('tags_table', 'cms_shell');
-        } else{
+        } else {
             $this->getTableForProjects();
             $this->sendOut('projects_table', 'cms_shell');
         }
@@ -116,8 +118,7 @@ class Projects extends CI_Controller {
             $this->getTableForProjects();
             $this->sendOut('projects_table', 'cms_shell');
         }
-    }
-    
+    }    
     public function team() {
         if (empty($this->data['qtfilter'])) {
             $this->data['headers'] = array(
@@ -140,6 +141,8 @@ class Projects extends CI_Controller {
             } else {
                 $this->data['tableRows'] = $this->projects->getProjectsByTag(null, $this->data['qtfilter']); 
             }
+            $this->load->model('Users_model', 'user');
+            $this->data['uProfile'] = $this->users->getUserByName($this->data['qtfilter']);
             if (uri_string() == 'cv-format') {
                 $this->sendOut('cv_projects', 'cv_shell');
             } else {
@@ -156,6 +159,20 @@ class Projects extends CI_Controller {
         $this->getTableForProjects();
         $this->sendOut('projects_table', 'cms_shell');
     }
+    function taylormadedev(){
+        $this->data['qtags'] = 'companies';
+        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
+        $this->data['qtfilter'] = 'TaylorMadeTraffic';
+        $this->getTableForProjects();
+        foreach($this->data['tableRows'] as $index=>$row){
+            if ($row->project_type == 'design') {
+                unset($this->data['tableRows'][$index]);
+            }
+        }
+        $this->sendOut('projects_table', 'cms_shell');
+    }
+    
+    
     function eli(){
         $this->data['qtags'] = 'team';
         $this->data['qtfilter'] = 'E.A.Taylor';        
@@ -403,7 +420,8 @@ class Projects extends CI_Controller {
                         $role_user = explode(':',$role_user);
                         $users = explode(',',$role_user[1]);
                         foreach($users as $user) {
-                            $humanStr[$user] = (!isset($humanStr[$user])) ? $user . ': ' . $role_user[0] : $humanStr[$user] . ', ' . $role_user[0];
+                            $href = "<a href='/team?qtfilter=" . $user . "'>".$user."</a>";
+                            $humanStr[$user] = (!isset($humanStr[$user])) ? $href . ': ' . $role_user[0] : $humanStr[$user] . ', ' . $role_user[0];
                             $t = new StdClass();
                             $t->tag_type = 'team_' . strtolower($role_user[0]);
                             $t->tag_key = $user;
@@ -411,10 +429,10 @@ class Projects extends CI_Controller {
                             elseif (isset($obj->project_startdate) && !empty($obj->project_startdate))  $t->tag_date = $obj->project_startdate;
                             $t->project_id = $pid;
                             $this->projects->insertTag($t);
-                        }                        
+                        }
                     }
                     if (!empty($humanStr)) $obj->project_team = implode('. ', array_values($humanStr));
-                }       
+                }
                 
                 
                 // industry: art,health,commerce,education,analytics                
@@ -431,7 +449,7 @@ class Projects extends CI_Controller {
                 $test = $this->projects->insertProject($obj); 
 
                 if ($test > 0){
-                    //echo "<h1>SUCCESS</h1>";
+                    echo "<h1>SUCCESS</h1>";
                 } else {
                     echo "<h1>FAILED</h1>";
                 }

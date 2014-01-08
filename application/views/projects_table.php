@@ -1,3 +1,19 @@
+<? if (isset($uProfile) && !empty($uProfile)):?>
+    <div class='userProfile'>
+        <h1><?=$uProfile['user_screenname'];?></h1>
+        <ul class='socialinks'>
+            <? if (!empty($uProfile['user_fburl'])):?><li><a target='_blank' href='<?=$uProfile['user_fburl'];?>'><?=$uProfile['user_fburl'];?></a></li><? endif?>
+            <? if (!empty($uProfile['user_linkdinurl'])):?><li><a target='_blank' href='<?=$uProfile['user_linkdinurl'];?>'><?=$uProfile['user_linkdinurl'];?></a></li><? endif?>
+            <? if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?=$uProfile['user_googleurl'];?>'><?=$uProfile['user_googleurl'];?></a></li><? endif?>
+        </ul>
+        <? if (!empty($uProfile['user_bio'])):?>
+        <div class='userBio'>
+            <?=$uProfile['user_bio'];?>
+        </div>
+        <? endif?>
+    </div>
+<? endif; ?>
+
 <?if (isset($qtfilter) && !empty($qtfilter)):?>
 <div class="projectsTitle" >
     <h2>
@@ -23,8 +39,11 @@
 
             </option>
         <?endforeach;?>
-    </select>    
+    </select>   
     <?endif;?>
+    <? if (isset($uProfile) && empty($uProfile)):?>
+        <a class='teamInviteLink' href=''><?=$this->lang->en('Are You') . ' ' . $qtfilter . '?'?></a>
+    <?endif;?>    
 
     <?if (isset($tableRows) && count($tableRows) > 1):?>    
         <span style="float:right;" class="pageTotal">

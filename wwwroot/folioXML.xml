@@ -116,7 +116,7 @@
             <title>LenguaPlus</title>
             <liveurl></liveurl>
             <devurl>https://github.com/taylormadetraffic/TaylorMadeTraffic-CL</devurl>
-            <status></status>
+            <status>deleted</status>
             <client>ID Interactive</client>
             <copyright>Track Authority Music</copyright>
             <xlDir>/wwwroot/images/sites/lenguaplus</xlDir>
@@ -221,7 +221,19 @@
             <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Bash,jQuery Mobile,Facebook SDK</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:E.A.Taylor,Drew Williams</team>
             <desc>A music-gaming application that rewards high rated users with free music, gift certificates, concert tickets and cash. </desc>
-            <technotes>The website's runs in a LAMP environment, and is highly optimized by several Bash scripts. One is run from a CRON to use ImageMagick for cropping and resizing images based on automated cue table maintained when a size or shape is requested that has not yet been cut.  Another is for re-indexing the music catalogue - of 20,000 songs and growing. It extends a tool called Beets to correct mp3 meta-data, download artwork and lyrics, and determine sound-wave averages such as BPM (beats-per-minute) and Replay Gain (used to determine average encoded decibel volume of the sound wave). The backend system also includes an asynchronous email service which I linked seamlessly to the front-end webpage templates with a CSS inliner script. The site scales very well to all screen widths above 320 pixels wide, but I am well underway with a native Android version of the player with 0-100 scale music ratings to refine the rotation of songs.</technotes>
+            <technotes>    
+                
+                 <![CDATA[The website runs in a LAMP environment, and is highly optimized by several Bash scripts
+                    <ul>
+                    <li>One is run from a CRON to use ImageMagick for cropping and resizing images based on automated cue table maintained when a size or shape is requested that has not yet been cut.</li>
+                    <li>Another is for re-indexing the music catalogue - of 20,000 songs and growing. It extends a tool called Beets to correct mp3 meta-data, download artwork and lyrics, and determine sound-wave averages such as BPM (beats-per-minute) and Replay Gain (used to determine average encoded decibel volume of the sound wave).</li>
+                    <li>The backend system also includes an asynchronous email service which I linked seamlessly to the front-end webpage templates with a CSS inliner script.</li>
+                    <li>The site scales very well to all screen widths above 320 pixels wide, but I am well underway with a native Android version of the player with 0-100 scale music ratings to refine the rotation of songs.</li>
+                    <li>It also includes a CodeIgniter plugin that manages translations of system copy and user-generated content, with version controlling text changes by authorized user/authors.</li>
+                </ul>]]>                            
+                
+                
+            </technotes>
         </item>
 
         <item>
@@ -288,7 +300,7 @@
             <desc>
                  <![CDATA[<ul>
                 <li>The Collectiv was born in the summer of 2001 in Oakland, CA. Our organization was founded by A. Williams, aka Sokrates, with a mission to "empower the Hip Hop community through education and entrepreneurship." We pursue this mission by sponsoring a diverse range of programs with distinct yet cooperative goals. We work with young entrepreneurs, activists and artists to design financially viable programs that will provide new opportunities for empowerment. We seek to create the perfect environment for turning an idea into impact.</li>
-                <li>The Collectiv currently sponsors three programs, Collectiv Records, Collectiv Arts & Entertainment and Collectiv Foundation. Each of these programs occupies a distinct niche within the Hip Hop community.</li>
+                <li>The Collectiv currently sponsors three programs, Collectiv Records, Collectiv Arts &amp; Entertainment and Collectiv Foundation. Each of these programs occupies a distinct niche within the Hip Hop community.</li>
                 </ul>]]>
             </desc>
             <xlDir>/wwwroot/images/sites/collectiv</xlDir>
@@ -306,17 +318,15 @@
             <industries>health,marketing</industries>
             <devtools>Java,Spring,Oracle,JavaScript,JSONP</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor,AJ Chen,Steve Jackson</team>
-            <desc>Best described at healthline.com/corporate/navigator/prod/demo.html, Navigator is a cross-domain script tag used to inject contextual ads and content onto any web page from a single line of JavaScript.</desc>
-            <technotes>
-            
+            <desc>A Contextual Enrichment Tool Of Rich-Media Health Information and Ads.</desc>
+            <technotes>            
             <![CDATA[<ul>
+                    <li>Navigator is a cross-domain script tag used to inject contextual ads and content onto any web page from a single line of JavaScript.</li>
                     <li>The system supports up to 60 requests per second including tracking pixels and over 50,000 SQL inserts batched daily through an asynchronous SQL loader. (Clients included healthline.com, sharecare.com, health.yahoo.net, drugs.com and others)</li>
                     <li>Units can be injected on-load and by user-engagement, directly on the page, or by hyper-linking keywords in the page source. Keywords can be pre-selected during the crawling process or via a client-side DOM scanner searching common semantics and other ad tags running simultaneously. This allows well targeted advertising services without a backend processor for contextualization</li>
-                    <li>Navigator can automatically detect appropriate ad placement via another DOM scanner that measures element's amount of text, dimensions, DOM structure and tag types. It also can be more tightly controlled via Dashboard described below.</li>
+                    <li>It can automatically detect appropriate ad placement via another DOM scanner that measures element's amount of text, dimensions, DOM structure and tag types. It also can be more tightly controlled via Dashboard described below.</li>
                     <li>Injected content - where hyper-links remain on the host website – can be placed to provide additional navigation tools for the user. However this requires pre-indexing the client's entire site. This process is targeted, cued and controlled by Navigator and its Dashboard, described below.</li>
                 </ul>]]>
-            
-            
             </technotes>
         </item>        
         <item>
@@ -331,7 +341,7 @@
             <industries>health,analytics,marketing</industries>
             <devtools>Java,Spring,Oracle,JavaScript,AJAX,jQuery Mobile</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor</team>
-            <desc>Dashboard is a Content-Management-System and debugging tool for reviewing Navigator, healthSTAT, and internal crawler's performance across various installations.</desc>
+            <desc>Dashboard is an all-in-one Content-Management-System, Reporting, and Ad Configuration tool. It controls where, when and why to inject ads or content in webpages. It also allows reviewing Navigator, healthSTAT, and internal crawler's performance across various installations.</desc>
             <technotes>
                 <![CDATA[<ul>
                     <li>Dashboard aids in backend debugging of the Healthline Taxonomy and search decisions. It also provides the crawler additional controls for prioritizing areas of the page to parse, skip, and flag for changes or inter-linking .</li>
@@ -351,11 +361,13 @@
             <industries>analytics</industries>
             <devtools>WebSQL-lite,JavaScript,Google Chrome Extension,jQuery Mobile,LocalStorage</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor</team>
-            <desc>A Google Chrome Extension and browser-based Crawler to automate QA of both source code, flash ads, any JavaScript installation.</desc>
+            <desc>Automated Quality Assurance &amp; Monitoring Through Interactive, Intelligent Browser-Based Crawling.</desc>
+            
             <technotes>
                 
             <![CDATA[
                 <ul>
+                    <li>A Google Chrome Extension and browser-based Crawler to automate QA of both source code, flash ads, any JavaScript installation.</li>
                     <li>Builds automated reports on how pages are categorized by many different engines and APIs, while tracking the web of links between each page. Everything is stored in SQLite LocalStorage via Lawnchair. Ex. healthline.com/corporate/navigator/stage/crawler.html?domain=sharecare  or ?domain=healthline (both take a while to load all 30K rows)</li>
                     <li>Takes .jpg screenshots of every page crawled. It can also first render watermarks or outline all areas of the page by targeting categories for easier review &amp; debugging.</li>
                 </ul>
@@ -490,7 +502,14 @@
             <launchdate>February 2009</launchdate>
             <devtools>AS3,PHP,mySQL,AJAX,JavaScript</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Product Development:Biko Eisen-Martin</team>
-            <desc>A tool for teachers and students to develop the writing process. Modeled after a traditional newsroom, students and teachers would be able to develop assignements, work on multiple versions of a story, share ideas within the class, and more. </desc>
+            <desc>
+                <![CDATA[
+                    <p>A vision from <a href="http://www.google.com.co/search?q=biko+eisen-martin" target="_blank">Biko Eisen-Martin</a> for his students at <a href="http://bhs.berkeleyschools.net/" target="_blank">Berkeley High School</a> to create a tool for teachers and students to collaborate and compete in the writing process. Modeled after a traditional newsroom, students and teachers would be able to develop assignements, work on multiple versions of a story, share ideas within the class, and more. 
+                    We built a prototype site that supported a semester of great essays still worth reading, but the project lost momentum as we both moved cities.</p>
+                    <p>This project's greatest potential was in a version-controller for teachers to review, grade and provide feedback on student's essays, while peer reviews drove friendly competition between writer and school rankings.</p>
+                    <p>If you are in Education, and feel this or something similiar could help your classroom and your school district, email me. I'd love bring this back to life own our spare time.</p>
+                ]]>
+            </desc>
             <technotes>UI Tools include tinyMCE text editor, advance sourcing maps, and multi-category search options</technotes>
         </item>
     
@@ -700,14 +719,26 @@
       My focus now is finding projects that help 'flatten the world'. The Means and The A&amp;E Advisor are just few of my open source ventures to help connect  people, knowledge, services, and opportunities. 
       
       &lt;font color="#000000" size="10"&gt;In short, I believe:&lt;/span&gt;
-      ...Knowledge is power, but &#x2018;money makes the world go around'; (unfortunate or otherwise)
+      ...Live as if to die tomorrow, but learn as if to live forever.
       ...Social Networking is a key to unity, but not necessarily relationships.
       ...Patience is optional, but composure is mandatory.
       ...Capitalism is cold, but competition is critical. 
       ...Self-interest is inevitable, but true goodness is the effort and interest in helping other people.
       ...I am my brother's (and sister's) keeper, but ultimately you own your own destiny.
-      ...'Live as if to die tomorrow, but learn as if to live forever' 
+      ...
       ]]>
+      
+    <![CDATA[<ul>
+      <li>...Live as if to die tomorrow, but learn as if to live forever.</li>
+      <li>...Social Networking is a key to unity, but not necessarily relationships.</li>
+      <li>...Patience is optional, but composure is mandatory.</li>
+      <li>...Capitalism is cold, but competition is critical. </li>
+      <li>...Self-interest is inevitable, but goodness is the effort and interest in helping other people.</li>
+      <li>...I am my brother's - and sister's - keeper, but ultimately you own your own destiny.</li>
+      <li>...</li>
+    </ul>
+      ]]>
+      
       </item>
   </theories>
   <means>

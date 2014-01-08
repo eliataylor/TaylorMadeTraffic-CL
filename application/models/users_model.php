@@ -19,6 +19,17 @@ class Users_Model extends CI_Model {
         return $rows;
     }    
 
+    function getUserByName($name) {
+        $sql = "SELECT * from users WHERE user_tagname = ? and user_status > 0";
+        $query = $this->db->query($sql, $name);
+        if ($query->num_rows() > 0) {
+            $user = $query->row_array();
+            unset($user['user_passhash']);
+            return $user;
+        }
+        return false;
+    }
+
     function getUser($uid) {
         $sql = "SELECT * from users WHERE user_id = ? and user_status > 0";
         $query = $this->db->query($sql, $uid);
@@ -29,7 +40,7 @@ class Users_Model extends CI_Model {
         }
         return false;
     }
-
+    
     private function splitEmails($user) {
         $emails = explode(",", $user['user_email']);
         $user['allemails'] = $emails; // always as array: checks against in_array()
