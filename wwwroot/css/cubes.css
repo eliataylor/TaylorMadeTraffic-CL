@@ -101,7 +101,7 @@ a.navItem.selected { color:red; }
 #closeBtn { position: absolute; bottom:3px; right:5px; cursor:pointer; font-size:9px; font-weight: bolder; margin:5px 0 0 5px; letter-spacing: 2px; color:#ED2024;  }
 #menuBtn { position:absolute; right:3px; top:5px; cursor:pointer; font-size:9px; font-weight: bolder; letter-spacing: 2px; }
 
-.mainNav {margin:30px 0 35px 0;text-align: center;}
+.mainNav {padding-top:17px; text-align:right;}
 
 #navMenu .tc{ clear:none; }        
 #navMenu .ll{ clear:left; }        

@@ -9,7 +9,7 @@
 <h1><?=$me['user_screenname']?></h1>
 </div>
 
-<form id="langForm" name="langForm" action='/language' method='GET'>    
+<form id="langForm" name="langForm" action='/lenguaplus' method='GET'>    
 <div class="controllers">
         <ul>
             <li>
@@ -24,7 +24,6 @@
                 </select>
             </li>
             <li>                
-<!--                <label><?=$this->lang->en('Status')?></label>-->
                 <select class="langFilter" name='status' id='statusSel'>
                     <option value=''><?=$this->lang->en('Any Status')?></option>
                     <option <?if($qparams['status'] == 'debug'):?>selected='selected'<?endif;?> value='debug'><?=$this->lang->en('Debug')?></option>
@@ -33,7 +32,6 @@
                 </select>
             </li>
             <li>                
-<!--                <label><?=$this->lang->en('Type')?></label>-->
                 <select class="langFilter" name='type' id="typeSel">
                     <option value=''><?=$this->lang->en('Any Type')?></option>
                     <option <?if($qparams['type'] == 'msg'):?>selected='msg'<?endif;?> value='msg'><?=$this->lang->en('Messages')?></option>
@@ -43,6 +41,7 @@
         </ul>
         <button id="publishBtn"><?=$this->lang->en('Publish')?></button>
         <button id="saveBtn"><?=$this->lang->en('Save')?></button>
+        <li><?=count($texts)?> <?=$this->lang->en('rows')?></li>
 </div>
 
 <table class="tablesorter lang_table">

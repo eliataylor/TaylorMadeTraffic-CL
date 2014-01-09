@@ -109,6 +109,21 @@
             <team>Design:Dan Wilson,Erik Siador;Producer:E.A.Taylor</team>
             <desc>Raised $7,000 in corporate sponsorships, $10,000 in booth sales, and saved $12,000 through cross promotions with ProXPrint, SF Guardian, KMEL and other online media.</desc>
         </item>
+        
+        <item>
+            <title>TaylorMadeTraffic.com - Flash</title>
+            <liveurl>flash.taylormadetraffic.com</liveurl>
+            <devurl></devurl>
+            <industries>art</industries>
+            <copyright>TaylorMadeTraffic</copyright>
+            <thumbDir>/wwwroot/images/sites/tmm-flash/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/tmm-flash</xlDir>
+            <startdate>August 2009</startdate>
+            <launchdate>October 2009</launchdate>
+            <devtools>Flex,AS3</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
+            <desc></desc>
+        </item>           
     </design>
     <development>
 
@@ -426,21 +441,6 @@
             <technotes>These two links are just a few of the very interactive microsites / applications I built for Healthline's editorial team or sponsoring partners.</technotes>
         </item>       
     
-        <item>
-            <title>TaylorMadeTraffic.com - Flash</title>
-            <liveurl>flash.taylormadetraffic.com</liveurl>
-            <devurl></devurl>
-            <industries>art</industries>
-            <copyright>TaylorMadeTraffic</copyright>
-            <thumbDir>/wwwroot/images/sites/tmm-flash/th</thumbDir>
-            <xlDir>/wwwroot/images/sites/tmm-flash</xlDir>
-            <startdate>August 2009</startdate>
-            <launchdate>October 2009</launchdate>
-            <devtools>Flex,AS3</devtools>
-            <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
-            <desc></desc>
-        </item>           
-      
         <item>
             <title>Elite Wedding Locations</title>
             <liveurl>http://www.eliteweddinglocations.com</liveurl>

@@ -30,8 +30,9 @@
     <?if (count($project->images) > 1):?>
         <div class="galleryTopBar">    
         <?foreach($project->images as $img):?>
-            <img onclick="$('#galleryImg<?=$project->project_id?>').attr('src',this.src).css({maxWidth:this.getAttribute('data-owidth')});return false;" 
+            <img onclick="$('#galleryImg<?=$project->project_id?>').attr('src',this.getAttribute('data-oimage')).css({maxWidth:this.getAttribute('data-owidth')});return false;" 
                  src='<?=imageSize(trim($img->image_src), "150x150")?>' 
+                 data-oimage="<?=trim($img->image_src)?>"
                  data-owidth="<?=$img->image_width?>" data-oheight="<?=$img->image_height?>"
                  />
         <?endforeach?>
