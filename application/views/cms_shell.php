@@ -42,60 +42,7 @@
         <?endif;?>
     </head>
     <body id="trackauthority" class="<?= ($me['con']['swidth'] < 900) ? "narrowscreen" : "widescreen"; ?> <?=$me['con']['pstyle'];?>" >
-        <span id="tmmCube" ></span>
-        <div class="master">  
-            <span id="tmmOpening" ref="0" style="display:none; top: -7px;left: -12px;;"></span>
-            <div class='topHeader'>
-                <?if (isset($qmenu)):?>
-                <div style="opacity:0; filter:alpha(opacity=0); " id="navMenu" >
-                    <div style="padding-left: 1px;"  class="menuEmpty menuBox">
-                        <span onclick="tmt.startClose();" style="display:none" id="closeBtn">CLOSE</span>
-                    </div>
-
-                    <a href="/eli" title="<?=$this->lang->en('E.A.Taylor')?>" class="menuBox tc">
-                        <img src="/wwwroot/images/eat_menu.png" />
-                    </a>
-
-                    <div class="menuEmpty menuBox" id="menuLabelBox" ><span id="menuLabel"></span></div>
-
-                    <a href="/technologies" title="<?=$this->lang->en('Technologies')?>" class="menuBox ll">
-                        <img src="/wwwroot/images/terminal.png" />
-                    </a>
-
-                    <a href="/years" title="<?=$this->lang->en('Years')?>" class="menuBox lc">
-                        <img src="/wwwroot/images/calendar.png" />
-                    </a>
-
-                    <a href="/companies" title="<?=$this->lang->en('Companies')?>" class="menuBox rc">
-                        <img src="/wwwroot/images/companies.png" />
-                    </a>
-
-                    <a href="/industries" title="<?=$this->lang->en('Industries')?>" class="menuBox rr">
-                        <img src="/wwwroot/images/industries.png" />
-                    </a>
-
-                    <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;"></div>
-
-                    <a href="/taylormade" title="<?=$this->lang->en("Taylor Made Traffic")?>" class="menuBox bc">
-                        <img src="/wwwroot/images/tmm_menu.png" />
-                    </a>
-
-                    <div class="menuEmpty menuBox" style="height:auto; width:auto;" >
-                        <ul id="menuList" style="display:none" ></ul>
-                    </div>
-                </div>
-
-                <div id="tagLinks" class="moduleBlock mainNav">
-                    <?foreach($qmenu as $key=>$param):?>
-                        <?if($param['role'] < 0):?>
-                            <?php $seg1 = $this->uri->segment(1); ?>
-                            <a class='navItem<? if($key == $seg1 || (empty($seg1) && $key == 'technologies')):?> selected<?endif;?>' href="/<?=$key?>" ><?=trim($param['title'])?></a>
-                        <?endif;?>
-                    <?endforeach;?>
-                </div>            
-                <?endif;?>  
-            </div>
-            
+        <div class="master">             
              <? if (!empty($errors)): ?>
                 <div class="serverErrors">  
                     <ul>
@@ -120,7 +67,7 @@
             <div id='softNoticeBody'></div>
         </div>
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>            
-        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389164039"></script>
+        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389255111"></script>
         <? if (ENVIRONMENT == 'production'):?>
         <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

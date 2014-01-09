@@ -59,7 +59,7 @@ $autoload['model'] = array('LenguaPlus_model');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('lenguaplus');
 
 
 /*

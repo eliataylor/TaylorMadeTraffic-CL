@@ -38,12 +38,32 @@ class Projects_Model extends CI_Model {
             $sql .= " WHERE " . implode(" AND ", $wheres);            
         }
         
-        $sql .= ' group by P.project_id order by P.project_startdate desc';        
+        $sql .= ' group by P.project_id order by P.project_type desc, P.project_startdate desc';        
         $query = $this->db->query($sql, $params);
         //echo $this->db->last_query();
         if ($query->num_rows() > 0) return $query->result_object();
         return array();
-    } 
+    }
+    
+    function getProjectsByType($type=false) {
+        $params = array();
+        $sql = "SELECT P.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN images I on P.project_id = I.project_id ";
+        
+        $wheres = array();
+        if (!empty($type)) {
+            array_push($wheres, " P.project_type = ?");
+            array_push($params, $type);
+        }
+        if (count($wheres) > 0) {
+            $sql .= " WHERE " . implode(" AND ", $wheres);            
+        }
+        
+        $sql .= ' group by P.project_id order by P.project_startdate desc';
+        $query = $this->db->query($sql, $params);
+        //echo $this->db->last_query();
+        if ($query->num_rows() > 0) return $query->result_object();
+        return array();
+    }    
     
     function getProject($pid) {
         $params = array();

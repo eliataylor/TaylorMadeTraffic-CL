@@ -10,6 +10,7 @@ class LenguaPlusController extends CI_Controller {
         $this->setGlobals();
     }
     
+    // TODO: remove method!!! not sure if you can access that part of routing
     function _remap() {
         $security = array(
             "lenguaplus/changelanguage"=>array("role"=>0,"title"=>$this->lang->en("Update"),"method"=>"changelanguage"),
@@ -18,7 +19,9 @@ class LenguaPlusController extends CI_Controller {
             "lenguaplus/authors"=>array("role"=>2,"title"=>$this->lang->en("Update"),"method"=>"authors"),
             "lenguaplus/logout"=>array("role"=>2,"title"=>$this->lang->en("Logout"),"method"=>"logout"),
             "lenguaplus/update"=>array("role"=>3,"title"=>$this->lang->en("Update"),"method"=>"updateLangByKey"),
-            "lenguaplus"=>array("role"=>2,"title"=>$this->lang->en("Language"),"method"=>"debug"),
+            "lenguaplus/import" => array("role" => 3, 'icon'=>'', "title" => $this->lang->en("import"), "method"=>'importXML'),
+            "lenguaplus"=>array("role"=>2,"title"=>$this->lang->en("Language"),"method"=>"debug")
+            
         );
         
         $path = uri_string();
@@ -180,4 +183,199 @@ class LenguaPlusController extends CI_Controller {
         $this->thisvisitor->clear(); // this is resetting group id
         redirect(TMT_HTTP, 'location', 301);
     }
+    
+    public function importXML() {
+        //die("DISABLED");
+        libxml_use_internal_errors(true);
+        $xml = simplexml_load_file("wwwroot/folioXML.xml");
+
+        foreach ($xml->children() as $child) {
+            $project_type = $child->getName(); // obsolete difference only in xml
+            foreach ($child->children() as $item) {
+                $obj = new stdClass();
+                
+                $pid = $this->projects->next_id('projects');
+                $obj->project_id = $pid;
+                $obj->project_type = $project_type;
+                        
+                foreach ($item->children() as $col) {
+                    $key = (strpos($col->getName(),'_id') < 1) ? 'project_' . $col->getName() : $col->getName();
+                    $col = (string)$col;
+                    if (!empty($col))  {
+                        $obj->$key = trim((string) $col);
+                    }
+                }
+                
+                if (isset($obj->project_startdate) && !empty($obj->project_startdate)) {
+                    $obj->project_startdate = date("Y-m-d H:i:s", strtotime($obj->project_startdate));                
+                    $obj->project_startyear = date("Y", strtotime($obj->project_startdate));                
+                } elseif (isset($obj->project_startyear) && !empty($obj->project_startyear)) {
+                    $obj->project_startdate = date("Y-m-d H:i:s", strtotime($obj->project_startyear));                
+                    $obj->project_startyear = $obj->project_startyear;                
+                } else {
+                    var_dump($obj);
+                    die('NO START DATE');
+                }
+                if (isset($obj->project_launchdate) && !empty($obj->project_launchdate)) {
+                    $obj->project_launchdate = date("Y-m-d H:i:s", strtotime($obj->project_launchdate));                
+                    $obj->project_launchyear = date("Y", strtotime($obj->project_launchdate));                
+                } else {
+                     unset($obj->project_launchdate);
+                }
+                
+                if ((isset($obj->project_xlSrc) && !empty($obj->project_xlSrc)) || (isset($obj->project_xlDir) && !empty($obj->project_xlDir))) {
+                    if (isset($obj->project_xlDir) && !empty($obj->project_xlDir)) {
+                        $dir = $obj->project_xlDir;
+                    } else {
+                        $dir = explode(',', $obj->project_xlSrc);
+                        $dir = trim($dir[0]);
+                        $dir = substr($dir, 0, strpos($dir, strrchr($dir, '/')));
+                    }
+                    $files1 = scandir(ROOT_CD . $dir);
+                    $index = 0;
+                    foreach($files1 as $img) {
+                        if($img === '.' || $img === '..' || strpos($img, '.db') > -1 || strpos(strtolower($img), '.swf') > 0 ||
+                                strpos($img, '_150x150') > -1 || 
+                                strpos($img, '_300x300') > -1) continue;
+                        $filename = $dir."/".$img;        
+                        //echo '<h1>' . $filename . '</h1>';
+                        if(is_file(ROOT_CD . $filename)) {
+                            $meta = getimagesize (ROOT_CD . $filename);
+                            $t = new StdClass();
+                            $t->image_src = $filename;
+                            $t->image_weight = $index + 1;
+                            $t->image_width = (int)$meta[0];
+                            $t->image_height = (int)$meta[1];
+                            $t->project_id = $pid;
+                            $this->projects->insertImage($t);
+                            $index++;
+                        }
+                    }
+                }                
+
+                if (isset($obj->project_thumbSrc)) unset($obj->project_thumbSrc);
+                if (isset($obj->project_xlSrc)) unset($obj->project_xlSrc);
+                if (isset($obj->project_thumbDir)) unset($obj->project_thumbDir);
+                if (isset($obj->project_xlDir)) unset($obj->project_xlDir);
+                
+                $humanStr = array();
+                //'technology','year','companies','team'
+                if (isset($obj->project_devtools)) {
+                    $tags = explode(',',$obj->project_devtools);
+                    foreach($tags as $tag) {
+                        $tag = trim($tag);
+                        if (empty($tag)) continue;
+                        array_push($humanStr, $tag);
+                        $t = new StdClass();
+                        $t->tag_type = 'technologies';
+                        $t->tag_key = $tag;
+                        if (isset($obj->project_launchdate) && !empty($obj->project_launchdate))  $t->tag_date = $obj->project_launchdate;
+                        elseif (isset($obj->project_startdate) && !empty($obj->project_startdate))  $t->tag_date = $obj->project_startdate;
+                        $t->project_id = $pid;
+                        $this->projects->insertTag($t);
+                    }
+                    $obj->project_devtools = implode(', ', $humanStr); 
+                }
+                
+                $humanStr = array();
+                if (isset($obj->project_copyright)) {
+                    $tags = explode(',',$obj->project_copyright);
+                    foreach($tags as $tag) {
+                        $tag = trim($tag);
+                        if (empty($tag)) return true;
+                        array_push($humanStr, $tag);
+                        $t = new StdClass();
+                        $t->tag_type = 'companies';
+                        $t->tag_key = $tag;
+                        if (isset($obj->project_launchdate) && !empty($obj->project_launchdate))  $t->tag_date = $obj->project_launchdate;
+                        elseif (isset($obj->project_startdate) && !empty($obj->project_startdate))  $t->tag_date = $obj->project_startdate;
+                        $t->project_id = $pid;
+                        $this->projects->insertTag($t);
+                    }
+                }
+                
+                if (isset($obj->project_client)) {
+                    $tags = explode(',',$obj->project_client);
+                    foreach($tags as $tag) {
+                        $tag = trim($tag);
+                        if (empty($tag)) return true;
+                        array_push($humanStr, $tag);
+                        $t = new StdClass();
+                        $t->tag_type = 'companies';
+                        $t->tag_key = $tag;
+                        if (isset($obj->project_launchdate) && !empty($obj->project_launchdate))  $t->tag_date = $obj->project_launchdate;
+                        elseif (isset($obj->project_startdate) && !empty($obj->project_startdate))  $t->tag_date = $obj->project_startdate;
+                        $t->project_id = $pid;
+                        $this->projects->insertTag($t);
+                    }
+                    $obj->project_companies = implode(', ', $humanStr); 
+                }
+                
+                $humanStr = array();
+                if (isset($obj->project_industries)) {
+                    $tags = explode(',',$obj->project_industries);
+                    foreach($tags as $tag) {
+                        $tag = trim($tag);
+                        if (empty($tag)) return true;
+                        array_push($humanStr, $tag);
+                        $t = new StdClass();
+                        $t->tag_type = 'industries';
+                        $t->tag_key = $tag;
+                        if (isset($obj->project_launchdate) && !empty($obj->project_launchdate))  $t->tag_date = $obj->project_launchdate;
+                        elseif (isset($obj->project_startdate) && !empty($obj->project_startdate))  $t->tag_date = $obj->project_startdate;
+                        $t->project_id = $pid;
+                        $this->projects->insertTag($t);
+                    }
+                    $obj->project_industries = implode(', ', $humanStr); 
+                }                
+                
+                $humanStr = array();
+                if (isset($obj->project_team) && !empty($obj->project_team)) {
+                    $role_users = explode(';',$obj->project_team);
+                    foreach($role_users as $role_user) {
+                        $role_user = explode(':',$role_user);
+                        $users = explode(',',$role_user[1]);
+                        foreach($users as $user) {
+                            $href = "<a href='/team?qtfilter=" . $user . "'>".$user."</a>";
+                            $humanStr[$user] = (!isset($humanStr[$user])) ? $href . ': ' . $role_user[0] : $humanStr[$user] . ', ' . $role_user[0];
+                            $t = new StdClass();
+                            $t->tag_type = 'team_' . strtolower($role_user[0]);
+                            $t->tag_key = $user;
+                            if (isset($obj->project_launchdate) && !empty($obj->project_launchdate))  $t->tag_date = $obj->project_launchdate;
+                            elseif (isset($obj->project_startdate) && !empty($obj->project_startdate))  $t->tag_date = $obj->project_startdate;
+                            $t->project_id = $pid;
+                            $this->projects->insertTag($t);
+                        }
+                    }
+                    if (!empty($humanStr)) $obj->project_team = implode('. ', array_values($humanStr));
+                }
+                
+                
+                // industry: art,health,commerce,education,analytics                
+                $max = (isset($obj->project_launchyear)) ? (int)$obj->project_launchyear : (int)$obj->project_startyear;
+                for($i=(int)$obj->project_startyear; $i <= $max; $i++) {
+                    $t = new StdClass();
+                    $t->tag_type = 'years';
+                    $t->tag_key = $i;
+                    $t->tag_date = $obj->project_startdate;
+                    $t->project_id = $pid;
+                    $this->projects->insertTag($t);                    
+                }
+                
+                $test = $this->projects->insertProject($obj); 
+
+                if ($test > 0){
+                    //echo "<h1>SUCCESS</h1>";
+                } else {
+                    echo "<h1>FAILED</h1>";
+                }
+
+                var_dump($obj);                
+                
+            }
+
+            
+        }
+    }   
+    
 }

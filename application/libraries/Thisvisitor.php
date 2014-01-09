@@ -15,8 +15,13 @@ class Thisvisitor {
     private function setDefaults() {
          $CI = &get_instance();
          
-         $this->visitor['con']['lang'] = $CI->input->get_post('lang'); 
-         if (!$this->visitor['con']['lang']) $this->visitor['con']['lang'] = $CI->config->item('language');
+         $lang = $CI->input->get_post('lang'); 
+         if ($lang) {
+            if (!in_array($lang, array_keys($CI->config->item('languages')))) array_push($this->visitor['errors'], $CI->lang->en('Incorrect Language'));
+            else $this->visitor['con']['lang'] = $lang;
+         } else {
+            if (!isset($this->visitor['con']['lang'])) $this->visitor['con']['lang'] = $CI->config->item('language');
+         }         
          //if ($CI->config->lang('use_database')) {
          //$CI->lang->load('messages', $this->visitor['con']['lang']);
          
@@ -26,9 +31,7 @@ class Thisvisitor {
          
          if ($CI->input->get_post('debug')) {
              if (ENVIRONMENT == 'production'){
-                 $CI->output->set_profiler_sections(array(
-                     'config'=>FALSE, 'queries'=>FALSE
-                 ));
+                 $CI->output->set_profiler_sections(array('config'=>FALSE, 'queries'=>FALSE));
              }
              $CI->output->enable_profiler(TRUE);
              $this->visitor['con']['debugMode'] = true;
@@ -86,6 +89,8 @@ class Thisvisitor {
                 array_push($this->visitor['errors'], $CI->lang->en('Incorrect Credentials'));
                 $this->updateSession('con', $this->visitor['con']); // update lAttempts                
             }
+        } else {
+            // just the login form page
         }
 
         return $this->visitor;

@@ -11,12 +11,12 @@
         autoSize : function() {
             window.addEventListener('onorientationchange', ctx[cls].autoSize);
             VSETTINGS.swidth = Math.round($(window).width()); // set by isMobile / configs
-            var swid = (swid > 1000) ? 1000 : VSETTINGS.swidth; // max
+            VSETTINGS.sheight = Math.round($(window).height()); 
             $.ajax({type:'GET', async:false, url:"/settings?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight});
 
-            if (VSETTINGS.swidth <= 980 && $("body").hasClass("widescreen")) {
+            if (VSETTINGS.swidth < 960 && $("body").hasClass("widescreen")) {
                 $("body").removeClass("widescreen").addClass("narrowscreen");
-            } else if ($("body").hasClass("narrowscreen") && VSETTINGS.swidth >= 1000) {
+            } else if ($("body").hasClass("narrowscreen") && VSETTINGS.swidth >= 960) {
                 $("body").addClass("widescreen").removeClass("narrowscreen");
             }
 
@@ -48,6 +48,7 @@
            }).done(function(html) {
                $('#pageBlock').html(html);
                ctx[cls].initPage('#pageBlock');
+               ctx[cls].curPage = href;
            });
            
            var title = (href.indexOf("?") > -1) ? href.substring(0, href.indexOf('?')) : href;
@@ -74,8 +75,6 @@
            });
         },
         initMouseIntro:function(autostart) {
-            $("#tagLinks").css({paddingTop:17,textAlign:'right'});
-            
             var wid = $("body").width();
             if (!wid || wid < 10) wid = 400;
             ctx[cls].cube.style.left = (wid - 50) + "px";
@@ -167,7 +166,9 @@
                 //$("#closeBtn").fadeIn();    
                 $("#tagLinks").fadeIn();
                 $('#menuLabelBox').width(210); // allows better title
-                if ($('#pageBlock').html() == '') ctx[cls].ajaxPage('/technologies');
+                if (ctx[cls].curPage.length === 0) {
+                    ctx[cls].ajaxPage('/technologies');
+                }
             }
         },
         shrinkMenu : function() {            
@@ -343,6 +344,8 @@
         
 $(document).ready(function() {
     tmt.autoSize();
+    tmt.curPage = document.location.pathname + document.location.search;
+    
     var href = document.location.hash;
     if (href && href.indexOf('!href=') > -1) {
         href = href.substring(href.indexOf('!href=') + '!href='.length);
@@ -350,11 +353,13 @@ $(document).ready(function() {
             tmt.ajaxPage(href);
         }        
     }
-    if(typeof window.orientation !== 'undefined') {
-        tmt.initAutoIntro();
-    } else {
-        var autostart = ((href && href.length > 1) || (document.location.pathname.length > 1))  ? true : false;
-        tmt.initMouseIntro(autostart);
+    if ($(tmt.cube).length == 1) {
+        if(typeof window.orientation !== 'undefined') {
+            tmt.initAutoIntro();
+        } else {
+            var autostart = ((href && href.length > 1) || (document.location.pathname.length > 1))  ? true : false;
+            tmt.initMouseIntro(autostart);
+        }
     }
     tmt.initPage(document.body);
 });
