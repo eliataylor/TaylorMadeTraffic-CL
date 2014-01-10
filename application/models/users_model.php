@@ -29,6 +29,13 @@ class Users_Model extends CI_Model {
         }
         return false;
     }
+    
+    function getCompanyByName($name) {
+        $sql = "SELECT * from companies WHERE company_tagname = ? and company_status > 0";
+        $query = $this->db->query($sql, $name);
+        if ($query->num_rows() > 0) return $query->row_array();
+        return false;
+    }
 
     function getUser($uid) {
         $sql = "SELECT * from users WHERE user_id = ? and user_status > 0";

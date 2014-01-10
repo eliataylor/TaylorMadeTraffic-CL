@@ -64,7 +64,7 @@ class Projects extends CI_Controller {
         }
         if ($this->input->is_ajax_request()) {
             return $this->output->set_output($this->load->view($page, $this->data, TRUE));
-        }        
+        }
         $this->load->view($shell, $this->data);        
     }
 
@@ -117,6 +117,7 @@ class Projects extends CI_Controller {
             $this->getTableForTags();
             $this->sendOut('tags_table');
         } else{
+            $this->data['cProfile'] = $this->users->getCompanyByName($this->data['qtfilter']);
             $this->getTableForProjects();
             $this->sendOut('projects_table');
         }
@@ -219,7 +220,7 @@ class Projects extends CI_Controller {
         if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
         
         $seg = $this->uri->segment(2);
-        if ($seg  == 'development' || $seg  == 'design') $this->data['tableRows'] = $this->projects->getProjectsByType($seg); 
+        if ($seg  == 'development' || $seg  == 'design') $this->data['tableRows'] = $this->projects->getProjectsByType($seg, $this->data['qtfilter']); 
         else $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter']); 
     }
     
