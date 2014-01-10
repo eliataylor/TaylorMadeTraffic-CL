@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="en-us" />
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1389164039" />
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1389164033" />
         <? if ($me['con']['isMobile']): ?>
             <meta name="viewport" content="width=device-width; initial-scale=1.0" />
             <meta name="apple-mobile-web-app-capable" content="yes"  />
@@ -42,7 +42,15 @@
         <?endif;?>
     </head>
     <body id="trackauthority" class="<?= ($me['con']['swidth'] < 900) ? "narrowscreen" : "widescreen"; ?> <?=$me['con']['pstyle'];?>" >
-        <span id="tmmCube" ></span>
+        <span id="tmmCube" >
+            <?php $cubespins = scandir(ROOT_CD . "/wwwroot/images/cubespins"); $index=0;?>
+            <?foreach($cubespins as $img):?>
+                <? if($img != '.' && $img != '..' && !strpos($img, '.db')):?>
+                    <img data-index="<?=$index?>" <? if($index > 0):?>style='display:none;'<?endif;?>  src="/wwwroot/images/cubespins/<?=$img?>" />
+                    <?php $index++; ?>
+                <?endif;?>
+            <?endforeach;?>
+        </span>
         <div class="master">  
             <span id="tmmOpening" ref="0" style="display:none; top: -7px;left: -12px;;"></span>
             <div class='topHeader'>
@@ -76,8 +84,8 @@
 
                     <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;"></div>
 
-                    <a href="/taylormade/development" title="<?=$this->lang->en("Taylor Made")?>" class="menuBox bc">
-                        <img src="/wwwroot/images/cubeCorner.png" />
+                    <a id="menuBoxBottom" href="/taylormade" title="<?=$this->lang->en("Taylor Made")?>" class="menuBox bc">
+<!--                        <img src="/wwwroot/images/cubeCorner.png" />-->
                     </a>
 
                     <div class="menuEmpty menuBox" style="height:auto; width:auto;" >
@@ -120,7 +128,7 @@
             <div id='softNoticeBody'></div>
         </div>
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>            
-        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389255111"></script>
+        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389255112"></script>
         <? if (ENVIRONMENT == 'production'):?>
         <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

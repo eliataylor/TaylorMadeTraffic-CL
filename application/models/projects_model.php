@@ -30,8 +30,7 @@ class Projects_Model extends CI_Model {
             array_push($params, $type);
         }
         if (!empty($value)) {
-            array_push($wheres, " T.tag_key = ? ");
-            
+            array_push($wheres, " T.tag_key = ? ");            
             array_push($params, $value);
         }
         if (count($wheres) > 0) {
@@ -45,15 +44,21 @@ class Projects_Model extends CI_Model {
         return array();
     }
     
-    function getProjectsByType($type=false) {
+    function getProjectsByType($type=false, $filter=false) {
         $params = array();
-        $sql = "SELECT P.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN images I on P.project_id = I.project_id ";
+        //$sql = "SELECT P.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN images I on P.project_id = I.project_id ";
+        $sql = "SELECT P.*, T.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN tags T on P.project_id = T.project_id LEFT JOIN images I on P.project_id = I.project_id ";
         
         $wheres = array();
         if (!empty($type)) {
             array_push($wheres, " P.project_type = ?");
             array_push($params, $type);
         }
+        if (!empty($filter)) {
+            array_push($wheres, " T.tag_key = ? ");            
+            array_push($params, $filter);
+        }
+        
         if (count($wheres) > 0) {
             $sql .= " WHERE " . implode(" AND ", $wheres);            
         }
