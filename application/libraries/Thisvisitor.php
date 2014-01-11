@@ -36,35 +36,33 @@ class Thisvisitor {
              $CI->output->enable_profiler(TRUE);
              $this->visitor['con']['debugMode'] = true;
          }
-         if ($CI->agent->is_mobile("iPad")) {
-            if (!isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 930;
-            if (!isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 644;
+         $device = $CI->input->get_post('device');
+         if ($CI->agent->is_mobile("iPad") || $device == 'tablet') {
+            if ($device || !isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 768;
+            if ($device || !isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 928;
             $this->visitor['con']['isMobile'] = true;
-         } elseif ($CI->agent->is_mobile("iPhone")) {
-            if (!isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 406;
-            if (!isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 784;
+         } elseif ($CI->agent->is_mobile() || $CI->agent->is_mobile("iPhone") || $device == 'phone') {
+            if ($device || !isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 320;
+            if ($device || !isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 444;
             $this->visitor['con']['isMobile'] = true;
-         } elseif ($CI->agent->is_mobile()) {
-            if (!isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 550; // intentionally 1 off to tell me it's default
-            if (!isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 643;
-            $this->visitor['con']['isMobile'] = true;
-         } else {
-            if (!isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 940;
-            if (!isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 550;
+         } else { 
+            if ($device || !isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 1000;
+            if ($device || !isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 550;
             $this->visitor['con']['isMobile'] = false;
         } 
         
-        $test = $CI->session->userdata('con');
-        if(empty($test)) {
-            $this->saveSession();
-        } else {
-            foreach($test as $key => $t) {
-                if (!isset($this->visitor['con'][$key]) || $this->visitor['con'][$key] != $t) {
-                    $this->saveSession();
-                    break;
+            $test = $CI->session->userdata('con');
+            if(empty($test)) {
+                $this->saveSession();
+            } else {
+                foreach($test as $key => $t) {
+                    if (!isset($this->visitor['con'][$key]) || $this->visitor['con'][$key] != $t) {
+                        $this->saveSession();
+                        break;
+                    }
                 }
             }
-        }
+        
         
     }
         

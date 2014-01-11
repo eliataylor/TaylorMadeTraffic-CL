@@ -97,7 +97,7 @@
         </item>
         <item>
             <title>Traffic</title>
-            <liveurl>http://www.taylormadetraffic.com/TMT/Traffic/</liveurl>
+            <liveurl>http://traffic.taylormadetraffic.com/traffic.html</liveurl>
             <devurl/>
             <thumbDir>/wwwroot/images/design/traffic/th</thumbDir>
             <xlDir>/wwwroot/images/design/traffic</xlDir>
@@ -121,7 +121,7 @@
             <startdate>August 2009</startdate>
             <launchdate>October 2009</launchdate>
             <devtools>Flex,AS3</devtools>
-            <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;3DModeling:Umberto Polanco</team>
             <desc></desc>
         </item>           
     </design>
@@ -262,8 +262,8 @@
             <startdate>July 2013</startdate>
             <launchdate>December 2013</launchdate>
             <industries>analytics</industries>
-            <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Google Visualization,Google SDK,Facebook SDK,YouTube SDK,Twitter SDK,Laraval,</devtools>
-            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:Juan Ruiz,Claudia Huertas;Project Management:Alejandra Farfan,David Duran</team>
+            <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Google Visualization,Google SDK,Facebook SDK,YouTube SDK,Twitter SDK,Laraval</devtools>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:Juan Ruiz,Claudia Huertas;Project Management:Alejandra Farfan,David Duran;QA:John Parra</team>
             <desc>The tool automates monthly reports due clients, by aggregating data from all active marketing channels or installed tracking tools, such as Twitter, Facebook Insights, Google Anayltics, Youtube, and the Apple AppStore. </desc>
             <technotes>Over 45 Google Visualization Graphs can be created in less than 10 seconds. By entering just a few project goals in the form of KPIs (Key Performance Indicators), graphs are automatically colorized in to indicate how they are performing. Project &amp; account managers can also using a simple CMS built within the reports to comment on specific metrics, add headers, group graphics, change sizes and drill on the data through AJAX connections to all the original API services. The permissions matrix is controlled per client, brand, and project with 6 levels of access, including publishing public reports with encrypted URLs. The original codebase was writen in the Laraval PHP Framework which somewhat resembles Ruby. I have since completely replaced that codebase with CodeIgniter.</technotes>
         </item>
@@ -280,7 +280,7 @@
             <launchdate>July 2013</launchdate>
             <industries>fashion,gaming</industries>
             <devtools>PHP,Slim Framework,mySQL,AJAX,JavaScript,Facebook SDK</devtools>
-            <team>Design:Zandro Gil;Front-End:E.A.Taylor,Fabian Mariño;Back-End:E.A.Taylor;Project Management:Natalia Uribe</team>
+            <team>Design:Zandro Gil;Front-End:E.A.Taylor,Fabian Mariño;Back-End:E.A.Taylor;Project Management:Natalia Uribe;QA:Jimmy Rodriguez</team>
             <desc>A curly-hair competition for a $250 shopping spree</desc>
             <technotes>Another quick campaign application to generate FanPage likes. To compete users were required to like Sedal's FanPage, complete regisration, and upload videos, images, or a tip on maintaining their hair (ideally using Sedal products;). Voting was validated by IP, user agent, and PHP session, while video uploads were POSTed directly to a public YouTube channel using their PHP SDK. The project extended ID's fork of the Slim PHP Framework. I personally found more hurdles than helpers in the tightly namespaced codebase and odd use of closures for routing/controllers.</technotes>
         </item>        
@@ -295,7 +295,7 @@
             <launchdate>December 2013</launchdate>
             <industries>gaming</industries>
             <devtools>PHP,mySQL,JavaScript</devtools>
-            <team>Design:Cristopher Allen Lara;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Project Management:Oscar Gil;Account Manager:Sharon Lewis</team>
+            <team>Design:Cristopher Allen Lara;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Project Management:Oscar Gil;Account Manager:Sharon Lewis;QA:Jimmy Rodriguez,John Parra</team>
             <desc>IDinteractive builds marketing platforms for a long list of great clients with creative projects and campaigns. One of the most fun I built in a quick 4 weeks was <em>Oreo Navidad</em>. The campaign was based on 20 million codes printed on Oreo packages throughout Colombia. There were 5 types of prizes to win in varying amounts with a total of 285 to give.  No one code could be considered a winner in advance, and the prizes should be distributed evenly throughout the ~60 day campaign. I wrote the probability to be related to the average number of people playing daily and distributed all prizes - by number and type – evenly until the last day.</desc>
             <technotes>A search against the 20 million codes took .00020 seconds, and the site supported business rules such as Catpcha when a user searched more than 12 times in a day. I also included several backend tracking tools and a automated QA tester to simulate varying degrees of traffic, code searches, and minimum probabilities.</technotes>
             <thumbSrc></thumbSrc>
