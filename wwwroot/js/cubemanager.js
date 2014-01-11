@@ -41,7 +41,7 @@
         },
         ajaxPage : function(href) {
            if (ctx[cls].cube.id == 'menuPreloader') { 
-                $(ctx[cls].cube).find('img:first').css({opacity:1});
+                //$(ctx[cls].cube).find('img:first').css({opacity:1});
                 ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
             }
            
@@ -56,9 +56,9 @@
                ctx[cls].curPage = href;
                if (ctx[cls].cube.id == 'menuPreloader') {
                    clearTimeout(ctx[cls].spinInterval);
-                   if (href.indexOf('taylormade') < 0) {
-                       $(ctx[cls].cube).find('img:first').css({opacity:.5});
-                   }
+                   //if (href.indexOf('taylormade') < 0) {
+                   //    $(ctx[cls].cube).find('img:first').css({opacity:.5});
+                   //}
                }
            });
            
@@ -70,10 +70,12 @@
            } catch(e) { //ios
                 document.getElementsByTagName("title")[0].nodeValue = title;
            }
-           $("#navMenu").find('a').each(function(){
+           $("a.menuBox").each(function(){
               if ($(this).attr('href') == href) {
                   $(this).addClass('selected');
+                  $(this).find('img').css({opacity:1});
               } else {
+                  $(this).find('img').css({opacity:.5});
                   $(this).removeClass('selected');
               }
            });
@@ -178,7 +180,7 @@
                 });
                 ctx[cls].cube = document.getElementById('menuPreloader');
                 clearInterval(ctx[cls].growInterval);
-                $('#menuLabelBox').width(210); // allows longer titles
+                if ($(window).width() > 550) $('#menuLabelBox').width(210); // allows longer titles
                 if (ctx[cls].curPage.length < 2) { // slash not included
                     ctx[cls].ajaxPage('/technologies');
                 } else {
@@ -241,25 +243,16 @@
             }
         }, 
         moveToMenu:function() {
-            $('a.menuBox img').css({opacity:0});
-            
+            $('a.menuBox img').css({opacity:0});            
             document.onmousemove = null; 
             window.onmousemove = null; 
             ctx[cls].spinSpeed = 5; // speed up spin
             clearTimeout(ctx[cls].floatInterval);
             ctx[cls].floatInterval = null;
-            var wid = $("body").width(), x = -7, y = -12;
+            var wid = $("body").width(), x = -12, y = -5;
             var offset = $('.master:first').offset();
             x += offset.left;
             y += offset.top;
-//            if (wid < 800) {
-//                x = 5;
-//                y = 10;           
-//                document.getElementById("navMenu").style.marginLeft = (x + 10) + "px";
-//                document.getElementById("navMenu").style.marginTop = (y + 7) + "px";
-//                ctx[cls].opening.style.top = y + "px";
-//                ctx[cls].opening.style.left = x + "px";
-//            }
             var moveTime = 1000; // TODO: relate to distance from target coordinate
             $(ctx[cls].cube).animate({left: x,top:y
             }, moveTime, function() {
@@ -273,7 +266,7 @@
                 $(ctx[cls].cube).hide();
                 ctx[cls].openCube();
                 ctx[cls].spinSpeed = 30; // reset for if reopened
-                $(ctx[cls].opening).show();
+                $(ctx[cls].opening).show();                
             }                    
         },
         startClose : function() {

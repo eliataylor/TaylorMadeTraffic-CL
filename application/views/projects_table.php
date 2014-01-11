@@ -55,6 +55,9 @@
     <h2>
     <?if (isset($qtagOptions) && !empty($qtagOptions)):?>    
     <select id="qTagSelector" onchange="if (this.options[this.selectedIndex].value != '') tmt.ajaxPage(this.options[this.selectedIndex].value); return false;" >
+        <? if ( (isset($cProfile) && !empty($cProfile)) || (isset($uProfile) && !empty($uProfile))):?>
+        <option value=""><?=$this->lang->en('Other') . ' ' . $qtags?></option>
+        <?endif;?>
         <?foreach($qtagOptions as $option):?>                        
             <option 
 
@@ -66,7 +69,7 @@
                      $qurl .= '?qtfilter='.$option->tag_key;
                 }
                 ?>
-                <? if ($qtfilter == $option->tag_key): ?>
+                <? if ($qtfilter == $option->tag_key && empty($cProfile) && empty($uProfile)): ?>
                     selected='selected'
                 <? endif; ?>
 
@@ -109,7 +112,7 @@
                         <a href='/projects?pid=<?= $row->project_id; ?>'>
                             <img  data-owidth="<?= $row->image_width ?>" 
                                   data-oheight="<?= $row->image_height ?>" 
-                                  src='<?=($row->image_height < 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
+                                  src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
                                   class="projectImg blackOutFade" />                            
                         </a>
                         <div class="blackOutFadeBG"></div>
@@ -128,18 +131,19 @@
                 </td>
                 <td class="col3 project_startdate">
                 <? endif; ?>
-                    
-                    <p><span class='lineName'><?= $this->lang->en("Started:") ?>:</span> <?= $row->project_startdate; ?></p>
-                    <? if (!empty($row->project_launchdate)): ?><p><span class='lineName'><?= $this->lang->en("Launched/Lasted:") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
-                    <? if (!empty($row->project_liveurl)): ?><p  class="projectLink"><span class='lineName'><?= $this->lang->en("Live") ?>:</span>                        
-                        <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>
-                    </p><? endif ?>
-                    <? if (!empty($row->project_devurl)): ?><p class="projectLink"><span class='lineName'><?= $this->lang->en("Dev") ?>:</span><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
-                    <? if (!empty($row->project_devtools)): ?><p><span class='lineName'><?= $this->lang->en("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
-                    <? if (!empty($row->project_industries)): ?><p><span class='lineName'><?= $this->lang->en("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
-                    <? if (!empty($row->project_team)): ?><p><span class='lineName'><?= $this->lang->en("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
-                    <? if (!empty($row->project_companies)): ?><p><span class='lineName'><?= $this->lang->en("Companies/Brands:") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
-                    <? if (!empty($row->license_id)): ?><p><span class='lineName'><?= $this->lang->en("License") ?>:</span> <?= $row->license_id; ?></p><? endif ?>
+                    <div class="projectTags">
+                        <p><span class='lineName'><?= $this->lang->en("Started:") ?>:</span> <?= $row->project_startdate; ?></p>
+                        <? if (!empty($row->project_launchdate)): ?><p><span class='lineName'><?= $this->lang->en("Launched/Lasted:") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
+                        <? if (!empty($row->project_liveurl)): ?><p  class="projectLink"><span class='lineName'><?= $this->lang->en("Live") ?>:</span>                        
+                            <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>
+                        </p><? endif ?>
+                        <? if (!empty($row->project_devurl)): ?><p class="projectLink"><span class='lineName'><?= $this->lang->en("Dev") ?>:</span><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
+                        <? if (!empty($row->project_devtools)): ?><p><span class='lineName'><?= $this->lang->en("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
+                        <? if (!empty($row->project_industries)): ?><p><span class='lineName'><?= $this->lang->en("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
+                        <? if (!empty($row->project_team)): ?><p><span class='lineName'><?= $this->lang->en("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
+                        <? if (!empty($row->project_companies)): ?><p><span class='lineName'><?= $this->lang->en("Companies/Brands:") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
+                        <? if (!empty($row->license_id)): ?><p><span class='lineName'><?= $this->lang->en("License") ?>:</span> <?= $row->license_id; ?></p><? endif ?>
+                    </div>
                 </td>
             </tr>
 <? endforeach; ?>

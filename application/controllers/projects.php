@@ -30,7 +30,7 @@ class Projects extends CI_Controller {
             "team" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Team")),
             "roles" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Roles")),
             
-            "cv-format" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("CV"))
+            "devices" => array("role" => 0, 'icon'=>'',  "title" => "Test Devices"),
         );
 
         $path = uri_string();        
@@ -65,6 +65,8 @@ class Projects extends CI_Controller {
         if ($this->input->is_ajax_request()) {
             return $this->output->set_output($this->load->view($page, $this->data, TRUE));
         }
+        $cv = $this->input->get_post('cv-format');
+        if ($cv) $shell = "cv_format";        
         $this->load->view($shell, $this->data);        
     }
 
@@ -118,6 +120,7 @@ class Projects extends CI_Controller {
             $this->sendOut('tags_table');
         } else{
             $this->data['cProfile'] = $this->users->getCompanyByName($this->data['qtfilter']);
+            if (empty($this->data['cProfile'])) unset($this->data['cProfile']);
             $this->getTableForProjects();
             $this->sendOut('projects_table');
         }
@@ -159,6 +162,8 @@ class Projects extends CI_Controller {
         $this->data['qtags'] = 'companies';
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
         $this->data['qtfilter'] = 'TaylorMadeTraffic';
+        $this->data['cProfile'] = $this->users->getCompanyByName("TaylorMadeTraffic");
+        
         $this->getTableForProjects();
         
         $seg = $this->uri->segment(2);
@@ -234,43 +239,10 @@ class Projects extends CI_Controller {
         return false;
     }
     
-    public function cvPrint() {
-        libxml_use_internal_errors(true);
-        $xml = simplexml_load_file("wwwroot/folioXML.xml");
-        $html = '';
-        $complete = $this->input->get_post("complete");
-        if  ($complete) {
-            $this->data['tableRows'] = array();
-            foreach ($xml->children() as $child) {
-                $project_type = $child->getName(); 
-                foreach ($child->children() as $item) {
-                    $obj = new stdClass();
-                    foreach ($item->children() as $col) {
-                        $key = (strpos($col->getName(),'_id') < 1) ? 'project_' . $col->getName() : $col->getName();
-                        $col = (string)$col;
-                        if (!empty($col))  {
-                            $obj->$key = trim((string) $col);
-                        }
-                    }
-                    array_push($this->data['tableRows'], $obj);
-                }
-            } 
-            return $this->sendOut('cv_format', 'cv_format');
-        }
-        foreach ($xml->children() as $child) {
-            
-            $project_type = $child->getName(); 
-            foreach ($child->children() as $item) {
-                if (!empty($item->technotes) || !empty($item->desc)) {
-                    $html .= "<h4>" . $item->title . "</h4>"; 
-                    if (!empty($item->desc)) $html .= "<p>" . $item->desc . "</p>";
-                    if (!empty($item->technotes)) $html .= "<p>" . $item->technotes . "</p>";
-                }
-            }   
-        }
-        echo $html;
+    function devices() {
+        $this->sendOut('stylesheet', 'cms_shell');
     }
-
+    
 
 }
 

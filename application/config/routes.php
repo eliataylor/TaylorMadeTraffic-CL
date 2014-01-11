@@ -24,7 +24,9 @@ $route['eli'] = "projects/eli";
 $route['team'] = "projects/team";
 $route['roles'] = "projects/team";
 
-$route['cv-format'] = "projects/cvPrint";
+$route['projects(|.+?)'] = "projects/projects";
+$route['devices(|.+?)'] = "projects/devices";
+
 
 $route['lenguaplus(|.+?)'] = 'LenguaPlusController';
 
