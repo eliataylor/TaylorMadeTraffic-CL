@@ -87,6 +87,15 @@
               }
            });
         },
+        changeLang : function(lang) {
+            var href = document.location.hash;
+            if (href && href.indexOf('!href=') > -1) 
+                href = href.substring(href.indexOf('!href=') + '!href='.length); //  assumes last hash param
+            if (!href || href == '')
+                href = document.location.pathname;
+            href += (href.indexOf("?") > -1) ? "&lang=" + lang : "?lang=" + lang;
+            document.location.href = href;
+        },
         initMouseIntro:function(autostart) {
             var wid = $("body").width();
             if (!wid || wid < 10) wid = 400;
@@ -113,7 +122,7 @@
                 mousePos : [$(window).width() - 50, $(window).height() - 50];
             }
             
-            $("#navMenu").find('a').hover(
+            $("a.menuBox").hover(
                 function(){
                     if (!$(this).hasClass('selected')) {
                         $(this).find('img:first').animate({opacity:1}, 250);
@@ -128,22 +137,6 @@
             $("#navMenu").mouseout(function(){
                 $("#menuLabel").html('');
             });
-
-            /*
-            $("#menuList").find('li').each(function(){
-                var el = $(this).get(0);
-                if (el.getAttribute('href'))  {
-                    el.onmouseover = function() {
-                        this.style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
-                        document.getElementById("menuLabel").innerHTML = this.getAttribute("title");
-                    }, 
-                    el.onmouseout = function() { 
-                        this.style.backgroundColor = '#000000';
-                    }
-                }
-            });
-            */
-
         },
         initAutoIntro:function() {
             ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
@@ -180,6 +173,7 @@
                 });
                 ctx[cls].cube = document.getElementById('menuPreloader');
                 clearInterval(ctx[cls].growInterval);
+                $('#menuList').fadeIn();
                 if ($(window).width() > 550) $('#menuLabelBox').width(210); // allows longer titles
                 if (ctx[cls].curPage.length < 2) { // slash not included
                     ctx[cls].ajaxPage('/technologies');
@@ -375,7 +369,7 @@ $(document).ready(function() {
             var autostart = ((href && href.length > 1) || (document.location.pathname.length > 1))  ? true : false;
             tmt.initMouseIntro(autostart);
         }
+        tmt.initPreloader();
     }
     tmt.initPage(document.body);
-    tmt.initPreloader();
 });

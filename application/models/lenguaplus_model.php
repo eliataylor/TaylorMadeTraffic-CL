@@ -25,10 +25,14 @@ class LenguaPlus_model extends CI_Model {
         if (!empty($type)) {
             array_push($wheres, 'langtracker_type = ?');
             array_push($params, $type);
-        }                  
-        if (!empty($wheres)) {
-            $sql .= ' WHERE ' . implode(' AND ', $wheres);
         }
+        
+        array_push($wheres, 'langtracker_status != \'deleted\' ');
+        
+        //if (!empty($wheres)) {
+            $sql .= ' WHERE ' . implode(' AND ', $wheres);
+        //}
+        
         
         if (is_array($groupby)) $groupby = implode(',',$groupby);
         if ($groupby == 'url') $sql .= ' group by langtracker_key, langtracker_url';
@@ -43,15 +47,29 @@ class LenguaPlus_model extends CI_Model {
         return array();
     }       
     
-    public function getLanguageById($lid) {
-        $query = $this->db->query('SELECT * FROM langtracker where langtracker_id = ?', array($lid));
+    public function getLanguageById($lid, $status=NULL) {
+        $sql = 'SELECT * FROM langtracker where langtracker_id = ?';
+        $params = array($lid);
+        if (!empty($status) && in_array($status, array('edited','live','debug')))  {
+            $sql .= " and langtracker_status = ?";
+            array_push($params, $status);
+        }
+        $sql .= ' LIMIT 1';
+        $query = $this->db->query($sql, $params);
         if ($query->num_rows() > 0) return $query->row();
         return array();
     }  
-    public function getLanguageByKey($key) {
-        $query = $this->db->query('SELECT * FROM langtracker where langtracker_key = ?', array($key));
+    public function getLanguageByKey($key, $status=NULL) {
+        $sql = 'SELECT * FROM langtracker where langtracker_key = ?';
+        $params = array($key);
+        if (!empty($status) && in_array($status, array('edited','live','debug')))  {
+            $sql .= " and langtracker_status = ?";
+            array_push($params, $status);
+        }
+        $sql .= ' LIMIT 1';
+        $query = $this->db->query($sql, $params);
         if ($query->num_rows() > 0) return $query->row();
-        return array();
+        return false;
     }      
         
     public function hasKeyByUrl($obj){
@@ -80,18 +98,16 @@ class LenguaPlus_model extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    function updateLangByKey($data, $key, $status, $type){
+    function updateLangByKey($data, $key){
         $this->db->where('langtracker_key', $key);
-        
-        if (!empty($status)) 
-            $this->db->where('langtracker_status', $status);
-        
-        if (!empty($type))
-            $this->db->where('langtracker_type', $type);
-        
         $this->db->update('langtracker', $data); // unchecked aside controller
         return $this->db->affected_rows();
     }
+    function updateLangById($data, $id){
+        $this->db->where('langtracker_id', $id);
+        $this->db->update('langtracker', $data); // unchecked aside controller
+        return $this->db->affected_rows();
+    }    
     
     function next_id() {
         $query = $this->db->query("SHOW TABLE STATUS LIKE 'langtracker'");

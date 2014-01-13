@@ -1,7 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**		
- * 
- * CREATE TABLE IF NOT EXISTS `langtracker` (
+
+/** CREATE TABLE IF NOT EXISTS `langtracker` (
   `langtracker_id` int(11) NOT NULL AUTO_INCREMENT,
   `langtracker_key` varchar(400) COLLATE utf8_unicode_ci NOT NULL,
   `langtracker_file` varchar(400) COLLATE utf8_unicode_ci NOT NULL,
@@ -17,9 +16,8 @@
   PRIMARY KEY (`langtracker_id`),
   KEY `langtracker_language` (`langtracker_language`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
- * 
- * 
  */
+
 class CI_Lang {
 
 	private $language	= array();
@@ -111,106 +109,141 @@ class CI_Lang {
 		log_message('debug', 'Language file loaded: language/'.$idiom.'/'.$langfile);
 		return TRUE;
 	}
+        /* override*/ 
+        function set_item($name, $val) {
+             $this->curlanguage = $val;
+        } 
+        
+        function setLanguaPlus($val) {
+           $this->curlanguage = $val;
+        }
+         
+        function line($line, $lang=false) { return $this->msg($line, $lang);}  // for portability from native Lang.php
+        function key($line, $lang=false) { return $this->msg($line, $lang); }
+        function en($line) { return $this->msg($line, 'en'); }
+        function es($line) { return $this->msg($line, 'es'); }
 
-	// --------------------------------------------------------------------
-
-
-	function line($line, $lang=false) {
-                if (is_numeric($line)) return $line;
-		$value = (isset($this->language[$line])) ? $this->language[$line] : $line;
-		if (!isset($this->language[$line])) {
-                        if (ENVIRONMENT != 'production') {
-                            $CI = &get_instance();
+	function msg($value, $lang=false) {
+                if (is_numeric($value)) return $value;
+                $key = strtolower($value);
+		$value = (isset($this->language[$key])) ? $this->language[$key] : $value;
+		if (!isset($this->language[$key])) { // generally consider in production this should always happen anyway. (for ugc() the opposite)
+                        $CI = &get_instance();
+                        $lData = NULL; // false is the query was already made
+                        
+                        if ($CI->config->item('use_msg_database') === TRUE) {
+                            $lData = $CI->LenguaPlus_model->getLanguageByKey($key, $CI->config->item('lang_status')); // only status == 'edited' or 'live' rows
+                            $langCol = 'langtracker_';
+                            $langCol .= (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language'); // todo this should be handled better by load
+                            if ($lData && !empty($lData->$langCol)) {
+                                $this->language[$key] =  $lData->$langCol; // CACHED for request life!
+                                // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                                return $lData->$langCol;
+                            } // nothing is in the database either
+                        }
+                        if ($CI->config->item('track_msg_production') === true || $CI->config->item('environment') != 'production') {
                             
-                            $key = strtolower(preg_replace('/\s+/', '', $line));
-                            $test = $CI->LenguaPlus_model->getLanguageByKey($key);
-                            if (!$test) {
+                            if (empty($lData)) { 
+                                $lData = $CI->LenguaPlus_model->getLanguageByKey($key); // any status!
+                                if (!empty($lData)) {
+                                    // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                                }
+                            }
+                            if (empty($lData)) {
                                 $trace = debug_backtrace();
-                                $obj = array();
                                 foreach($trace as $t) {
-                                    if ($t['function'] == 'line') {
-                                        $obj['langtracker_linenum'] = $t['line'];
-                                        $obj['langtracker_type'] = 'msg';
-                                        $obj['langtracker_file'] = $t['file'];
+                                    if ($t['file'] != __FILE__) { // one file up in the trace
+                                        $lData['langtracker_linenum'] = $t['line'];
+                                        $lData['langtracker_type'] = 'msg';
+                                        $lData['langtracker_file'] = $t['file'];
 
                                         if ($lang == 'es') {
-                                            $obj['langtracker_key'] = $key;
-                                            $obj['langtracker_es'] = $line;
+                                            $lData['langtracker_key'] = $key;
+                                            $lData['langtracker_es'] = $key;
                                         } elseif ($lang == 'en') {
-                                            $obj['langtracker_key'] = $key;
-                                            $obj['langtracker_en'] = $line;
+                                            $lData['langtracker_key'] = $key;
+                                            $lData['langtracker_en'] = $key;
                                         } else {
-                                            $obj['langtracker_key'] = $key;
+                                            $lData['langtracker_key'] = $key;
                                         }
 
-                                        $obj['langtracker_added'] = time();
-                                        $obj['langtracker_host'] = $_SERVER['HTTP_HOST'];
-                                        $obj['langtracker_language'] = (!empty($this->curlanguage)) ? $this->curlanguage : 'en';
-                                        $obj['langtracker_url'] = $_SERVER['REQUEST_URI'];
-                                        $obj['langtracker_status'] = "debug";
-
-                                        $test = $CI->LenguaPlus_model->hasKeyByUrl($obj);
-                                        if ($test === false) {
-                                            $CI->LenguaPlus_model->trackLang($obj);
-                                        }
+                                        $lData['langtracker_added'] = time();
+                                        $lData['langtracker_host'] = $_SERVER['HTTP_HOST'];
+                                        $lData['langtracker_language'] = (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language');
+                                        $lData['langtracker_url'] = $_SERVER['REQUEST_URI'];
+                                        $lData['langtracker_status'] = "debug";
+                                        $CI->LenguaPlus_model->trackLang($lData);
                                         break;
                                     }
                                 }
-                            } else {
-                                $cur = (!empty($this->curlanguage)) ? $this->curlanguage : 'en';
-                                if ($lang != $cur) {
-                                    $column = 'langtracker_'.$cur;
-                                    $value = $test->$column;
-                                }
                             }
-                        }                    
-			log_message('error', 'Could not find the language line "'.$line.'"');
+                            log_message('error', 'Could not find the language line "'.$key.'"');
+                        }
 		}
 
 		return $value;
 	}
-        
-        function en($line) {
-            return $this->line($line, 'en');
-	}
-        function es($line) {
-            return $this->line($line, 'es');
-	}
-        
-	function ugc($line) {
-                if (ENVIRONMENT == 'production') $line;
-                if (is_numeric($line)) return $line;
-                $key = preg_replace('/\s+/', '', $line);
-		if (!isset($this->language[$key])) {
-                    $CI = &get_instance();
-                    $trace = debug_backtrace();
-                    foreach($trace as $t) {
-                        if ($t['function'] == 'ugc') {
-                            $obj['langtracker_linenum'] = $t['line'];
-                            $obj['langtracker_type'] = 'ugc';
-                            $obj['langtracker_file'] = $t['file'];
-                            $obj['langtracker_added'] = time();
-                            $obj['langtracker_key'] = $key;
-                            if (!empty($this->curlanguage)) {
-                                $obj['langtracker_language'] = $this->curlanguage;
-                                $obj['langtracker_' . $this->curlanguage] = $line;
-                            } else {
-                                $obj['langtracker_language'] = 'en';
-                                $obj['langtracker_en'] = $line;
-                            }
-                            $obj['langtracker_host'] = $_SERVER['HTTP_HOST'];
-                            $obj['langtracker_url'] = $_SERVER['REQUEST_URI'];
-                            $obj['langtracker_status'] = "debug";
 
-                            $test = $CI->LenguaPlus_model->hasKeyByUrl($obj);
-                            if ($test === false) $CI->LenguaPlus_model->trackLang($obj);
-                            break;
+	function ugc($line, $user_id=NULL) {
+                $CI = &get_instance();
+                if ($CI->config->item('environment') === 'production' && $CI->config->item('track_ugc_production') === false) 
+                    return $line;                
+                if (is_numeric($line)) 
+                    return $line;
+                
+                $key = preg_replace("/[^a-z0-9 ]/", '', strtolower($line)); // key is only alphanumeric to avoid redundant entries, WARN can lead to conflicts
+		if (isset($this->language[$key])) {
+                    $filename = $this->language[$key]; // WARN: even storing ALL ugc filenames in one file could be too large memorywise.
+                    $line = file_get_contents($filename);
+                } else {
+                    $lData = NULL; // false is the query was already made
+
+                    if ($CI->config->item('use_ugc_database') === TRUE) {
+                        $lData = $CI->LenguaPlus_model->getLanguageByKey($key, $CI->config->item('lang_status')); // only status == 'edited' or 'live' rows
+                        $langCol = 'langtracker_';
+                        $langCol .= (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language'); // todo this should be handled better by load
+                        if ($lData && !empty($lData->$langCol)) {
+                            //$this->language[$key] =  $lData->$langCol; // CACHED for request life!
+                            // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                            return $lData->$langCol;
+                        } // nothing is in the database either
+                    }
+                    if ($CI->config->item('track_ugc_production') === true || $CI->config->item('environment') != 'production') {
+                        
+                        if (empty($lData)) { 
+                            $lData = $CI->LenguaPlus_model->getLanguageByKey($key); // any status!
+                            if (!empty($lData)) {
+                                // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                            }
                         }
-                    }                    
-                    log_message('error', 'Could not find the language line "'.$line.'"');
-		} else {
-                    $line = $this->language[$key];
-                }
+                        if (empty($lData)) {
+                            $trace = debug_backtrace();
+                            foreach($trace as $t) {
+                                if ($t['file'] != __FILE__) {
+                                    $obj['langtracker_linenum'] = $t['line'];
+                                    $obj['langtracker_type'] = 'ugc';
+                                    $obj['langtracker_file'] = $t['file'];
+                                    $obj['langtracker_added'] = time();
+                                    $obj['langtracker_key'] = $key;
+                                    $obj['langtracker_oauthor_id'] = $user_id;
+                                    if (!empty($this->curlanguage)) { // you can never really know this unless it's track by the session of the user when originally entered
+                                        $obj['langtracker_language'] = $this->curlanguage;
+                                        $obj['langtracker_' . $this->curlanguage] = $line;
+                                    } else {
+                                        $obj['langtracker_language'] = $CI->config->item('language');
+                                        $obj['langtracker_en'] = $line;
+                                    }
+                                    $obj['langtracker_host'] = $_SERVER['HTTP_HOST'];
+                                    $obj['langtracker_url'] = $_SERVER['REQUEST_URI'];
+                                    $obj['langtracker_status'] = "debug";
+                                    $CI->LenguaPlus_model->trackLang($obj);
+                                    break;
+                                }
+                            }
+                        }                    
+                        log_message('error', 'Could not find the language line "'.$line.'"');
+                    }
+		}
 		return $line;
 	}        
 }
