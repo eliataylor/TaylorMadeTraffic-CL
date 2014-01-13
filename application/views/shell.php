@@ -56,9 +56,7 @@
             <div class='topHeader'>
                 <?if (isset($qmenu)):?>
                 <div style="opacity:0; filter:alpha(opacity=0); " id="navMenu" >
-                    <div style="padding-left: 1px;"  class="menuEmpty menuBox">
-                        <span onclick="tmt.startClose();" style="display:none" id="closeBtn">CLOSE</span>
-                    </div>
+                    <div style="padding-left: 1px;"  class="menuEmpty menuBox"></div>
 
                     <a href="/eli" title="E.A.Taylor" class="menuBox tc">
                         <img src="/wwwroot/images/eat_menu.png" />
@@ -82,15 +80,24 @@
                         <img src="/wwwroot/images/technologies.png" />
                     </a>
 
-                    <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;"></div>
+                    <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;">
+                        <ul id="menuList" style="display:none" >
+                           <img title="<?=$this->lang->msg('english')?>"
+                               <?if ($me['con']['lang'] != 'en'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
+                               onclick="tmt.changeLang('en')" src="/wwwroot/images/United-States_16x16-32.png">
+                           <img 
+                               title="<?=$this->lang->msg('español')?>"
+                               <?if ($me['con']['lang'] != 'es'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
+                               onclick="tmt.changeLang('es')" src="/wwwroot/images/Colombia_16x16-32.png">
+                        </ul>
+                        
+                    </div>
 
                     <a id="menuBoxBottom" href="/taylormade" title="<?=$this->lang->en("Taylor Made")?>" class="menuBox bc">
 <!--                        <img src="/wwwroot/images/cubeCorner.png" />-->
                     </a>
 
-                    <div class="menuEmpty menuBox" style="height:auto; width:auto;" >
-                        <ul id="menuList" style="display:none" ></ul>
-                    </div>
+                    <div class="menuEmpty menuBox" ></div>
                 </div>
 
                 <div id="tagLinks" class="moduleBlock mainNav">

@@ -9,6 +9,7 @@ class Thisvisitor {
         $CI->load->model('Projects_model', 'projects');
         $CI->load->model('Users_model', 'users');
         $CI->load->library('user_agent');
+        $this->getSession(); // setDefaults depends on visitor already populated
         $this->setDefaults();
     }
         
@@ -16,14 +17,16 @@ class Thisvisitor {
          $CI = &get_instance();
          
          $lang = $CI->input->get_post('lang'); 
-         if ($lang) {
+         if ($lang) { // overwrite
             if (!in_array($lang, array_keys($CI->config->item('languages')))) array_push($this->visitor['errors'], $CI->lang->en('Incorrect Language'));
             else $this->visitor['con']['lang'] = $lang;
          } else {
             if (!isset($this->visitor['con']['lang'])) $this->visitor['con']['lang'] = $CI->config->item('language');
-         }         
-         //if ($CI->config->lang('use_database')) {
-         //$CI->lang->load('messages', $this->visitor['con']['lang']);
+         }
+         // $CI->config->set_item('language', $this->visitor['con']['lang']); // does not work http://stackoverflow.com/questions/7563390/codeigniter-change-loaded-language
+         $CI->lang->load('langplus_msg', $this->visitor['con']['lang']);
+         if ($CI->config->item('use_ugc_database') === FALSE)
+             $CI->lang->load('langplus_ugc', $this->visitor['con']['lang']);
          
          $pstyle = $CI->input->get_post('pstyle');
          if (!in_array($pstyle, array('pBlack','pWhite'))) $pstyle = 'pBlack';
@@ -51,17 +54,17 @@ class Thisvisitor {
             $this->visitor['con']['isMobile'] = false;
         } 
         
-            $test = $CI->session->userdata('con');
-            if(empty($test)) {
-                $this->saveSession();
-            } else {
-                foreach($test as $key => $t) {
-                    if (!isset($this->visitor['con'][$key]) || $this->visitor['con'][$key] != $t) {
-                        $this->saveSession();
-                        break;
-                    }
+        $con = $CI->session->userdata('con');
+        if(empty($con)) {
+            $this->saveSession();
+        } else {
+            foreach($con as $key => $t) {
+                if (!isset($this->visitor['con'][$key]) || $this->visitor['con'][$key] != $t) {
+                    $this->saveSession(); 
+                    break;// it's gunna save everything anyway
                 }
             }
+        }
         
         
     }
@@ -82,7 +85,7 @@ class Thisvisitor {
                     $this->visitor["user_last_login"] = time();
                     $CI->users->updateUser($this->visitor['user_id'], array("user_last_login"=>$this->visitor['user_last_login'], "user_2ndlast_login"=>$this->visitor['user_2ndlast_login']));
                     $this->saveSession();
-                }                
+                }
             } else {            
                 array_push($this->visitor['errors'], $CI->lang->en('Incorrect Credentials'));
                 $this->updateSession('con', $this->visitor['con']); // update lAttempts                
@@ -109,7 +112,10 @@ class Thisvisitor {
         $CI = &get_instance();
         $ref = &$this->visitor;
         $copy = $ref;
-        unset($copy['errors']);
+        $unsets = array('errors','user_bio','user_fburl','user_linkdinurl','user_gooogleurl');
+        foreach($unsets as $un) {
+            unset($copy[$un]);
+        }
         $CI->session->set_userdata($copy);
     }
 

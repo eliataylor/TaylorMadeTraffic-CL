@@ -35,28 +35,36 @@
                    'id':langRow.attr('data-langid'),
                    'languages':[]
                };
-               langRow.find('textarea,input').each(function(){
+               langRow.find('textarea,input,select').each(function(){
                   var key = $(this).attr('name');
                   var value = $(this).val();
                   obj[key] = value; 
-                  obj.languages.push($(this).attr('data-language'));
+                  if ($(this).attr('data-language') && $(this).attr('data-language') != '') obj.languages.push($(this).attr('data-language'));
                });
               obj.languages = obj.languages.join(',');
                
                $.ajax({
                    type: "POST",
-                   url: 'lenguaplus/update',
+                   url: '/lenguaplus/update',
                    data : obj,
                    dataType: 'json'
                }).done(function(json) {
-                   tmt.softNotice(json.msg);
+                   if (typeof json.errors != 'undefined' && json.errors.length > 0) tmt.softNotice(json.errors);
+                   else if (typeof json.msg != 'undefined') tmt.softNotice(json.msg);
+                   else tmt.softNotice('Unknown Response');
                });
                return false;
           });
         },
         initTable : function(cont) {
+            
+//            var myHeaders = {}
+//            $(cont).find(".tablesorter").find('th.nosort').each(function (i, e) {
+//                myHeaders[$(this).index()] = { sorter: false };
+//            });
+//            $(cont).find(".tablesorter").tablesorter({widgets: ['zebra'],headers:myHeaders});
+        
             $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});
-           //{sortList: [[0,0], [1,0]]} 
         },         
         qParam : function(name, url) {
             name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");

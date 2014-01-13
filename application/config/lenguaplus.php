@@ -6,7 +6,10 @@ $config = array(
     'use_msg_database'=>FALSE,
     'track_ugc_production'=>FALSE,
     'track_msg_production'=>FALSE,
-    'environment'=>ENVIRONMENT,
+    'oauthor'=>NULL, // original authors
+    'eauthor'=>NULL, // editors
+    'lang_status'=>'edited', // enum('debug','edited','live','deleted','propername')
+    'environment'=>ENVIRONMENT, // 'production', 'development', 'testing' (constant is defined in constants.php
 );
     
     

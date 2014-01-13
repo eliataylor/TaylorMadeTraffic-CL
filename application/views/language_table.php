@@ -13,7 +13,7 @@
 <div class="controllers">
         <ul>
             <li>
-                <label><?=$this->lang->en('Filters')?></label>
+                <!--<label><?=$this->lang->en('Filters')?></label>
                 <select id="groupbySel" class="langFilter" name='groupby[]'>
                     <option value=''><?=$this->lang->en('No Groupings')?></option>
                     <option <?if(in_array('key', $qparams['groupby'])):?>selected='selected'<?endif;?> value='key'><?=$this->lang->en('Key')?></option>
@@ -21,15 +21,15 @@
                     <option <?if(in_array('file', $qparams['groupby'])):?>selected='selected'<?endif;?> value='file'><?=$this->lang->en('File')?></option>
                     <option <?if(in_array('file,line', $qparams['groupby'])):?>selected='selected'<?endif;?> value='file,line'><?=$this->lang->en('File')?> &amp; <?=$this->lang->en('Line')?></option>
                     <option <?if(in_array('status', $qparams['groupby'])):?>selected='selected'<?endif;?> value='status'><?=$this->lang->en('Status')?></option>
-                </select>
+                </select>-->
             </li>
             <li>                
                 <select class="langFilter" name='status' id='statusSel'>
-                    <option value=''><?=$this->lang->en('Any Status')?></option>
-                    <option <?if($qparams['status'] == 'debug'):?>selected='selected'<?endif;?> value='debug'><?=$this->lang->en('Debug')?></option>
-                    <option <?if($qparams['status'] == 'edited'):?>selected='selected'<?endif;?> value='edited'><?=$this->lang->en('edited')?></option>
-                    <option <?if($qparams['status'] == 'live'):?>selected='selected'<?endif;?> value='live'><?=$this->lang->en('Live')?></option>
-                </select>
+                    <option value=""><?=$this->lang->en('Any Status')?></option>
+                    <?foreach(array('debug','edited','live','deleted','propername') as $status):?>
+                        <option <?if($qparams['status'] == $status):?>selected='selected'<?endif;?> value='<?=$status?>'><?=ucwords($this->lang->msg($status))?></option>
+                    <?endforeach;?>
+                </select>                     
             </li>
             <li>                
                 <select class="langFilter" name='type' id="typeSel">
@@ -48,8 +48,8 @@
     <thead>
         <tr>
             <? foreach ($headers as $key=>$head): ?>
-                <th class="<?= $key ?>">
-                <?= $head ?>
+                <th class="<?= $key ?>"  >
+                <?= $this->lang->key($head);?>
                 <?if ($key == "langtracker_es"):?>    
                 <img src="/wwwroot/images/Colombia_16x16-32.png" />
                 <?elseif ($key == "langtracker_en"):?>    
@@ -65,8 +65,14 @@
                 <? foreach ($headers as $key=> $head): ?>
                         <td class="langtracker <?= $key ?>" >    
                         <?if ($key == "count"):?>
-                            <button class="updateLang" title='<?=$this->lang->en('update')?>' class='idIcons grayReload'><?=$this->lang->en('update')?></button>
-                            <?= (!isset($text->$key) || empty($text->$key)) ? "" : $text->$key ?>
+                            <?= $text->count ?>
+                        <?elseif ($key == "langtracker_status"):?>
+                            <select name='statusChange' data-langid="<?=$text->langtracker_id?>" >
+                                <?foreach(array('debug','edited','live','deleted','propername') as $status):?>
+                                    <option <?if($text->$key == $status):?>selected='selected'<?endif;?> value='<?=$status?>'><?=ucwords($this->lang->msg($status))?></option>
+                                <?endforeach;?>
+s                            </select>                                    
+                            <button class="updateLang" title='<?=$this->lang->en('update')?>' ><?=$this->lang->en('update')?></button>
                         <?elseif ($key == "langtracker_key"):?>
                             <?= ellipse($text->$key, 50) ?>
                         <?elseif ($key == "langtracker_urls"):?>
@@ -76,18 +82,15 @@
                                     <a href="http://<?=$text->langtracker_host . $url?>" target="_blank"><?=$url?></a>
                                     <?php $dups[$url] = true; ?>
                                 <?endif;?>
-                            <?endforeach;?>
-                        <?elseif ($key == "langtracker_added"):?>
-                            <?=fDate($text->$key, 'sortershort')?>
+                            <?endforeach;?>                                    
+                        <?elseif ($key == "langtracker_updated"):?>
+                                    <?=$text->langtracker_updated?>
                         <?elseif ($key == "langtracker_es" || $key == "langtracker_en"):?>
-                            <? if ($text->langtracker_type == 'ugc' && substr($key, strpos($key, "_")+1) == $text->langtracker_language):?>        
-                                <?=$text->$key?>
-                            <?else:?>
+                            <?php // if ($text->langtracker_type == 'ugc' && substr($key, strpos($key, "_")+1) == $text->langtracker_language):?>        
                                 <textarea name="<?=substr($key, strpos($key, "_")+1).'_'.$text->langtracker_id?>" 
                                           data-langid="<?=$text->langtracker_id?>"
                                           data-language="<?=substr($key, strpos($key, "_")+1)?>"
                                           ><?=$text->$key?></textarea>
-                            <?endif;?>
                         <?elseif ($key == "langtracker_file"):?>
                             <span title="<?=$text->$key?>"><?= ellipse(str_replace(ROOT_CD, '', $text->$key), -20)?></span>
                         <?else:?>

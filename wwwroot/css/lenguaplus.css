@@ -15,7 +15,7 @@ textarea { height:100%; }
 .langtracker_es, .langtracker_en { width: 25%; }
 .langtracker_es textarea, .langtracker_en textarea { height:100%; width:98%; }
 .langtracker_added, .langtracker_updated { width:55px; }
-
+.langtracker_key { max-width:100px;}
 .controllers { width:200px; margin:10px; }
 .controllers select { width:100%; }
 #saveBtn, #publishBtn { width:49%;}
@@ -31,9 +31,8 @@ textarea { height:100%; }
             -moz-box-shadow: 2px 2px 2px #aaa; -webkit-box-shadow: 2px 2px 2px #aaa; box-shadow: 2px 2px 2px #aaa;    
             color:#fff; cursor: pointer; }
  #softNoticeBody a, #softNoticeBody a:visited { color:purple; }
- .updateLang { background:transparent url(/wwwroot/images/fileDownWhite.png) top left no-repeat; border:0 none; text-indent: -9999px; width:15px; height:15px; overflow: hidden; }
- 
-.lang_table th { background:#1a1a1a; }
+select[name='statusChange'], .updateLang { width:100%; }
+ .lang_table th { background:#1a1a1a; }
 .lang_table td { background:black;}
 .lang_table tr.odd td { background:#1a1a1a; }
  
