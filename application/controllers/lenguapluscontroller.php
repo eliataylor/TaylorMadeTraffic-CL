@@ -21,8 +21,7 @@ class LenguaPlusController extends CI_Controller {
             "lenguaplus/update"=>array("role"=>3,"title"=>$this->lang->en("Update"),"method"=>"updateLangByKey"),
             "lenguaplus/publish"=>array("role"=>3,"title"=>$this->lang->en("Publish"),"method"=>"publish"),
             "lenguaplus/import" => array("role" => 3, 'icon'=>'', "title" => $this->lang->en("import"), "method"=>'importXML'),
-            "lenguaplus"=>array("role"=>2,"title"=>$this->lang->en("Language"),"method"=>"debug")
-            
+            "lenguaplus"=>array("role"=>2,"title"=>$this->lang->en("Language"),"method"=>"debug")            
         );
         
         $path = uri_string();
@@ -32,18 +31,18 @@ class LenguaPlusController extends CI_Controller {
             /* INSECURE PAGE. Do NOTHING */
         } elseif (!$this->thisvisitor->auth($security[$path]['role'])) {
             array_push($this->data['errors'], $this->lang->en("unauthorized")); 
-            $this->data['docTitle'] = $this->lang->en("Login");
-            return $this->sendOut('loginForm');
         }
         if (count($this->data['errors']) > 0) {
             $this->data['docTitle'] = $this->lang->en("error");
-            return $this->sendOut('cms_shell');
+            return $this->sendOut('loginForm');
         }
         $this->data['docTitle'] = $security[$path]['title'];
         call_user_func_array(array($this, $security[$path]['method']), array());
     }
     
     private function setGlobals() {
+        $this->data['qparams']['from'] = $this->input->get_post('from');  
+        $this->data['qparams']['want'] = $this->input->get_post('want');  
         $this->data['qparams']['status'] = $this->input->get_post('status');  
         $this->data['qparams']['type'] = $this->input->get_post('type');        
         $this->data['qparams']['groupby'] = $this->input->get_post('groupby');  
@@ -92,7 +91,11 @@ class LenguaPlusController extends CI_Controller {
     }    
     
     function debug(){
-        $this->data['texts'] = $this->LenguaPlus_model->getLanguageByFilters($this->data['qparams']['status'], $this->data['qparams']['groupby'], $this->data['qparams']['type']);
+        $this->data['texts'] = $this->LenguaPlus_model->getLanguageByFilters($this->data['qparams']['status'], 
+                $this->data['qparams']['groupby'], 
+                $this->data['qparams']['type'], 
+                $this->data['qparams']['from'], 
+                $this->data['qparams']['want']);
         if (count($this->data['texts']) > 0 && isset($this->data['texts'][0]->count)) {
             $this->data['headers']["count"] = $this->lang->en("Count");
         }
@@ -116,6 +119,7 @@ class LenguaPlusController extends CI_Controller {
         return $this->sendOut("language_table");
     }
     
+    
     function publish() {
         $languages = $this->config->item('languages');
         
@@ -123,16 +127,20 @@ class LenguaPlusController extends CI_Controller {
         if (!$types || !in_array($type, array('msg','ugc','msg,ugc')))
             $types = 'msg,ugc';
         $types = explode(',', $types);
+        $final = array();
         foreach($types as $type) {
             
             $fileRows = array(); // all lanuages of ugc OR msg data
             $dbRows = $this->LenguaPlus_model->getLanguageByFilters($this->config->item('lang_status'), 'key', $type);
             foreach($dbRows as $row) {
-                foreach($languages as $langCode=>$langLabel) { // usually just és,en
+                foreach($languages as $langCode=>$langLabel) { // usually just Ã©s,en
                     if (!isset($fileRows[$langCode])) $fileRows[$langCode] =  array();
                     $langCol = 'langtracker_'.$langCode;
+                    if (empty($row->$langCol)){
+                        continue;
+                    }
                     
-                    if ($type == 'ugc') {
+                    if ($type == 'ugc' && strlen($row->langtracker_key) > 50) {
                         $dir = APPPATH .'language/ugc/';
                         $filename = 'lang_' . $row->langtracker_id . '_' . $langCode.'.txt';
                         file_put_contents($dir . $filename, $row->$langCol); // just a text file
@@ -144,7 +152,7 @@ class LenguaPlusController extends CI_Controller {
                 }               
             }
             
-            foreach($languages as $langCode=>$langLabel) {
+            foreach($languages as $langCode=>$langLabel) { // todo: could be done with 1 loop above
                 if (!empty($fileRows[$langCode])) {
                     $dir = APPPATH .'language/'. $langCode . '/';
                     $filename = 'langplus_' . $type . '_lang.php';
@@ -152,15 +160,17 @@ class LenguaPlusController extends CI_Controller {
                     foreach($fileRows[$langCode] as $key=>$val) {                        
                         $arrStr .= "\$lang['".str_replace('\'', '\\\'', $val['key'])."'] = '" . str_replace('\'', '\\\'', $val['val']) . "'; ";
                     }
-                    echo $arrStr;
+                    array_push($final, $fileRows);
+                    //echo "<h1>".$dir . $filename."</h1>" . $arrStr;
                     file_put_contents($dir . $filename, '<?php ' . $arrStr);
-                    echo "<h1>".$dir . $filename."</h1>";
                 }
             }   
         }
-    }
-    
-    function saveToFile() {
+        if ($this->input->is_ajax_request()) {
+            return $this->output->set_output(json_encode(array('msg'=>$this->lang->en('success')))); 
+        } else {
+            $this->output->set_output(json_encode($final));
+        }
         
     }
     
@@ -178,7 +188,7 @@ class LenguaPlusController extends CI_Controller {
         $data = array();
         foreach($langs as $lang) {
             $data['langtracker_'.$lang] = $this->input->post($lang.'_'.$langId);
-            if (!$data['langtracker_'.$lang]) {
+            if (!isset($data['langtracker_'.$lang])) {
                 $resp['errors'] = array($this->lang->en('Invalid URL'));
            }
        }

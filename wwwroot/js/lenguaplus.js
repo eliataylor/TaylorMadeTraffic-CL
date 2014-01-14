@@ -23,7 +23,21 @@
           $('.langBtn').click(function(e) {
               var href = langer.upParam('lang', encodeURIComponent($(this).attr('data-language')));
               document.location.href = href;
-          });          
+          });      
+          
+          $('#publishBtn').click(function(e) {
+              $.ajax({
+                   type: "GET",
+                   url: '/lenguaplus/publish',
+                   dataType: 'json'
+               }).done(function(json) {
+                   if (typeof json.errors != 'undefined' && json.errors.length > 0) tmt.softNotice(json.errors);
+                   else if (typeof json.msg != 'undefined') tmt.softNotice(json.msg);
+                   else tmt.softNotice('Unknown Response');
+               });
+               return false;
+          });
+          
           
           $('.updateLang').click(function(e) {
                e.preventDefault();
@@ -57,13 +71,11 @@
           });
         },
         initTable : function(cont) {
-            
-//            var myHeaders = {}
-//            $(cont).find(".tablesorter").find('th.nosort').each(function (i, e) {
+//          var myHeaders = {};
+//          $(cont).find(".tablesorter").find('th.nosort').each(function (i, e) {
 //                myHeaders[$(this).index()] = { sorter: false };
-//            });
-//            $(cont).find(".tablesorter").tablesorter({widgets: ['zebra'],headers:myHeaders});
-        
+//          });
+//          $(cont).find(".tablesorter").tablesorter({widgets: ['zebra'],headers:myHeaders});
             $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});
         },         
         qParam : function(name, url) {
