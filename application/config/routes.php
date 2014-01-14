@@ -28,7 +28,7 @@ $route['projects(|.+?)'] = "projects/projects";
 $route['devices(|.+?)'] = "projects/devices";
 
 
-$route['lenguaplus(|.+?)'] = 'LenguaPlusController';
+$route['lenguaplus(|.+?)'] = 'lenguapluscontroller';
 
 
 /* End of file routes.php */

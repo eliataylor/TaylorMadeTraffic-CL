@@ -46,7 +46,7 @@ if (php_sapi_name() == 'cli' || defined('STDIN') || defined('STDOUT') || isset($
     define('TMT_HTTP', "http://taylormadetraffic.com/");
     define('ROOT_CD', getcwd());
 } else {
-    $allowed = array('taylormadetraffic.com','cube.taylormadetraffic.com','www.taylormadetraffic.com','www.eliataylor.com','eliataylor.com');
+    $allowed = array('www.taylormadetraffic.com','taylormadetraffic.com','es.taylormadetraffic.com','cube.taylormadetraffic.com','www.eliataylor.com','eliataylor.com','es.eliataylor.com');
     if (ENVIRONMENT != "production") {
         $allowed = array_merge($allowed, array('localhost.taylormadetraffic.com'));
     }

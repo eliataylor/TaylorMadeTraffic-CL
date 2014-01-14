@@ -1,8 +1,12 @@
 <div class="authorInfo">
     
 <div class="flags">
-    <img data-language="es" class="langBtn" src="/wwwroot/images/Colombia_24x24-32.png" />
-    <img data-language="en" class="langBtn" src="/wwwroot/images/United-States_24x24-32.png" />
+    <img 
+        <?if ($me['con']['lang'] != 'es'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
+        data-language="es" class="langBtn" src="/wwwroot/images/Colombia_24x24-32.png" />
+    <img 
+        <?if ($me['con']['lang'] != 'en'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
+        data-language="en" class="langBtn" src="/wwwroot/images/United-States_24x24-32.png" />
 </div>
     
 <p><?=$this->lang->en('Author')?>,</p>
@@ -71,7 +75,7 @@
                                 <?foreach(array('debug','edited','live','deleted','propername') as $status):?>
                                     <option <?if($text->$key == $status):?>selected='selected'<?endif;?> value='<?=$status?>'><?=ucwords($this->lang->msg($status))?></option>
                                 <?endforeach;?>
-s                            </select>                                    
+                            </select>                                    
                             <button class="updateLang" title='<?=$this->lang->en('update')?>' ><?=$this->lang->en('update')?></button>
                         <?elseif ($key == "langtracker_key"):?>
                             <?= ellipse($text->$key, 50) ?>

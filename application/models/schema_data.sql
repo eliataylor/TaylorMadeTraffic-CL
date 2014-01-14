@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 13-01-2014 a las 09:11:19
+-- Tiempo de generación: 13-01-2014 a las 09:21:08
 -- Versión del servidor: 5.5.8
 -- Versión de PHP: 5.3.5
 
@@ -25,6 +25,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Estructura de tabla para la tabla `companies`
 --
 
+DROP TABLE IF EXISTS `companies`;
 CREATE TABLE IF NOT EXISTS `companies` (
   `company_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `company_city` varchar(55) NOT NULL,
@@ -57,6 +58,7 @@ INSERT INTO `companies` (`company_id`, `company_city`, `company_state`, `company
 -- Estructura de tabla para la tabla `images`
 --
 
+DROP TABLE IF EXISTS `images`;
 CREATE TABLE IF NOT EXISTS `images` (
   `image_id` int(11) NOT NULL AUTO_INCREMENT,
   `project_id` int(11) NOT NULL,
@@ -368,6 +370,7 @@ INSERT INTO `images` (`image_id`, `project_id`, `image_status`, `image_weight`, 
 -- Estructura de tabla para la tabla `langtracker`
 --
 
+DROP TABLE IF EXISTS `langtracker`;
 CREATE TABLE IF NOT EXISTS `langtracker` (
   `langtracker_id` int(11) NOT NULL AUTO_INCREMENT,
   `langtracker_key` varchar(4000) COLLATE utf8_unicode_ci NOT NULL,
@@ -656,6 +659,7 @@ INSERT INTO `langtracker` (`langtracker_id`, `langtracker_key`, `langtracker_typ
 -- Estructura de tabla para la tabla `licenses`
 --
 
+DROP TABLE IF EXISTS `licenses`;
 CREATE TABLE IF NOT EXISTS `licenses` (
   `license_id` int(11) NOT NULL AUTO_INCREMENT,
   `license_link` varchar(2000) COLLATE utf8_unicode_ci NOT NULL,
@@ -675,6 +679,7 @@ CREATE TABLE IF NOT EXISTS `licenses` (
 -- Estructura de tabla para la tabla `projects`
 --
 
+DROP TABLE IF EXISTS `projects`;
 CREATE TABLE IF NOT EXISTS `projects` (
   `project_id` int(11) NOT NULL AUTO_INCREMENT,
   `project_status` enum('current','deleted') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'current',
@@ -748,6 +753,7 @@ INSERT INTO `projects` (`project_id`, `project_status`, `project_type`, `project
 -- Estructura de tabla para la tabla `tags`
 --
 
+DROP TABLE IF EXISTS `tags`;
 CREATE TABLE IF NOT EXISTS `tags` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT,
   `tag_type` varchar(55) COLLATE utf8_unicode_ci NOT NULL COMMENT '''code'',''year'',''companies'',''team'',''team_%''',
@@ -1217,6 +1223,7 @@ INSERT INTO `tags` (`tag_id`, `tag_type`, `tag_key`, `project_id`, `tag_date`, `
 -- Estructura de tabla para la tabla `tmt_sessions`
 --
 
+DROP TABLE IF EXISTS `tmt_sessions`;
 CREATE TABLE IF NOT EXISTS `tmt_sessions` (
   `session_id` varchar(40) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   `ip_address` varchar(16) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
@@ -1242,6 +1249,7 @@ INSERT INTO `tmt_sessions` (`session_id`, `ip_address`, `user_agent`, `last_acti
 -- Estructura de tabla para la tabla `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_email` varchar(255) NOT NULL,

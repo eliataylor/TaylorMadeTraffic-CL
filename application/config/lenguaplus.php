@@ -1,7 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config = array(
-    'languages'=>array('es'=>'English','en'=>'Espanol'),
+    'languages'=>array('en'=>'English','es'=>'Espanol'),
+    'lang_2_track'=>'en',
     'use_ugc_database'=>FALSE,
     'use_msg_database'=>FALSE,
     'track_ugc_production'=>FALSE,

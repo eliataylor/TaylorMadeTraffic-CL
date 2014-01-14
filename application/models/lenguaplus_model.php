@@ -12,7 +12,7 @@ class LenguaPlus_model extends CI_Model {
         return $this->db->insert_id();
     }
     
-    public function getLanguageByFilters($status=false, $groupby=false, $type=false) {
+    public function getLanguageByFilters($status=false, $groupby=false, $type=false, $from=0, $want=300) {
         if (empty($groupby)) $sql = 'SELECT *, langtracker_url as langtracker_urls FROM langtracker ';
         else $sql = 'SELECT *, count(*) as count, group_concat(langtracker_url) as langtracker_urls FROM langtracker ';
         
@@ -21,18 +21,15 @@ class LenguaPlus_model extends CI_Model {
         if (!empty($status)) {
             array_push($wheres, 'langtracker_status = ?');
             array_push($params, $status);
-        }  
+        }  else {
+            array_push($wheres, 'langtracker_status != \'deleted\' ');
+        }
         if (!empty($type)) {
             array_push($wheres, 'langtracker_type = ?');
             array_push($params, $type);
         }
         
-        array_push($wheres, 'langtracker_status != \'deleted\' ');
-        
-        //if (!empty($wheres)) {
-            $sql .= ' WHERE ' . implode(' AND ', $wheres);
-        //}
-        
+        $sql .= ' WHERE ' . implode(' AND ', $wheres);
         
         if (is_array($groupby)) $groupby = implode(',',$groupby);
         if ($groupby == 'url') $sql .= ' group by langtracker_key, langtracker_url';
@@ -40,6 +37,10 @@ class LenguaPlus_model extends CI_Model {
         elseif ($groupby == 'file') $sql .= ' group by langtracker_key, langtracker_file';
         elseif ($groupby == 'status') $sql .= ' group by langtracker_key, langtracker_status';
         elseif ($groupby == 'file,line') $sql .= ' group by langtracker_key, langtracker_file, langtracker_linenum';
+        
+        if (!is_numeric($from) || $from < 0)$from = 0;
+        if (!is_numeric($want)) $want = 300; // allow all for publisher
+        $sql .= " LIMIT $from, $want";
         
         $query = $this->db->query($sql, $params);
         //echo $this->db->last_query();

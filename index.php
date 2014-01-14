@@ -2,7 +2,7 @@
 
 date_default_timezone_set('America/Los_Angeles'); 
 
-$prods = array('www.taylormadetraffic.com','taylormadetraffic.com','cube.taylormadetraffic.com','www.eliataylor.com','eliataylor.com');
+$prods = array('www.taylormadetraffic.com','taylormadetraffic.com','es.taylormadetraffic.com','cube.taylormadetraffic.com','www.eliataylor.com','eliataylor.com','es.eliataylor.com');
 
 if (php_sapi_name() == 'cli' || defined('STDIN') || defined('STDOUT') || isset($_SERVER['SHELL'])) {
     define('ENVIRONMENT', 'production');

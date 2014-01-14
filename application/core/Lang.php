@@ -129,6 +129,9 @@ class CI_Lang {
 		$value = (isset($this->language[$key])) ? $this->language[$key] : $value;
 		if (!isset($this->language[$key])) { // generally consider in production this should always happen anyway. (for ugc() the opposite)
                         $CI = &get_instance();
+                        
+                        if ($CI->config->item('lang_2_track') != $this->curlanguage) return $value; // we're now only track one direction
+                        
                         $lData = NULL; // false is the query was already made
                         
                         if ($CI->config->item('use_msg_database') === TRUE) {
@@ -177,25 +180,26 @@ class CI_Lang {
                                     }
                                 }
                             }
-                            log_message('error', 'Could not find the language line "'.$key.'"');
+                            //log_message('error', 'Could not find the language line "'.$key.'"');
                         }
 		}
-
+                $this->language[$key] =  $value; // CACHED for request life!
 		return $value;
 	}
 
 	function ugc($line, $user_id=NULL) {
                 $CI = &get_instance();
-                if ($CI->config->item('environment') === 'production' && $CI->config->item('track_ugc_production') === false) 
-                    return $line;                
-                if (is_numeric($line)) 
-                    return $line;
-                
+                if (is_numeric($line)) return $line;                
                 $key = preg_replace("/[^a-z0-9 ]/", '', strtolower($line)); // key is only alphanumeric to avoid redundant entries, WARN can lead to conflicts
 		if (isset($this->language[$key])) {
                     $filename = $this->language[$key]; // WARN: even storing ALL ugc filenames in one file could be too large memorywise.
-                    $line = file_get_contents($filename);
+                    if (is_file($filename))                         
+                        $line = file_get_contents($filename);
+                    else $line = $filename;
                 } else {
+                    if ($CI->config->item('environment') === 'production' && $CI->config->item('track_ugc_production') === false) return $line;                                    
+                    if ($CI->config->item('lang_2_track') != $this->curlanguage) return $line; // we're now only track one direction
+                    
                     $lData = NULL; // false is the query was already made
 
                     if ($CI->config->item('use_ugc_database') === TRUE) {
@@ -241,9 +245,10 @@ class CI_Lang {
                                 }
                             }
                         }                    
-                        log_message('error', 'Could not find the language line "'.$line.'"');
+                        //log_message('error', 'Could not find the language line "'.$line.'"');
                     }
 		}
+                $this->language[$key] =  $line; // CACHED for request life!                
 		return $line;
 	}        
 }
