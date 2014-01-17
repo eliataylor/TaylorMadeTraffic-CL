@@ -89,6 +89,16 @@ class Projects_Model extends CI_Model {
         if ($query->num_rows() > 0) return $query->result_object();
         return array();
     }  
+    
+    function countProjectImages($pid=false) {
+        $sql = "SELECT count(I.image_id) as count FROM images I WHERE I.project_id = ? order by I.project_id asc, I.image_weight asc";
+        $query = $this->db->query($sql, array($pid));
+        if ($query->num_rows() > 0) {
+            $row = $query->row();
+            return $row->count;
+        }
+        return 0;
+    }      
 
     function getImages($pid=false) {
         $sql = "SELECT P.project_id, P.project_title, I.* FROM `projects` P, images I WHERE P.project_id = I.project_id order by I.project_id asc, I.image_weight asc";

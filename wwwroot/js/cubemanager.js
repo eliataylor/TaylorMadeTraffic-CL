@@ -188,7 +188,7 @@
             }
         },
         initPreloader : function() {
-            var cube = ctx[cls].cube.cloneNode();
+            var cube = ctx[cls].cube.cloneNode(true);
             cube.id = 'menuPreloader';
             cube.setAttribute('style', '');
             var imgs = cube.getElementsByTagName('img');
