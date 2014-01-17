@@ -135,7 +135,7 @@
             <div id='softNoticeBody'></div>
         </div>
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>            
-        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389255114"></script>
+        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389255115"></script>
         <? if (ENVIRONMENT == 'production'):?>
         <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

@@ -67,8 +67,29 @@ a.navItem.selected { color:red; }
 .technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; font-family:courier, monospace; font-size: 12px; line-height: 18px; }
 .technotes p { margin:5px 0; list-style:circle; }
 .technotes li { margin: 5px 0 0 15px; list-style:square; list-style-position: outside; }
-.prjDesc { font-size: 12px; line-height: 18px; text-align:justify; }
-.technotes { background:#090909;  }
+.prjDesc { font-size: 12px; line-height: 18px; text-align:justify;   }
+.technotes { background:#090909; word-break:break-word }
+.prjDesc img, .technotes img { width:97%; }
+
+.prjLinks, .prjPitch, .prjBiz, .prjCosts, .prjDates { line-height: 18px; margin:10px 0; }
+.sectTitle { font-style:italic; margin:0; font-size:14px; text-decoration: underline; margin-top:10px;}
+.prjLinks { font-size: 14px;}
+.prjPitch {font-size: 18px; line-height: 22px;}
+
+.prjBiz li, .prjCosts li, .prjDates li { list-style: none; padding-left:2px } 
+.prjBiz , .prjCosts , .prjDates { font-size:13px; }
+
+
+li:before {
+    content: "•  ";
+    color: red;
+}
+
+/*
+.prjBiz {font-size: 13px;} .prjBiz li  { list-style:decimal; }
+.prjCosts {font-size: 13px; } .prjCosts li  { list-style: circle; }
+.prjDates {font-size: 13px;} .prjDates li  { list-style:upper-roman; }
+*/
 
 .projectImg { width: 100%; }
 .projectImgMask { width:100%; overflow: hidden; max-height:300px; position:relative;}
@@ -86,6 +107,7 @@ a.navItem.selected { color:red; }
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,1) 50%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
+.blackOutFadeBG a { position: absolute;bottom: 10px;left: 4px;text-align: center; width:100%; display: block;}
 
 .hl_menu { text-align: left; }
 
@@ -153,7 +175,7 @@ table .header { width:auto; color:#a0a09f;}
 .tablesorter thead tr .headerSortDown, .tablesorter thead tr .headerSortUp {}
 
 .tablesorter h3 { margin:0; font-size:120%; }
-.narrowscreen .tablesorter h3 {font-size: 200%;margin: 10px 0;}
+.narrowscreen .tablesorter h3 {font-size: 200%;margin:0 0 10px 0;}
 table{ border-collapse:collapse; }
 /* tr.odd { border-top:1px solid #a0a09f; border-bottom:1px solid #a0a09f;  } */
 .pBlack .tags_table td.col1 { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 90%); }

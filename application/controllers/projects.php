@@ -16,6 +16,7 @@ class Projects extends CI_Controller {
             "" => array("role" => 0, 'icon'=>'' , "title" => $this->lang->en("Technologies")),
             "settings" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Settings")),
             
+            "biz" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Businesses")),            
             "technologies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Technologies")),
             "years" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Years")),
             "companies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Companies")),
@@ -147,6 +148,9 @@ class Projects extends CI_Controller {
             } else {
                 $this->data['tableRows'] = $this->projects->getProjectsByTag(null, $this->data['qtfilter']); 
             }
+            foreach($this->data['tableRows'] as $index=>$row){
+                $row->totalImages = $this->projects->countProjectImages($row->project_id);
+            }                
             $this->load->model('Users_model', 'user');
             $this->data['uProfile'] = $this->users->getUserByName($this->data['qtfilter']);
             if (uri_string() == 'cv-format') {
@@ -164,6 +168,8 @@ class Projects extends CI_Controller {
         $this->data['qtfilter'] = 'TaylorMadeTraffic';
         $this->data['cProfile'] = $this->users->getCompanyByName("TaylorMadeTraffic");
         
+        // These 5 products were some of my strongest reasons for moving abroad. They have been dreams for 
+        
         $this->getTableForProjects();
         
         $seg = $this->uri->segment(2);
@@ -175,6 +181,24 @@ class Projects extends CI_Controller {
             }
         }
         $this->sendOut('projects_table');
+    }
+    
+    
+    function pitch() {
+        $this->data['qtags'] = 'companies';
+        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
+        $this->data['qtfilter'] = 'TaylorMadeTraffic';
+        $this->data['cProfile'] = $this->users->getCompanyByName("TaylorMadeTraffic");
+        
+        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
+        $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
+        if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
+        
+        $this->data['tableRows'] = $this->projects->getProjectsByType('development', $this->data['qtfilter']);                 
+        foreach($this->data['tableRows'] as $index=>$row){
+            $row->totalImages = $this->projects->countProjectImages($row->project_id);
+        }        
+        $this->sendOut('biz_projects');        
     }
     
     function eli(){
@@ -227,6 +251,9 @@ class Projects extends CI_Controller {
         $seg = $this->uri->segment(2);
         if ($seg  == 'development' || $seg  == 'design') $this->data['tableRows'] = $this->projects->getProjectsByType($seg, $this->data['qtfilter']); 
         else $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter']); 
+        foreach($this->data['tableRows'] as $index=>$row){
+            $row->totalImages = $this->projects->countProjectImages($row->project_id);
+        }         
     }
     
     function viewSettings(){

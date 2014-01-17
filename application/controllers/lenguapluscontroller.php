@@ -133,13 +133,12 @@ class LenguaPlusController extends CI_Controller {
             $fileRows = array(); // all lanuages of ugc OR msg data
             $dbRows = $this->LenguaPlus_model->getLanguageByFilters($this->config->item('lang_status'), 'key', $type);
             foreach($dbRows as $row) {
-                foreach($languages as $langCode=>$langLabel) { // usually just Ã©s,en
+                foreach($languages as $langCode=>$langLabel) { // usually just anos, en
                     if (!isset($fileRows[$langCode])) $fileRows[$langCode] =  array();
                     $langCol = 'langtracker_'.$langCode;
-                    if (empty($row->$langCol)){
+                    if (empty($row->$langCol)) {
                         continue;
-                    }
-                    
+                    }                    
                     if ($type == 'ugc' && strlen($row->langtracker_key) > 50) {
                         $dir = APPPATH .'language/ugc/';
                         $filename = 'lang_' . $row->langtracker_id . '_' . $langCode.'.txt';
@@ -245,6 +244,10 @@ class LenguaPlusController extends CI_Controller {
     
     public function importXML() {
         //die("DISABLED");
+        $projects = $this->projects->getProjectsByTag();
+        if (count($projects) > 0) die('first truncate');
+        
+        
         libxml_use_internal_errors(true);
         $xml = simplexml_load_file("wwwroot/folioXML.xml");
 
