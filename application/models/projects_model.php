@@ -37,7 +37,8 @@ class Projects_Model extends CI_Model {
             $sql .= " WHERE " . implode(" AND ", $wheres);            
         }
         
-        $sql .= ' group by P.project_id order by P.project_type desc, P.project_startdate desc';        
+        $sql .= ' group by P.project_id order by P.project_type desc, P.project_startdate ';        
+        $sql .= ($type == 'development') ? ' asc' : ' desc';
         $query = $this->db->query($sql, $params);
         //echo $this->db->last_query();
         if ($query->num_rows() > 0) return $query->result_object();
@@ -63,7 +64,8 @@ class Projects_Model extends CI_Model {
             $sql .= " WHERE " . implode(" AND ", $wheres);            
         }
         
-        $sql .= ' group by P.project_id order by P.project_startdate desc';
+        $sql .= ' group by P.project_id order by P.project_type desc, P.project_startdate ';        
+        $sql .= ($type == 'development') ? ' asc' : ' desc';
         $query = $this->db->query($sql, $params);
         //echo $this->db->last_query();
         if ($query->num_rows() > 0) return $query->result_object();

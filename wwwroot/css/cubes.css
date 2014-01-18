@@ -63,6 +63,15 @@ a.navItem { margin:5px 15px 5px 15px; }
 .narrowscreen a.navItem { margin:5px 3px;}
 a.navItem.selected { color:red; }
 
+
+.prjPitch a { font-size:normal; }
+.prjSection { width:100%; position:relative; line-height: 18px; margin:10px 0;}
+.prjSection img { width:97%;  }
+.snapshots img { width:100%; max-width:400px; margin:10px 0 }
+.prjSection li:before {
+    content: "•  ";
+    color: red;
+}
 .lineName { font-style: italic; color:#a0a09f;}
 .technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; font-family:courier, monospace; font-size: 12px; line-height: 18px; }
 .technotes p { margin:5px 0; list-style:circle; }
@@ -70,20 +79,17 @@ a.navItem.selected { color:red; }
 .prjDesc { font-size: 12px; line-height: 18px; text-align:justify;   }
 .technotes { background:#090909; word-break:break-word }
 .prjDesc img, .technotes img { width:97%; }
+.team a{ font-size:125%; }
 
-.prjLinks, .prjPitch, .prjBiz, .prjCosts, .prjDates { line-height: 18px; margin:10px 0; }
+.prjLinks, .prjPitch, .prjBiz, .prjCosts, .prjDates {  }
 .sectTitle { font-style:italic; margin:0; font-size:14px; text-decoration: underline; margin-top:10px;}
 .prjLinks { font-size: 14px;}
 .prjPitch {font-size: 18px; line-height: 22px;}
 
+
 .prjBiz li, .prjCosts li, .prjDates li { list-style: none; padding-left:2px } 
 .prjBiz , .prjCosts , .prjDates { font-size:13px; }
 
-
-li:before {
-    content: "•  ";
-    color: red;
-}
 
 /*
 .prjBiz {font-size: 13px;} .prjBiz li  { list-style:decimal; }
@@ -184,9 +190,9 @@ table{ border-collapse:collapse; }
 .pBlack .tags_table tr.odd .col1, .pBlack .tags_table tr.odd .col3 { background:black; }
 
 .projects_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 66%, #2b2b2b 100%); }
-
 .static td { background:none!important; height:0; display: none; }
 
+.mask0x250 { max-height:250px; overflow:hidden; position: relative; display:block; }
 .arrowUp { 
 width: 0px;
 height: 0px;

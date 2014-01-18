@@ -50,64 +50,13 @@
     </div>
 <? endif; ?>
 
-<?if (isset($qtfilter) && !empty($qtfilter)):?>
-<div class="projectsTitle" >
-    <h2>
-    <?if (isset($qtagOptions) && !empty($qtagOptions)):?>    
-    <select id="qTagSelector" onchange="if (this.options[this.selectedIndex].value != '') tmt.ajaxPage(this.options[this.selectedIndex].value); return false;" >
-        <? if ( (isset($cProfile) && !empty($cProfile)) || (isset($uProfile) && !empty($uProfile))):?>
-        <option value=""><?=$this->lang->en('Other') . ' ' . $qtags?></option>
-        <?endif;?>
-        <?foreach($qtagOptions as $option):?>                        
-            <option 
-
-                <?php $qurl = '/';
-                if ($qtags == 'roles') {
-                    $qurl .= 'roles?qtfilter='.$option->tag_key;
-                } else {
-                     $qurl .= (strpos($option->tag_type, 'team') === 0) ? 'team' : $option->tag_type;
-                     $qurl .= '?qtfilter='.$option->tag_key;
-                }
-                ?>
-                <? if ($qtfilter == $option->tag_key && empty($cProfile) && empty($uProfile)): ?>
-                    selected='selected'
-                <? endif; ?>
-
-                value="<?=$qurl?>"  >
-                        <?=$this->lang->msg($option->tag_key)?>
-
-            </option>
-        <?endforeach;?>
-    </select>   
-    <?endif;?>
-    <? if (isset($uProfile) && empty($uProfile)):?>
-        <a class='teamInviteLink' href=''><?=$this->lang->en('Are You') . ' ' . $qtfilter . '?'?></a>
-    <?endif;?>    
-
-    <?if (isset($tableRows) && count($tableRows) > 1):?>    
-        <span style="float:right;" class="pageTotal">
-            <?=count($tableRows)?>
-            <?= (count($tableRows) == 1) ? $this->lang->en('Project') : $this->lang->en('Projects');?>
-        </span>
-    <?endif?>
-
-
-    </h2>                
-</div>            
-<?endif;?>
-
-<table class="tablesorter projects_table">
+<table class="tablesorter projects_table biz_plans">
     <tbody id="tableBody">        
     <? foreach ($tableRows as $row): ?>
             <tr id="pid_<?= $row->project_id ?>" data-pid="<?= $row->project_id ?>" >
                 
                 <td class="col1 image_src">
                     
-                    <? if ($me['con']['swidth'] <= 600): ?>    
-                    <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
-                    <?endif;?>
-                    
-                    <? if (!isset($_GET['noPics'])):?>
                     <div class="projectImgMask">
                         <a href='/projects?pid=<?= $row->project_id; ?>'>
                             <img  data-owidth="<?= $row->image_width ?>" 
@@ -121,17 +70,11 @@
                             <?endif;?>
                         </div>
                     </div>
-                    
-
-                    
-                    <?endif;?>
-                    
-                <? if ($me['con']['swidth'] > 600): ?>    
                 </td>
                 <td class="col2 project_title">
                     <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
-                <? endif; ?>
-                    <div class="prjLinks">
+                    
+                    <div class="prjSection  prjLinks">
                         <? if (!empty($row->project_liveurl) || !empty($row->project_devurl)): ?>
                         <p  class="projectLink">                            
                             <? if (!empty($row->project_liveurl)): ?>
@@ -143,20 +86,31 @@
                         </p>
                         <? endif ?>
                     </div>
-                    <? if (!empty($row->project_pitch)): ?><div class="prjPitch">
+                    <? if (!empty($row->project_pitch)): ?><div class="prjSection prjPitch">
                         <?= $this->lang->ugc($row->project_pitch); ?></div>
                     <? endif ?>
-                    <? if (!empty($row->project_bizmodel)): ?><div class="prjBiz">
-                        <h4 class="sectTitle">Business Model</h4>
+                    <? if (!empty($row->project_bizmodel)): ?><div class="prjSection prjBiz">
+                        <h4 class="sectTitle"><?=$this->lang->en('Business Model')?></h4>
                         <?= $this->lang->ugc($row->project_bizmodel); ?></div>
                     <? endif ?>
-                    <? if (!empty($row->project_futuredate)): ?><div class="prjDates">
-                        <h4 class="sectTitle">Timeline</h4>
-                        <?= $this->lang->ugc($row->project_futuredate); ?></div><? endif ?>
-                    <? if (!empty($row->project_expenses)): ?><div class="prjCosts">
-                        <h4 class="sectTitle">Costs by Department</h4>
+                    <? if (!empty($row->project_competition)): ?>
+                        <h4 class="sectTitle"><?=$this->lang->en('Competition')?></h4>
+                        <div class="prjCompetition">
+                        <?= $this->lang->ugc($row->project_competition); ?>
+                        </div>
+                    <? endif ?>                    
+                   <? if (!empty($row->project_marketresearch)): ?>
+                        <h4 class="sectTitle"><?=$this->lang->en('Market Research')?></h4>
+                        <div class="prjResearch">
+                            <?= $this->lang->ugc($row->project_marketresearch); ?>
+                        </div>
+                    <? endif ?>                    
+                    <? if (!empty($row->project_expenses)): ?><div class="prjSection prjCosts">
+                        <h4 class="sectTitle"><?=$this->lang->en('Costs by Department')?></h4>
                         <?= $this->lang->ugc($row->project_expenses); ?></div><? endif ?>
-                    
+                    <? if (!empty($row->project_futuredate)): ?><div class="prjSection prjDates">
+                        <h4 class="sectTitle"><?=$this->lang->en('Roadmap')?></h4>
+                        <?= $this->lang->ugc($row->project_futuredate); ?></div><? endif ?>
                 </td>
             </tr>
 <? endforeach; ?>
