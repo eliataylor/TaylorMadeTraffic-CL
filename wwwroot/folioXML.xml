@@ -218,6 +218,18 @@
                         </ul>
                     ]]>  
             </bizmodel>
+            <marketresearch>
+                    <![CDATA[
+                        <ul class='marketresearch'>
+                            <li>Concert Ticket sold 52 million (2011) - <a class='sourceLink' href="http://www.statisticbrain.com/concert-ticket-sale-statistics/" target="_blank">source</a></li>
+                            <li>Concert Ticket Revenue 3.1 Billion USD (2011) - <a class='sourceLink' href="http://www.statisticbrain.com/concert-ticket-sale-statistics/" target="_blank">source</a></li>
+                            <li>Pollstar lists 10,859 touring artists, 71,823 Events - <a class='sourceLink' href="http://money.futureofmusic.org/how-many-musicians-are-there/" target="_blank">source</a></li>
+                            <li><a href="http://musicbrainz.org/statistics" target='_blank'>musicbrainz.org/statistics</a></li>
+                            <li><a class='sourceLink' href="http://www.ascap.com/about/" target="_blank">ASCAP</a>: 435,000 composters, songwriters, music publishers</li>
+                            <li><a class='sourceLink' href="http://www.bmi.com/about" target="_blank">BMI</a>: 500,000 composters, songwriters, music publishers</li>                            
+                        </ul>                        
+                    ]]>  
+            </marketresearch>                        
             <expenses>
                     <![CDATA[
                         <ul class='datelist'>
@@ -543,6 +555,19 @@
                         </ul>
                     ]]>                  
             </expenses>
+            
+            <marketresearch>
+                    <![CDATA[
+                        
+                        <ul class='marketresearch'>
+                            <li><a href="http://www.schoolnewspapersonline.com/pricing/" target="_blank">SchoolNewsPaperOnline.com/pricing</a> - $600 - $3,900 USD / year</li>
+                            <li><a href="http://www.yourstudentnews.com/article.php?id=8" target="_blank">http://www.yourstudentnews.com/article.php?id=8</a> - $25 - $400 USD / year</li>
+                            <li><a href="http://www.ihigh.com/advertising/" target="_blank">iHigh.com </a> - advertising model</li>
+                        </ul>                       
+                        
+                    ]]>                  
+            </marketresearch>
+            
             <futuredate>
                     <![CDATA[
                         <ul class='datelist'>
@@ -679,7 +704,13 @@
             <desc>Before E-books, this has been a dream to produce a fully interactive textbook for the Legal and Strategical Aspects of the Music Recording Industry</desc>
             <technotes>Through predictive questioning, the tool was meant to create completely customized contracts from a intelligent questionnaire about the parties involved, their interests, and needs. Provides bi-partisian advice from attorneys, artists, and industry professionals</technotes>
             
-            <pitch>A produce a fully interactive textbook for the Legal and Strategical Aspects of the Music Recording Industry. Through predictive questioning, the tool creates completely customized contracts from a intelligent questionnaire about the parties involved, their interests and needs. Education content includes videos, audio podcasts, and text advice from prominent attorneys, artists, managers and other industry professionals.</pitch>
+            <pitch>
+                    <![CDATA[
+                      <h4>An e-Textbook for the Legal and Strategical Aspects of the Music Recording Industry.</h4>
+                      <p>The tool would guide and prepare Artists, Concert Promoters, Event Venues, and Talent Managers through fair and prepared negotiations for a wide variety of agreements. </p>
+                      <p>The snapshots of the <a href="/projects?pid=31">Booking Wizard</a> contract template was early versions of text advice from Che Hashim, JD. The interactive questionarre would include video, podcasts, and experienced advice from prominent attorneys, and the direct experiences of Artists, managers, and other industry professionals.</p>
+                    ]]>  
+            </pitch>
             <bizmodel>
                     <![CDATA[
                         <ul class='alphalist'>
@@ -688,25 +719,57 @@
                         </ul>
                     ]]>  
             </bizmodel>
+            <marketresearch>
+                    <![CDATA[
+                        <ul class='marketresearch'>
+                            <li>Pollstar lists 10,859 touring artists, 71,823 Events - <a class='sourceLink' href="http://money.futureofmusic.org/how-many-musicians-are-there/" target="_blank">source</a></li>
+                            <li>815,000 artists self-registered on <a href="http://musicbrainz.org/statistics" target='_blank'>musicbrainz.org</a></li>
+                            <li>ASCAP: 435,000 composters, songwriters, music publishers - <a class='sourceLink' href="http://www.ascap.com/about/" target="_blank">source</a></li>
+                            <li>BMI: 500,000 composters, songwriters, music publishers - <a class='sourceLink' href="http://www.bmi.com/about" target="_blank">source</a></li>                            
+                            
+                            
+                        </ul>                        
+                    ]]>  
+            </marketresearch>            
             <expenses>
                     <![CDATA[
                         <ul class='datelist'>
                             <li>10% design</li>
-                            <li>50% development</li>
+                            <li>40% development</li>
                             <li>20% legal</li>
-                            <li>10% sales</li>
+                            <li>20% sales</li>
+                            <li>10% interviews / endorsements</li>
                         </ul>
                     ]]>                  
             </expenses>
             <futuredate>
                     <![CDATA[
                         <ul class='datelist'>
-                           <li>1 year: 5 contracts </li>
+                           <li>1 year: mobile & site: 5 interactive, online contracts templates </li>
                            <li>1.5 years: contract wizard engine complete</li>
                            <li>2 years: selling in schools</li>
                         </ul>
                     ]]>    
-            </futuredate>            
+            </futuredate>    
+            <competition>
+                    <![CDATA[
+                        <ul class='competitorlist'>
+                            <li><a target="_blank" href="https://www.nolo.com/products/joint-ownership-agreement-for-an-invention-pr272-13364.html/">Nolo Press</a> Joint Ownership Agreement for an Invention - $34.99 USD online form and wizard</li>
+                            <li><a target="_blank" href="https://www.nolo.com/products/intellectual-property">Nolo Press</a> Intellectual Property Books $20 - $200.00 USD</li>
+                            <li><a target="_blank" href="http://www.amazon.com/Best-Sellers-Books-Business-Contracts-Law/zgbs/books/10824">Amazon's</a> most popular contract bookss - $20 - $200 USD</li>
+                            <li><a href='http://www.pollstarpro.com/opencontent.aspx?ArticleID=14194&id=home&source=AD' target='_blank'>Pollstar</a> subscriptions - $400 - $800 USD</li>
+                            <li><a href="https://www.legalzoom.com/legalforms/band-partnership-agreement" target='_blank'>LegalZoom</a> Band Partnership Agreement - $29.99 USD</li>
+                        </ul>
+                        <div class='snapshots mask0x250'>
+                            <img src="/wwwroot/images/sites/ae/research/amazon-most-popular-contracts_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </div>
+                        <div class='snapshots mask0x250'>
+                            <img src="/wwwroot/images/sites/ae/research/music-law-textbooks_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </div>                        
+                    ]]>    
+            </competition>
         </item>
         <item>
             <title>Good Life With Gabby</title>

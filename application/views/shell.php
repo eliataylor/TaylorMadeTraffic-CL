@@ -84,13 +84,12 @@
                         <ul id="menuList" style="display:none" >
                            <img title="<?=$this->lang->msg('english')?>"
                                <?if ($me['con']['lang'] != 'en'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
-                               onclick="tmt.changeLang('en')" src="/wwwroot/images/United-States_16x16-32.png">
+                               onclick="tmt.changeLang('en')" src="/wwwroot/images/United-States_16x16-32.png" />
                            <img 
                                title="<?=$this->lang->msg('español')?>"
                                <?if ($me['con']['lang'] != 'es'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
-                               onclick="tmt.changeLang('es')" src="/wwwroot/images/Colombia_16x16-32.png">
-                        </ul>
-                        
+                               onclick="tmt.changeLang('es')" src="/wwwroot/images/Colombia_16x16-32.png" />
+                        </ul>                      
                     </div>
 
                     <a id="menuBoxBottom" href="/taylormade" title="<?=$this->lang->en("Taylor Made")?>" class="menuBox bc">
