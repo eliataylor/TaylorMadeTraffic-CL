@@ -28,7 +28,7 @@
            
             $(cont).find('a').click(function(e){
                var href = $(this).attr('href');
-		if (href.indexOf('http') < 0) { // not on external links      
+		if (href.indexOf('http') < 0 && !$(this).hasClass('fancybox')) { // not on external links      
 		    e.preventDefault();
                     if (href && href != '')  ctx[cls].ajaxPage(href);
 		}
@@ -38,6 +38,19 @@
                e.preventDefault();
                ctx[cls].softNotice('Email me to setup (or hide) your account');
             });
+            
+            
+            if ($(cont).find('.fancybox').length > 0) {
+                $(cont).find('.fancybox').click(function(){
+                    //onclick="$('#galleryImg<?=$project->project_id?>').attr('src',this.getAttribute('data-oimage')).css({maxWidth:this.getAttribute('data-owidth')});return false;" 
+                    $('.fancybox').fancybox();
+                });
+                
+            }
+            
+        },
+        buildLightBox : function() {
+            
         },
         ajaxPage : function(href) {
            if (ctx[cls].cube.id == 'menuPreloader') { 

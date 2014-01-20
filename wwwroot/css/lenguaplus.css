@@ -36,3 +36,9 @@ select[name='statusChange'], .updateLang { width:100%; }
 .lang_table td { background:black;}
 .lang_table tr.odd td { background:#1a1a1a; }
  
+.lang_table caption {line-height: 25px;font-size: 15px;vertical-align: middle;}
+.tutorial {font-size:130%; }
+.tutorial li {line-height: 25px;}
+li.snapshots { clear:both; margin:20px 0;list-style: none;}
+.snapshots img { width:100%; box-shadow:0 0 2px 2px rgba(150,150,150,0.1);transition:background-color 500ms ease-in;-webkit-transition:background-color 500ms ease-in;}
+.numList {list-style:decimal}

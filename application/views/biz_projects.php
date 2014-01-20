@@ -56,20 +56,15 @@
             <tr id="pid_<?= $row->project_id ?>" data-pid="<?= $row->project_id ?>" >
                 
                 <td class="col1 image_src">
-                    
-                    <div class="projectImgMask">
                         <a href='/projects?pid=<?= $row->project_id; ?>'>
                             <img  data-owidth="<?= $row->image_width ?>" 
                                   data-oheight="<?= $row->image_height ?>" 
                                   src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
                                   class="projectImg" />
                         </a>
-                        <div class="blackOutFadeBG">
                             <?if (isset($row->totalImages) && $row->totalImages > 1):?>
                                 <a href="/projects?pid=<?= $row->project_id; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
                             <?endif;?>
-                        </div>
-                    </div>
                 </td>
                 <td class="col2 project_title">
                     <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
@@ -80,7 +75,7 @@
                             <? if (!empty($row->project_liveurl)): ?>
                                 <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>
                             <? endif ?>
-                            <? if (!empty($row->project_devurl)): ?><p class="projectLink">
+                            <? if (!empty($row->project_devurl)): ?>
                                 <a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a>
                             <? endif ?>
                         </p>
@@ -89,28 +84,42 @@
                     <? if (!empty($row->project_pitch)): ?><div class="prjSection prjPitch">
                         <?= $this->lang->ugc($row->project_pitch); ?></div>
                     <? endif ?>
-                    <? if (!empty($row->project_bizmodel)): ?><div class="prjSection prjBiz">
-                        <h4 class="sectTitle"><?=$this->lang->en('Business Model')?></h4>
-                        <?= $this->lang->ugc($row->project_bizmodel); ?></div>
+                    
+                    <? if (!empty($row->project_bizmodel)): ?>
+                        <div class="prjSection prjBiz">
+                            <h4 class="sectTitle"><?=$this->lang->en('Business Model')?></h4>
+                            <?= $this->lang->ugc($row->project_bizmodel); ?>
+                        </div>
                     <? endif ?>
+                    
                     <? if (!empty($row->project_competition)): ?>
-                        <h4 class="sectTitle"><?=$this->lang->en('Competition')?></h4>
-                        <div class="prjCompetition">
-                        <?= $this->lang->ugc($row->project_competition); ?>
+                        <div class="prjSection prjCompetition">
+                            <h4 class="sectTitle"><?=$this->lang->en('Competition')?></h4>
+                            <?= $this->lang->ugc($row->project_competition); ?>
                         </div>
                     <? endif ?>                    
-                   <? if (!empty($row->project_marketresearch)): ?>
-                        <h4 class="sectTitle"><?=$this->lang->en('Market Research')?></h4>
-                        <div class="prjResearch">
+                   
+                    <? if (!empty($row->project_marketresearch)): ?>
+                        <div class="prjSection prjResearch">
+                            <h4 class="sectTitle"><?=$this->lang->en('Target Markets')?> / <?=$this->lang->en('Research')?></h4>
                             <?= $this->lang->ugc($row->project_marketresearch); ?>
                         </div>
                     <? endif ?>                    
-                    <? if (!empty($row->project_expenses)): ?><div class="prjSection prjCosts">
-                        <h4 class="sectTitle"><?=$this->lang->en('Costs by Department')?></h4>
-                        <?= $this->lang->ugc($row->project_expenses); ?></div><? endif ?>
-                    <? if (!empty($row->project_futuredate)): ?><div class="prjSection prjDates">
-                        <h4 class="sectTitle"><?=$this->lang->en('Roadmap')?></h4>
-                        <?= $this->lang->ugc($row->project_futuredate); ?></div><? endif ?>
+                    
+                    <? if (!empty($row->project_expenses)): ?>
+                        <div class="prjSection prjCosts">
+                            <h4 class="sectTitle"><?=$this->lang->en('Costs by Department')?></h4>
+                            <?= $this->lang->ugc($row->project_expenses); ?>
+                        </div>
+                    <? endif ?>
+                    
+                    <? if (!empty($row->project_futuredate)): ?>
+                        <div class="prjSection prjDates">
+                            <h4 class="sectTitle"><?=$this->lang->en('Roadmap')?></h4>
+                            <?= $this->lang->ugc($row->project_futuredate); ?>
+                        </div>
+                    <? endif ?>
+                    
                 </td>
             </tr>
 <? endforeach; ?>

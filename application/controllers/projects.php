@@ -16,7 +16,9 @@ class Projects extends CI_Controller {
             "" => array("role" => 0, 'icon'=>'' , "title" => $this->lang->en("Technologies")),
             "settings" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Settings")),
             
-            "biz" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Businesses")),            
+            "biz" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Product Deck")),            
+            "deck" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Product Deck")),            
+            
             "technologies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Technologies")),
             "years" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Years")),
             "companies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Companies")),
@@ -188,7 +190,7 @@ class Projects extends CI_Controller {
         $this->data['qtags'] = 'companies';
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
         $this->data['qtfilter'] = 'TaylorMadeTraffic';
-        $this->data['cProfile'] = $this->users->getCompanyByName("TaylorMadeTraffic");
+        $this->data['cProfile'] = $this->users->getCompanyByName("TaylorMadeManagement");
         
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
         $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));

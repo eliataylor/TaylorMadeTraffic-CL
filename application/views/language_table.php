@@ -1,16 +1,16 @@
 <div class="authorInfo">
-    
+
+<!--<p><?=$this->lang->en('Author')?>,</p>-->
+<h3><?=$me['user_screenname']?></h3>
+
 <div class="flags">
-    <img 
-        <?if ($me['con']['lang'] != 'es'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
+    <?=$this->lang->en('Cambiar Idioma')?>
+    <img <?if ($me['con']['lang'] != 'es'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
         data-language="es" class="langBtn" src="/wwwroot/images/Colombia_24x24-32.png" />
-    <img 
-        <?if ($me['con']['lang'] != 'en'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
+    <img <?if ($me['con']['lang'] != 'en'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
         data-language="en" class="langBtn" src="/wwwroot/images/United-States_24x24-32.png" />
 </div>
     
-<p><?=$this->lang->en('Author')?>,</p>
-<h1><?=$me['user_screenname']?></h1>
 </div>
 
 <form id="langForm" name="langForm" action='/lenguaplus' method='GET'>    
@@ -42,43 +42,88 @@
                     <option <?if($qparams['type'] == 'ugc'):?>selected='ugc'<?endif;?> value='ugc'><?=$this->lang->en('User Generated Content')?></option>
                 </select>
             </li>
+            <li>                
+                <button id="publishBtn"><?=$this->lang->msg('Publish')?></button>
+            </li>
         </ul>
-        <button id="publishBtn"><?=$this->lang->en('Publish')?></button>
-        <button id="saveBtn"><?=$this->lang->en('Save')?></button>
-        <li><?=count($texts)?> <?=$this->lang->en('rows')?></li>
 </div>
 
 <table class="tablesorter lang_table">
+    <caption style='text-align:right'>
+        
+            <?php $from = ($qparams['from'] > 0) ? $qparams['from'] : 0;  ?>
+            <?php $want = ($qparams['want'] > 0) ? $qparams['want'] : 30;  ?>
+            
+        <? if ($totalTexts > count($texts)):?>
+            <? if($from > 0):?>
+                <a style='margin-right:6px' href='/lenguaplus?from=<?=$from-$want?><?foreach($qparams as $key=>$para):?><?if($key!='want' && $key!='from'&&!empty($para)):?>&<?=$key?>=<?=(is_array($para)?implode(',',$para):$para)?><?endif?><?endforeach?>' 
+                   onclick='this.href+="&want="+$("#wantPagePer").val()'
+                   id='nextBtn'><?=$this->lang->es('Atras')?></a>
+            <?endif?>
+            <?php $from = ($from + $want > $totalTexts) ? $totalTexts : $from + $want; ?>                        
+            <? if($from > 0 && $from < $totalTexts):?>
+                ...
+            <?endif?>
+            <? if($from < $totalTexts):?>
+                <a style='margin-right:6px' href='/lenguaplus?from=<?=$from?><?foreach($qparams as $key=>$para):?><?if($key!='want' && $key!='from'&&!empty($para)):?>&<?=$key?>=<?=(is_array($para)?implode(',',$para):$para)?><?endif?><?endforeach?>' 
+                   onclick='this.href+="&want="+$("#wantPagePer").val()'
+                    id='backBtn'><?=$this->lang->es('Siguente')?></a>
+            <?endif?>
+            
+            <span style='line-height:30px;'>
+            <select style='width:55px' id="wantPagePer" >
+                <?foreach(array('30','50','100','200','300') as $wt):?>
+                    <option 
+                        <? if ($want == $wt):?>selected='selected'<?endif?>
+                        value='<?=$wt?>'><?=$wt?></option>
+                <?endforeach;?>
+            </select>                
+            <?=$this->lang->en('of')?> <?=$totalTexts?>
+            </span>
+        <?else:?>    
+            <?=$totalTexts?> <?=$this->lang->es('filas')?>
+        <?endif?>    
+    </caption>
     <thead>
         <tr>
             <? foreach ($headers as $key=>$head): ?>
-                <th class="<?= $key ?>"  >
-                <?= $this->lang->key($head);?>
+                <th class="<?= $key ?> <?=($key == "langtracker_status") ? 'nosort' : '';?>"  >
                 <?if ($key == "langtracker_es"):?>    
+                <?= $this->lang->key($head);?> 
                 <img src="/wwwroot/images/Colombia_16x16-32.png" />
                 <?elseif ($key == "langtracker_en"):?>    
+                <?= $this->lang->key($head);?> 
                 <img src="/wwwroot/images/United-States_16x16-32.png" />
+                <?elseif ($key == "langtracker_status"):?>    
+                    <select style='width: 100%;margin: 0;float: left;' id="allStatusChanger" >
+                    <option value=''><?=$this->lang->es('Cambiar todos campos')?></option>
+                    <?foreach(array('debug','edited','live','deleted','propername') as $status):?>
+                        <option value='<?=$status?>'><?=ucwords($this->lang->msg($status))?></option>
+                    <?endforeach;?>
+                    </select>
+                <?else:?>
+                <?= $this->lang->key($head);?> 
                 <?endif;?>
                 </th>
+                
             <? endforeach; ?>
         </tr>
     </thead>    
     <tbody id="tableBody">
+        <?$rowNum=0?>
         <? foreach ($texts as $text): ?>
-            <tr class="langRow" data-langid='<?=$text->langtracker_id?>' id='langtracker_<?=$text->langtracker_id?>' >
+            <tr class="<?=($rowNum&1) ? 'odd' : 'even'?> langRow" data-langid='<?=$text->langtracker_id?>' id='langtracker_<?=$text->langtracker_id?>' >
                 <? foreach ($headers as $key=> $head): ?>
                         <td class="langtracker <?= $key ?>" >    
-                        <?if ($key == "count"):?>
-                            <?= $text->count ?>
-                        <?elseif ($key == "langtracker_status"):?>
+                        <?if ($key == "langtracker_status"):?>
                             <select name='statusChange' data-langid="<?=$text->langtracker_id?>" >
                                 <?foreach(array('debug','edited','live','deleted','propername') as $status):?>
                                     <option <?if($text->$key == $status):?>selected='selected'<?endif;?> value='<?=$status?>'><?=ucwords($this->lang->msg($status))?></option>
                                 <?endforeach;?>
                             </select>                                    
-                            <button class="updateLang" title='<?=$this->lang->en('update')?>' ><?=$this->lang->en('update')?></button>
+                            <button class="updateLang" title='<?=$this->lang->en('update')?> <?=(isset($text->count)) ? $text->count : ''?>' ><?=$this->lang->en('update')?> <?=(isset($text->count) && $text->count > 1) ? $text->count : ''?></button>
                         <?elseif ($key == "langtracker_key"):?>
-                            <?= ellipse($text->$key, 50) ?>
+                            <?= ellipse($text->$key, 30) ?>
                         <?elseif ($key == "langtracker_urls"):?>
                             <?php $urls = explode(',',$text->langtracker_urls); $dups = array(); ?>
                             <?foreach ($urls as $url):?>
@@ -103,7 +148,7 @@
                         </td>
                 <? endforeach; ?>
             </tr>
-        <? endforeach; ?>
+        <? $rowNum++; endforeach; ?>
     </tbody>
 </table>
 </form>
