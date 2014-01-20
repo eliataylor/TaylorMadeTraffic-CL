@@ -28,6 +28,7 @@ $route['projects(|.+?)'] = "projects/projects";
 $route['devices(|.+?)'] = "projects/devices";
 
 $route['biz'] = "projects/pitch";
+$route['deck'] = "projects/pitch";
 
 $route['lenguaplus(|.+?)'] = 'lenguapluscontroller';
 

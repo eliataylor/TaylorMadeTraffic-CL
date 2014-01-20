@@ -64,13 +64,11 @@ a.navItem { margin:5px 15px 5px 15px; }
 a.navItem.selected { color:red; }
 
 
-.prjPitch a { font-size:normal; }
-.prjSection { width:100%; position:relative; line-height: 18px; margin:10px 0;}
+.prjSection { width:100%; position:relative; line-height: 18px; font-size:14px; margin:10px 0;}
 .prjSection img { width:97%;  }
-.snapshots img { width:100%; max-width:400px; margin:10px 0 }
 .prjSection li:before {
     content: "•  ";
-    color: red;
+    color: lightslategrey;
 }
 .lineName { font-style: italic; color:#a0a09f;}
 .technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; font-family:courier, monospace; font-size: 12px; line-height: 18px; }
@@ -81,14 +79,11 @@ a.navItem.selected { color:red; }
 .prjDesc img, .technotes img { width:97%; }
 .team a{ font-size:125%; }
 
-.prjLinks, .prjPitch, .prjBiz, .prjCosts, .prjDates {  }
-.sectTitle { font-style:italic; margin:0; font-size:14px; text-decoration: underline; margin-top:10px;}
-.prjLinks { font-size: 14px;}
+.sectTitle { font-style:italic; margin:0; font-size:16px; text-decoration: underline; margin-top:10px;}
+.prjSection li { list-style: none; padding-left:2px } 
 .prjPitch {font-size: 18px; line-height: 22px;}
-
-
-.prjBiz li, .prjCosts li, .prjDates li { list-style: none; padding-left:2px } 
-.prjBiz , .prjCosts , .prjDates { font-size:13px; }
+.prjPitch a { font-size:normal; }
+.snapshots img { width:100%; max-width:400px; margin:10px 0 }
 
 
 /*
@@ -162,8 +157,8 @@ a.navItem.selected { color:red; }
 /* tables */
 table .header { width:auto; color:#a0a09f;}
 
-.tablesorter { margin:10px 0 15px 0; font-size: 8pt; width: 100%; text-align: left; position: relative; }
-.tablesorter th, .tablesorter th { font-size: 8pt; padding: 4px; font-weight: bolder; }
+.tablesorter { margin:10px 0 15px 0; width: 100%; text-align: left; position: relative; }
+.tablesorter th, .tablesorter th { padding: 4px; font-weight: bolder; font-size:13px; }
 .tablesorter th.col3 { background-position: right center; padding-right: 20px;}
 .tablesorter th.col1, .projects_table th.col2 { padding-left: 20px;}
 
@@ -173,7 +168,6 @@ table .header { width:auto; color:#a0a09f;}
 .tags_table th.col1 { background-position: left center; }
 .tags_table th.col2 { background-position: center center; }
 .tags_table th.col3 { background-position: right center; }
-.tablesorter .header { }
 .tablesorter thead tr th { float:none; height:40px; background-image: url(/wwwroot/images/bg.png); background-repeat:no-repeat; background-position:left center;
                           cursor: pointer; }
 .tablesorter thead tr .headerSortUp {	background-image: url(/wwwroot/images/asc.png); background-repeat: no-repeat; color:red;}
@@ -217,7 +211,7 @@ td a.popInfo { text-decoration:none;}
 .projects_table .col2 { width:40%;}
 .projects_table .col3 { width:30%; }
 
-.col2 h3 { font-size:200%; }
+.col2 h3 { font-size:170%; }
 .tablesorter td.project_startdate { padding-top:28px; }
 .projectLink { word-break:break-all; }
 tr.spacer { height:15px; }
@@ -231,7 +225,7 @@ tr.spacer { height:15px; }
          font-weight: bolder; vertical-align: middle; margin:0 0 0 3px;}
 
 .projectsTitle { margin: 10px 0;float: left;clear: both;width: 100%;vertical-align: baseline; }
-.tag_key { font-size:130%; text-align: center;  }
+.tag_key { font-size:115%; text-align: center;  }
 .tablesorter .tag_key.header { background-position: center center; padding: 0;  }
 .tag_key p { margin-top:-23px; text-align: center; }
 .tag_date { text-align: right; }
@@ -258,7 +252,7 @@ tr.spacer { height:15px; }
             -moz-box-shadow: 2px 2px 2px #aaa; -webkit-box-shadow: 2px 2px 2px #aaa; box-shadow: 2px 2px 2px #aaa;    
             color:#fff; cursor: pointer; }
  #softNoticeBody a, #softNoticeBody a:visited { color:purple; }
- 
+ .projectTags { font-size: 12px; }
  
  /* PHONES */
 @media only screen and (max-width : 500px) {
@@ -274,5 +268,5 @@ tr.spacer { height:15px; }
 @media only screen and (min-width : 500px) and (max-width : 900px) {
     .projects_table .col1 { width:30%; }
     .projects_table .col2 { width:40%; }
-    .projectTags { font-size:110%; }
+    .projectTags { font-size:100%; }
 }

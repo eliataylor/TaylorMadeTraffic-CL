@@ -109,33 +109,33 @@ class CI_Lang {
 		log_message('debug', 'Language file loaded: language/'.$idiom.'/'.$langfile);
 		return TRUE;
 	}
-        /* override*/ 
-        function set_item($name, $val) {
-             $this->curlanguage = $val;
-        } 
         
-        function setLanguaPlus($val) {
+        function setLang($val) {
            $this->curlanguage = $val;
         }
          
         function line($line, $lang=false) { return $this->msg($line, $lang);}  // for portability from native Lang.php
         function key($line, $lang=false) { return $this->msg($line, $lang); }
+        function proper($line) { return $this->msg($line, 'en', 'propername'); }
         function en($line) { return $this->msg($line, 'en'); }
         function es($line) { return $this->msg($line, 'es'); }
 
 	function msg($value, $lang=false) {
                 if (is_numeric($value)) return $value;
                 $key = strtolower($value);
-		$value = (isset($this->language[$key])) ? $this->language[$key] : $value;
-		if (!isset($this->language[$key])) { // generally consider in production this should always happen anyway. (for ugc() the opposite)
-                        $CI = &get_instance();
+                
+		if (isset($this->language[$key])) { // generally consider in production this should always happen anyway. (for ugc() the opposite)
+                    return $this->language[$key];
+                } else { // generally consider in production this should always happen anyway. (for ugc() the opposite)
                         
-                        if ($CI->config->item('lang_2_track') != $this->curlanguage) return $value; // we're now only track one direction
+                        $CI = &get_instance();
+
+                        if (!empty($this->curlanguage) && $CI->config->item('lang_2_track') != $this->curlanguage) return $value; // we're now only track one direction, otherwise lots of duplicates
                         
                         $lData = NULL; // false is the query was already made
                         
                         if ($CI->config->item('use_msg_database') === TRUE) {
-                            $lData = $CI->LenguaPlus_model->getLanguageByKey($key, $CI->config->item('lang_status')); // only status == 'edited' or 'live' rows
+                            $lData = $CI->LenguaPlus_model->getLanguageByKey($key, $CI->config->item('status_2_watch')); // only status == 'edited' or 'live' rows
                             $langCol = 'langtracker_';
                             $langCol .= (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language'); // todo this should be handled better by load
                             if ($lData && !empty($lData->$langCol)) {
@@ -144,6 +144,7 @@ class CI_Lang {
                                 return $lData->$langCol;
                             } // nothing is in the database either
                         }
+                        
                         if ($CI->config->item('track_msg_production') === true || $CI->config->item('environment') != 'production') {
                             
                             if (empty($lData)) { 
@@ -174,8 +175,8 @@ class CI_Lang {
                                         $lData['langtracker_host'] = $_SERVER['HTTP_HOST'];
                                         $lData['langtracker_language'] = (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language');
                                         $lData['langtracker_url'] = $_SERVER['REQUEST_URI'];
-                                        $lData['langtracker_status'] = "debug";
-                                        $CI->LenguaPlus_model->trackLang($lData);
+                                        $lData['langtracker_status'] = 'debug';
+                                        $CI->LenguaPlus_model->trackLang($lData); // always validated in model with default to 'debug'
                                         break;
                                     }
                                 }
@@ -197,13 +198,12 @@ class CI_Lang {
                         $line = file_get_contents($filename);
                     else $line = $filename;
                 } else {
-                    if ($CI->config->item('environment') === 'production' && $CI->config->item('track_ugc_production') === false) return $line;                                    
-                    if ($CI->config->item('lang_2_track') != $this->curlanguage) return $line; // we're now only track one direction
+                    if (!empty($this->curlanguage) && $CI->config->item('lang_2_track') != $this->curlanguage) return $line; // we're now only track one direction, otherwise lots of duplicates
                     
                     $lData = NULL; // false is the query was already made
 
                     if ($CI->config->item('use_ugc_database') === TRUE) {
-                        $lData = $CI->LenguaPlus_model->getLanguageByKey($key, $CI->config->item('lang_status')); // only status == 'edited' or 'live' rows
+                        $lData = $CI->LenguaPlus_model->getLanguageByKey($key, $CI->config->item('status_2_watch')); // only status == 'edited' or 'live' rows
                         $langCol = 'langtracker_';
                         $langCol .= (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language'); // todo this should be handled better by load
                         if ($lData && !empty($lData->$langCol)) {
@@ -212,41 +212,41 @@ class CI_Lang {
                             return $lData->$langCol;
                         } // nothing is in the database either
                     }
-                    if ($CI->config->item('track_ugc_production') === true || $CI->config->item('environment') != 'production') {
-                        
-                        if (empty($lData)) { 
-                            $lData = $CI->LenguaPlus_model->getLanguageByKey($key); // any status!
-                            if (!empty($lData)) {
-                                // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                    
+                    if ($CI->config->item('environment') === 'production' && $CI->config->item('track_ugc_production') === false) return $line;                                    
+
+                    if (empty($lData)) { 
+                        $lData = $CI->LenguaPlus_model->getLanguageByKey($key); // any status!
+                        if (!empty($lData)) {
+                            // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                        }
+                    }
+                    if (empty($lData)) {
+                        $trace = debug_backtrace();
+                        foreach($trace as $t) {
+                            if ($t['file'] != __FILE__) {
+                                $obj['langtracker_linenum'] = $t['line'];
+                                $obj['langtracker_type'] = 'ugc';
+                                $obj['langtracker_file'] = $t['file'];
+                                $obj['langtracker_added'] = time();
+                                $obj['langtracker_key'] = $key;
+                                $obj['langtracker_oauthor_id'] = $user_id;
+                                if (!empty($this->curlanguage)) { // todo: only does this if we predefined curlanguage better by country and if changed.
+                                    $obj['langtracker_language'] = $this->curlanguage;
+                                    $obj['langtracker_' . $this->curlanguage] = $line;
+                                } else {
+                                    $obj['langtracker_language'] = $CI->config->item('language');
+                                    $obj['langtracker_en'] = $line;
+                                }
+                                $obj['langtracker_host'] = $_SERVER['HTTP_HOST'];
+                                $obj['langtracker_url'] = $_SERVER['REQUEST_URI'];
+                                $obj['langtracker_status'] = "debug";
+                                $CI->LenguaPlus_model->trackLang($obj);
+                                break;
                             }
                         }
-                        if (empty($lData)) {
-                            $trace = debug_backtrace();
-                            foreach($trace as $t) {
-                                if ($t['file'] != __FILE__) {
-                                    $obj['langtracker_linenum'] = $t['line'];
-                                    $obj['langtracker_type'] = 'ugc';
-                                    $obj['langtracker_file'] = $t['file'];
-                                    $obj['langtracker_added'] = time();
-                                    $obj['langtracker_key'] = $key;
-                                    $obj['langtracker_oauthor_id'] = $user_id;
-                                    if (!empty($this->curlanguage)) { // you can never really know this unless it's track by the session of the user when originally entered
-                                        $obj['langtracker_language'] = $this->curlanguage;
-                                        $obj['langtracker_' . $this->curlanguage] = $line;
-                                    } else {
-                                        $obj['langtracker_language'] = $CI->config->item('language');
-                                        $obj['langtracker_en'] = $line;
-                                    }
-                                    $obj['langtracker_host'] = $_SERVER['HTTP_HOST'];
-                                    $obj['langtracker_url'] = $_SERVER['REQUEST_URI'];
-                                    $obj['langtracker_status'] = "debug";
-                                    $CI->LenguaPlus_model->trackLang($obj);
-                                    break;
-                                }
-                            }
-                        }                    
-                        //log_message('error', 'Could not find the language line "'.$line.'"');
-                    }
+                    }                    
+                    //log_message('error', 'Could not find the language line "'.$line.'"');
 		}
                 $this->language[$key] =  $line; // CACHED for request life!                
 		return $line;

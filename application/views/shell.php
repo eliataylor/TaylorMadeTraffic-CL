@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<?=$me['con']['lang']?>">
     <head>
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
               if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags; 
@@ -7,13 +7,13 @@
         <title><?= $docTitle ?> :: TaylorMadeTraffic.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Eli A Taylor" />
-        <meta name="language" content="en-us" />
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1389164034" />
+        <meta name="language" content="<?=$me['con']['lang']?>" />
+	<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />        
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1389164035" />
         <? if ($me['con']['isMobile']): ?>
             <meta name="viewport" content="width=device-width; initial-scale=1.0" />
             <meta name="apple-mobile-web-app-capable" content="yes"  />
             <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
-            <link rel="stylesheet" href="//code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
             <script src="//code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
         <? endif; ?>        
         <? if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>        
@@ -135,6 +135,7 @@
         </div>
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>            
         <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389255115"></script>
+	<script type="text/javascript" src="/wwwroot/js/jquery.fancybox.pack.js?v=2.1.5"></script>
         <? if (ENVIRONMENT == 'production'):?>
         <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");

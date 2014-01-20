@@ -1,20 +1,32 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class LenguaPlus_model extends CI_Model {
-
-    function __construct() {
-        parent::__construct();
-    }
+    
+        private $count = false;
+    
+	function __construct() {
+            parent::__construct();
+	}
+        
+        function setCount($as){
+            $this->count = $as;
+        }
+        
+        function getCount(){
+            return $this->count;
+        }   
                 
     public function trackLang($obj) {
         if (!is_array($obj)) return false;
+        if (!isset($obj['langtracker_status']) || !in_array($obj['langtracker_status'], array('debug','edited','live','deleted','propername'))) 
+                $obj['langtracker_status'] = 'debug';
         $this->db->insert('langtracker', $obj);
         return $this->db->insert_id();
     }
     
-    public function getLanguageByFilters($status=false, $groupby=false, $type=false, $from=0, $want=300) {
-        if (empty($groupby)) $sql = 'SELECT *, langtracker_url as langtracker_urls FROM langtracker ';
-        else $sql = 'SELECT *, count(*) as count, group_concat(langtracker_url) as langtracker_urls FROM langtracker ';
+    public function getLanguageByFilters($status=false, $type=false, $url=false, $groupby=false, $from=0, $want=300) {
+        if ($this->count) $sql = 'SELECT count(*) as count FROM langtracker ';
+        else $sql = 'SELECT *, count(langtracker_id) as count, group_concat(langtracker_url) as langtracker_urls FROM langtracker ';
         
         $params = array();
         $wheres = array();
@@ -22,30 +34,43 @@ class LenguaPlus_model extends CI_Model {
             array_push($wheres, 'langtracker_status = ?');
             array_push($params, $status);
         }  else {
-            array_push($wheres, 'langtracker_status != \'deleted\' ');
+            array_push($wheres, 'langtracker_status != \'deleted\' '); // WARN: once deleted, Lang.php will forever skip that key!!!
         }
         if (!empty($type)) {
             array_push($wheres, 'langtracker_type = ?');
             array_push($params, $type);
         }
+        if (!empty($url)) {
+            array_push($wheres, "langtracker_url LIKE '%".$this->db->escape_like_str($url)."%'");
+        }        
         
         $sql .= ' WHERE ' . implode(' AND ', $wheres);
         
-        if (is_array($groupby)) $groupby = implode(',',$groupby);
-        if ($groupby == 'url') $sql .= ' group by langtracker_key, langtracker_url';
-        elseif ($groupby == 'key') $sql .= ' group by langtracker_key';
-        elseif ($groupby == 'file') $sql .= ' group by langtracker_key, langtracker_file';
-        elseif ($groupby == 'status') $sql .= ' group by langtracker_key, langtracker_status';
-        elseif ($groupby == 'file,line') $sql .= ' group by langtracker_key, langtracker_file, langtracker_linenum';
-        
-        if (!is_numeric($from) || $from < 0)$from = 0;
-        if (!is_numeric($want)) $want = 300; // allow all for publisher
-        $sql .= " LIMIT $from, $want";
+         if (!$this->count)  {
+            if (is_array($groupby)) $groupby = implode(',',$groupby);
+            if ($groupby == 'url') $sql .= ' group by langtracker_key, langtracker_url';
+            elseif ($groupby == 'file') $sql .= ' group by langtracker_key, langtracker_file';
+            elseif ($groupby == 'status') $sql .= ' group by langtracker_key, langtracker_status';
+            elseif ($groupby == 'file,line') $sql .= ' group by langtracker_key, langtracker_file, langtracker_linenum';
+            else $sql .= ' group by langtracker_key';
+             
+            $sql .= (!empty($type)) ? ' order by langtracker_key' : ' order by langtracker_type, langtracker_key';        
+            if (!is_numeric($from) || $from < 0)$from = 0;
+            if (!is_numeric($want)) $want = 30; // allow BIG numbers all for publisher
+            $sql .= " LIMIT $from, $want";
+        }
         
         $query = $this->db->query($sql, $params);
-        //echo $this->db->last_query();
-        if ($query->num_rows() > 0) return $query->result_object();
-        return array();
+        if (!$this->count)  {
+            if ($query->num_rows() > 0) return $query->result_object();
+            return array();
+        } else {
+            if ($query->num_rows() > 0) {
+                $row = $query->row_array();
+                return $row['count'];
+            }
+            return 0;
+        }
     }       
     
     public function getLanguageById($lid, $status=NULL) {
