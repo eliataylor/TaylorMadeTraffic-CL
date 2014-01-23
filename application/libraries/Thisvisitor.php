@@ -21,10 +21,9 @@ class Thisvisitor {
             if (!in_array($lang, array_keys($CI->config->item('languages')))) array_push($this->visitor['errors'], $CI->lang->en('Incorrect Language'));
             else $this->visitor['con']['lang'] = $lang;
          } else {
-            if (strpos(TMT_HTTP, ':es.') > -1) {
+            if (strpos(TMT_HTTP, '://es.') > 0) {
                 $this->visitor['con']['lang'] = 'es';
-            }
-            if (!isset($this->visitor['con']['lang'])) $this->visitor['con']['lang'] = $CI->config->item('language');
+            } elseif (!isset($this->visitor['con']['lang'])) $this->visitor['con']['lang'] = $CI->config->item('language');
          }
          // $CI->config->set_item('language', $this->visitor['con']['lang']); // does not work http://stackoverflow.com/questions/7563390/codeigniter-change-loaded-language
          $CI->lang->load('langplus_msg', $this->visitor['con']['lang']);

@@ -13,12 +13,18 @@
             }
 
         },
-        init : function(){
+        init : function(holder){
           $('.langFilter').change(function(e) {
               var qname = encodeURIComponent($(this).attr('name'));
               var href = langer.upParam(qname, encodeURIComponent($(this).val()));
               document.location.href = href;
           });
+          
+          $('#allStatusChanger').change(function(){
+              var val = $(this).val();
+              if (val == '') return false;
+              $('#tableBody').find("select[name='statusChange']").val(val);
+          });                   
           
           $('.langBtn').click(function(e) {
               var href = langer.upParam('lang', encodeURIComponent($(this).attr('data-language')));
@@ -70,13 +76,12 @@
                return false;
           });
         },
-        initTable : function(cont) {
-//          var myHeaders = {};
-//          $(cont).find(".tablesorter").find('th.nosort').each(function (i, e) {
-//                myHeaders[$(this).index()] = { sorter: false };
-//          });
-//          $(cont).find(".tablesorter").tablesorter({widgets: ['zebra'],headers:myHeaders});
-            $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});
+        initTable : function(holder) {
+          var myHeaders = {};
+          $(holder).find(".tablesorter").find('th').each(function (i, e) {
+                myHeaders[$(this).index()] = { sorter: !$(this).hasClass('nosort') };
+          });
+          $(holder).find(".tablesorter").tablesorter({widgets: ['zebra'],headers:myHeaders});
         },         
         qParam : function(name, url) {
             name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
@@ -113,6 +118,6 @@
 })("langer", this);
 
 $(document).ready(function() {
-    langer.initTable(document.body);
     langer.init(document.body);
+    langer.initTable(document.body);
 });

@@ -27,7 +27,7 @@
 
 <? if (!empty($project->images)): ?>
 <div class="galleryBlock">    
-    <?if (count($project->images) > 1):?>
+    <?if (count($project->images) > 0):?>
         <div class="galleryTopBar">    
         <?foreach($project->images as $img):?>            
             <a class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$project->project_id?>" >
