@@ -138,7 +138,6 @@
             <devurl></devurl>
             <client>SuperWashingWell Laundromat</client>
             <copyright>TaylorMadeTraffic</copyright>
-            <thumbDir>/wwwroot/images/sites/lealtad/th</thumbDir>
             <xlDir>/wwwroot/images/sites/lealtad</xlDir>
             <startdate>May 2013</startdate>
             <launchdate></launchdate>
@@ -148,20 +147,26 @@
             <desc>A tool for independent retailers to publish and track promotions, along with their returned value and cost. For consumers, LealtadCard provides a way to search nearby promotions and publish their own controlled requests for good deals.</desc>
             <technotes>The promotions could be sent via SMS or Galaxy's Chord Framework. The interface and CMS is still in development.</technotes>
             
-            <pitch>A virtual marketplace for independent retailers to publish and track promotions, along with their ROI (returned-on-investment). Meanwhile, customers can search nearby promotions and publish their own requests to nearby retails for special deals</pitch>
+            <pitch>
+                <![CDATA[
+                    <em>A virtual marketplace for independent retailers to publish and track promotions, along with their return-on-investment (ROI).</em>
+                    <p>Customers can search promotions and publish their own requests to nearby retailers for special deals. The marketplace is focused on private offers only valid for a few hours.</p>
+                ]]>  
+            </pitch>
             <bizmodel>
                     <![CDATA[
                         <ul class='alphalist'>
-                            <li>$1 / mo fee to store owners for upgraded features in loyalty programs and customer details</li>
-                            <li>Sell Direct Advertising to consumers in an open market of 1-day-only promotions.</li>
-                            <li>Services for designing / developing engaging mobile ads apps.</li>
+                            <li>$1/month for store owners to view customers data and analytics</li>
+                            <li>$1/month for store owners to send 100 private discount offers per month</li>
+                            <li>$1/month for store owners to public 10 public market ads per month</li>
+                            <li>Design &amp; Development services for more engaging mobile ads and promotions</li>
                             <li>Build interactive and engaging maps for malls</li>
                         </ul>
                     ]]>  
             </bizmodel>
             <expenses>
                     <![CDATA[
-                        <ul class='datelist'>
+                        <ul class='expenselist'>
                             <li>15% design</li>
                             <li>50% development</li>
                             <li>25% sales</li>
@@ -180,14 +185,14 @@
                
             <competition>
                     <![CDATA[
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/lealtad/research/android-apps-loyalty-card.jpg" src="/wwwroot/images/sites/lealtad/research/android-apps-loyalty-card_400x0.jpg" />
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/lealtad/research/android-apps-loyalty-card.jpg" data-fancybox-group="lealtadcard" >
+                            <img src="/wwwroot/images/sites/lealtad/research/android-apps-loyalty-card_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/lealtad/research/android-apps-mall-maps.jpg" src="/wwwroot/images/sites/lealtad/research/android-apps-mall-maps_400x0.jpg" />
+                        </a>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/lealtad/research/citypoints.jpg" data-fancybox-group="lealtadcard" >
+                            <img src="/wwwroot/images/sites/lealtad/research/citypoints_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>
+                        </a>
                     ]]>    
             </competition>             
         </item>
@@ -204,7 +209,7 @@
             <industries>music,events,gaming</industries>
             <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Bash,jQuery Mobile,Facebook SDK</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:E.A.Taylor,Drew Williams</team>
-            <desc>A music-gaming application that rewards high rated users with free music, gift certificates, concert tickets and cash. </desc>
+            <desc>An online and mobile game that rewards high rated users with free music, gift certificates, concert tickets and cash. </desc>
             <technotes>    
                 
                  <![CDATA[The website runs in a LAMP environment, and is highly optimized by several Bash scripts
@@ -220,19 +225,32 @@
             </technotes>
             
             
-            <pitch>A music-gaming application for music lovers to play, exchange, and reward musical taste. Highly rated users are rewarded with free music, gift certificates, concert tickets and cash from sponsors and partners</pitch>
+            <pitch>
+                <![CDATA[
+                    <em>An online and mobile game for music lovers to play, exchange, and reward musical taste.</em>
+                    <p>Highly rated users are rewarded with free music, gift certificates, concert tickets and cash from sponsors and partners</p>
+                    <p>The platform supports three ways to play and win. Each starts with a playlist theme, such as 'Rise And Shine': Songs for My Alarm Clock.</p>
+                    <ul>
+                        <li>1. Group members enter a song that suits the theme</li>
+                        <li>2. Group members list and rate each other's songs</li>
+                        <li>3. After two weeks, the person who submitted the highest rated song wins</li>
+                    </ul>
+                    <p>This game can easily be incorporated as a promotional vehicle for concert tours. For example, if that alarm clock was Jay-Z's, the options are countless for prizes from tickets to backstage passes and all links during the competition promote the concert</p>
+                ]]>                            
+            </pitch>
             <bizmodel>
                     <![CDATA[
                         <ul class='alphalist'>
-                            <li>Concert ticket re-sales</li>
+                            <li>concert ticket re-sales (3-5% fee)</li>
                             <li>$1 - $10 subscriptions to ad-free listening and extra playlist features</li>
-                            <li>Concert ticket promtions, advertising and sales</li>
+                            <li>Concert ticket promotions, advertising and sales</li>
                         </ul>
                     ]]>  
             </bizmodel>
             <marketresearch>
                     <![CDATA[
                         <ul class='marketresearch'>
+                            <li>NO online concert ticket vendors also support extensive music stations or playlists</li>
                             <li>Concert Ticket sold 52 million (2011) - <a class='sourceLink' href="http://www.statisticbrain.com/concert-ticket-sale-statistics/" target="_blank">source</a></li>
                             <li>Concert Ticket Revenue 3.1 Billion USD (2011) - <a class='sourceLink' href="http://www.statisticbrain.com/concert-ticket-sale-statistics/" target="_blank">source</a></li>
                             <li>Pollstar lists 10,859 touring artists, 71,823 Events - <a class='sourceLink' href="http://money.futureofmusic.org/how-many-musicians-are-there/" target="_blank">source</a></li>
@@ -244,15 +262,15 @@
             </marketresearch>                
             <competition>
                     <![CDATA[
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/ta/research/android-apps-music-games.jpg" src="/wwwroot/images/sites/ta/research/android-apps-music-games_400x0.jpg" />
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ta/research/android-apps-music-games.jpg" data-fancybox-group="trackauthority" >
+                            <img src="/wwwroot/images/sites/ta/research/android-apps-music-games_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>
+                        </a>
                     ]]>    
             </competition>            
             <expenses>
                     <![CDATA[
-                        <ul class='datelist'>
+                        <ul class='expenselist'>
                             <li>15% design</li>
                             <li>70% development</li>
                             <li>10% sales</li>
@@ -282,9 +300,9 @@
             <launchdate>December 2013</launchdate>
             <industries>analytics</industries>
             <devtools>PHP,CodeIgniter,mySQL,AJAX,JavaScript,Google Visualization,Google SDK,Facebook SDK,YouTube SDK,Twitter SDK,Laraval</devtools>
-            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:Juan Ruiz,Claudia Huertas;Project Management:Alejandra Farfan,David Duran;QA:John Parra</team>
-            <desc>The tool automates monthly reports due clients, by aggregating data from all active marketing channels or installed tracking tools, such as Twitter, Facebook Insights, Google Anayltics and, Youtube.</desc>
-            <technotes>Over 45 Google Visualization Graphs can be created in less than 10 seconds. By entering just a few project goals in the form of KPIs (Key Performance Indicators), graphs are automatically colorized in to indicate how they are performing. Project &amp; account managers can also using a simple CMS built within the reports to comment on specific metrics, add headers, group graphics, change sizes and drill on the data through AJAX connections to all the original API services. The permissions matrix is controlled per client, brand, and project with 6 levels of access, including publishing public reports with encrypted URLs. The original codebase was writen in the Laraval PHP Framework which somewhat resembles Ruby. I have since completely replaced that codebase with CodeIgniter.</technotes>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Business Development:Juan Ruiz,Claudia Huertas;Project Management:Alejandra Farfan,David Duran;QA:John Parra;UX:Mauricio Zambrano,Catalina Molina</team>
+            <desc>The tool automates monthly reports due clients, by aggregating data from all active marketing channels or installed tracking tools, such as Twitter, Facebook Insights, Google Analytics and, YouTube.</desc>
+            <technotes>Over 45 Google Visualization Graphs can be created in less than 10 seconds. By entering just a few project goals in the form of KPIs (Key Performance Indicators), graphs are automatically colorized in to indicate how they are performing. Project &amp; account managers can also using a simple CMS built within the reports to comment on specific metrics, add headers, group graphics, change sizes and drill on the data through AJAX connections to all the original API services. The permissions matrix is controlled per client, brand, and project with 6 levels of access, including publishing public reports with encrypted URLs. The original codebase was written in the Laraval PHP Framework which somewhat resembles Ruby. I have since completely replaced that codebase with CodeIgniter.</technotes>
         </item>
         
         <item>
@@ -301,7 +319,7 @@
             <devtools>PHP,Slim Framework,mySQL,AJAX,JavaScript,Facebook SDK</devtools>
             <team>Design:Zandro Gil;Front-End:E.A.Taylor,Fabian Mariño;Back-End:E.A.Taylor;Project Management:Natalia Uribe;QA:Jimmy Rodriguez</team>
             <desc>A curly-hair competition for a $250 shopping spree</desc>
-            <technotes>Another quick campaign application to generate FanPage likes. In order to compete users were required to like Sedal's FanPage, complete regisration, and upload videos, images, or a tip on maintaining their curly hair (ideally using Sedal products;). Voting was validated by IP, user agent, and session, while video uploads were POST'd directly to a public YouTube channel using their PHP SDK. The project extended ID's fork of the Slim PHP Framework. I personally found more hurdles than helpers in the tightly namespaced codebase and it's odd use of closures for routing/controllers.</technotes>
+            <technotes>Another quick campaign application to generate FanPage likes. In order to compete users were required to like Sedal's FanPage, complete registration, and upload videos, images, or a tip on maintaining their curly hair (ideally using Sedal products;). Voting was validated by IP, user agent, and session, while video uploads were POST'd directly to a public YouTube channel using their PHP SDK. The project extended ID's fork of the Slim PHP Framework. I personally found more hurdles than helpers in the tightly namespaced codebase and it's odd use of closures for routing/controllers.</technotes>
         </item>        
 
         <item>
@@ -315,8 +333,8 @@
             <industries>gaming</industries>
             <devtools>PHP,mySQL,JavaScript</devtools>
             <team>Design:Cristopher Allen Lara;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Project Management:Oscar Gil;Account Manager:Sharon Lewis;QA:Jimmy Rodriguez,John Parra</team>
-            <desc>IDinteractive builds marketing platforms for a long list of great clients with creative projects and campaigns. One of the most fun I built in a quick 4 weeks was <em>Oreo Navidad</em>. The campaign was based on 20 million codes printed on Oreo packages throughout Colombia. There were 5 types of prizes to win in varying amounts with a total of 285 to give.  No one code could be considered a winner in advance, and the prizes should be distributed evenly throughout the ~60 day campaign. I wrote the probability to be related to the average number of people playing daily and distributed all prizes - by number and type – evenly until the last day.</desc>
-            <technotes>A search against the 20 million codes took .00020 seconds, and the site supported business rules such as Catpcha when a user searched more than 12 times in a day. I also included several backend tracking tools and a automated QA tester to simulate varying degrees of traffic, code searches, and minimum probabilities.</technotes>
+            <desc>IDinteractive builds marketing platforms for a long list of great clients with creative projects and campaigns. One of the most fun I built in a quick 4 weeks was <em>Oreo Navidad</em>. The campaign was based on 20 million codes printed on Oreo packages throughout Colombia. There were 5 types of prizes to win in varying amounts with a total of 285 to give.  No one code could be considered a winner in advance, and the prizes should be distributed evenly throughout the ~60 day campaign. I wrote the probability to be related to the average number of people playing daily and distributed all prizes - by number and type - evenly until the last day.</desc>
+            <technotes>A search against the 20 million codes took .00020 seconds, and the site supported business rules such as Catpcha when a user searched more than 12 times in a day. I also included several backend tracking tools and an automated QA tester to simulate varying degrees of traffic, code searches, and minimum probabilities.</technotes>
             <thumbSrc></thumbSrc>
             <xlDir>/wwwroot/images/sites/ganaoreo</xlDir>
         </item>
@@ -352,14 +370,14 @@
             <industries>health,marketing</industries>
             <devtools>Java,Spring,Oracle,JavaScript,JSONP</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor,AJ Chen,Steve Jackson</team>
-            <desc>A Contextual Enrichment Tool Of Rich-Media Health Information and Ads.</desc>
+            <desc>A Contextual Enrichment Tool of Rich-Media Health Information and Ads.</desc>
             <technotes>            
             <![CDATA[<ul>
                     <li>Navigator is a cross-domain script tag used to inject contextual ads and content onto any web page from a single line of JavaScript.</li>
                     <li>The system supports up to 60 requests per second including tracking pixels and over 50,000 SQL inserts batched daily through an asynchronous SQL loader. (Clients included healthline.com, sharecare.com, health.yahoo.net, drugs.com and others)</li>
                     <li>Units can be injected on-load and by user-engagement, directly on the page, or by hyper-linking keywords in the page source. Keywords can be pre-selected during the crawling process or via a client-side DOM scanner searching common semantics and other ad tags running simultaneously. This allows well targeted advertising services without a backend processor for contextualization</li>
                     <li>It can automatically detect appropriate ad placement via another DOM scanner that measures element's amount of text, dimensions, DOM structure and tag types. It also can be more tightly controlled via Dashboard described below.</li>
-                    <li>Injected content - where hyper-links remain on the host website – can be placed to provide additional navigation tools for the user. However this requires pre-indexing the client's entire site. This process is targeted, cued and controlled by Navigator and its Dashboard, described below.</li>
+                    <li>Injected content - where hyper-links remain on the host website - can be placed to provide additional navigation tools for the user. However this requires pre-indexing the client's entire site. This process is targeted, cued and controlled by Navigator and its Dashboard, described below.</li>
                 </ul>]]>
             </technotes>
         </item>        
@@ -424,11 +442,18 @@
             <industries>music,gaming</industries>
             <devtools>Native Android SDK,Java,Chord Framework,All-Share Framework</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
-            <desc>An mobile beat machine to create and share music with friends</desc>
+            <desc>A mobile beat machine to create and share music with friends</desc>
             <technotes>The music is shared a runtime using Galaxy's All-Share and Chord Framework</technotes>
             
             
-            <pitch>A mobile beat machine to create and share music with friends. I brought this idea up to the group when we talked about doing that Samsung challenge. I've started with wireframes, but only have basic code done to handle the initial connection via the Chord Framework.</pitch>
+            <pitch>
+                <![CDATA[
+                    <em>The first mobile beat machine to create and share music with friends in real-time.</em> 
+                    <p>Like most similar apps, StudioEnVivo allows customizing your keyboard with sounds and laying background tracks as you play.</p>
+                    <p>However, unlike any other app, you can play simultaneously with other friends via Bluetooth / Chord / All-Share frameworks and finally stitch together your recordings for a collaborative composition.</p>
+                    <p>As users upload their compositions to the cloud, the social aspect of sharing and comparing compositions are endless...</p>
+                ]]>  
+           </pitch>
             <bizmodel>
                     <![CDATA[
                         <ul class='alphalist'>
@@ -439,7 +464,7 @@
             </bizmodel>
             <expenses>
                     <![CDATA[
-                        <ul class='datelist'>
+                        <ul class='expenselist'>
                             <li>30% design</li>
                             <li>70% development</li>
                         </ul>
@@ -453,18 +478,15 @@
                     ]]>    
             </futuredate>
             <competition>
-                
                     <![CDATA[
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/studioenvivo/research/android-app-electrum-drum-machine-sampler.jpg" src="/wwwroot/images/sites/studioenvivo/research/android-app-electrum-drum-machine-sampler_400x0.jpg" />
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/studioenvivo/research/android-app-electrum-drum-machine-sampler.jpg" data-fancybox-group="studioenvivo" >
+                            <img src="/wwwroot/images/sites/studioenvivo/research/android-app-electrum-drum-machine-sampler_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/studioenvivo/research/android-app-drum-machine.jpg" src="/wwwroot/images/sites/studioenvivo/research/android-app-drum-machine_400x0.jpg" />
+                        </a>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/studioenvivo/research/android-app-drum-machine.jpg" data-fancybox-group="studioenvivo" >
+                            <img src="/wwwroot/images/sites/studioenvivo/research/android-app-drum-machine_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>                                             
-                        
-                        
+                        </a>                                             
                     ]]>               
             </competition>            
         </item>
@@ -483,7 +505,7 @@
             <industries>health</industries>
             <team>Design:Matt Sperling;Front-End:E.A.Taylor;Project Management:Steve Berley</team>
             <desc>A set of 30 health assessment and preparation tools developed for OptumHealth, a division of UnitedHealth Group</desc>
-            <technotes>The business requirements insisted that the tool be distributable as a single self-contained file which could be easily reskinned for other brands. It was not clear if their target device's would run Java (Applets), but certain they had browsers with Flash, so used Flex and AS3.</technotes>
+            <technotes>The business requirements insisted that the tool be distributable as a single self-contained file which could be easily reskinned for other brands. It was not clear if their target devices would run Java (Applets), but certain they had browsers with Flash, so used Flex and AS3.</technotes>
         </item>   
     
         <item>
@@ -515,12 +537,12 @@
             <devtools>AJAX,AS3,Flex,PHP,mySQL,JavaScript</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Project Management:Jacquas Habra,Kevin Kent,James McCorkle</team>
             <desc>A reporting system for advertisers to view site traffic, user inquiries on their properties, and return-on-investment figures. </desc>
-            <technotes>This system included 3 levels of access with top level administrators being able to change cost values per account or property, receive notifications upon account logins, and scheduling custom reports to be email at any frequency or timespan, to anyone. The system provides complete drilling capabilities on any data set for any time frame; and populates both Flex graphs and DHTML tables and charts with a single click.</technotes>
+            <technotes>This system included 3 levels of access with top level administrators being able to change cost values per account or property, receive notifications upon account logins, and scheduling custom reports to be email at any frequency or time span, to anyone. The system provides complete drilling capabilities on any data set for any time frame; and populates both Flex graphs and DHTML tables and charts with a single click.</technotes>
         </item>
         <item>
             <title>Black Panther Party</title>
             <liveurl>http://www.blackpanther.org</liveurl>
-            <devurl>http://skye.taylormadetraffic.com/bpp/</devurl>
+            <devurl>http://bpp.taylormadetraffic.com/</devurl>
             <client>Huey P. Newton Foundation</client>
             <thumbDir>/wwwroot/images/sites/bpp/th</thumbDir>
             <xlDir>/wwwroot/images/sites/bpp</xlDir>
@@ -529,7 +551,7 @@
             <industries>education,ecommerce</industries>
             <devtools>AS3,PHP,CodeIgniter,mySQL,AJAX,JavaScript</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Project Management:Dorion Hillard</team>
-            <desc>Design &amp; developed a unique interface for navigating articles, essays, events, and new program initiatives.</desc>
+            <desc>Design &amp; developed a unique interface for navigating articles, essays, events, and new program initiatives. This was a volunteer project with early ambitions for a commercial joint venture. It fell apart over internal issues.</desc>
             <technotes>Implemented the Google Language API (php) to translate entire site and individual articles to nearly any language using an asynchronous AJAX cue-engine to control http request priorities, frequency and timeouts. Extended open source CMS OpenCart with configuration options to map and re-stylize all products and profiles</technotes>
         </item>
         <item>
@@ -564,26 +586,32 @@
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Back-End:E.A.Taylor;Product Development:Biko Eisen-Martin</team>
             <desc>
                 <![CDATA[
-                    <p>A vision from <a href="http://www.google.com.co/search?q=biko+eisen-martin" target="_blank">Biko Eisen-Martin</a> for his students at <a href="http://bhs.berkeleyschools.net/" target="_blank">Berkeley High School</a> to create a tool for teachers and students to collaborate and compete in the writing process. Modeled after a traditional newsroom, students and teachers would be able to develop assignements, work on multiple versions of a story, share ideas within the class, and more. 
+                    <p>A vision from <a href="http://www.google.com.co/search?q=biko+eisen-martin" target="_blank">Biko Eisen-Martin</a> for his students at <a href="http://bhs.berkeleyschools.net/" target="_blank">Berkeley High School</a> to create a tool for teachers and students to collaborate and compete in the writing process. Modeled after a traditional newsroom, students and teachers would be able to develop assignments, work on multiple versions of a story, share ideas within the class, and more. 
                     We built a prototype site that supported a semester of great essays still worth reading, but the project lost momentum as we both moved cities.</p>
                     <p>This project's greatest potential was in a version-controller for teachers to review, grade and provide feedback on student's essays, while peer reviews drove friendly competition between writer and school rankings.</p>
-                    <p>If you are in Education, and feel this or something similiar could help your classroom and your school district, email me. I'd love bring this back to life own our spare time.</p>
+                    <p>If you are in Education, and feel this or something similar could help your classroom and your school district, email me. I'd love bring this back to life own our spare time.</p>
                 ]]>
             </desc>
             <technotes>UI Tools include tinyMCE text editor, advance sourcing maps, and multi-category search options</technotes>
             
-            <pitch>A tool for teachers and students to collaborate and compete in the writing process. Modeled after a traditional newsroom, students and teachers would be able to develop assignments, work on multiple versions of a story, share ideas within the class, and more.</pitch>
+            <pitch>
+                <![CDATA[
+                <em>A platform for High School newspapers that allows students to collaborate and share their academic and athletic achievements.</em>
+                <p>Students and teachers would be able to develop assignments, work on multiple versions of a story, share ideas within the class, and more.</p>            
+                <p>The competitive advantage of this site is in the version-controlling system that allows peer-reviews, teachers edit, and the student's versions to all be tracked independently. In addition, the system would include tools for simplifying footnotes and sources, and to include photos and links.</p>
+                ]]>
+            </pitch>
             <bizmodel>
                     <![CDATA[
-                        <ul class='datelist'>
+                        <ul class='alphalist'>
                             <li>License to private schools &amp; learning institutions</li>
-                            <li>Donate to the public school system, gain publicity and intimite access to the youth market, along with tax deducations from donation.</li>
+                            <li>Donate to the public school system, gain publicity and intimate access to the youth market, along with tax deductions from donation.</li>
                         </ul>
                     ]]>  
             </bizmodel>
             <expenses>
                     <![CDATA[
-                        <ul class='datelist'>
+                        <ul class='expenselist'>
                             <li>20% design</li>
                             <li>60% development</li>
                             <li>20% sales & support</li>
@@ -608,20 +636,23 @@
                         <ul class='competitorlist'>
                             <li><a href="http://www.schoolnewspapersonline.com/pricing/" target="_blank">SchoolNewsPaperOnline.com/pricing</a> - $600 - $3,900 USD / year</li>
                             <li><a href="http://www.yourstudentnews.com/article.php?id=8" target="_blank">YourStudentNews.com</a> - $25 - $400 USD / year</li>
-                            <li><a href="http://www.ihigh.com/advertising/" target="_blank">iHigh.com </a> - advertising model</li>
+                            <li><a href="http://www.ihigh.com/advertising/" target="_blank">iHigh.com</a> - advertising model</li>
+                            <li><a href="https://wikispaces.com/" target="_blank">wikispaces.com</a> - free</li>
+                            <li><a href="https://www.edmodo.com/" target="_blank">edmodo.com</a> - free</li>
+                            <li><a href="https://grockit.com/" target="_blank">grockit.com</a> standardized test preparation - $29.99/month </li>
                         </ul>         
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/means/research/sno.jpg" src="/wwwroot/images/sites/means/research/sno_400x0.jpg" />
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/means/research/sno.jpg" data-fancybox-group="themeans" >
+                            <img src="/wwwroot/images/sites/means/research/sno_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/means/research/ihigh.jpg" src="/wwwroot/images/sites/means/research/ihigh_400x0.jpg" />
+                        </a>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/means/research/ihigh.jpg" data-fancybox-group="themeans" >
+                            <img src="/wwwroot/images/sites/means/research/ihigh_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>                        
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/means/research/ysn.jpg" src="/wwwroot/images/sites/means/research/ysn_400x0.jpg" />
+                        </a>                        
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/means/research/ysn.jpg" data-fancybox-group="themeans" >
+                            <img src="/wwwroot/images/sites/means/research/ysn_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>                        
+                        </a>                        
                         
                         
                     ]]>               
@@ -630,8 +661,8 @@
             <futuredate>
                     <![CDATA[
                         <ul class='datelist'>
-                            <li>6 months: beta </li>
-                            <li>1 year: in schools</li>
+                            <li>6 months: in 2 schools with basic text-editor and version controlling</li>
+                            <li>1 year: in schools with full-feature text-editor and multi-user version controlling</li>
                         </ul>
                     ]]>    
             </futuredate>
@@ -657,7 +688,7 @@
             <![CDATA[
                 <ul>
                     <li>Wrote advanced search logic for finding and filtering results by type, distance, price, date, time and other criteria.</li>
-                    <li>Plotted all search results on a Google mapping application - by distance using the Haversine formula - with custom markers for Cubi type. Upon clicking markers expanded with tabbed windows to provide additional StreetViews, 'cubi' details, and directions (using Google maps v2 api).</li>
+                    <li>Plotted all search results on a Google mapping application - by distance using the Haversine formula - with custom markers for Cubi type. Upon clicking markers expanded with tabbed windows to provide additional StreetViews, 'cubi' details, and directions (using Google maps v2 API).</li>
                     <li>Built Facebook application (using FBConnect) to post on user walls and send messages to friend's inboxes.</li>
                     <li>Integrated and upgraded social networking 'inviter' script to share/publish user profiles and details across a dozen email clients and two dozen social networks.</li>
                 </ul>
@@ -723,7 +754,7 @@
             <industries>fashion</industries>
             <team>Design:Joe;Front-End:E.A.Taylor;Back-End:Edwin Ado</team>
             <desc>The highest priced brand from the BCBGMaxAzriaGroup</desc>
-            <technotes>Developed store location profiles &amp; finder, alongwith runway/fashion show video presentations</technotes>
+            <technotes>Developed store location profiles &amp; finder, along with runway/fashion show video presentations</technotes>
         </item>
         <item>
             <title>Building Safety Solutions</title>
@@ -761,13 +792,13 @@
             <devtools>AS3,Illustrator, Photoshop, Flash</devtools>
             <team>Design:E.A.Taylor;Front-End:E.A.Taylor,Rob;Design:E.A.Taylor;Business Development:E.A.Taylor;Legal Consul:Che Hashim</team>
             <desc>Before E-books, this has been a dream to produce a fully interactive textbook for the Legal and Strategical Aspects of the Music Recording Industry</desc>
-            <technotes>Through predictive questioning, the tool was meant to create completely customized contracts from a intelligent questionnaire about the parties involved, their interests, and needs. Provides bi-partisian advice from attorneys, artists, and industry professionals</technotes>
+            <technotes>Through predictive questioning, the tool was meant to create completely customized contracts from an intelligent questionnaire about the parties involved, their interests, and needs. Provides bi-partisan advice from attorneys, artists, and industry professionals</technotes>
             
             <pitch>
                     <![CDATA[
-                      <h4>An e-Textbook for the Legal and Strategical Aspects of the Music Recording Industry.</h4>
-                      <p>The tool would guide and prepare Artists, Concert Promoters, Event Venues, and Talent Managers through fair and prepared negotiations for a wide variety of agreements. </p>
-                      <p>The snapshots of the <a href="/projects?pid=31">Booking Wizard</a> contract template was early versions of text advice from Che Hashim, JD. The interactive questionarre would include video, podcasts, and experienced advice from prominent attorneys, and the direct experiences of Artists, managers, and other industry professionals.</p>
+                      <em>An e-Textbook for the Legal and Strategical Aspects of the Music Recording Industry.</em>
+                      <p>The tool would guide and prepare Artists, Concert Promoters, Event Venues, and Talent Managers through business and contract negotiations for a wide variety of agreements. </p>
+                      <p>The interactive questionnaire would include videos, podcasts, and written advice from experienced, prominent attorneys, Artists, managers, and other industry professionals.</p>
                     ]]>  
             </pitch>
             <bizmodel>
@@ -793,23 +824,23 @@
                         <ul class='competitorlist'>
                             <li><a target="_blank" href="https://www.nolo.com/products/joint-ownership-agreement-for-an-invention-pr272-13364.html/">Nolo Press</a> Joint Ownership Agreement for an Invention - $34.99 USD online form and wizard</li>
                             <li><a target="_blank" href="https://www.nolo.com/products/intellectual-property">Nolo Press</a> Intellectual Property Books $20 - $200.00 USD</li>
-                            <li><a target="_blank" href="http://www.amazon.com/Best-Sellers-Books-Business-Contracts-Law/zgbs/books/10824">Amazon's</a> most popular contract bookss - $20 - $200 USD</li>
+                            <li><a target="_blank" href="http://www.amazon.com/Best-Sellers-Books-Business-Contracts-Law/zgbs/books/10824">Amazon's</a> most popular contract books - $20 - $200 USD</li>
                             <li><a href='http://www.pollstarpro.com/opencontent.aspx?ArticleID=14194&id=home&source=AD' target='_blank'>Pollstar</a> subscriptions - $400 - $800 USD</li>
                             <li><a href="https://www.legalzoom.com/legalforms/band-partnership-agreement" target='_blank'>LegalZoom</a> Band Partnership Agreement - $29.99 USD</li>
                         </ul>
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/ae/research/amazon-most-popular-contracts.jpg" src="/wwwroot/images/sites/ae/research/amazon-most-popular-contracts_400x0.jpg" />
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ae/research/amazon-most-popular-contracts.jpg" data-fancybox-group="themeans" >
+                            <img src="/wwwroot/images/sites/ae/research/amazon-most-popular-contracts_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>
-                        <div class='snapshots mask0x250'>
-                            <img data-src="/wwwroot/images/sites/ae/research/nolo-joint-venture-online.jpg" src="/wwwroot/images/sites/ae/research/nolo-joint-venture-online_400x0.jpg" />
+                        </a>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ae/research/nolo-joint-venture-online.jpg" data-fancybox-group="themeans" >
+                            <img data-src="" src="/wwwroot/images/sites/ae/research/nolo-joint-venture-online_400x0.jpg" />
                             <div class="blackOutFadeBG"></div>
-                        </div>                        
+                        </a>                        
                     ]]>    
             </competition>            
             <expenses>
                     <![CDATA[
-                        <ul class='datelist'>
+                        <ul class='expenselist'>
                             <li>10% design</li>
                             <li>40% development</li>
                             <li>20% legal</li>
@@ -842,7 +873,7 @@
             <industries>kids,health</industries>
             <devtools>AS2,PHP,CodeIgniter,mySQL,JavaScript,AJAX,Google SDK</devtools>
             <team>Front-End:E.A.Taylor;Back-End:E.A.Taylor;Free-Hand:Unknown;Business Development:Lisa Vasquez</team>
-            <desc>A fun, educational site for kids and parents to learn about, and find recipes on healthy lifestyles and nutrition. Includes tooling book, jquery shopping page, recipes table, videos, and translation of virtually everything into 12 languages at runtime via google's language API.</desc>
+            <desc>A fun, educational site for kids and parents to learn about, and find recipes on healthy lifestyles and nutrition. Includes tooling book, jquery shopping page, recipes table, videos, and translation of virtually everything into 12 languages at runtime via Google's language API.</desc>
             <technotes>Designed and developed all animation and interactivity for a kids' website on healthy eating habits and recipes (AS2/XML/PHP: www.goodlifewithgabby.com / flash.goodlifewithgabby.com). Applications included coloring book, recipes sorter, dynamic video player, and language translator via Google Language API</technotes>
         </item>
         <item>
@@ -898,8 +929,8 @@
             <launchdate>February 2006</launchdate>
             <devtools>AS2</devtools>
             <industries>music,events</industries>
-            <team>Design:E.A.Taylor;Front-End:E.A.Taylor</team>
-            <desc>A few very old flash sites and email blass for friends and the former employer of Ankh</desc>
+            <team>Design:E.A.Taylor;Front-End:E.A.Taylor;Project Management:Tommy Goodwin,Kamel J Bell,Thomas Flannery</team>
+            <desc>A few very old flash sites and email blasts for friends and the former employer of Ankh</desc>
         </item>
     </development>  
 </navigationXML>

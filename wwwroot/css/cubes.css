@@ -64,12 +64,18 @@ a.navItem { margin:5px 15px 5px 15px; }
 a.navItem.selected { color:red; }
 
 
-.prjSection { width:100%; position:relative; line-height: 18px; font-size:14px; margin:10px 0;}
-.prjSection img { width:97%;  }
+.prjSection { width:100%; position:relative; line-height: 18px; font-size:14px; margin:10px 0; clear:both; }
+.prjSection img { width:97%; }
 .prjSection li:before {
     content: "•  ";
     color: lightslategrey;
 }
+.alphalist li:before { color:#1aa403;}
+.competitorlist li:before { color:red;}
+.marketresearch li:before { color:purple;}
+.datelist li:before { color:#fff;}
+.expenselist li:before { color:#ff7901;}
+
 .lineName { font-style: italic; color:#a0a09f;}
 .technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; font-family:courier, monospace; font-size: 12px; line-height: 18px; }
 .technotes p { margin:5px 0; list-style:circle; }
@@ -79,10 +85,13 @@ a.navItem.selected { color:red; }
 .prjDesc img, .technotes img { width:97%; }
 .team a{ font-size:125%; }
 
-.sectTitle { font-style:italic; margin:0; font-size:16px; text-decoration: underline; margin-top:10px;}
+.sectTitle { font-style:italic; margin:0; font-size:16px; text-decoration: underline; margin-top:15px; text-transform: capitalize;}
+.sectTitle img { width:30px; height:30px; margin:0 5px 0 0; float:left; }
 .prjSection li { list-style: none; padding-left:2px } 
 .prjPitch {font-size: 18px; line-height: 22px;}
 .prjPitch a { font-size:normal; }
+.prjLinks { margin:-5px 0 15px 0; }
+.snapshots { display: block; }
 .snapshots img { width:100%; max-width:400px; margin:10px 0 }
 
 
@@ -109,7 +118,7 @@ a.navItem.selected { color:red; }
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 .blackOutFadeBG a { position: absolute;bottom: 10px;left: 4px;text-align: center; width:100%; display: block;}
-
+.prjSection  .blackOutFadeBG { height:30px; }
 .hl_menu { text-align: left; }
 
 #navMenu .menuEmpty:last { width:auto; height:auto; }
@@ -195,8 +204,8 @@ border-width: 0 100px 100px 100px;
 border-color: transparent transparent #007bff transparent;
 }
 
-.tablesorter p { margin:3px 0 0 0; }
-.narrowscreen .image_src { width:25%;}
+.tablesorter p { margin:10px 0 0 0; }
+.narrowscreen .image_src { width:25%; }
 
 .iconImg { max-height:50px; }
 td a.popInfo { text-decoration:none;}

@@ -151,7 +151,8 @@ class Projects extends CI_Controller {
                 $this->data['tableRows'] = $this->projects->getProjectsByTag(null, $this->data['qtfilter']); 
             }
             foreach($this->data['tableRows'] as $index=>$row){
-                $row->totalImages = $this->projects->countProjectImages($row->project_id);
+                $row->images = $this->projects->getProjectImages($row->project_id);
+                $row->totalImages = count($row->images);
             }                
             $this->load->model('Users_model', 'user');
             $this->data['uProfile'] = $this->users->getUserByName($this->data['qtfilter']);
@@ -198,7 +199,8 @@ class Projects extends CI_Controller {
         
         $this->data['tableRows'] = $this->projects->getProjectsByType('development', $this->data['qtfilter']);                 
         foreach($this->data['tableRows'] as $index=>$row){
-            $row->totalImages = $this->projects->countProjectImages($row->project_id);
+            $row->images = $this->projects->getProjectImages($row->project_id);
+            $row->totalImages = count($row->images);
         }        
         $this->sendOut('biz_projects');        
     }
@@ -254,7 +256,8 @@ class Projects extends CI_Controller {
         if ($seg  == 'development' || $seg  == 'design') $this->data['tableRows'] = $this->projects->getProjectsByType($seg, $this->data['qtfilter']); 
         else $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter']); 
         foreach($this->data['tableRows'] as $index=>$row){
-            $row->totalImages = $this->projects->countProjectImages($row->project_id);
+            $row->images = $this->projects->getProjectImages($row->project_id);
+            $row->totalImages = count($row->images);
         }         
     }
     

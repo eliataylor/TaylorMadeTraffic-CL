@@ -8,7 +8,7 @@ $config = array(
     'use_ugc_database'=>FALSE,
     'use_msg_database'=>FALSE,
     'track_ugc_production'=>TRUE,
-    'track_msg_production'=>FALSE,
+    'track_msg_production'=>TRUE,
     'status_2_watch'=>'live', // enum('debug','edited','live','deleted','propername')
     'environment'=>ENVIRONMENT, // 'production', 'development', 'testing' (constant is defined in constants.php
 );

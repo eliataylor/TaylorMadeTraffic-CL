@@ -116,8 +116,14 @@
                                   class="projectImg" />                            
                         </a>
                         <div class="blackOutFadeBG">
-                            <?if (isset($row->totalImages) && $row->totalImages > 1):?>
-                                <a href="/projects?pid=<?= $row->project_id; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
+                            <?if (isset($row->images) && count($row->images) > 1):?>
+                                <?foreach($row->images as $index=>$img):?>            
+                                    <?if ($index==0):?>
+                                        <a class="fancybox" data-fancybox-group="gallery<?=$row->project_id?>" href="<?= $row->image_src; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
+                                    <?else:?>
+                                        <a style="display:none;" class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$row->project_id?>" ></a>
+                                    <?endif;?>
+                                <?endforeach?>
                             <?endif;?>
                         </div>
                     </div>
