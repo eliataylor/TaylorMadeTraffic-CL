@@ -1,0 +1,4 @@
+<ul class='alphalist'> 
+<li>Licencia para los colegios públicos y privados</li> 
+<li>Donar el sistema para la educación pública y privada, aumentar la publicidad y el acceso al mercado joven con las deducciones de impuestos por donaciones.</li>
+</ul>

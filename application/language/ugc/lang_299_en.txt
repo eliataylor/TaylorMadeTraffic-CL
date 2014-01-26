@@ -1,0 +1,4 @@
+<ul class='alphalist'>
+                            <li>$50 textbook sold through music and law institutions and universities</li>
+                            <li>$10 - $50 online subscriptions.</li>
+                        </ul>

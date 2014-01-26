@@ -1,0 +1,4 @@
+<ul class='datelist'>
+                            <li>6 months: in 2 schools with basic text-editor and version controlling</li>
+                            <li>1 year: fine tude the text-editor and have a tool for teachers to mark-up and grade student papers with a stylus in an iPad</li>
+                        </ul>

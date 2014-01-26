@@ -1,10 +1,10 @@
 (function(cls, ctx) {   
     ctx[cls] = { 
         tNotice : 0,        
-        growInterval : null, spinInterval : null, floatInterval : null,
+        growInterval : null, spinInterval : null, floatInterval : null, pulseInterval : null,
         spinDeg : 0, growing : 1, opened : 0,       
         mousePos : [400, 400],
-        openSpeed : 30, spinSpeed : 25, floatSpeed : 25,
+        openSpeed : 30, spinSpeed : 25, floatSpeed : 25, pulseSpeed : 25,
         opening : document.getElementById("tmmOpening"),
         cube : document.getElementById("tmmCube"),
         curPage : "",
@@ -43,7 +43,15 @@
             if ($(cont).find('.fancybox').length > 0) {
                 $(cont).find('.fancybox').click(function(){
                     //onclick="$('#galleryImg<?=$project->project_id?>').attr('src',this.getAttribute('data-oimage')).css({maxWidth:this.getAttribute('data-owidth')});return false;" 
-                    $('.fancybox').fancybox();
+                    $('.fancybox').fancybox({
+                            helpers : {
+                                thumbs : {
+                                        width  : 50,
+                                        height : 50
+                                }
+                            }
+                    });
+                    
                 });
                 
             }
@@ -68,7 +76,7 @@
                ctx[cls].initPage('#pageBlock');
                ctx[cls].curPage = href;
                if (ctx[cls].cube.id == 'menuPreloader') {
-                   clearTimeout(ctx[cls].spinInterval);
+                   clearInterval(ctx[cls].spinInterval);
                    //if (href.indexOf('taylormade') < 0) {
                    //    $(ctx[cls].cube).find('img:first').css({opacity:.5});
                    //}
@@ -101,13 +109,21 @@
            });
         },
         changeLang : function(lang) {
+            
             var href = document.location.hash;
             if (href && href.indexOf('!href=') > -1) 
                 href = href.substring(href.indexOf('!href=') + '!href='.length); //  assumes last hash param
             if (!href || href == '')
                 href = document.location.pathname;
-            href += (href.indexOf("?") > -1) ? "&lang=" + lang : "?lang=" + lang;
-            document.location.href = href;
+            
+            if (lang == 'en') lang = 'www';
+            var host = location.hostname.split('.');
+            if (host.length > 2) {
+                host = lang + "." + host[1] + "." + host[2];
+            } else {
+                host = lang + "." + location.hostname;
+            }
+            document.location.href = 'http://' + host + href;
         },
         initMouseIntro:function(autostart) {
             var wid = $("body").width();
@@ -120,6 +136,7 @@
             
             ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
             ctx[cls].floatInterval = setInterval("tmt.floatCube();", ctx[cls].floatSpeed);                     
+            ctx[cls].pulseInterval = setInterval("tmt.pulseCube();", ctx[cls].pulseSpeed);
             
             if (autostart){
                 ctx[cls].moveToMenu();
@@ -153,6 +170,7 @@
         },
         initAutoIntro:function() {
             ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
+            ctx[cls].pulseInterval = setInterval("tmt.pulseCube();", ctx[cls].spinSpeed);
             $(ctx[cls].cube).click(function(){
                 ctx[cls].moveToMenu();
             });
@@ -209,6 +227,22 @@
             imgs[0].src = imgs[ctx[cls].spinDeg].src;
             $('#menuBoxBottom').html(cube);
         },        
+        pulseCube : function() {            
+            if (ctx[cls].cube.id != 'menuPreloader') {
+                var wid = $(ctx[cls].cube).width();
+                var hei = $(ctx[cls].cube).height();
+                var inc = parseInt($(ctx[cls].cube).attr('data-pulsedir')) || -1;
+                var minWid = ( (document.location.hash.length > 4 || document.location.pathname.length > 1) && typeof window.orientation == 'undefined')  ? 25 : 50; // if it's moving with the mouse and depends on a click to open, don't go so small
+                if (wid > 120) {
+                    inc = -1;
+                } else if (wid <= minWid) {
+                    inc = 1;
+                }
+                $(ctx[cls].cube).attr('data-pulsedir', inc);
+                ctx[cls].cube.style.width = (wid+inc) + "px";
+                ctx[cls].cube.style.height = (hei+inc) + "px";
+            }
+        },
         shrinkMenu : function() {            
             var kill = false;
             $(".menuBox").each(function(){
@@ -254,27 +288,36 @@
             document.onmousemove = null; 
             window.onmousemove = null; 
             ctx[cls].spinSpeed = 5; // speed up spin
-            clearTimeout(ctx[cls].floatInterval);
+            clearInterval(ctx[cls].floatInterval);
             ctx[cls].floatInterval = null;
             var wid = $("body").width(), x = -12, y = -5;
             var offset = $('.master:first').offset();
             x += offset.left;
             y += offset.top;
-            var moveTime = 1000; // TODO: relate to distance from target coordinate
+            var cubeOff = $(ctx[cls].cube).offset();           
+            // relate to distance from target coordinate x // 0 offset should be around 1 second, 1700 should around 3 seconds
+            var moveTime = Math.max((cubeOff.left - x), (cubeOff.top - y));
+            moveTime = moveTime + (2500);
             $(ctx[cls].cube).animate({left: x,top:y
             }, moveTime, function() {
                 ctx[cls].floatInterval = setInterval("tmt.checkForFrame1();", 10);
             });
         },
         checkForFrame1:function() {
-            if (ctx[cls].spinDeg == 0) {
-                clearTimeout(ctx[cls].floatInterval);
-                clearTimeout(ctx[cls].spinInterval);
+            var cubeWid = $(ctx[cls].cube).width();
+            if (cubeWid == 100) {
+                clearInterval(ctx[cls].pulseInterval);
+                if (ctx[cls].spinDeg == 0) {
+                    clearInterval(ctx[cls].spinInterval);
+                }
+            }            
+            if (ctx[cls].spinDeg == 0 && cubeWid == 100) {
+                clearInterval(ctx[cls].floatInterval); // recalls checkforFrame1, but wait for both
                 $(ctx[cls].cube).hide();
                 ctx[cls].openCube();
                 ctx[cls].spinSpeed = 30; // reset for if reopened
                 $(ctx[cls].opening).show();                
-            }                    
+            }
         },
         startClose : function() {
             $("#closeBtn").fadeOut(function() {
@@ -375,7 +418,7 @@ $(document).ready(function() {
             tmt.ajaxPage(href);
         }        
     }
-    if ($(tmt.cube).length == 1) {
+    if ($(tmt.cube).length == 1) { // cms pages
         if(typeof window.orientation !== 'undefined') {
             tmt.initAutoIntro();
         } else {

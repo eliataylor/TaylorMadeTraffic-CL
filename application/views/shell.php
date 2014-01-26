@@ -40,6 +40,7 @@
             <script type="text/javascript" src="/wwwroot/js/lenguaplus.js"></script>
             <link type="text/css" rel="stylesheet" href="/wwwroot/css/lenguaplus.css" />
         <?endif;?>
+	<script type="text/javascript" src="/wwwroot/js/jquery.fancybox.pack.js?v=2.1.5"></script>
     </head>
     <body id="trackauthority" class="<?= ($me['con']['swidth'] < 900) ? "narrowscreen" : "widescreen"; ?> <?=$me['con']['pstyle'];?>" >
         <span id="tmmCube" style="display:none;">
@@ -64,30 +65,30 @@
 
                     <div class="menuEmpty menuBox" id="menuLabelBox" ><span id="menuLabel"></span></div>
 
-                    <a href="/years" title="<?=$this->lang->en('Years')?>" class="menuBox ll">
+                    <a href="/years" title="<?=ucwords($this->lang->en('Years'))?>" class="menuBox ll">
                         <img src="/wwwroot/images/calendar.png" />
                     </a>
 
-                    <a style="margin-top:2px" href="/companies" title="<?=$this->lang->en('Companies')?>" class="menuBox lc">
+                    <a style="margin-top:2px" href="/companies" title="<?=ucwords($this->lang->en('Companies'))?>" class="menuBox lc">
                         <img src="/wwwroot/images/companies.png" />
                     </a>
                     
-                    <a href="/industries" title="<?=$this->lang->en('Industries')?>" class="menuBox rc">
+                    <a href="/industries" title="<?=ucwords($this->lang->en('Industries'))?>" class="menuBox rc">
                         <img src="/wwwroot/images/industries.png" />
                     </a>
                     
-                    <a href="/technologies" title="<?=$this->lang->en('Technologies')?>" class="menuBox rr">
+                    <a href="/technologies" title="<?=ucwords($this->lang->en('Technologies'))?>" class="menuBox rr">
                         <img src="/wwwroot/images/technologies.png" />
                     </a>
 
                     <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;">
                         <ul id="menuList" style="display:none" >
                            <img title="<?=$this->lang->msg('english')?>"
-                               <?if ($me['con']['lang'] != 'en'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
+                               <?if ($me['con']['lang'] != 'en'):?> style="opacity:.60; filter:alpha(opacity=60);"<?endif;?>
                                onclick="tmt.changeLang('en')" src="/wwwroot/images/United-States_16x16-32.png" />
                            <img 
                                title="<?=$this->lang->msg('español')?>"
-                               <?if ($me['con']['lang'] != 'es'):?> style="opacity:.30; filter:alpha(opacity=30);"<?endif;?>
+                               <?if ($me['con']['lang'] != 'es'):?> style="opacity:.60; filter:alpha(opacity=60);"<?endif;?>
                                onclick="tmt.changeLang('es')" src="/wwwroot/images/Colombia_16x16-32.png" />
                         </ul>                      
                     </div>
@@ -103,7 +104,7 @@
                     <?foreach($qmenu as $key=>$param):?>
                         <?if($param['role'] < 0):?>
                             <?php $seg1 = $this->uri->segment(1); ?>
-                            <a class='navItem<? if($key == $seg1 || (empty($seg1) && $key == 'technologies')):?> selected<?endif;?>' href="/<?=$key?>" ><?=trim($param['title'])?></a>
+                            <a class='navItem<? if($key == $seg1 || (empty($seg1) && $key == 'technologies')):?> selected<?endif;?>' href="/<?=$key?>" ><?=ucwords($param['title'])?></a>
                         <?endif;?>
                     <?endforeach;?>
                 </div>            
@@ -135,7 +136,9 @@
         </div>
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>            
         <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389255115"></script>
-	<script type="text/javascript" src="/wwwroot/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="/wwwroot/js/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="/wwwroot/js/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+        
         <? if (ENVIRONMENT == 'production'):?>
         <script type="text/javascript">
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

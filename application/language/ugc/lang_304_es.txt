@@ -1,0 +1,5 @@
+<em>Es una plataforma para periódicos escolares que permite a los estudiantes colaborar y compartir sus logros académicos y deportivos.</em>
+
+<p>Los estudiantes y los profesores podrán desarrollar tareas, escribir  historias con múltiplex versiones y compartir ideas dentro de la clase, entre otras cosas.</p>            
+
+<p>La ventaja competitiva de este sitio se encuentra en el sistema que permite recibir comentarios y correcciones  de los profesores  hacia los estudiantes, quienes podrán revisarlos de manera independiente. Además, los profesores podrán escribir comentarios y calificar los reportes con un iPad y lápiz</p>

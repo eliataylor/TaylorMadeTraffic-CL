@@ -1,0 +1,4 @@
+<ul class='expenselist'>
+                            <li>30% diseño</li>
+                            <li>70% desarrollo</li>
+                        </ul>

@@ -1,0 +1,7 @@
+<ul class='alphalist'>
+                            <li>$1/month for store owners to view customers data and analytics</li>
+                            <li>$1/month for store owners to send 100 private discount offers per month</li>
+                            <li>$1/month for store owners to public 10 public market ads per month</li>
+                            <li>Design & Development services for more engaging mobile ads and promotions</li>
+                            <li>Build interactive and engaging maps for malls</li>
+                        </ul>

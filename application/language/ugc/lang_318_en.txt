@@ -1,0 +1,8 @@
+<a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/lealtad/research/android-apps-loyalty-card.jpg" data-fancybox-group="lealtadcard" >
+                            <img src="/wwwroot/images/sites/lealtad/research/android-apps-loyalty-card_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/lealtad/research/citypoints.jpg" data-fancybox-group="lealtadcard" >
+                            <img src="/wwwroot/images/sites/lealtad/research/citypoints_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>

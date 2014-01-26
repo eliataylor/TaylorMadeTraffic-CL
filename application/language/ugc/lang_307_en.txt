@@ -1,0 +1,5 @@
+<ul class='marketresearch'>
+                            <li>Across the United States there are 26,407 public secondary schools and 10,693 private secondary schools (2001) - <a href="http://www2.ed.gov/about/offices/list/ovae/pi/hs/hsfacts.html" target="_blank">source</a></li>
+                            <li>The total 1999 fall enrollment in public secondary schools (grades 9-12) was slightly over 13,369,000 students (2001) - <a href="http://www2.ed.gov/about/offices/list/ovae/pi/hs/hsfacts.html" target="_blank">source</a></li>
+                            <li>There are 8,262 secondary schools in Colombia (2001) - <a href="http://www.bdigital.unal.edu.co/3667/15/15_Indicadores_de_Gesti%C3%B3n_los_indicadores_de_la_l%C3%ADnea_objetivo_04_D.PDF" target="_blank">source</a></li>
+                        </ul>

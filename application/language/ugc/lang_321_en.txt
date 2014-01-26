@@ -1,0 +1,4 @@
+<em>The first mobile beat machine to create and share music with friends in real-time.</em> 
+                    <p>Like most similar apps, StudioEnVivo allows customizing your keyboard with sounds and laying background tracks as you play.</p>
+                    <p>However, unlike any other app, you can play simultaneously with other friends via Bluetooth / Chord / All-Share frameworks and finally stitch together your recordings for a collaborative composition.</p>
+                    <p>As users upload their compositions to the cloud, the social aspect of sharing and comparing compositions are endless...</p>

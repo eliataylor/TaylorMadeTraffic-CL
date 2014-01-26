@@ -1,0 +1,4 @@
+<ul class='alphalist'>
+                            <li>$1 descargar versión sin publicidad</li>
+                            <li>$5 descargar sin publicidad con acceso sin conexión móvil y almacenamiento en la nube</li>
+                        </ul>

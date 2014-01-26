@@ -1,0 +1,4 @@
+<ul class='datelist'>
+                            <li>6 meses: mercado virtual de promociones y búsqueda/publicación por ubicación GPS </li>
+                            <li>1 año: en los centros comerciales con mapas y listado de directorio </li>
+                        </ul>

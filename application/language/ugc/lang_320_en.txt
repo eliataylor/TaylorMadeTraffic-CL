@@ -1,0 +1,4 @@
+<ul class='datelist'>
+                            <li>6 months: virtual marketplace with promotional builder and search/publishing by GPS location</li>
+                            <li>1 year: in malls with maps and directory listings</li>
+                        </ul>

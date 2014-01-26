@@ -1,0 +1,6 @@
+<ul class='marketresearch'>
+<li><a class='sourceLink' href="http://money.futureofmusic.org/how-many-musicians-are-there/" target="_blank">Pollstar</a> dice que en 2012 habría 10.859 artistas en giras y 71.823 eventos</li>
+<li>815.000 artistas se registraron en <a href="http://musicbrainz.org/statistics" target='_blank'>musicbrainz.org</a></li>
+<li><a class='sourceLink' href="http://www.ascap.com/about/" target="_blank">ASCAP</a>: tienen 435,000 compostadores, compositores, editores de música</li>
+<li><a class='sourceLink' href="http://www.bmi.com/about" target="_blank">BMI</a>: tienen 500,000 compostadores, compositores, editores de música</li>                            
+                        </ul>

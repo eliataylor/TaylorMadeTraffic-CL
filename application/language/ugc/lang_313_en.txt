@@ -1,0 +1,9 @@
+<ul class='marketresearch'>
+                            <li>NO online concert ticket vendors also support extensive music stations or playlists</li>
+                            <li>Concert Ticket sold 52 million (2011) - <a class='sourceLink' href="http://www.statisticbrain.com/concert-ticket-sale-statistics/" target="_blank">source</a></li>
+                            <li>Concert Ticket Revenue 3.1 Billion USD (2011) - <a class='sourceLink' href="http://www.statisticbrain.com/concert-ticket-sale-statistics/" target="_blank">source</a></li>
+                            <li>Pollstar lists 10,859 touring artists, 71,823 Events - <a class='sourceLink' href="http://money.futureofmusic.org/how-many-musicians-are-there/" target="_blank">source</a></li>
+                            <li><a href="http://musicbrainz.org/statistics" target='_blank'>musicbrainz.org/statistics</a></li>
+                            <li><a class='sourceLink' href="http://www.ascap.com/about/" target="_blank">ASCAP</a>: 435,000 composters, songwriters, music publishers</li>
+                            <li><a class='sourceLink' href="http://www.bmi.com/about" target="_blank">BMI</a>: 500,000 composters, songwriters, music publishers</li>                            
+                        </ul>

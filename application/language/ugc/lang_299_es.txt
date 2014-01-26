@@ -1,0 +1,4 @@
+<ul class='alphalist'>
+                            <li>$50 libro vendido a través de instituciones de música y universidades con facultades de Derecho</li>
+                            <li>$10 - $50 USD suscripciones online.</li>
+                        </ul>

@@ -1,0 +1,5 @@
+<em>A platform for High School newspapers that allows students to collaborate and share their academic and athletic achievements.</em>
+
+<p>Students and teachers will be able to develop assignments, work on multiple versions of a story, share ideas within the class, and more.</p>            
+
+<p>The competitive advantage of this site is in the version-controlling system that allows peer-reviews, teachers' edits, and the students' versions to all be tracked independently. Teachers will be able to markup and grade student essays with a iPad and stylus by writing on the screen</p>

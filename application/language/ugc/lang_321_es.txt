@@ -1,0 +1,6 @@
+<em>La primera máquina de ritmo para crear y compartir música  en tiempo real con distintos amigos y a través del teléfono móvil.</em> 
+<p>StudioEnVivo te permite jugar personalizando tu teclado con sonidos, mientras escuchas una canción de fondo.</p>
+
+<p>Sin embargo, la diferencia con otras aplicaciones es que en esta puedes jugar con otros amigos y compartir lo que haces a través de Bluetooth / Chord/ All-Share. Finalmente podrás fusionar las grabaciones para lograr una composición única.</p>
+
+<p>Los usuarios pueden subir sus creaciones a la  red, compartirlas y comparar composiciones infinitas.</p>

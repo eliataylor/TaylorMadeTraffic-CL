@@ -1,0 +1,3 @@
+<em>An online and mobile game for music lovers to play, exchange, and reward musical taste.</em>
+                    <p>Highly rated users are rewarded with free music, gift certificates, concert tickets and cash from sponsors and partners.</p>
+                    <p>The platform supports three ways to play and win. Each starts with a playlist theme, and all three have unique way to promote artists, music videos, and concert tours.</p>
