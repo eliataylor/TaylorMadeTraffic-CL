@@ -1,0 +1,8 @@
+<a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/studioenvivo/research/android-app-electrum-drum-machine-sampler.jpg" data-fancybox-group="studioenvivo" >
+                            <img src="/wwwroot/images/sites/studioenvivo/research/android-app-electrum-drum-machine-sampler_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/studioenvivo/research/android-app-drum-machine.jpg" data-fancybox-group="studioenvivo" >
+                            <img src="/wwwroot/images/sites/studioenvivo/research/android-app-drum-machine_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>

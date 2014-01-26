@@ -1,0 +1,7 @@
+<ul class='alphalist'>
+                            <li>$ 1/mes para los propietarios de tiendas para ver datos y análisis de los clientes</li>
+                            <li>$ 1/mes para los propietarios de tiendas para enviar 100 de descuento privada ofrece al mes</li>
+                            <li>$ 1/mes para los propietarios de tiendas a 10 anuncios públicos en el mercado público al mes</li>
+                            <li>Diseño y Desarrollo de servicios para los anuncios para móviles atractivos más y promociones</li>
+                            <li>Construir mapas interactivos y atractivos para los centros comerciales</li>
+                        </ul>

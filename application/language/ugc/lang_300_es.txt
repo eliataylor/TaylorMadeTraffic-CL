@@ -1,0 +1,15 @@
+<ul class='competitorlist'>
+                            <li><a target="_blank" href="https://www.nolo.com/products/joint-ownership-agreement-for-an-invention-pr272-13364.html/">Nolo Press</a> Acuerdo de Propiedad Conjunta para una invención, formulario interactivo y asistente - $ 34.99 USD </li>
+                            <li><a target="_blank" href="https://www.nolo.com/products/intellectual-property">Nolo Press</a> Libros de Propiedad Intelectual $20 - $200.00 USD</li>
+                            <li><a target="_blank" href="http://www.amazon.com/Best-Sellers-Books-Business-Contracts-Law/zgbs/books/10824">Amazon</a> mayoría de los libros de contrato populares - $20 - $200 USD</li>
+                            <li><a href='http://www.pollstarpro.com/opencontent.aspx?ArticleID=14194&id=home&source=AD' target='_blank'>Pollstar</a> suscripciones - $400 - $800 USD</li>
+                            <li><a href="https://www.legalzoom.com/legalforms/band-partnership-agreement" target='_blank'>LegalZoom</a> Acuerdo de Asociación Banda - $29.99 USD</li>
+                        </ul>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ae/research/amazon-most-popular-contracts.jpg" data-fancybox-group="themeans" >
+                            <img src="/wwwroot/images/sites/ae/research/amazon-most-popular-contracts_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ae/research/nolo-joint-venture-online.jpg" data-fancybox-group="themeans" >
+                            <img data-src="" src="/wwwroot/images/sites/ae/research/nolo-joint-venture-online_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>

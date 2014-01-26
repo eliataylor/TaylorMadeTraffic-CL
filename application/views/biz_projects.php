@@ -56,7 +56,7 @@
             <tr id="pid_<?= $row->project_id ?>" data-pid="<?= $row->project_id ?>" >
                 
                 <td class="col1 image_src">
-                        <a href='/projects?pid=<?= $row->project_id; ?>'>
+                        <a class="fancybox" data-fancybox-group="gallery<?=$row->project_id?>" href="<?= $row->image_src; ?>">
                             <img  data-owidth="<?= $row->image_width ?>" 
                                   data-oheight="<?= $row->image_height ?>" 
                                   src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'

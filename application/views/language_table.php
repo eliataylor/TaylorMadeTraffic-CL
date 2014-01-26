@@ -121,7 +121,7 @@
                                     <option <?if($text->$key == $status):?>selected='selected'<?endif;?> value='<?=$status?>'><?=ucwords($this->lang->msg($status))?></option>
                                 <?endforeach;?>
                             </select>                                    
-                            <button class="updateLang" title='<?=$this->lang->en('update')?> <?=(isset($text->count)) ? $text->count : ''?>' ><?=$this->lang->en('update')?> <?=(isset($text->count) && $text->count > 1) ? $text->count : ''?></button>
+                            <button class="updateLang" title='<?=$this->lang->en('update')?> <?=(isset($text->count)) ? $text->count : ''?>' ><?=$this->lang->en('update')?> <?=(isset($text->count) && $text->count > 1) ? $text->count : ' #'.$text->langtracker_id?></button>
                         <?elseif ($key == "langtracker_key"):?>
                             <?= ellipse($text->$key, 30) ?>
                         <?elseif ($key == "langtracker_urls"):?>

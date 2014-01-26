@@ -1,0 +1,17 @@
+<ul class='marketresearch'>
+
+<li>No proveedores de billetes conciertos también tienen estaciones de música ni listas de reproducción</li>
+
+<li>Boletas vendido: 52 million (2011 en EE.UU) - <a class='sourceLink' href="http://www.statisticbrain.com/concert-ticket-sale-statistics/" target="_blank">source</a></li>
+
+<li>Ingresa bruta de boletas vendido: 3.1 Billion USD (2011 en EE.UU) - <a class='sourceLink' href="http://www.statisticbrain.com/concert-ticket-sale-statistics/" target="_blank">source</a></li>
+
+<li><a class='sourceLink' href="http://money.futureofmusic.org/how-many-musicians-are-there/" target="_blank">Pollstar</a> dice que en 2012 habría 10.859 artistas en giras y 71.823 eventos</li>
+
+<li>815.000 artistas se registraron en <a href="http://musicbrainz.org/statistics" target='_blank'>musicbrainz.org</a></li>
+
+<li><a class='sourceLink' href="http://www.ascap.com/about/" target="_blank">ASCAP</a>: tienen 435,000 compostadores, compositores, editores de música</li>
+
+<li><a class='sourceLink' href="http://www.bmi.com/about" target="_blank">BMI</a>: tienen 500,000 compostadores, compositores, editores de música</li> 
+
+</ul>

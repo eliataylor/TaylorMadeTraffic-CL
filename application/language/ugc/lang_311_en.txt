@@ -1,0 +1,6 @@
+<ul class='alphalist'>
+                            <li>concert ticket re-sales (3-5% fee)</li>
+                            <li>$1 - $10 subscriptions to ad-free listening and extra playlist features</li>
+                            <li>Concert ticket promotions, advertising and sales</li>
+<li>Bank interest from holding cash until after event</li>
+                        </ul>

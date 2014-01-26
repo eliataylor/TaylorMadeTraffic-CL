@@ -1,0 +1,26 @@
+<ul class='competitorlist'>
+<li><a href="http://www.pandora.com" target="_blank">Pandora.com</a> Free, $39/year ad-free</li>
+
+<li><a href="http://www.spotify.com" target="_blank">Spotify.com</a> Free, $5/month ad-free, $10/month ad-free with off-line mobile access</li>
+
+</ul> 
+
+<a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ta/research/android-apps-music-games.jpg" data-fancybox-group="trackauthority" >
+<img src="/wwwroot/images/sites/ta/research/android-apps-music-games_400x0.jpg" />
+<div class="blackOutFadeBG"></div>
+</a>
+
+<a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ta/research/vivetuboleta.jpg" data-fancybox-group="trackauthority" >
+<img src="/wwwroot/images/sites/ta/research/vivetuboleta_400x0.jpg" />
+<div class="blackOutFadeBG"></div>
+</a>
+
+<a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ta/research/ticket-express.jpg" data-fancybox-group="trackauthority" >
+<img src="/wwwroot/images/sites/ta/research/ticket-express_400x0.jpg" />
+<div class="blackOutFadeBG"></div>
+</a>
+
+<a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/ta/research/entradas-y-conciertos.jpg" data-fancybox-group="trackauthority" >
+<img src="/wwwroot/images/sites/ta/research/entradas-y-conciertos_400x0.jpg" />
+<div class="blackOutFadeBG"></div>
+</a>

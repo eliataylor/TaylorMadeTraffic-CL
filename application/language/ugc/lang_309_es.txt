@@ -1,0 +1,4 @@
+                          <ul class='datelist'>
+                            <li>6 meses: en 2 colegios con editor basico de texto y la versión controlar</li>
+                            <li>1 año: afinar editor y tener una herramienta para que los profesores para editar documentos con un lápiz en un iPad</li>
+                        </ul>

@@ -1,0 +1,20 @@
+<ul class='competitorlist'>
+                            <li><a href="http://www.schoolnewspapersonline.com/pricing/" target="_blank">SchoolNewsPaperOnline.com/pricing</a> - $600 - $3,900 USD / year</li>
+                            <li><a href="http://www.yourstudentnews.com/article.php?id=8" target="_blank">YourStudentNews.com</a> - $25 - $400 USD / year</li>
+                            <li><a href="http://www.ihigh.com/advertising/" target="_blank">iHigh.com</a> - advertising model</li>
+                            <li><a href="https://wikispaces.com/" target="_blank">wikispaces.com</a> - free</li>
+                            <li><a href="https://www.edmodo.com/" target="_blank">edmodo.com</a> - free</li>
+                            <li><a href="https://grockit.com/" target="_blank">grockit.com</a> standardized test preparation - $29.99/month </li>
+                        </ul>         
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/means/research/sno.jpg" data-fancybox-group="themeans" >
+                            <img src="/wwwroot/images/sites/means/research/sno_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/means/research/ihigh.jpg" data-fancybox-group="themeans" >
+                            <img src="/wwwroot/images/sites/means/research/ihigh_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>                        
+                        <a class="snapshots mask0x250 fancybox" href="/wwwroot/images/sites/means/research/ysn.jpg" data-fancybox-group="themeans" >
+                            <img src="/wwwroot/images/sites/means/research/ysn_400x0.jpg" />
+                            <div class="blackOutFadeBG"></div>
+                        </a>

@@ -1,0 +1,6 @@
+<ul class='expenselist'>
+                            <li>15% diseño</li>
+                            <li>50% desarrollo</li>
+                            <li>25% ventas</li>
+                            <li>10% hardware</li>
+                        </ul>

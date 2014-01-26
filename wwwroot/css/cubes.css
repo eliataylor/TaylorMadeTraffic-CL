@@ -39,7 +39,7 @@ ul, li { list-style: none; margin:0; padding:0; }
 #menuList a, #menuList a:visited, #menuList a:hover { text-decoration:none; color:#fff; } 
 #menuList img { border:0 none; margin:0 1px;}
 .clearer { float:left; position:relative; clear:both; width:100%; }
-#tmmCube { position:absolute; width: 100px; height:100px; overflow: hidden; margin:0; z-index:99; }
+#tmmCube { position:absolute; width: 100px; height:100px; overflow: hidden; margin:0; z-index:99; cursor: pointer; }
 #menuPreloader { width:60px; height:60px; margin:4px 0 0 -18px; display: block; }
 #tmmCube img, #menuPreloader img { width:100%; height:100%; }
 
@@ -64,13 +64,13 @@ a.navItem { margin:5px 15px 5px 15px; }
 a.navItem.selected { color:red; }
 
 
-.prjSection { width:100%; position:relative; line-height: 18px; font-size:14px; margin:10px 0; clear:both; }
+.prjSection { width:100%; position:relative; line-height: 18px; font-size:14px; margin:10px 0; clear:both}
 .prjSection img { width:97%; }
 .prjSection li:before {
     content: "•  ";
     color: lightslategrey;
 }
-.alphalist li:before { color:#1aa403;}
+.alphalist li:before { color:#1aa403;}l
 .competitorlist li:before { color:red;}
 .marketresearch li:before { color:purple;}
 .datelist li:before { color:#fff;}
@@ -91,7 +91,7 @@ a.navItem.selected { color:red; }
 .prjPitch {font-size: 18px; line-height: 22px;}
 .prjPitch a { font-size:normal; }
 .prjLinks { margin:-5px 0 15px 0; }
-.snapshots { display: block; }
+.snapshots { float:left; display: block;  width: 49%; margin: 0 5px 0 0;}
 .snapshots img { width:100%; max-width:400px; margin:10px 0 }
 
 
@@ -227,6 +227,7 @@ tr.spacer { height:15px; }
 .tags_table tr { border:1px solid #000; vertical-align:middle; padding:8px;   }
 .tags_table td.col1, .tags_table td.col3 { font-size:12px; }
 .projects_table tr { border-bottom: 50px solid transparent; }
+.biz_plans.projects_table tr { border-bottom: 200px solid transparent; }
 
 .pageTotal { font-size:12px; vertical-align: baseline}
 #qTagSelector, #qTagSelector option { text-transform: capitalize;

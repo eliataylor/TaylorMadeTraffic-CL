@@ -1,0 +1,7 @@
+<ul class='expenselist'>
+                            <li>10% design</li>
+                            <li>40% development</li>
+                            <li>20% legal</li>
+                            <li>20% sales</li>
+                            <li>10% interviews / endorsements</li>
+                        </ul>
