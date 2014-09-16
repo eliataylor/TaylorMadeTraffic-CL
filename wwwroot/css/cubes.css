@@ -19,7 +19,6 @@ h1,h2,h3,h4,h5,h6 { font-family:Strait,Arial,Sans-Serif;}
     .technotes { background:#ccc!important;}
 }
 
-
 body.pWhite, .pWhite .master  {background:#fff!important; color:#000!important;}
         .pWhite .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
@@ -94,7 +93,6 @@ a.navItem.selected { color:red; }
 .snapshots { float:left; display: block;  width: 49%; margin: 0 5px 0 0;}
 .snapshots img { width:100%; max-width:400px; margin:10px 0 }
 
-
 /*
 .prjBiz {font-size: 13px;} .prjBiz li  { list-style:decimal; }
 .prjCosts {font-size: 13px; } .prjCosts li  { list-style: circle; }
@@ -102,8 +100,40 @@ a.navItem.selected { color:red; }
 */
 
 .projectImg { width: 100%; }
-.projectImgMask { width:100%; overflow: hidden; max-height:300px; position:relative;}
+.projectImgMask, .reflectionMask  { width:100%; position:relative;}
+.projectImgMask img, .reflectionMask img { width:100%; }
+.reflectionMask { max-height:250px; overflow:hidden; }
 .projectImgMask a { outline: 0 none; border:0 none; }
+
+.projectImgMask:after {
+    content:"";
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.67) 49%, rgba(0, 0, 0, 1) 100%);
+}
+
+.reflectionMask {
+    -webkit-transform: scaleY(-1);
+       -moz-transform: scaleY(-1);
+        -ms-transform: scaleY(-1);
+         -o-transform: scaleY(-1);
+            transform: scaleY(-1); 
+            width:100%;
+            opacity:.25; filter:alpha(opacity=25); 
+}
+.reflectionMask:after {
+    content:"";
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.67) 49%, rgba(0, 0, 0, 1) 100%);
+}
+
 .blackOutFadeBG {
     height: 60px; /*from where it starts to fade to where it ends*/
     position: absolute; /*so it can overlap the #container*/
@@ -226,7 +256,7 @@ td a.popInfo { text-decoration:none;}
 tr.spacer { height:15px; }
 .tags_table tr { border:1px solid #000; vertical-align:middle; padding:8px;   }
 .tags_table td.col1, .tags_table td.col3 { font-size:12px; }
-.projects_table tr { border-bottom: 50px solid transparent; }
+/*.projects_table tr { border-bottom: 50px solid transparent; } off in place of reflection spacing*/
 .biz_plans.projects_table tr { border-bottom: 200px solid transparent; }
 
 .pageTotal { font-size:12px; vertical-align: baseline}

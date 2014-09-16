@@ -275,6 +275,10 @@ class Projects extends CI_Controller {
         $this->sendOut('stylesheet', 'cms_shell');
     }
     
+    
+    function rewriteTeam(){
+        
+    }
 
 }
 

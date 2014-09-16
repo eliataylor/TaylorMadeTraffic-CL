@@ -167,25 +167,6 @@
             $("#navMenu").mouseout(function(){
                 $("#menuLabel").html('');
             });
-        },
-        initAutoIntro:function() {
-            ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
-            ctx[cls].pulseInterval = setInterval("tmt.pulseCube();", ctx[cls].spinSpeed);
-            $(ctx[cls].cube).click(function(){
-                ctx[cls].moveToMenu();
-            });
-            
-            if ($("body").hasClass("narrowscreen")) {
-                mousePos : [$(window).width() - 50, $(window).height() - 50];
-            }
-            
-            var wid = $("body").width();
-            if (!wid || wid < 10) wid = 400;
-            ctx[cls].cube.style.left = (wid - 50) + "px";
-            
-            wid = ($("body").height() && $("body").height() > 10) ? $("body").height() : 400;
-            ctx[cls].cube.style.top = (wid - 50) + "px";
-            $(ctx[cls].cube).show();
         },        
         growMenu : function() {   
             var kill = false;
@@ -419,12 +400,7 @@ $(document).ready(function() {
         }        
     }
     if ($(tmt.cube).length == 1) { // cms pages
-        if(typeof window.orientation !== 'undefined') {
-            tmt.initAutoIntro();
-        } else {
-            var autostart = ((href && href.length > 1) || (document.location.pathname.length > 1))  ? true : false;
-            tmt.initMouseIntro(autostart);
-        }
+        tmt.initMouseIntro(true);
         tmt.initPreloader();
     }
     tmt.initPage(document.body);
