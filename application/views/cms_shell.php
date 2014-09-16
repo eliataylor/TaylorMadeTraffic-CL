@@ -41,7 +41,7 @@
             <link type="text/css" rel="stylesheet" href="/wwwroot/css/lenguaplus.css" />
         <?endif;?>
     </head>
-    <body id="trackauthority" class="<?= ($me['con']['swidth'] < 900) ? "narrowscreen" : "widescreen"; ?> <?=$me['con']['pstyle'];?>" >
+    <body id="trackauthority" class="narrowscreen <?=$me['con']['pstyle'];?>" >
         <div class="master">             
              <? if (!empty($errors)): ?>
                 <div class="serverErrors">  

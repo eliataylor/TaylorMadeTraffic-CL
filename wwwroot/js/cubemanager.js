@@ -9,19 +9,20 @@
         cube : document.getElementById("tmmCube"),
         curPage : "",
         autoSize : function() {
-            window.addEventListener('onorientationchange', ctx[cls].autoSize);
             VSETTINGS.swidth = Math.round($(window).width()); // set by isMobile / configs
             VSETTINGS.sheight = Math.round($(window).height()); 
             $.ajax({type:'GET', async:false, url:"/settings?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight});
 
-            if (VSETTINGS.swidth < 960 && $("body").hasClass("widescreen")) {
-                $("body").removeClass("widescreen").addClass("narrowscreen");
-            } else if ($("body").hasClass("narrowscreen") && VSETTINGS.swidth >= 960) {
-                $("body").addClass("widescreen").removeClass("narrowscreen");
-            }
+//            if (VSETTINGS.swidth < 960 && $("body").hasClass("widescreen")) { // looks better narrow regardless
+//                $("body").removeClass("widescreen").addClass("narrowscreen");
+//            } else if ($("body").hasClass("narrowscreen") && VSETTINGS.swidth >= 960) {
+//                $("body").addClass("widescreen").removeClass("narrowscreen");
+//            }
 
         },
         initPage : function(cont) {
+            window.addEventListener('onorientationchange', ctx[cls].autoSize);
+            
             if ($(cont).find(".tags_table").length > 0) {
                $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});               
             }
