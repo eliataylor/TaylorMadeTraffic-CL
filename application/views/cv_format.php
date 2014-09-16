@@ -53,7 +53,7 @@
             
     
         <p>
-            <span class='lineName'><?= $this->lang->en("Started:") ?>:</span> <?= $row->project_startdate; ?>
+            <span class='lineName'><?= $this->lang->en("Started") ?>:</span> <?= $row->project_startdate; ?>
             <? if (!empty($row->project_launchdate)): ?>. <span class='lineName'><?= $this->lang->en("Launched/Lasted:") ?>:</span> <?= $row->project_launchdate; ?><? endif ?>
         </p>
         <? if (!empty($row->project_liveurl) || !empty($row->project_devurl)): ?>

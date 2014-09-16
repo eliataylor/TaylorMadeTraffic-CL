@@ -115,18 +115,21 @@
                                   src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
                                   class="projectImg" />                            
                         </a>
-                        <div class="blackOutFadeBG">
-                            <?if (isset($row->images) && count($row->images) > 1):?>
-                                <?foreach($row->images as $index=>$img):?>            
-                                    <?if ($index==0):?>
-                                        <a class="fancybox" data-fancybox-group="gallery<?=$row->project_id?>" href="<?= $row->image_src; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
-                                    <?else:?>
-                                        <a style="display:none;" class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$row->project_id?>" ></a>
-                                    <?endif;?>
-                                <?endforeach?>
-                            <?endif;?>
-                        </div>
                     </div>
+<!--                    TODO, leave for old browser support from reflection <div class="blackOutFadeBG"></div>-->
+                    <div class="reflectionMask">
+                        <img  class="reflection" src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>' />                            
+                    </div>
+                    <?if (isset($row->images) && count($row->images) > 1):?>
+                        <?foreach($row->images as $index=>$img):?>            
+                            <?if ($index==0):?>
+                                <a class="fancybox" data-fancybox-group="gallery<?=$row->project_id?>" href="<?= $row->image_src; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
+                            <?else:?>
+                                <a style="display:none;" class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$row->project_id?>" ></a>
+                            <?endif;?>
+                        <?endforeach?>
+                    <?endif;?>
+                        
                     <?endif;?>
                     
                 <? if ($me['con']['swidth'] > 600): ?>    
@@ -142,7 +145,7 @@
                 <td class="col3 project_startdate">
                 <? endif; ?>
                     <div class="projectTags">
-                        <p><span class='lineName'><?= $this->lang->en("Started:") ?>:</span> <?= $row->project_startdate; ?></p>
+                        <p><span class='lineName'><?= $this->lang->en("Started") ?>:</span> <?= $row->project_startdate; ?></p>
                         <? if (!empty($row->project_launchdate)): ?><p><span class='lineName'><?= $this->lang->en("Launched") ?>/<?= $this->lang->en("Lasted") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
                         <? if (!empty($row->project_liveurl)): ?><p  class="projectLink"><span class='lineName'><?= $this->lang->en("Live") ?>:</span>                        
                             <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>

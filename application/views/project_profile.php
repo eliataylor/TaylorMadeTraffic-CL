@@ -10,7 +10,7 @@
                 <td style="width:40%" class="col3">  
                 <?endif;?>
                     
-                    <p><span class='lineName'><?=$this->lang->en("Started:")?>:</span> <?=$project->project_startdate;?></p>
+                    <p><span class='lineName'><?=$this->lang->en("Started")?>:</span> <?=$project->project_startdate;?></p>
                     <?if(!empty($project->project_launchdate)):?><p><span class='lineName'><?=$this->lang->en("Launched/Lasted:")?>:</span> <?=$project->project_launchdate;?></p><?endif?>
                     <?if(!empty($project->project_liveurl)):?><p><span class='lineName'><?=$this->lang->en("Live")?>:</span><a href="<?=$project->project_liveurl;?>" target="_blank"> <?=$project->project_liveurl;?></a></p><?endif?>
                     <?if(!empty($project->project_devurl)):?><p><span class='lineName'><?=$this->lang->en("Dev")?>:</span><a href="<?=$project->project_devurl;?>" target="_blank"> <?=$project->project_devurl;?></a></p><?endif?>
