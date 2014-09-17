@@ -103,10 +103,6 @@
                 
                 <td class="col1 image_src">
                     
-                    <? if ($me['con']['swidth'] <= 600): ?>    
-                    <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
-                    <?endif;?>
-                    
                     <? if (!isset($_GET['noPics'])):?>
                     <div class="projectImgMask">
                         <a href='/projects?pid=<?= $row->project_id; ?>'>
@@ -131,19 +127,13 @@
                     <?endif;?>
                         
                     <?endif;?>
-                    
-                <? if ($me['con']['swidth'] > 600): ?>    
                 </td>
                 <td class="col2 project_title">
                     <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
-                <? endif; ?>
+                    
                     <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?= $this->lang->ugc($row->project_desc); ?></div><? endif ?>
                     <? if (!empty($row->project_technotes)): ?><div class="technotes"><?= $this->lang->ugc($row->project_technotes); ?></div><? endif ?>
                     
-                <? if ($me['con']['swidth'] > 980): ?>    
-                </td>
-                <td class="col3 project_startdate">
-                <? endif; ?>
                     <div class="projectTags">
                         <p><span class='lineName'><?= $this->lang->en("Started") ?>:</span> <?= $row->project_startdate; ?></p>
                         <? if (!empty($row->project_launchdate)): ?><p><span class='lineName'><?= $this->lang->en("Launched") ?>/<?= $this->lang->en("Lasted") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
