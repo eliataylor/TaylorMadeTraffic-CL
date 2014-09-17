@@ -5,10 +5,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 if (ENVIRONMENT == 'production') {
-    $db['default']['hostname'] = 'db508038747.db.1and1.com';
-    $db['default']['username'] = 'dbo508038747';
+    $db['default']['hostname'] = 'localhost';
+    $db['default']['username'] = 'taylormade';
     $db['default']['password'] = 'pxYetMY6FEFVCTj5';
-    $db['default']['database'] = 'db508038747';
+    $db['default']['database'] = 'tmm_porfolio';
 } else {
     $db['default']['hostname'] = 'localhost';
     $db['default']['username'] = 'taylormade';
