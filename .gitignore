@@ -1,1 +1,6 @@
-/nbproject/private/
+/application/config/database.php
+/nbproject/
+.DS_Store?
+thumbs.db
+Icon?
+Thumbs.db
