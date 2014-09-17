@@ -21,7 +21,6 @@
 
         },
         initPage : function(cont) {
-            window.addEventListener('onorientationchange', ctx[cls].autoSize);
             
             if ($(cont).find(".tags_table").length > 0) {
                $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});               
@@ -127,12 +126,8 @@
             document.location.href = 'http://' + host + href;
         },
         initMouseIntro:function(autostart) {
-            var wid = $("body").width();
-            if (!wid || wid < 10) wid = 400;
-            ctx[cls].cube.style.left = (wid - 50) + "px";
-            
-            wid = ($("body").height() && $("body").height() > 10) ? $("body").height() : 400;
-            ctx[cls].cube.style.top = (wid - 50) + "px";            
+            ctx[cls].cube.style.left = $(window).width() + "px";
+            ctx[cls].cube.style.top = 100 + "px";            
             $(ctx[cls].cube).show();            
             
             ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
@@ -149,7 +144,7 @@
                 });
             }
             
-            if ($("body").hasClass("narrowscreen")) {
+            if (VSETTINGS.swidth >= 960 && $('#pageBlock').height() < 1000) {
                 mousePos : [$(window).width() - 50, $(window).height() - 50];
             }
             
@@ -333,7 +328,7 @@
         openCube:function() {
             var openDeg = parseInt(ctx[cls].opening.getAttribute("ref"));
             if (openDeg > 5656) {
-                $("#navMenu").css({opacity:1});
+                $("#navMenu").css({opacity:1, visibility:'visible'});
                 $(ctx[cls].opening).fadeOut(function(){
                     ctx[cls].growInterval = setInterval("tmt.growMenu();", ctx[cls].openSpeed);
                 });
@@ -391,6 +386,7 @@
         
 $(document).ready(function() {
     tmt.autoSize();
+    window.addEventListener('onorientationchange', tmt.autoSize);
     tmt.curPage = document.location.pathname + document.location.search;
     
     var href = document.location.hash;

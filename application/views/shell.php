@@ -9,9 +9,9 @@
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="<?=$me['con']['lang']?>" />
 	<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />        
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1389164035" />
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1410870079" />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
         <? if ($me['con']['isMobile']): ?>
-            <meta name="viewport" content="width=device-width; initial-scale=1.0" />
             <meta name="apple-mobile-web-app-capable" content="yes"  />
             <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
             <script src="//code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
@@ -41,6 +41,20 @@
             <link type="text/css" rel="stylesheet" href="/wwwroot/css/lenguaplus.css" />
         <?endif;?>
 	<script type="text/javascript" src="/wwwroot/js/jquery.fancybox.pack.js?v=2.1.5"></script>
+        <? if (ENVIRONMENT == 'production'):?>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-7929826-3', 'auto');
+            ga('set', '&uid', '<?=$me['session_id']?>'); 
+            //ga('require', 'linkid', 'linkid.js');
+            ga('send', 'pageview');
+
+          </script>
+        <?endif;?>        
     </head>
     <body id="trackauthority" class="narrowscreen <?=$me['con']['pstyle'];?>" >
         <span id="tmmCube" style="display:none;">
@@ -56,7 +70,7 @@
             <span id="tmmOpening" ref="0" style="display:none;top:-6px;left:-5px;"></span>
             <div class='topHeader'>
                 <?if (isset($qmenu)):?>
-                <div style="opacity:0; filter:alpha(opacity=0); " id="navMenu" >
+                <div style="opacity:0; filter:alpha(opacity=0); visibility: hidden; " id="navMenu" >
                     <div style="padding-left: 1px;"  class="menuEmpty menuBox"></div>
 
                     <a href="/eli" title="E.A.Taylor" class="menuBox tc">
@@ -100,7 +114,7 @@
                     <div class="menuEmpty menuBox" ></div>
                 </div>
 
-                <div id="tagLinks" class="moduleBlock mainNav">
+                <div id="tagLinks" class="mainNav">
                     <?foreach($qmenu as $key=>$param):?>
                         <?if($param['role'] < 0):?>
                             <?php $seg1 = $this->uri->segment(1); ?>
@@ -120,7 +134,7 @@
                     </ul>
                 </div>
             <? endif; ?>            
-            <div id="pageBlock" class="clearer">
+            <div id="pageBlock" >
             <? if (isset($pages)): ?>
                 <? foreach ($pages as $key => $value): ?> 
                     <div class="moduleBlock <?= $key ?>" >
@@ -135,20 +149,8 @@
             <div id='softNoticeBody'></div>
         </div>
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>            
-        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1389255115"></script>
+        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1410870079"></script>
 	<link rel="stylesheet" type="text/css" href="/wwwroot/js/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
-	<script type="text/javascript" src="/wwwroot/js/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-        
-        <? if (ENVIRONMENT == 'production'):?>
-        <script type="text/javascript">
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-          ga('create', 'UA-7929826-17', 'trackauthoritymusic.com');
-          ga('send', 'pageview');
-        </script>        
-        <?endif;?>
+	<script type="text/javascript" src="/wwwroot/js/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>       
     </body>
 </html>

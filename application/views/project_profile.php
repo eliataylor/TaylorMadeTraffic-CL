@@ -5,7 +5,7 @@
                     <h3><?=$project->project_title;?></h3>
                     <?if(!empty($project->project_desc)):?><p class="prjDesc"><?=$this->lang->ugc($project->project_desc);?></p><?endif?>
                     <?if(!empty($project->project_technotes)):?><p><div class="technotes"><?=$this->lang->ugc($project->project_technotes);?></div></p><?endif?>                    
-                <? if ($me['con']['swidth'] > 980):?>
+                <? if (false || $me['con']['swidth'] > 980):?>
                 </td>
                 <td style="width:40%" class="col3">  
                 <?endif;?>

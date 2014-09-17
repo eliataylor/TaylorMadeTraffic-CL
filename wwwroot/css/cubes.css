@@ -31,8 +31,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .pWhite .projects_table td.col3 { background: none; }
 
 a, a:visited, .alink { color:#5B74CF; }
-body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:0; }
+body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:.5em; }
 ul, li { list-style: none; margin:0; padding:0; }
+#pageBlock  { max-width: 1000px; margin: auto;}
 
 /* #navMenu a, #navMenu a:visited, #navMenu a:hover { border:0 none; outline:0 none; padding:0; margin:0; } */
 #menuList a, #menuList a:visited, #menuList a:hover { text-decoration:none; color:#fff; } 
@@ -101,7 +102,7 @@ a.navItem.selected { color:red; }
 
 .projectImg { width: 100%; }
 .projectImgMask, .reflectionMask  { width:100%; position:relative;}
-.projectImgMask img, .reflectionMask img { width:100%; }
+.projectImgMask img, .reflectionMask img { width:100%; max-width:500px; }
 .reflectionMask { max-height:250px; overflow:hidden; }
 .projectImgMask a { outline: 0 none; border:0 none; }
 
