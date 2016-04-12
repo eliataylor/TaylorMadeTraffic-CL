@@ -91,6 +91,14 @@ class Projects_Model extends CI_Model {
         if ($query->num_rows() > 0) return $query->result_object();
         return array();
     }  
+
+    function getProjectById($pid=false) {
+    	$sql = "SELECT * FROM projects WHERE project_id = ? LIMIT 1";
+    	$query = $this->db->query($sql, array($pid));
+    	if ($query->num_rows() > 0) return $query->row();
+    	return array();
+    }
+    
     
     function countProjectImages($pid=false) {
         $sql = "SELECT count(I.image_id) as count FROM images I WHERE I.project_id = ? order by I.project_id asc, I.image_weight asc";
@@ -201,6 +209,24 @@ class Projects_Model extends CI_Model {
         if (!is_object($data) && !is_array($data)) return false;
         $this->db->insert('images', $data);
         return $this->db->insert_id();
+    }
+    
+    function fileSrcExists($filename) {
+    	$sql = "select * from images where image_src = ?";
+    	$query = $this->db->query($sql, array($filename));
+    	if ($query->num_rows() > 0) {
+    		return true;
+    	}
+    	return false;    	 
+    }
+    
+    function hasTag($pid, $tag) {
+    	$sql = "select * from tags where project_id = ? and tag_key = ?";
+    	$query = $this->db->query($sql, array($pid, $tag));
+    	if ($query->num_rows() > 0) {
+    		return true;
+    	}
+    	return false;
     }
     
     function insertTag($data) {

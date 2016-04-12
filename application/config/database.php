@@ -6,14 +6,14 @@ $active_record = TRUE;
 
 if (ENVIRONMENT == 'production') {
     $db['default']['hostname'] = 'localhost';
-    $db['default']['username'] = 'taylormade';
-    $db['default']['password'] = 'pxYetMY6FEFVCTj5';
-    $db['default']['database'] = 'tmm_porfolio';
+    $db['default']['username'] = 'root';
+    $db['default']['password'] = 'temp1234';
+    $db['default']['database'] = 'tmt_portfolio_prod';
 } else {
     $db['default']['hostname'] = 'localhost';
-    $db['default']['username'] = 'taylormade';
-    $db['default']['password'] = 'pxYetMY6FEFVCTj5';
-    $db['default']['database'] = 'tmm_porfolio';
+    $db['default']['username'] = 'root';
+    $db['default']['password'] = 'temp1234';
+    $db['default']['database'] = 'tmt_portfolio_prod';
 }
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
