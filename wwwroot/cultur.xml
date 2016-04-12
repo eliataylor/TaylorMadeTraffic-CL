@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<navigationXML>
+    <development>
+        <item>
+            <title>Cultur</title>
+            <liveurl>http://www.cultur.io</liveurl>
+            <devurl>http://www.cultur.io/app.html</devurl>
+            <copyright>Cultur LLC</copyright>
+            <thumbDir>/wwwroot/images/sites/cultur/th</thumbDir>
+            <xlDir>/wwwroot/images/sites/cultur</xlDir>
+            <startdate>September 2014</startdate>
+            <launchdate>February 2015</launchdate>
+            <industries>music,events</industries>
+            <devtools>Ruby on Rails,mySQL,AJAX,JavaScript,jQuery Mobile,Facebook SDK,MapBox</devtools>
+            <team>Design:Kaili Miyamoto;Front-End:E.A.Taylor;Back-End:Rama Mcintosh,Caleb Haye;Business Development:Jan Uetz Ayacaba Ondo,Jonny Mack,Mike Hegazy</team>
+            <desc>Cultur is your Ultimate Event Resource, to get what you need when you want it. Find any activity/event going on around you at any time and any place. See if your friends or people with like interests will be there.</desc>
+            <technotes>                    
+                 <![CDATA[
+                    Cultur has a simple jquery mobile interface for navigating events crawled by a Ruby on Rails crawler
+                </ul>]]>                            
+            </technotes>     
+        </item>
+    </development>  
+</navigationXML>
