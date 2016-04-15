@@ -82,7 +82,8 @@ class Projects extends CI_Controller {
         if ($this->input->is_ajax_request()) {
             return false;
         }        
-        $this->load->view('shell', $this->data);
+        $this->getTableForTags();
+        $this->sendOut('tags_table');        
     }               
     
     // tag list views
