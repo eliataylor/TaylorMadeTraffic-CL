@@ -1,41 +1,121 @@
-<? foreach ($tableRows as $row): ?>            
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<?=$me['con']['lang']?>">
+    <head>
+        <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
+              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags; 
+              else $docTitle = ucfirst(trim($docTitle)); ?>
+        <title><?= $docTitle ?> :: TaylorMadeTraffic.com</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="author" content="Eli A Taylor" />
+        <meta name="language" content="en" />
+		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />        
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <? if ($me['con']['isMobile']): ?>
+            <meta name="apple-mobile-web-app-capable" content="yes"  />
+            <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
+        <? endif; ?>      
+<style type="text/css">
+
+
+dl.detailList { padding: 0; margin:4px 0 0 0}
+.detailList dt {
+    float: left;
+    clear: left;
+    margin:0;
+    font-size:80%;
+    vertical-align:middle;
+  }
+.detailList dd {
+    margin:0 0 8px 128px;
+    padding: 0;
+    vertical-align:middle;
+ }
+   
+</style>          
+        <link rel="shortcut icon" href="/wwwroot/images/favicon.ico" />
+        <? if (ENVIRONMENT == 'production'):?>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-7929826-3', 'auto');
+            ga('set', '&uid', '<?=$me['session_id']?>'); 
+            //ga('require', 'linkid', 'linkid.js');
+            ga('send', 'pageview');
+
+          </script>
+        <?endif;?>        
+    </head>
+    <body id="trackauthority" class="narrowscreen <?=$me['con']['pstyle'];?>" >
     <div style="border-top: 1px solid black; margin:0 0 20px 0;">
-        <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
+    	<h1>Eli A Taylor</h1>
+    	<dl class="detailList">	
+	    	<dt>Cell</dt>
+	    	<dd>808-855-5665</dd>
+	
+	    	<dt>Voicemail</dt>
+	    	<dd>415-300-0834</dd>
+	
+	    	<dt>E-mail</dt>
+	    	<dd>eli@taylormadetraffi.com</dd>
+	
+	    	<dt>Skype</dt>
+	    	<dd>skye_eli</dd>
+	    	
+	    	<dt>Google Hangouts</dt>
+	    	<dd>eliabrahamtaylor</dd>
+    	</dl>
+    	
+    	<hr size=1 />
+    	
     
-        <? if (!empty($row->project_pitch)): ?><div class="prjSection prjPitch">
-            <?= $this->lang->ugc($row->project_pitch); ?></div>
-        <? elseif (!empty($row->project_desc)): ?>
-            <p class="prjDesc"><?= $row->project_desc; ?></p>
+
+<? foreach ($tableRows as $row): ?>     
+
+        <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
+
+		<?php if (!isset($_GET['bizinterest'])):?>
+	            <p class="prjDesc"><?= $row->project_desc; ?></p>
         <? endif ?>
+    
+		<?php if (isset($_GET['bizinterest'])):?>
+	        <? if (!empty($row->project_pitch)): ?><div class="prjSection prjPitch">
+	            <?= $this->lang->ugc($row->project_pitch); ?></div>
+	        <? elseif (!empty($row->project_desc)): ?>
+	            <p class="prjDesc"><?= $row->project_desc; ?></p>
+	        <? endif ?>
+	
+	        <? if (!empty($row->project_bizmodel)): ?>
+	            <div class="prjSection prjBiz">
+	                <h4 class="sectTitle"><?=$this->lang->en('Business Model')?></h4>
+	                <?= $this->lang->ugc($row->project_bizmodel); ?>
+	            </div>
+	        <? endif ?>
+		
+	        <? if (!empty($row->project_competition)): ?>
+	            <div class="prjSection prjCompetition">
+	                <h4 class="sectTitle"><?=$this->lang->en('Competition')?></h4>
+	                <?= $this->lang->ugc($row->project_competition); ?>
+	            </div>
+	        <? endif ?>                    
+	
+	        <? if (!empty($row->project_marketresearch)): ?>
+	            <div class="prjSection prjResearch">
+	                <h4 class="sectTitle"><?=$this->lang->en('Target Markets')?> / <?=$this->lang->en('Research')?></h4>
+	                <?= $this->lang->ugc($row->project_marketresearch); ?>
+	            </div>
+	        <? endif ?>                    
 
-        <? if (!empty($row->project_bizmodel)): ?>
-            <div class="prjSection prjBiz">
-                <h4 class="sectTitle"><?=$this->lang->en('Business Model')?></h4>
-                <?= $this->lang->ugc($row->project_bizmodel); ?>
-            </div>
-        <? endif ?>
-
-        <? if (!empty($row->project_competition)): ?>
-            <div class="prjSection prjCompetition">
-                <h4 class="sectTitle"><?=$this->lang->en('Competition')?></h4>
-                <?= $this->lang->ugc($row->project_competition); ?>
-            </div>
-        <? endif ?>                    
-
-        <? if (!empty($row->project_marketresearch)): ?>
-            <div class="prjSection prjResearch">
-                <h4 class="sectTitle"><?=$this->lang->en('Target Markets')?> / <?=$this->lang->en('Research')?></h4>
-                <?= $this->lang->ugc($row->project_marketresearch); ?>
-            </div>
-        <? endif ?>                    
-
-        <? if (!empty($row->project_expenses)): ?>
-            <div class="prjSection prjCosts">
-                <h4 class="sectTitle"><?=$this->lang->en('Costs by Department')?></h4>
-                <?= $this->lang->ugc($row->project_expenses); ?>
-            </div>
-        <? endif ?>
-
+	        <? if (!empty($row->project_expenses)): ?>
+	            <div class="prjSection prjCosts">
+	                <h4 class="sectTitle"><?=$this->lang->en('Costs by Department')?></h4>
+	                <?= $this->lang->ugc($row->project_expenses); ?>
+	            </div>
+	        <? endif ?>
+		<?php endif; ?>
+		
         <? if (!empty($row->project_futuredate)): ?>
             <div class="prjSection prjDates">
                 <h4 class="sectTitle"><?=$this->lang->en('Roadmap')?></h4>
@@ -76,3 +156,5 @@
     <? if (!empty($row->project_companies)): ?><p><span class='lineName'><?= $this->lang->en("Companies/Brands:") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
     </div>
 <? endforeach; ?>
+</body>
+</html>
