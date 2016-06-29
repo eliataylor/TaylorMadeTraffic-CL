@@ -1,5 +1,5 @@
---CREATE DATABASE  IF NOT EXISTS `tmt_portfolio_dev` /*!40100 DEFAULT CHARACTER SET latin1 */;
---USE `tmt_portfolio_dev`;
+-- CREATE DATABASE  IF NOT EXISTS `tmt_portfolio_dev` /*!40100 DEFAULT CHARACTER SET latin1 */;
+-- USE `tmt_portfolio_dev`;
 -- MySQL dump 10.13  Distrib 5.5.49, for debian-linux-gnu (x86_64)
 --
 -- Host: 127.0.0.1    Database: tmt_portfolio_dev

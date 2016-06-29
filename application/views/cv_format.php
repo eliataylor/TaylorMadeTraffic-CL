@@ -48,7 +48,7 @@ dl.detailList { padding: 0; margin:4px 0 0 0}
           </script>
         <?endif;?>        
     </head>
-    <body id="trackauthority" class="narrowscreen <?=$me['con']['pstyle'];?>" >
+    <body id="trackauthority" class="<?=$me['con']['pstyle'];?>" >
     	<h1>Eli A Taylor</h1>
     	<dl class="detailList" style="margin-bottom:20px;">	
 	    	<dt>Cell</dt>

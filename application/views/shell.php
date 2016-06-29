@@ -56,7 +56,7 @@
           </script>
         <?endif;?>        
     </head>
-    <body id="trackauthority" class="narrowscreen <?=$me['con']['pstyle'];?>" >
+    <body id="trackauthority" class="<?=$me['con']['pstyle'];?>" >
         <span id="tmmCube" style="display:none;">
             <?php $cubespins = scandir(ROOT_CD . "/wwwroot/images/cubespins"); $index=0;?>
             <?foreach($cubespins as $img):?>
