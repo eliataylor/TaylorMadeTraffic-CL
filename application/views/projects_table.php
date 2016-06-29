@@ -9,7 +9,11 @@
 <div class="projectsTitle" >
     <h2>
     <?if (isset($qtagOptions) && !empty($qtagOptions)):?>    
-    <select id="qTagSelector" onchange="if (this.options[this.selectedIndex].value != '') tmt.ajaxPage(this.options[this.selectedIndex].value); return false;" >
+    <select 
+    	<? if (isset($uProfile) && !empty($uProfile) && !empty($uProfile['user_bio'])):?>
+    		style="float:right;"
+    	<?php endif; ?>
+    	id="qTagSelector" onchange="if (this.options[this.selectedIndex].value != '') tmt.ajaxPage(this.options[this.selectedIndex].value); return false;" >
         <? if ( (isset($cProfile) && !empty($cProfile)) || (isset($uProfile) && !empty($uProfile))):?>
         <option value=""><?=$this->lang->en('Other') . ' ' . $qtags?></option>
         <?endif;?>

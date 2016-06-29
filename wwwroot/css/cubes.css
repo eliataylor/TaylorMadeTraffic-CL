@@ -300,6 +300,20 @@ tr.spacer { height:15px; }
  .instruct { font-size:80%; }
  .employmentSpan { float:right; }
  
+ dl.detailList { padding: 0; margin:4px 0 0 0}
+.detailList dt {
+    float: left;
+    clear: left;
+    margin:0;
+    font-size:80%;
+    vertical-align:middle;
+  }
+.detailList dd {
+    margin:0 0 8px 128px;
+    padding: 0;
+    vertical-align:middle;
+ }
+ 
  /* PHONES */
 @media only screen and (max-width : 500px) {
     .tags_table .col1, .tags_table .col3 { width:55px; }
