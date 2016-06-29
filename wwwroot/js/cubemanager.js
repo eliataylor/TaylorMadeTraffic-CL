@@ -22,7 +22,7 @@
         },
         initPage : function(cont) {
             
-            if (tmt.curPage == '/eli') {
+            if (tmt.curPage.indexOf('/eli') === 0) {
             	tmt.toggleGroupRows('all');
             } else if ($(cont).find(".tags_table").length > 0) {
                $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});               
