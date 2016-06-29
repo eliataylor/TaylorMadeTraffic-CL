@@ -70,7 +70,7 @@
 				data-projectcount="<?=count($company['projects'])?>">
 				<td class="col1"><h2>
 					<?php if (isset($company['company_logo'])): ?>
-						<img class="companyLogo" src="<?=$company['company_logo']?>" /> 				
+						<img title="<?=$company['company_screenname']?>" alt="<?=$company['company_screenname']?>"  class="companyLogo" src="<?=$company['company_logo']?>" /> 				
 					<?php else: ?>
 						&raquo; 
 						<?=$company['company_screenname'];?> 

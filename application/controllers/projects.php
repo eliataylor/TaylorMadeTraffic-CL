@@ -203,14 +203,15 @@ class Projects extends CI_Controller {
     				$groups[$company]['endDate'] = max($groups[$company]['endDate'], strtotime($row->project_launchdate));
     				array_push($groups[$company]['projects'], $row);    				
     	}
-    	
     	if (isset($groups) && count($groups) > 0){
-    		usort($groups, function($a, $b) { 
+    		usort($groups, function($a, $b) {
     			if (count($b['projects']) === count($a['projects'])) {
 	    			$aDiff = $a['endDate'] - $b['startDate'];
 	    			$bDiff = $b['endDate'] - $b['startDate'];
 	    			return $aDiff < $bDiff;
-    			}
+    			} else if ($a['company_tagname'] == 'TaylorMadeTraffic' || $b['company_tagname'] == 'TaylorMadeTraffic') {
+    				return true;
+    			} 
     			return count($b['projects']) - count($a['projects']); 
     		});
     	}
