@@ -49,17 +49,16 @@ dl.detailList { padding: 0; margin:4px 0 0 0}
         <?endif;?>        
     </head>
     <body id="trackauthority" class="narrowscreen <?=$me['con']['pstyle'];?>" >
-    <div style="border-top: 1px solid black; margin:0 0 20px 0;">
     	<h1>Eli A Taylor</h1>
-    	<dl class="detailList">	
+    	<dl class="detailList" style="margin-bottom:20px;">	
 	    	<dt>Cell</dt>
-	    	<dd>808-855-5665</dd>
+	    	<dd>+1 808-855-5665</dd>
 	
 	    	<dt>Voicemail</dt>
-	    	<dd>415-300-0834</dd>
+	    	<dd>+1 415-300-0834</dd>
 	
 	    	<dt>E-mail</dt>
-	    	<dd>eli@taylormadetraffi.com</dd>
+	    	<dd>eli@taylormadetraffic.com</dd>
 	
 	    	<dt>Skype</dt>
 	    	<dd>skye_eli</dd>
@@ -68,12 +67,18 @@ dl.detailList { padding: 0; margin:4px 0 0 0}
 	    	<dd>eliabrahamtaylor</dd>
     	</dl>
     	
-    	<hr size=1 />
-    	
+<?php if (!isset($groups)) $groups = array('all'=>$tableRows); 
+	else $showGroup = true;
+?>
     
+<? foreach ($groups as $groupname=>$tableRows): ?>     
+		<?php if (isset($showGroup)): ?>
+			<h2>&raquo; <?=$groupname;?></h2>
+			<div class="groupBlock" style="margin-left:20px;">
+		<?php endif; ?>
 
 <? foreach ($tableRows as $row): ?>     
-
+	    <div style="border-top: 1px solid black; margin:0 0 20px 0;">
         <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
 
 		<?php if (!isset($_GET['bizinterest'])):?>
@@ -155,6 +160,11 @@ dl.detailList { padding: 0; margin:4px 0 0 0}
     <?endif;?>
     <? if (!empty($row->project_companies)): ?><p><span class='lineName'><?= $this->lang->en("Companies/Brands:") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
     </div>
+<? endforeach; ?>
+		<?php if (isset($showGroup)): ?>
+			</div>
+		<?php endif; ?>
+
 <? endforeach; ?>
 </body>
 </html>

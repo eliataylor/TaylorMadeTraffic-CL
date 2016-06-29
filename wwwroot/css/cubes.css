@@ -219,6 +219,19 @@ table{ border-collapse:collapse; }
 .pBlack .tags_table td.col1 { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 90%); }
 .pBlack .tags_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 0%, #2b2b2b 90%); }
 
+.companyHead { font-size:11px; vertical-align:middle; }
+.companyHead td h2 { margin:0}	
+.companyHead td.col1 { text-align:left; vertical-align:middle; padding-left:5px; overflow:hidden;}	
+.companyHead td.col2 { text-align:center; vertical-align:middle;}	
+.companyHead td.col3 { text-align:right; vertical-align:middle; padding-right:5px;}
+.companyHead[data-group='TaylorMadeTraffic'] img { margin:0 0 -15px -15px; height:54px;}	
+.rowMargin {height:40px; background:transparent;}
+.groupBlock { margin-bottom:20px; }
+
+.pBlack .companyHead td.col1 { 
+	background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 90%); }
+.pBlack .companyHead td.col3 { background: -webkit-linear-gradient(-45deg, #000000 0%, #2b2b2b 90%); }
+
 .pBlack .tags_table tr.odd .col1, .pBlack .tags_table tr.odd .col3 { background:black; }
 
 .projects_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 66%, #2b2b2b 100%); }
@@ -255,7 +268,6 @@ td a.popInfo { text-decoration:none;}
 tr.spacer { height:15px; }
 .tags_table tr { border:1px solid #000; vertical-align:middle; padding:8px;   }
 .tags_table td.col1, .tags_table td.col3 { font-size:12px; }
-/*.projects_table tr { border-bottom: 50px solid transparent; } off in place of reflection spacing*/
 .biz_plans.projects_table tr { border-bottom: 200px solid transparent; }
 
 .pageTotal { font-size:12px; vertical-align: baseline}
@@ -291,7 +303,11 @@ tr.spacer { height:15px; }
             -moz-box-shadow: 2px 2px 2px #aaa; -webkit-box-shadow: 2px 2px 2px #aaa; box-shadow: 2px 2px 2px #aaa;    
             color:#fff; cursor: pointer; }
  #softNoticeBody a, #softNoticeBody a:visited { color:purple; }
+ .companyHead, .companyHead td, .companyHead h2 {width:100%; }
+ .companyLogo { max-height:54px; max-width:120px;}
  .projectTags { font-size: 12px; }
+ .instruct { font-size:80%; }
+ .employmentSpan { float:right; }
  
  /* PHONES */
 @media only screen and (max-width : 500px) {

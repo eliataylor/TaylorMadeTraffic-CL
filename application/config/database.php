@@ -8,12 +8,12 @@ if (ENVIRONMENT == 'production') {
     $db['default']['hostname'] = 'localhost';
     $db['default']['username'] = 'root';
     $db['default']['password'] = 'temp1234';
-    $db['default']['database'] = 'tmt_portfolio_prod';
+    $db['default']['database'] = 'tmt_portfolio_dev';
 } else {
     $db['default']['hostname'] = 'localhost';
     $db['default']['username'] = 'root';
     $db['default']['password'] = 'temp1234';
-    $db['default']['database'] = 'tmt_portfolio_prod';
+    $db['default']['database'] = 'tmt_portfolio_dev';
 }
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

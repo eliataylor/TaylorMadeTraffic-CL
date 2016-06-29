@@ -55,6 +55,14 @@ class Projects extends CI_Controller {
         if (empty($this->data['qtags'])) $this->data['qtags'] = $this->uri->segment(1);
         $this->data['qtfilter'] = $this->input->get_post('qtfilter');
         if (empty($this->data['qtfilter'])) $this->data['qtfilter'] = $this->uri->segment(2);
+        
+        $this->data['qgroup'] = $this->input->get_post('qgroup');
+        if (empty($this->data['qgroup'])) $this->data['qgroup'] = $this->uri->segment(3);
+        
+        $this->data['qhaving'] =(int) $this->input->get_post('qhaving');
+        if (empty($this->data['qhaving'])) $this->data['qhaving'] = (int)$this->uri->segment(4);
+        
+        
     }
 
     private function sendOut($page, $shell="shell") {
@@ -78,7 +86,7 @@ class Projects extends CI_Controller {
         $this->technologies();
     }
     
-    function animatedIntro(){
+    private function animatedIntro(){
         if ($this->input->is_ajax_request()) {
             return false;
         }        
@@ -117,18 +125,20 @@ class Projects extends CI_Controller {
             $this->sendOut('projects_table');
         }
     }
+
     public function companies() {
         $this->data['qtags'] = 'companies';
         if (empty($this->data['qtfilter'])) {
             $this->getTableForTags();
             $this->sendOut('tags_table');
-        } else{
+        } else {
             $this->data['cProfile'] = $this->users->getCompanyByName($this->data['qtfilter']);
             if (empty($this->data['cProfile'])) unset($this->data['cProfile']);
             $this->getTableForProjects();
             $this->sendOut('projects_table');
         }
     }    
+
     public function team() {
         if (empty($this->data['qtfilter'])) {
             $this->data['headers'] = array(
@@ -140,7 +150,9 @@ class Projects extends CI_Controller {
             else $this->data['tableRows'] = $this->projects->getTagsTeamMembers();
             $this->sendOut('tags_table');
         } else{
-            $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
+            if (empty($this->data['qgroup'])) $this->data['qgroup'] = 'project_client';
+            
+        	$this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
             if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
             if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
             
@@ -149,46 +161,82 @@ class Projects extends CI_Controller {
             if ($this->data['qtags'] == "roles") {
                 $this->data['tableRows'] = $this->projects->getTagsTeamRoles($this->data['qtfilter']);
             } else {
-                $this->data['tableRows'] = $this->projects->getProjectsByTag(null, $this->data['qtfilter']); 
+                $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving'], $this->data['qgroup']); 
             }
-            foreach($this->data['tableRows'] as $index=>$row){
-                $row->images = $this->projects->getProjectImages($row->project_id);
-                $row->totalImages = count($row->images);
-            }                
+            
+            $this->regroupProjects();
+            
             $this->load->model('Users_model', 'user');
             $this->data['uProfile'] = $this->users->getUserByName($this->data['qtfilter']);
-            if (uri_string() == 'cv-format') {
-                $this->sendOut('cv_projects', 'cv_shell');
-            } else {
-                $this->sendOut('projects_table');
-            }
+            $this->sendOut('projects_table');
         }
     }     
     
+    private function regroupProjects(){
+    	if (empty($this->data['qgroup'])) {
+    		$this->data['qgroup'] = 'project_client';
+    	}
+    	$groups = array();
+    	
+    	foreach($this->data['tableRows'] as $index=>$row){
+    	
+    		$row->images = $this->projects->getProjectImages($row->project_id);
+    		$row->totalImages = count($row->images);
+	    			if (!isset($row->{$this->data['qgroup']})) {    				
+	    				$this->data['qgroup'] = 'project_client'; // should never happen
+	    			}
+    				$company = $row->{$this->data['qgroup']};
+    				if (!isset($groups[$company])) {
+    					$groups[$company] = $this->users->getCompanyByName($company);
+    					if (!$groups[$company]) {
+    						$groups[$company] = array('company_tagname'=>$company, 'company_screenname'=>$company, 'company_status'=>1);
+	    					$groups[$company]['company_startdate'] = $row->project_startdate;
+	    					$groups[$company]['company_enddate'] = $row->project_launchdate;
+	    					$groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
+    					}
+    					$groups[$company] = $this->users->getCompanyByName($company);
+    					$groups[$company]['startDate'] = strtotime($row->project_startdate);
+    					$groups[$company]['endDate'] = strtotime($row->project_launchdate);
+    					$groups[$company]['projects'] = array();
+    				}
+    				$groups[$company]['startDate'] = min($groups[$company]['startDate'], strtotime($row->project_startdate));
+    				$groups[$company]['endDate'] = max($groups[$company]['endDate'], strtotime($row->project_launchdate));
+    				array_push($groups[$company]['projects'], $row);    				
+    	}
+    	
+    	if (isset($groups) && count($groups) > 0){
+    		usort($groups, function($a, $b) { 
+    			if (count($b['projects']) === count($a['projects'])) {
+	    			$aDiff = $a['endDate'] - $b['startDate'];
+	    			$bDiff = $b['endDate'] - $b['startDate'];
+	    			return $aDiff < $bDiff;
+    			}
+    			return count($b['projects']) - count($a['projects']); 
+    		});
+    	}
+    	$this->data['showGroup'] = true;    	
+    	$this->data['groups'] = $groups;
+    	unset($this->data['tableRows']);    		
+    }
+    
     // just URL predefines qtags
-    function taylormade(){
-        $this->data['qtags'] = 'companies';
-        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
+    public function taylormade(){
         $this->data['qtfilter'] = 'TaylorMadeTraffic';
-        $this->data['cProfile'] = $this->users->getCompanyByName("TaylorMadeTraffic");
+        $this->data['qtags'] = 'companies';
+        $this->data['qgroup'] = 'project_copyright';
         
-        // These 5 products were some of my strongest reasons for moving abroad. They have been dreams for 
+        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
+        $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
+        $this->data['cProfile'] = $this->users->getCompanyByName($this->data['qtfilter']);
         
         $this->getTableForProjects();
+        $this->regroupProjects();
         
-        $seg = $this->uri->segment(2);
-        if (!empty($seg)) {
-            foreach($this->data['tableRows'] as $index=>$row){
-                if ($row->project_type != $seg) {
-                    unset($this->data['tableRows'][$index]);
-                }
-            }
-        }
         $this->sendOut('projects_table');
     }
     
     
-    function pitch() {
+    public function pitch() {
         $this->data['qtags'] = 'companies';
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
         $this->data['qtfilter'] = 'TaylorMadeTraffic';
@@ -206,13 +254,15 @@ class Projects extends CI_Controller {
         $this->sendOut('biz_projects');        
     }
     
-    function eli(){
+    public function eli(){
         $this->data['qtags'] = 'team';
-        $this->data['qtfilter'] = 'E.A.Taylor';        
+        $this->data['qtfilter'] = 'E.A.Taylor';
+        $this->data['qgroup'] = 'project_client';
+        //$this->data['qhaving'] = 2
         $this->team();
     }    
     
-    function projects(){
+    public function projects(){
         $pid = $this->input->get_post('pid');
         if (empty($this->data['qtfilter']) && empty($pid)) {
             $this->getTableForProjects();
@@ -226,7 +276,7 @@ class Projects extends CI_Controller {
         }        
     }    
     
-    function images() {      
+    private function images() {      
         $this->data['headers'] = array();
         $this->data['tableRows'] = $this->projects->getImages(); 
         $head = $this->projects->getTableHeaders('images');
@@ -238,31 +288,43 @@ class Projects extends CI_Controller {
         $this->sendOut('cms_table');
     }   
 
-    function getTableForTags() {
+    private function getTableForTags() {
         $this->data['headers'] = array(
             'count'=>$this->lang->en("Total"),
             'tag_key'=>$this->data['docTitle'],
             'tag_date'=>$this->lang->en("Last Used")
                 );
-        $this->data['tableRows'] = $this->projects->getTags($this->data['qtags']); 
+        $this->data['tableRows'] = $this->projects->getTags($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']); 
     }
 
-    function getTableForProjects() {        
-        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']); 
+    private function getTableForProjects() {        
+        $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags'], false, $this->data['qhaving']); 
         $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
         if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
         if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
         
         $seg = $this->uri->segment(2);
-        if ($seg  == 'development' || $seg  == 'design') $this->data['tableRows'] = $this->projects->getProjectsByType($seg, $this->data['qtfilter']); 
-        else $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter']); 
-        foreach($this->data['tableRows'] as $index=>$row){
+        if ($seg  == 'development' || $seg  == 'design') $rows = $this->projects->getProjectsByType($seg, $this->data['qtfilter']); 
+        else $rows = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']); 
+
+        $groups = array();        
+        foreach($rows as $index=>&$row){
+        	if (!isset($row->{$this->data['qgroup']})) {
+        		$this->data['qgroup'] = 'project_client';
+        	}
+        	$company = $row->{$this->data['qgroup']};
+        	if (!isset($groups[$company])) {
+        		$groups[$company] = $this->users->getCompanyByName($company);
+        		$groups[$company]['projects'] = array();
+        	}        	 
             $row->images = $this->projects->getProjectImages($row->project_id);
             $row->totalImages = count($row->images);
+            array_push($groups[$company]['projects'], $row);
         }         
+        $this->data['groups'] = $groups;
     }
     
-    function viewSettings(){
+    private function viewSettings(){
         $con = $this->data['me']['con'];            
         if ($this->input->get("swidth")) $con['swidth'] = intval ($this->input->get("swidth"));
         if ($this->input->get("sheight")) $con['sheight'] = intval($this->input->get("sheight"));
@@ -272,12 +334,12 @@ class Projects extends CI_Controller {
         return false;
     }
     
-    function devices() {
+    private function devices() {
         $this->sendOut('stylesheet', 'cms_shell');
     }
     
     
-    function rewriteTeam(){
+    private function rewriteTeam(){
         
     }
 

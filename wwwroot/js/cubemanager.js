@@ -22,16 +22,23 @@
         },
         initPage : function(cont) {
             
-            if ($(cont).find(".tags_table").length > 0) {
+            if (tmt.curPage == '/eli') {
+            	tmt.toggleGroupRows('all');
+            } else if ($(cont).find(".tags_table").length > 0) {
                $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});               
             }
            
+            $(cont).find('.companyHead').click(function() {
+            	var groupname = $(this).attr('data-group');
+            	ctx[cls].toggleGroupRows(groupname);
+            });
+            
             $(cont).find('a').click(function(e){
                var href = $(this).attr('href');
-		if (href.indexOf('http') < 0 && !$(this).hasClass('fancybox')) { // not on external links      
-		    e.preventDefault();
-                    if (href && href != '')  ctx[cls].ajaxPage(href);
-		}
+				if (href.indexOf('http') < 0 && !$(this).hasClass('fancybox')) { // not on external links      
+				    e.preventDefault();
+		                    if (href && href != '')  ctx[cls].ajaxPage(href);
+				}
             });
             
             $(cont).find('.teamInviteLink').click(function(e){
@@ -56,6 +63,16 @@
                 
             }
             
+        },
+        toggleGroupRows : function(groupname) {
+        	$('.projectRow').each(function(){
+        		if ($(this).attr('data-group') == groupname || groupname == 'all') {
+        			if (!$(this).is(":visible")) $(this).slideDown();
+        			else $(this).slideUp();
+        		} else {
+        			$(this).slideUp();
+        		}
+        	});        	
         },
         buildLightBox : function() {
             
@@ -388,7 +405,6 @@ $(document).ready(function() {
     tmt.autoSize();
     window.addEventListener('onorientationchange', tmt.autoSize);
     tmt.curPage = document.location.pathname + document.location.search;
-    
     var href = document.location.hash;
     if (href && href.indexOf('!href=') > -1) {
         href = href.substring(href.indexOf('!href=') + '!href='.length);

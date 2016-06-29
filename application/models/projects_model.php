@@ -9,26 +9,56 @@ class Projects_Model extends CI_Model {
         parent::__construct();
     }
     
-    function getTags($type) {
-        if (!in_array($type, array('technologies','years','industries','companies'))) $type = 'technologies';
-        $sql = "SELECT count(tag_id) as count, tag_key, tag_type, tag_date FROM `tags` where tag_type = ? group by tag_key ";
+    function getTags($type, $value=false, $having=0) {
+        if (!in_array($type, array('technologies','years','industries','companies','team'))) $type = 'technologies';
+        
+        $sql = "SELECT count(tag_id) as count, tag_key, tag_type, tag_date FROM `tags` WHERE ";
+        
+        if ($type == 'team') {
+        	$sql .= " tag_type like 'team_%'";
+        } else {
+        	$sql .= ' tag_type = ? ';        
+        	$params = array(':type'=>$type);
+        }
+        
+        if (!empty($value)) {
+        	$sql .= " and tag_key = ?";
+        	$params[':value'] = $value;
+        	
+        }
+        
+        $sql .= " group by tag_key ";
+        
+        if ($having > 0) {
+        	$sql .= ' HAVING count >= ?';
+        	$params[':having'] = $having;
+        }
+        
         if ($type == 'years') $sql .= ' order by tag_key desc';
         elseif ($type == 'technologies' || $type == 'industries') $sql .= ' order by tag_key asc';
         else $sql .= ' order by tag_date desc, count desc';
-        $query = $this->db->query($sql, array($type));
+
+        $query = $this->db->query($sql, $params);
         if ($query->num_rows() > 0) return $query->result_object();
         return array();   
     } 
     
-    function getProjectsByTag($type=false, $value=false) {
+    function getProjectsByTag($type=false, $value=false, $having=0, $grouping=false) {
         $params = array();
-        $sql = "SELECT P.*, T.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN tags T on P.project_id = T.project_id LEFT JOIN images I on P.project_id = I.project_id ";
+        $sql = "SELECT P.*, T.*, I.*, min(I.image_weight), count(P.project_id) as count 
+        		FROM `projects` P 
+        		LEFT JOIN tags T on P.project_id = T.project_id 
+        		LEFT JOIN images I on P.project_id = I.project_id ";
         
-        $wheres = array();
-        if (!empty($type)) {
-            array_push($wheres, " T.tag_type = ?");
-            array_push($params, $type);
+        $wheres = array("project_status = 'current'");
+        
+        if ($type == 'team') {
+        	array_push($wheres, " T.tag_type LIKE 'team_%' ");
+        } else if (!empty($type)) {
+        	array_push($wheres, " T.tag_type = ? ");
+        	array_push($params, $type);
         }
+                
         if (!empty($value)) {
             array_push($wheres, " T.tag_key = ? ");            
             array_push($params, $value);
@@ -37,8 +67,13 @@ class Projects_Model extends CI_Model {
             $sql .= " WHERE " . implode(" AND ", $wheres);            
         }
         
-        $sql .= ' group by P.project_id order by P.project_type desc, P.project_startdate ';        
-        $sql .= ($type == 'development') ? ' asc' : ' desc';
+        $sql .= ' group by P.project_id ';
+        if ($having > 0 && empty($grouping)) {
+        	$sql .= ' HAVING count >= ?';
+        	array_push($params, $having);
+        }
+        
+        $sql .= ' order by P.project_type desc, P.project_launchdate desc, P.project_startdate desc';
         $query = $this->db->query($sql, $params);
         //echo $this->db->last_query();
         if ($query->num_rows() > 0) return $query->result_object();
@@ -47,10 +82,9 @@ class Projects_Model extends CI_Model {
     
     function getProjectsByType($type=false, $filter=false) {
         $params = array();
-        //$sql = "SELECT P.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN images I on P.project_id = I.project_id ";
         $sql = "SELECT P.*, T.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN tags T on P.project_id = T.project_id LEFT JOIN images I on P.project_id = I.project_id ";
+        $wheres = array("project_status = 'current'");
         
-        $wheres = array();
         if (!empty($type)) {
             array_push($wheres, " P.project_type = ?");
             array_push($params, $type);

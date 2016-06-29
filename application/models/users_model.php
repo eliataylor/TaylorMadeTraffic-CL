@@ -104,6 +104,13 @@ class Users_Model extends CI_Model {
         $this->db->insert('users', $data);
         return $this->db->insert_id();
     }
+    
+    function insertCompany($data) {
+    	if (!is_array($data))
+    		return false;
+    		$this->db->insert('companies', $data);
+    		return $this->db->insert_id();
+    }    
 
     function updateUser($uid = -1, $data) {
         if (empty($data) || !is_array($data)) return -1;

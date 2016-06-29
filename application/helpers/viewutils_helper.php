@@ -54,6 +54,7 @@
         if (empty($date)) $date = time();
         if ($form == "year") return date("F jS, Y", $date);   
         if ($form == "time") return date("F j, Y, g:i a T", $date);
+        if ($form == "month") return date("F, Y", $date);
         if ($form == "sortershort") return date("Y-m-d", $date);
         if ($form == "sorter") return date("Y-m-d H:i:s", $date);
         else return date("D, M jS", $date);
