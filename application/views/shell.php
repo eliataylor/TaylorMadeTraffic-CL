@@ -8,8 +8,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="<?=$me['con']['lang']?>" />
-	<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />        
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1410870079" />
+		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />        
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1467202940" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <? if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />
@@ -174,7 +174,7 @@
             <div id='softNoticeBody'></div>
         </div>
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>            
-        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1410870079"></script>
+        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1467202940"></script>
 	<link rel="stylesheet" type="text/css" href="/wwwroot/js/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
 	<script type="text/javascript" src="/wwwroot/js/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>       
     </body>
