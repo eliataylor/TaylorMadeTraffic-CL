@@ -422,15 +422,19 @@ class LenguaPlusController extends CI_Controller {
     	
     	$humanStr = array();
     	if (isset($obj->project_team) && !empty($obj->project_team)) {
-    		$role_users = explode(';',$obj->project_team);
+    		$role_users = explode('. ',$obj->project_team);
     		foreach($role_users as $role_user) {
     			$role_user = explode(':',$role_user);
-    			$users = explode(',',$role_user[1]);
-    			foreach($users as $user) {
+    			$roles = explode(',',$role_user[1]);
+    			$user = $role_user[0];
+    			if (preg_match("/<a[^>]*>(.*)<\/a>/s", $user, $match)) {
+    				$user = $match[1];
+    			}
+    			foreach($roles as $role) {
     				$href = "<a href='/team?qtfilter=" . $user . "'>".$user."</a>";
-    				$humanStr[$user] = (!isset($humanStr[$user])) ? $href . ': ' . $role_user[0] : $humanStr[$user] . ', ' . $role_user[0];
+    				$humanStr[$user] = (!isset($humanStr[$user])) ? $href . ': ' . $role : $humanStr[$user] . ', ' . $role;
     				$t = new StdClass();
-    				$t->tag_type = 'team_' . strtolower($role_user[0]);
+    				$t->tag_type = 'team_' . strtolower($role);
     				if ($this->projects->hasTag($pid, $t->tag_type)) continue; // still keep in in humanStr
     				$t->tag_key = $user;
     				if (isset($obj->project_launchdate) && !empty($obj->project_launchdate))  $t->tag_date = $obj->project_launchdate;

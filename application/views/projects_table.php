@@ -84,6 +84,9 @@
 				<td class="col3">
 					<?php if (isset($company['company_city'])): ?>
 						<?=$company['company_city']?>
+						<?php if ($company['company_telecommuting']): ?>
+						(remote)
+						<?php endif; ?>
 					<?php endif; ?>
 				</td>
 			</tr>

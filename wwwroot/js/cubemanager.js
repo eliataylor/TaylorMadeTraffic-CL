@@ -89,9 +89,9 @@
                url: href,
                dataType: 'html'
            }).done(function(html) {
+               ctx[cls].curPage = href;
                $('#pageBlock').html(html);
                ctx[cls].initPage('#pageBlock');
-               ctx[cls].curPage = href;
                if (ctx[cls].cube.id == 'menuPreloader') {
                    clearInterval(ctx[cls].spinInterval);
                    //if (href.indexOf('taylormade') < 0) {
