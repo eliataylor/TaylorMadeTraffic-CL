@@ -246,8 +246,12 @@ td a.popInfo { text-decoration:none;}
 .col1, .col2 { text-align: left; }
 .col3 { text-align: right; }
 
-.projects_table .col1 { width:30%; }
-.projects_table .col2 { width:70%;}
+.projectRow .col1 { width:30%; }
+.projectRow .col2 { width:69%;}
+
+.companyHead .col1 { width:30%; }
+.companyHead .col2 { width:40%;}
+.companyHead .col1 { width:30%; }
 
 .col2 h3 { font-size:170%; }
 .tablesorter td.project_startdate { padding-top:28px; }
@@ -394,4 +398,5 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.pBlack .companyHead td.col3 { 
 		background: -webkit-linear-gradient(-45deg, #cccccc 0%, #ffffff 90%); 
 	}
+	.rowMargin { height:30px; border-bottom:1px solid #000;}
 }
