@@ -200,8 +200,8 @@ table{ border-collapse:collapse; }
 .pBlack .tags_table td.col1 { background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 90%); }
 .pBlack .tags_table td.col3 { background: -webkit-linear-gradient(-45deg, #000000 0%, #2b2b2b 90%); }
 
-.companyHead { font-size:11px; vertical-align:middle; }
-.companyHead td h2 { margin:0}	
+.companyHead { font-size:12px; vertical-align:middle; cursor:pointer; }
+.companyHead td h2 { margin:0; text-align:center;}	
 .companyHead td.col1 { text-align:left; vertical-align:middle; padding-left:5px; overflow:hidden; height: 54px; 
 -webkit-border-radius: 8px 0 0 8px; -moz-border-radius: 8px 0 0 8px; border-radius: 8px 0 0 8px; 
 }	
@@ -212,9 +212,6 @@ table{ border-collapse:collapse; }
 .companyHead[data-group='TaylorMadeTraffic'] img { margin:0 0 -15px -15px; height:54px;}	
 .rowMargin {height:15px; background:transparent;}
 .groupBlock { margin-bottom:20px; }
-
-
-
 
 .pBlack .companyHead td.col1 { 
 	background: -webkit-linear-gradient(-45deg, #2b2b2b 0%, #000000 90%); }
@@ -409,6 +406,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.pBlack .companyHead td.col1 { 
 		background: -webkit-linear-gradient(-45deg, #cccccc 0%, #ffffff 90%); 
 	}
+	.companyHead { font-size:11px;}	
 	.pBlack .companyHead td.col3 { 
 		background: -webkit-linear-gradient(-45deg, #cccccc 0%, #ffffff 90%); 
 	}

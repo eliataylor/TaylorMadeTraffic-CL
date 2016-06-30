@@ -76,7 +76,6 @@
 					<?php if (isset($company['company_logo'])): ?>
 						<img title="<?=$company['company_screenname']?>" alt="<?=$company['company_screenname']?>"  class="companyLogo" src="<?=$company['company_logo']?>" /> 				
 					<?php else: ?>
-						&raquo; 
 						<?=$company['company_screenname'];?> 
 					<?php endif; ?>
 				</h2></td>
