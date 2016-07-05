@@ -271,6 +271,7 @@ tr.spacer { height:15px; }
 
 .galleryBlock { position:relative; width:100%; margin:20px 0 }
 .galleryTopBar { float:left; clear:both; width:100%; }
+a.fancybox { text-decoration:none; }
 .galleryTopBar img { cursor:pointer; height:100px;  margin:0 0 5px 0; }
 .galleryImg { position: relative; float:left; width:100%; }
 .galleryImg img { width:100%; }
