@@ -100,34 +100,32 @@
 	            	<?php if (isset($groupname)):?>data-group="<?=$groupname?>"<?php endif; ?>
 	             >
 	                
-	                <td class="col1 image_src">
-	                    
+	                <td class="col1 image_src" >	                   
 	                    <? if (!isset($_GET['noPics'])):?>
-	                    <div class="projectImgMask">
-	                        <a href='/projects?pid=<?= $row->project_id; ?>'>
-	                            <img  data-owidth="<?= $row->image_width ?>" 
-	                                  data-oheight="<?= $row->image_height ?>" 
-	                                  src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
-	                                  class="projectImg" />                            
-	                        </a>
-	                    </div>
-	<!--                    TODO, leave for old browser support from reflection <div class="blackOutFadeBG"></div>-->
-	                    <div class="reflectionMask">
-	                        <img  class="reflection" src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>' />                            
-	                    </div>
-	                    <?if (isset($row->images) && count($row->images) > 1):?>
-	                        <?foreach($row->images as $index=>$img):?>            
-	                            <?if ($index==0):?>
-	                                <a class="fancybox" data-fancybox-group="gallery<?=$row->project_id?>" href="<?= $row->image_src; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
-	                            <?else:?>
-	                                <a style="display:none;" class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$row->project_id?>" ></a>
-	                            <?endif;?>
-	                        <?endforeach?>
-	                    <?endif;?>
-	                        
+		                    <div class="projectImgMask">
+		                        <a href='/projects?pid=<?= $row->project_id; ?>'>
+		                            <img  data-owidth="<?= $row->image_width ?>" 
+		                                  data-oheight="<?= $row->image_height ?>" 
+		                                  src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
+		                                  class="projectImg" />                            
+		                        </a>
+		                    </div>
+		<!--                    TODO, leave for old browser support from reflection <div class="blackOutFadeBG"></div>-->
+		                    <div class="reflectionMask">
+		                        <img  class="reflection" src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>' />                            
+		                    </div>
+		                    <?if (isset($row->images) && count($row->images) > 1):?>
+		                        <?foreach($row->images as $index=>$img):?>            
+		                            <?if ($index==0):?>
+		                                <a class="fancybox" data-fancybox-group="gallery<?=$row->project_id?>" href="<?= $row->image_src; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
+		                            <?else:?>
+		                                <a style="display:none;" class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$row->project_id?>" ></a>
+		                            <?endif;?>
+		                        <?endforeach?>
+		                    <?endif;?>	                        
 	                    <?endif;?>
 	                </td>
-	                <td class="col2 project_title" colspan="2">
+	                <td class="col2 project_title" colspan="2" >
 	                    <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
 	                    
 	                    <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?= $this->lang->ugc($row->project_desc); ?></div><? endif ?>
