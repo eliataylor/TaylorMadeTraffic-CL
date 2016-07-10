@@ -50,7 +50,10 @@ class Projects_Model extends CI_Model {
         		LEFT JOIN tags T on P.project_id = T.project_id 
         		LEFT JOIN images I on P.project_id = I.project_id ";
         
-        $wheres = array("project_status = 'current'");
+        if ($this->uri->segment(1) == 'eli')        	
+        	$wheres = array("project_status = 'current' ");
+        else 
+        	$wheres = array("project_status != 'deleted' ");
         
         if ($type == 'team') {
         	array_push($wheres, " T.tag_type LIKE 'team_%' ");
@@ -83,7 +86,7 @@ class Projects_Model extends CI_Model {
     function getProjectsByType($type=false, $filter=false) {
         $params = array();
         $sql = "SELECT P.*, T.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN tags T on P.project_id = T.project_id LEFT JOIN images I on P.project_id = I.project_id ";
-        $wheres = array("project_status = 'current'");
+        $wheres = array("project_status != 'deleted'");
         
         if (!empty($type)) {
             array_push($wheres, " P.project_type = ?");
