@@ -425,8 +425,14 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 .companyHead td.col3 { 
 -webkit-border-radius:0 0 8px 0; -moz-border-radius:0 0 8px 0; border-radius:0 0 8px 0; 
 }
-	
+	.projectRow { border-bottom:solid #fff 20px;}
 	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style], .projectsTitle { display:none;}
 	#tmmCube[style] { display:absolute!important;}
 	.topHeader { display:none; height:75px;}
+	.companyHead .col1, .projectRow .col1 { width:15%!important;  }
+	.projectRow .col2 { width:83%!important; padding:0 0 0 3px; }
+	.projectRow h3 { margin:0 0 5px 0; }
+	.tablesorter .projectTags p { margin:2px 0;}
+	.technotes { line-height:14px; margin:3px 0 8px 0;}
+	.prjDesc { line-height:14px;}
 }
