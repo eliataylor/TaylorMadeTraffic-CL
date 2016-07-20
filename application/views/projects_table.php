@@ -139,9 +139,9 @@
 	                        </p><? endif ?>
 	                        <? if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?><p class="projectLink"><span class='lineName'><?= $this->lang->en("Dev") ?>:</span><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
 	                        <? if (!empty($row->project_devtools)): ?><p><span class='lineName'><?= $this->lang->en("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
-	                        <? if (!empty($row->project_industries)): ?><p><span class='lineName'><?= $this->lang->en("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
-	                        <? if (!empty($row->project_team)): ?><p><span class='lineName'><?= $this->lang->en("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
-	                        <? if (!empty($row->project_companies)): ?><p><span class='lineName'><?= $this->lang->en("Companies") ?>/<?= $this->lang->en("Brands") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
+	                        <? if (!empty($row->project_industries)): ?><p class="industries"><span class='lineName'><?= $this->lang->en("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
+	                        <? if (!empty($row->project_team)): ?><p  class="team"><span class='lineName'><?= $this->lang->en("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
+	                        <? if (!empty($row->project_companies)): ?><p class="companies"><span class='lineName'><?= $this->lang->en("Companies") ?>/<?= $this->lang->en("Brands") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
 	                        <? if (!empty($row->license_id)): ?><!--<p><span class='lineName'><?= $this->lang->en("License") ?>:</span> <?= $row->license_id; ?></p>--><? endif ?>
 	                    </div>
 	                </td>
