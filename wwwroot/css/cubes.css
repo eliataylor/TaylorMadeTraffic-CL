@@ -390,7 +390,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 }
 
 .company_screenname, #printLogo { display:none; } 
-
+.myrole:after { content:" - "}
 
 @media print {
     body, .master  {background:transparent!important; color:#000!important;}
@@ -436,9 +436,9 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.detailList dd{ margin:0 0 0 70px;}
 	
 	
-	.projectRow { border-bottom:solid #fff 10px; border-top:solid #fff 10px;}
+	.projectRow { border-bottom:solid #fff 15px; border-top:solid #fff 10px;}
 	.projectRow .col2 { width:83%!important; padding:0 0 0 3px; }
-	.projectRow h3 { margin:0 0 5px 0; }
+	.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
 	.tablesorter .projectTags p { margin:2px 0;}
     .technotes { background:#ccc!important; line-height:14px; margin:3px 0 8px 0;}
 	.technotes p:before {content:"\b7\a0"}

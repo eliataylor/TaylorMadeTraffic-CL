@@ -86,6 +86,7 @@
 						<?=fDate($company['endDate'], 'month')?>
 				</td>
 				<td class="col3">
+					<span class="myrole"><?=htmlentities($company['company_myrole'])?></span>
 					<?php if (isset($company['company_city'])): ?>
 						<?=$company['company_city']?>
 						<?php if ($company['company_telecommuting']): ?>
