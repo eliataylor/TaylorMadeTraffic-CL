@@ -57,6 +57,7 @@
         <?endif;?>        
     </head>
     <body id="trackauthority" class="<?=$me['con']['pstyle'];?>" >
+    	<img src="/wwwroot/images/cubespins/TUMBLE0054.png" id="printLogo" />
         <span id="tmmCube" style="display:none;">
             <?php $cubespins = scandir(ROOT_CD . "/wwwroot/images/cubespins"); $index=0;?>
             <?foreach($cubespins as $img):?>

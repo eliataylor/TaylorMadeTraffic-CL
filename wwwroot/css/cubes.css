@@ -389,9 +389,12 @@ a.fancybox { text-decoration:none; }
 transform: rotateX(-90deg) rotate(180deg) translateZ(50px);  
 }
 
+.company_screenname, #printLogo { display:none; } 
+
 
 @media print {
-    body, .master  {background:#fff!important; color:#000!important;}
+    body, .master  {background:transparent!important; color:#000!important;}
+    body { padding:.5em}
     .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -399,43 +402,55 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
     background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
     background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
-    .technotes { background:#ccc!important;}
-    #navMenu a { background: #000!important; }
     
-    .reflectionMask { display:none; }  
+/* 	#printLogo { display:block; top:0; right:5px; position:absolute; }	 */
+    
     .projectImgMask { margin:0 0 20px 0;}
     .tableBody tr, .projectRow {display:table-row!important;}
     .tableBody td {display:table-cell!important;}
-    #qTagSelector { display:none;}
     
-/*     .projectRow .col1 { width:100px!important; max-width:100px!important;} */
-/*     .projectRow .col2 { width:auto!important; } */
-    
-	.pBlack .companyHead td.col1 { 
-		background: -webkit-linear-gradient(-45deg, #cccccc 0%, #ffffff 90%); 
+	.pBlack .companyHead td.col1, .companyHead td.col1 { 
+		background:#cccccc;
+		border:0 none;
+		background: -webkit-linear-gradient(-45deg, #cccccc 10%, #ffffff 80%); 
 	}
-	.companyHead { font-size:11px;}	
-	.pBlack .companyHead td.col3 { 
-		background: -webkit-linear-gradient(-45deg, #ffffff 20%, #cccccc 100%); 
+	.companyLogo { max-height:25px; float:left; margin:0 3px 2px 0; }
+	.company_screenname {float:left; display:inline-block; text-align:left; }
+	.companyHead td.col1 { max-height:54px; }
+	td, tr { border:0 none; border-collapse:collapse;}
+	.pBlack .companyHead td.col3, .companyHead td.col3 { 
+		background:#cccccc;
+		border:0 none;
+		background: -webkit-linear-gradient(-45deg, #ffffff 15%, #cccccc 90%); 
 	}
-	.rowMargin { height:30px; border-bottom:1px solid #ccc;}
-	.companyHead td.col1 {  
--webkit-border-radius: 0 0 0 8px; -moz-border-radius: 0 0 0 8px; border-radius: 0 0 0 8px; 
-}	
-.companyHead td.col3 { 
--webkit-border-radius:0 0 8px 0; -moz-border-radius:0 0 8px 0; border-radius:0 0 8px 0; 
-}
-	.projectRow { border-bottom:solid #fff 20px;}
-	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style], .projectsTitle { display:none;}
-	#tmmCube[style] { display:absolute!important;}
-	.topHeader { display:none; height:75px;}
-	.companyHead .col1, .projectRow .col1 { width:15%!important;  }
+	.rowMargin { height:30px; border:0 none;}
+	.rowMargin:nth-child(1) { height:0;}
+
+	.companyHead .col1, .projectRow .col1 { width:15%!important; padding:0 5px 0 0;  }
+	.companyHead { font-size:11px; border:0 none;}
+		
+	.projectImgMask, .img_src { padding:0; margin:0}
+	.userProfile .userName { margin:0; font-size:30px;}
+	
+	.detailList{ margin:0;}
+	.detailList dd{ margin:0 0 0 70px;}
+	
+	
+	.projectRow { border-bottom:solid #fff 10px; border-top:solid #fff 10px;}
 	.projectRow .col2 { width:83%!important; padding:0 0 0 3px; }
 	.projectRow h3 { margin:0 0 5px 0; }
 	.tablesorter .projectTags p { margin:2px 0;}
-	.technotes { line-height:14px; margin:3px 0 8px 0;}
+    .technotes { background:#ccc!important; line-height:14px; margin:3px 0 8px 0;}
+	.technotes p:before {content:"\b7\a0"}
 	.prjDesc { line-height:14px;}
 	
+	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style], .projectsTitle { display:none;}
+    .reflectionMask { display:none; }  
+    #qTagSelector { display:none;}
+	.col1.image_src > a { display:none; }
+	.topHeader { display:none; }
+	.sociallinks { display:none;}
 	.userBio p { display:none; }
+	#tmmOpening, #tmmCube, #tmmCube img {display:none;}
 	.projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
 }

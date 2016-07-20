@@ -75,6 +75,7 @@
 				<td class="col1"><h2>
 					<?php if (isset($company['company_logo'])): ?>
 						<img title="<?=$company['company_screenname']?>" alt="<?=$company['company_screenname']?>"  class="companyLogo" src="<?=$company['company_logo']?>" /> 				
+						<span class="company_screenname"><?=$company['company_screenname'];?></span> 
 					<?php else: ?>
 						<?=$company['company_screenname'];?> 
 					<?php endif; ?>
