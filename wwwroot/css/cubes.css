@@ -408,6 +408,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
     .projectImgMask { margin:0 0 20px 0;}
     .tableBody tr, .projectRow {display:table-row!important;}
     .tableBody td {display:table-cell!important;}
+	.myrole {font-weight:bolder;}
     
 	.pBlack .companyHead td.col1, .companyHead td.col1 { 
 		background:#cccccc;
@@ -439,9 +440,9 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.projectRow { border-bottom:solid #fff 15px; border-top:solid #fff 10px;}
 	.projectRow .col2 { width:83%!important; padding:0 0 0 3px; }
 	.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
+	.projectRow h3 a { text-decoration:none!important; color:#000!important; }
 	.tablesorter .projectTags p { margin:2px 0;}
     .technotes { background:#ccc!important; line-height:14px; margin:3px 0 8px 0;}
-	.technotes p:before {content:"\b7\a0"}
 	.prjDesc { line-height:14px;}
 	
 	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style], .projectsTitle { display:none;}
