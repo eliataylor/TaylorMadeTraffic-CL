@@ -35,5 +35,17 @@
         <div class='userBio'>
             <?=$this->lang->ugc($uProfile['user_bio']);?>
         </div>
+        <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
+        <div class="userEducation">
+			<!-- <h3>EDUCATION</h3> -->
+			<h4>San Francisco State University, San Francisco, CA</h4>
+				<div>June 2007: Bachelor of Arts, Industrial Design. Dean's List</div>
+			<h4>Howard University. Washington D.C.</h4> 
+				<div>Legacy Scholarship Recipient (academic merit scholarship)</div>
+				<div>Vice President, American Institute of Aeronautics and Astronautics (AIAA), Washington, D.C. Chapter</div>
+			<h4>Postbaccalaureate. SFSU Extension / CCSF / Goldate Gate University: <span>2005 - 2008</span></h4>
+				<div>Advanced courses in mySQL, Android, Java, Lunix / Virtualization, IP Law, &amp; the SDLC</div>
+        </div>
+        <?php endif; ?>
         <? endif?>
     </div>

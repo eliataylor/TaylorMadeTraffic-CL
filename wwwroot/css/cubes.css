@@ -75,6 +75,13 @@ a.navItem.selected { color:red; }
 .snapshots { float:left; display: block;  width: 49%; margin: 0 5px 0 0;}
 .snapshots img { width:100%; max-width:400px; margin:10px 0 }
 
+.userEducation { margin:20px 0 0 0;}
+.userEducation h4 { margin:10px 0 0 0; padding:0; }
+.userEducation div { text-indent:10px; }
+.userEducation div:before { text-indent:10px;  
+    content: "•  ";
+}
+
 /*
 .prjBiz {font-size: 13px;} .prjBiz li  { list-style:decimal; }
 .prjCosts {font-size: 13px; } .prjCosts li  { list-style: circle; }
@@ -308,7 +315,7 @@ a.fancybox { text-decoration:none; }
     vertical-align:middle;
   }
 .detailList dd {
-    margin:0 0 8px 128px;
+    margin:0 0 3px 128px;
     padding: 0;
     vertical-align:middle;
  }
