@@ -75,12 +75,12 @@ a.navItem.selected { color:red; }
 .snapshots { float:left; display: block;  width: 49%; margin: 0 5px 0 0;}
 .snapshots img { width:100%; max-width:400px; margin:10px 0 }
 
-.userEducation { margin:20px 0 0 0;}
-.userEducation h4 { margin:10px 0 0 0; padding:0; }
-.userEducation div { text-indent:10px; }
-.userEducation div:before { text-indent:10px;  
-    content: "•  ";
-}
+section { margin:10px 0 0 0; padding:0; }
+section h3 { width:100%; border-bottom:1px solid #000; margin:0; }
+section h4 { margin:0; }
+.userSummary ul, .userEducation ul {padding:auto; margin:0;}
+.userEducation li, .userSummary li  { list-style-type:disc; margin-left:25px;}
+
 
 /*
 .prjBiz {font-size: 13px;} .prjBiz li  { list-style:decimal; }
@@ -438,11 +438,24 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.companyHead { font-size:11px; border:0 none;}
 		
 	.projectImgMask, .img_src { padding:0; margin:0}
-	.userProfile .userName { margin:0; font-size:30px;}
+	.userProfile .userName { height:50px; margin:0; font-size:30px;}
 	
-	.detailList{ margin:0;}
-	.detailList dd{ margin:0 0 0 70px;}
-	
+	dl.detailList{ position:absolute; top:0; right:0;     
+	padding: 0;
+    margin: 0;
+    width: 260px;
+    text-align: right;}
+	.detailList dt {
+	    float: right;
+	    margin:0 0 0 7px;
+	    font-size:100%;
+	    font-weight:bold;
+	}
+	.detailList dd {
+	    margin:0;
+	    padding: 0;
+	 }
+ 	
 	
 	.projectRow { border-bottom:solid #fff 15px; border-top:solid #fff 10px;}
 	.projectRow .col2 { width:83%!important; padding:0 0 0 3px; }

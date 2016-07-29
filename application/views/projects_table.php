@@ -4,7 +4,10 @@
 <? if (isset($cProfile) && !empty($cProfile)):?>
     <?=$this->load->view('company_profile');?>
 <? endif; ?>
-
+<section class="userExperience">
+        <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
+        	<h3>EXPERIENCE</h3>
+        <?php endif; ?>
 <?if (isset($qtfilter) && !empty($qtfilter)):?>
 <div class="projectsTitle" >
     <h2>
@@ -152,3 +155,4 @@
 		<? endforeach; ?>
     </tbody>
 </table>
+</section>
