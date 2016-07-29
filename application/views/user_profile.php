@@ -49,7 +49,7 @@
         <section class="userEducation">
 			<h3>EDUCATION</h3>
 			<h4>San Francisco State University, San Francisco, CA</h4>
-				<ul><li>June 2007: Bachelor of Arts, Industrial Design. Dean's List</li></ul>
+				<ul><li>June 2005: Bachelor of Arts, Industrial Design. Dean's List</li></ul>
 			<h4>Howard University. Washington D.C.</h4> 
 			<ul>
 				<li>Legacy Scholarship Recipient (academic merit scholarship)</li>
