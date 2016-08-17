@@ -42,8 +42,8 @@
         	<ul>
         		<li>10 years building interactive interfaces with Javascript, CSS, ActionScript, &amp; HTML</li>
         		<li>8 years building scalable SQL schemas and PHP infrastructures</li>
-        		<li>3 years building an automated contextual advertising platform with Java / Spring / Oracle distributed through a pure-JavaScript ad tag</li>
-				<li>4 years designing with the entire Adobe Creative Suite and great apprecation for finding beauty in the details</li> 
+        		<li>3 years building an automated contextual advertising platform with Java / Spring / Oracle, distributed through a pure-JavaScript ad tag</li>
+				<li>4 years designing with the entire Adobe Creative Suite and an appreciation for finding beauty in the details</li> 
         	</ul>
         </section>
         <section class="userEducation">
