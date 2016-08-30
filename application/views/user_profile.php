@@ -42,8 +42,8 @@
         		<li>10 years building interactive browser-based interfaces</li>
         		<li>8 years building scalable SQL schemas and PHP applications, analytical tools and content managers</li>
         		<li>4 years building mobile applications with Cordova and Node.js</li>
-				<li>4 years building designs &amp; plugins for Adobe's Creative Suite to process bitmap &amp; SVG images &amp; animations</li> 
-        		<li>3 years automating contextual advertising with Java, Oracle, and a pure-JavaScript ad tag</li>
+				<li>4 years building designs and plugins for Adobe's Creative Suite to process bitmap &amp; SVG images &amp; animations</li> 
+        		<li>3 years building automated contextual advertising with Java, Oracle, and JavaScript</li>
         	</ul>
         </section>
         <?php endif; ?>
