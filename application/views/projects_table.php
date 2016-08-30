@@ -76,7 +76,7 @@
 			<tr class="companyHead" data-group="<?=$groupname?>"  
 				data-projectcount="<?=count($company['projects'])?>">
 				<td class="col1"><h2>
-					<?php if (isset($company['company_logo'])): ?>
+					<?php if (isset($company['company_logo']) && isset($_GET['logos'])): ?>
 						<img title="<?=$company['company_screenname']?>" alt="<?=$company['company_screenname']?>"  class="companyLogo" src="<?=$company['company_logo']?>" /> 				
 						<span class="company_screenname"><?=$company['company_screenname'];?></span> 
 					<?php else: ?>
