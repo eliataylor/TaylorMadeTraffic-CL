@@ -38,12 +38,12 @@
         <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
         <section class="userSummary">
         	<h3>SUMMARY</h3>
-        	<h4>14 year veteran of UI design &amp; development</h4>
         	<ul>
-        		<li>10 years building interactive interfaces with Javascript, CSS, ActionScript, &amp; HTML</li>
-        		<li>8 years building scalable SQL schemas and PHP infrastructures</li>
-        		<li>3 years building an automated contextual advertising platform with Java / Spring / Oracle, distributed through a pure-JavaScript ad tag</li>
-				<li>4 years designing with the entire Adobe Creative Suite</li> 
+        		<li>10 years building interactive browser-based interfaces</li>
+        		<li>8 years building scalable SQL schemas and PHP applications, analytical tools and content managers</li>
+        		<li>4 years building mobile applications with Cordova and Node.js</li>
+				<li>4 years designing &amp; writing plugins for the Adobe Creative Suite to process bitmap and SVG images and animations</li> 
+        		<li>3 years automating contextual advertising with Java, Oracle, and a pure-JavaScript ad tag</li>
         	</ul>
         </section>
         <?php endif; ?>
