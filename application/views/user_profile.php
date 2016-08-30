@@ -35,7 +35,7 @@
         <div class='userBio'>
             <?=$this->lang->ugc($uProfile['user_bio']);?>
         </div>
-        <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
+        <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
         <section class="userSummary">
         	<h3>SUMMARY</h3>
         	<h4>14 year veteran of UI design &amp; development</h4>
@@ -43,20 +43,35 @@
         		<li>10 years building interactive interfaces with Javascript, CSS, ActionScript, &amp; HTML</li>
         		<li>8 years building scalable SQL schemas and PHP infrastructures</li>
         		<li>3 years building an automated contextual advertising platform with Java / Spring / Oracle, distributed through a pure-JavaScript ad tag</li>
-				<li>4 years designing with the entire Adobe Creative Suite and an appreciation for finding beauty in the details</li> 
+				<li>4 years designing with the entire Adobe Creative Suite</li> 
         	</ul>
         </section>
+        <?php endif; ?>
+        <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
         <section class="userEducation">
 			<h3>EDUCATION</h3>
-			<h4>San Francisco State University, San Francisco, CA</h4>
-				<ul><li>June 2005: Bachelor of Arts, Industrial Design. Dean's List</li></ul>
-			<h4>Howard University. Washington D.C.</h4> 
+			
+			<h4>San Francisco State University. San Francisco, CA
+				<span>2002 - 2005</span>					
+			</h4>
+			<ul>
+				<li>June 2005: Bachelor of Arts, Industrial Design. Dean's List</li>
+			</ul>
+			
+			<h4>Howard University. Washington D.C.
+				<span>2000 - 2002</span>		
+			</h4>
 			<ul>
 				<li>Legacy Scholarship Recipient (academic merit scholarship)</li>
 				<li>Vice President, American Institute of Aeronautics and Astronautics (AIAA), Washington, D.C. Chapter</li>
 			</ul>
-			<h4>Postbaccalaureate. SFSU Extension / CCSF / Goldate Gate University: <span>2005 - 2008</span></h4>
-			<ul><li>Advanced courses in mySQL, Android, Java, Lunix / Virtualization, IP Law, &amp; the SDLC</li></ul>
+			
+			<h4>Postbaccalaureate Studes at SFSU, CCSF, CSULA, &amp; Goldate Gate University: 
+				<span>2005 - 2008</span>
+			</h4>
+			<ul>
+				<li>Various elective courses in mySQL, Android, Java, Lunix / Virtualization, IP Law, &amp; the SDLC</li>
+			</ul>
         </section>
         <?php endif; ?>
         <? endif?>
