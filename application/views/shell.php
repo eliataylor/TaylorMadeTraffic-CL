@@ -14,7 +14,6 @@
         <? if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />
             <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
-            <script src="//code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
         <? endif; ?>        
         <? if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>        
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>            
@@ -68,7 +67,7 @@
             <?endforeach;?>
         </span>
 
-        <div class="master">  
+        <div class="master" id="master">  
             
 <!--                    <div id="cubeHolder">
   <div id="domCube">

@@ -174,7 +174,7 @@ section h4 { margin:0; }
 .starSprite { background:transparent url(http://trackauthoritymusic.com/wwwroot/images/characterRotateSprite.png?v=1358932174) 0 0 no-repeat; padding:0; overflow:hidden; width:175px; height:175px; z-index:9999999; }
 */
 
-.master { position:relative; width:100%!important; max-width:100%!important; z-index:2;}
+.master { position:relative; width:100%; max-width:100%; z-index:2;}
 
 .mainMenu .navRow:first-child { border-radius:10px 0 0 0; -moz-border-radius:10px 0 0 0; }
 .mainMenu .navRow:last-child { border-radius:0 10px 0 0; -moz-border-radius:0 10px 0 0; }

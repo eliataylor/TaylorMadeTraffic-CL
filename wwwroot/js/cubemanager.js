@@ -13,17 +13,14 @@
             VSETTINGS.sheight = Math.round($(window).height()); 
             $.ajax({type:'GET', async:false, url:"/settings?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight});
 
-//            if (VSETTINGS.swidth < 960 && $("body").hasClass("widescreen")) { // looks better narrow regardless
-//                $("body").removeClass("widescreen").addClass("narrowscreen");
-//            } else if ($("body").hasClass("narrowscreen") && VSETTINGS.swidth >= 960) {
-//                $("body").addClass("widescreen").removeClass("narrowscreen");
-//            }
-
+            if (VSETTINGS.swidth < 400) {
+            	$('#master').width(VSETTINGS.swidth - 55);
+            }
         },
         initPage : function(cont) {
             
-            if (tmt.curPage.indexOf('/eli') === 0) {
-            	tmt.toggleGroupRows('all');
+            if (ctx[cls].curPage.indexOf('/eli') === 0) {
+            	ctx[cls].toggleGroupRows('all');
             } else if ($(cont).find(".tags_table").length > 0) {
                $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});               
             }
@@ -63,6 +60,16 @@
                 
             }
             
+            
+            $(window).bind( 'hashchange', function( event ) {
+                 var hash = window.location.hash; 
+                 if (hash.indexOf("#!href=") > -1)
+                 	hash = hash.substring(hash.indexOf("#!href=") + "#!href=".length);
+                 if (hash != ctx[cls].curPage) {
+                     ctx[cls].ajaxPage(hash);
+                 }
+             });
+            
         },
         toggleGroupRows : function(groupname) {
         	$('.projectRow').each(function(){
@@ -75,28 +82,25 @@
         	});        	
         },
         buildLightBox : function() {
-            
+        	
         },
         ajaxPage : function(href) {
            if (ctx[cls].cube.id == 'menuPreloader') { 
                 //$(ctx[cls].cube).find('img:first').css({opacity:1});
                 ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
-            }
+           }
            
+           ctx[cls].curPage = href;
            document.location.hash="!href=" + href;
            $.ajax({
                type: "GET",
                url: href,
                dataType: 'html'
            }).done(function(html) {
-               ctx[cls].curPage = href;
                $('#pageBlock').html(html);
                ctx[cls].initPage('#pageBlock');
                if (ctx[cls].cube.id == 'menuPreloader') {
                    clearInterval(ctx[cls].spinInterval);
-                   //if (href.indexOf('taylormade') < 0) {
-                   //    $(ctx[cls].cube).find('img:first').css({opacity:.5});
-                   //}
                }
            });
            
