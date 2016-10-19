@@ -137,13 +137,16 @@
 	                    <? if (!empty($row->project_technotes)): ?><div class="technotes"><?= $this->lang->ugc($row->project_technotes); ?></div><? endif ?>
 	                    
 	                    <div class="projectTags">
-	                        <p><span class='lineName'><?= $this->lang->en("Started") ?>:</span> <?= $row->project_startdate; ?></p>
-	                        <? if (!empty($row->project_launchdate)): ?><p><span class='lineName'><?= $this->lang->en("Launched") ?>/<?= $this->lang->en("Lasted") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
-	                        <? if (!empty($row->project_liveurl)): ?><p  class="projectLink"><span class='lineName'><?= $this->lang->en("Live") ?>:</span>                        
+	                        <p class="project_startdate"><span class='lineName'><?= $this->lang->en("Started") ?>:</span> <?= $row->project_startdate; ?></p>
+	                        <? if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?= $this->lang->en("Launched") ?>/<?= $this->lang->en("Lasted") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
+	                        <? if (!empty($row->project_liveurl)): ?>
+	                        <p class="projectLink"><span class='lineName'><?= $this->lang->en("Live") ?>:</span>                        
 	                            <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>
-	                        </p><? endif ?>
-	                        <? if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?><p class="projectLink"><span class='lineName'><?= $this->lang->en("Dev") ?>:</span><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
-	                        <? if (!empty($row->project_devtools)): ?><p><span class='lineName'><?= $this->lang->en("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
+	                        </p>
+	                        <? endif ?>
+	                        <? if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?>
+	                        <p class="projectLink"><span class='lineName'><?= $this->lang->en("Dev") ?>:</span><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
+	                        <? if (!empty($row->project_devtools)): ?><p class="project_devtools"><span class='lineName'><?= $this->lang->en("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
 	                        <? if (!empty($row->project_industries)): ?><p class="industries"><span class='lineName'><?= $this->lang->en("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
 	                        <? if (!empty($row->project_team)): ?><p  class="team"><span class='lineName'><?= $this->lang->en("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
 	                        <? if (!empty($row->project_companies)): ?><p class="companies"><span class='lineName'><?= $this->lang->en("Companies") ?>/<?= $this->lang->en("Brands") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>

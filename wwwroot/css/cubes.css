@@ -473,5 +473,6 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.sociallinks { display:none;}
 	.userBio p { display:none; }
 	#tmmOpening, #tmmCube, #tmmCube img {display:none;}
+	.project_launchdate, .project_startdate { display:none; }
 	.projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
 }
