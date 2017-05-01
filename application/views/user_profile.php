@@ -66,7 +66,7 @@
 				<li>Vice President, American Institute of Aeronautics and Astronautics (AIAA), Washington, D.C. Chapter</li>
 			</ul>
 			
-			<h4>Postbaccalaureate Studes at SFSU, CCSF, CSULA, &amp; Goldate Gate University: 
+			<h4>Postbaccalaureate Studies at SFSU, CCSF, CSULA, &amp; Golden Gate University: 
 				<span>2005 - 2008</span>
 			</h4>
 			<ul>
