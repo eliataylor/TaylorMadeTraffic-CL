@@ -5,8 +5,9 @@
  * An open source application development framework for PHP 5.1.6 or newer
  *
  * @package		CodeIgniter
- * @author		ExpressionEngine Dev Team
- * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+ * @author		EllisLab Dev Team
+ * @copyright		Copyright (c) 2008 - 2014, EllisLab, Inc.
+ * @copyright		Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -22,7 +23,7 @@
  *
  * @package		CodeIgniter
  * @subpackage	Libraries
- * @author		ExpressionEngine Dev Team
+ * @author		EllisLab Dev Team
  * @category	Loader
  * @link		http://codeigniter.com/user_guide/libraries/loader.html
  */
@@ -653,7 +654,7 @@ class CI_Loader {
 		$this->_ci_view_paths = array($path.'views/' => $view_cascade) + $this->_ci_view_paths;
 
 		// Add config file path
-		$config =& $this->_ci_get_component('config');
+		$config = $this->_ci_get_component('config');
 		array_unshift($config->_config_paths, $path);
 	}
 
@@ -1209,7 +1210,7 @@ class CI_Loader {
 	 * @param 	string
 	 * @return	bool
 	 */
-	protected function &_ci_get_component($component)
+	protected function _ci_get_component($component)
 	{
 		$CI =& get_instance();
 		return $CI->$component;
