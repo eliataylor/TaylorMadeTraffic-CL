@@ -1,12 +1,12 @@
 <?php
 
-date_default_timezone_set('America/Los_Angeles'); 
+date_default_timezone_set('America/Los_Angeles');
 
-$prods = array('www.taylormadetraffic.com','taylormadetraffic.com','es.taylormadetraffic.com','cube.taylormadetraffic.com','www.eliataylor.com','eliataylor.com','es.eliataylor.com');
+$prods = array('www.taylormadetraffic.com','taylormadetraffic.com','es.taylormadetraffic.com','cube.taylormadetraffic.com','www.eliataylor.com','eliataylor.com','es.eliataylor.com','dev01.taylormadetraffic.com');
 
 if (php_sapi_name() == 'cli' || defined('STDIN') || defined('STDOUT') || isset($_SERVER['SHELL'])) {
     define('ENVIRONMENT', 'production');
-}elseif (in_array(strtolower($_SERVER['SERVER_NAME']), $prods)) {
+} elseif (in_array(strtolower($_SERVER['SERVER_NAME']), $prods)) {
     define('ENVIRONMENT', 'production');
 } else {
     define('ENVIRONMENT', 'development');
@@ -21,9 +21,9 @@ unset($prods);
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
-//var_dump($_POST); 
+//var_dump($_POST);
 function userErrorHandler ($errno, $errmsg, $filename, $linenum,  $vars) {
- $time=date("d M Y H:i:s"); 
+ $time=date("d M Y H:i:s");
  $errortype = array (1    => "Error",
                      2    => "Warning",
                      4    => "Parsing Error",
@@ -43,17 +43,17 @@ function userErrorHandler ($errno, $errmsg, $filename, $linenum,  $vars) {
 
   if($errno!=2 && $errno!=8) {
      die("fatal error");
-  } 
-}                    
+  }
+}
 
 switch (ENVIRONMENT) {
         case 'development':
-                error_reporting(E_ALL);    
+                error_reporting(E_ALL);
                 ini_set('error_reporting', E_ALL);
                 $old_error_handler = set_error_handler("userErrorHandler");
         break;
         case 'testing':
-                error_reporting(E_ALL);    
+                error_reporting(E_ALL);
                 ini_set('error_reporting', E_ALL);
                 $old_error_handler = set_error_handler("userErrorHandler");
         case 'production':

@@ -11,7 +11,6 @@
 | certain environments (Apache running a separate process for each
 | user, PHP under CGI with Apache suEXEC, etc.).  Octal values should
 | always be used to set the mode correctly.
-|
 */
 define('FILE_READ_MODE', 0644);
 define('FILE_WRITE_MODE', 0666);
@@ -46,7 +45,7 @@ if (php_sapi_name() == 'cli' || defined('STDIN') || defined('STDOUT') || isset($
     define('TMT_HTTP', "http://taylormadetraffic.com/");
     define('ROOT_CD', getcwd());
 } else {
-    $allowed = array('www.taylormadetraffic.com','taylormadetraffic.com','es.taylormadetraffic.com','cube.taylormadetraffic.com','www.eliataylor.com','eliataylor.com','es.eliataylor.com');
+    $allowed = array('www.taylormadetraffic.com','taylormadetraffic.com','es.taylormadetraffic.com','cube.taylormadetraffic.com','www.eliataylor.com','eliataylor.com','es.eliataylor.com','dev01.taylormadetraffic.com');
     if (ENVIRONMENT != "production") {
         $allowed = array_merge($allowed, array('localhost.taylormadetraffic.com'));
     }
@@ -55,13 +54,13 @@ if (php_sapi_name() == 'cli' || defined('STDIN') || defined('STDOUT') || isset($
 if (in_array(strtolower($_SERVER['SERVER_NAME']), $allowed)) {
     $servername = strtolower($_SERVER['SERVER_NAME']);
     if ($_SERVER['SERVER_PORT'] == 443 || isset($_SERVER['HTTPS']) || isset($_SERVER['https']) || strtolower($_SERVER['SERVER_PROTOCOL']) == "https") {
-        define('TMT_HTTP', "https://" . $servername . "/"); // most links 
+        define('TMT_HTTP', "https://" . $servername . "/"); // most links
     } else {
         define('TMT_HTTP', "http://" . $servername . "/");
     }
     unset($servername);
 } else {
-    die("illegal server name!!");
+    die("illegal server name!");
 }
 unset($allowed);
 
