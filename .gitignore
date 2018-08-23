@@ -1,7 +1,8 @@
-#/application/config/database.php
-#application/config/database.php
+application/config/database.php
+application/config/unversioned.php
 /nbproject/
 .DS_Store?
+.DS_Store
 thumbs.db
 Icon?
 Thumbs.db

@@ -1,18 +1,18 @@
 <? if (isset($uProfile) && !empty($uProfile)):?>
-    <?=$this->load->view('user_profile');?>    
+    <?=$this->load->view('user_profile');?>
 <?php endif; ?>
 <? if (isset($cProfile) && !empty($cProfile)):?>
     <?=$this->load->view('company_profile');?>
 <? endif; ?>
 <section class="userExperience">
-        <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
+        <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
         	<h3>EXPERIENCE</h3>
         <?php endif; ?>
 <?if (isset($qtfilter) && !empty($qtfilter)):?>
 <div class="projectsTitle" >
     <h2>
-    <?if (isset($qtagOptions) && !empty($qtagOptions)):?>    
-    <select 
+    <?if (isset($qtagOptions) && !empty($qtagOptions)):?>
+    <select
     	<? if (isset($uProfile) && !empty($uProfile) && !empty($uProfile['user_bio'])):?>
     		style="float:right;"
     	<?php endif; ?>
@@ -20,8 +20,8 @@
         <? if ( (isset($cProfile) && !empty($cProfile)) || (isset($uProfile) && !empty($uProfile))):?>
         <option value=""><?=$this->lang->en('Other') . ' ' . $qtags?></option>
         <?endif;?>
-        <?foreach($qtagOptions as $option):?>                        
-            <option 
+        <?foreach($qtagOptions as $option):?>
+            <option
 
                 <?php $qurl = '/';
                 if ($qtags == 'roles') {
@@ -40,11 +40,11 @@
 
             </option>
         <?endforeach;?>
-    </select>   
+    </select>
     <?endif;?>
     <? if (isset($uProfile) && empty($uProfile)):?>
         <a class='teamInviteLink' href=''><?=$this->lang->en('Are You') . ' ' . $qtfilter . '?'?></a>
-    <?endif;?>    
+    <?endif;?>
 
     <?if (isset($groups) && count($groups) === 1):?>
     	<?php $count = array_keys($groups); $count = $count[0]; $count = count($groups[$count]['projects']); ?>
@@ -53,39 +53,37 @@
             <?= ($count == 1) ? $this->lang->en('Project') : $this->lang->en('Projects');?>
         </span>
     <?endif?>
-    </h2>                
-</div>            
+    </h2>
+</div>
 <?endif;?>
 
 <table class="tablesorter projects_table">
-    <tbody id="tableBody">        
-    
-<? foreach ($groups as $company): ?> 
-		
-		<?php 
-		$groupname = $company['company_tagname']; ?>
-		
+    <tbody id="tableBody">
+
+<? foreach ($groups as $company): ?>
+
+
 		<?php if (isset($showGroup) && count($company['projects']) > 0): ?>
-		
-			
+
 			<?php if ($qhaving > 0 && $qhaving > count($company['projects'])) {
 				continue; // dont show group
 			}?>
-			
+      <?php $groupname = $company['company_tagname']; ?>
+
 			<tr class="rowMargin"><td colspan="3"></td></tr>
-			<tr class="companyHead" data-group="<?=$groupname?>"  
+			<tr class="companyHead" data-group="<?=$groupname?>"
 				data-projectcount="<?=count($company['projects'])?>">
 				<td class="col1"><h2>
 					<?php if (isset($company['company_logo']) && isset($_GET['logos'])): ?>
-						<img title="<?=$company['company_screenname']?>" alt="<?=$company['company_screenname']?>"  class="companyLogo" src="<?=$company['company_logo']?>" /> 				
-						<span class="company_screenname"><?=$company['company_screenname'];?></span> 
+						<img title="<?=$company['company_screenname']?>" alt="<?=$company['company_screenname']?>"  class="companyLogo" src="<?=$company['company_logo']?>" />
+						<span class="company_screenname"><?=$company['company_screenname'];?></span>
 					<?php else: ?>
-						<?=$company['company_screenname'];?> 
+						<?=$company['company_screenname'];?>
 					<?php endif; ?>
 				</h2></td>
 				<td class="col2">
 						<?=fDate($company['startDate'], 'month')?>
-						- 
+						-
 						<?=fDate($company['endDate'], 'month')?>
 				</td>
 				<td class="col3">
@@ -104,43 +102,43 @@
 	            	class="projectRow"
 	            	<?php if (isset($groupname)):?>data-group="<?=$groupname?>"<?php endif; ?>
 	             >
-	                
-	                <td class="col1 image_src" >	                   
+
+	                <td class="col1 image_src" >
 	                    <? if (!isset($_GET['noPics'])):?>
 		                    <div class="projectImgMask">
 		                        <a href='/projects?pid=<?= $row->project_id; ?>'>
-		                            <img  data-owidth="<?= $row->image_width ?>" 
-		                                  data-oheight="<?= $row->image_height ?>" 
+		                            <img  data-owidth="<?= $row->image_width ?>"
+		                                  data-oheight="<?= $row->image_height ?>"
 		                                  src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
-		                                  class="projectImg" />                            
+		                                  class="projectImg" />
 		                        </a>
 		                    </div>
 		<!--                    TODO, leave for old browser support from reflection <div class="blackOutFadeBG"></div>-->
 		                    <div class="reflectionMask">
-		                        <img  class="reflection" src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>' />                            
+		                        <img  class="reflection" src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>' />
 		                    </div>
 		                    <?if (isset($row->images) && count($row->images) > 1):?>
-		                        <?foreach($row->images as $index=>$img):?>            
+		                        <?foreach($row->images as $index=>$img):?>
 		                            <?if ($index==0):?>
 		                                <a class="fancybox" data-fancybox-group="gallery<?=$row->project_id?>" href="<?= $row->image_src; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
 		                            <?else:?>
 		                                <a style="display:none;" class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$row->project_id?>" ></a>
 		                            <?endif;?>
 		                        <?endforeach?>
-		                    <?endif;?>	                        
+		                    <?endif;?>
 	                    <?endif;?>
 	                </td>
 	                <td class="col2 project_title" colspan="2" >
 	                    <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
-	                    
+
 	                    <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?= $this->lang->ugc($row->project_desc); ?></div><? endif ?>
 	                    <? if (!empty($row->project_technotes)): ?><div class="technotes"><?= $this->lang->ugc($row->project_technotes); ?></div><? endif ?>
-	                    
+
 	                    <div class="projectTags">
 	                        <p class="project_startdate"><span class='lineName'><?= $this->lang->en("Started") ?>:</span> <?= $row->project_startdate; ?></p>
 	                        <? if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?= $this->lang->en("Launched") ?>/<?= $this->lang->en("Lasted") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
 	                        <? if (!empty($row->project_liveurl)): ?>
-	                        <p class="projectLink">                       
+	                        <p class="projectLink">
 	                            <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>
 	                        </p>
 	                        <? endif ?>
