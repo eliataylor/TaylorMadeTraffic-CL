@@ -2,33 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<?=$me['con']['lang']?>">
     <head>
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
-              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags; 
+              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags;
               else $docTitle = ucfirst(trim($docTitle)); ?>
         <title><?= $docTitle ?> :: TaylorMadeTraffic.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="<?=$me['con']['lang']?>" />
-		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />        
+		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
         <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1467202940" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <? if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />
             <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
-        <? endif; ?>        
-        <? if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>        
-            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>            
+        <? endif; ?>
+        <? if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>
+            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <? else:?>
             <script type="text/javascript" src="/wwwroot/js/jquery.min.js"></script>
         <?endif;?>
         <link rel="shortcut icon" href="/wwwroot/images/favicon.ico" />
-        <script type="text/javascript" src="/wwwroot/js/jquery.tablesorter.min.js"></script>          
+        <script type="text/javascript" src="/wwwroot/js/jquery.tablesorter.min.js"></script>
         <script language="javascript" type="text/javascript">
             var TMT_HTTP = "<?= TMT_HTTP ?>";
             var taTools = {};
             var VSETTINGS = <?= (is_array($me) && isset($me['con'])) ? json_encode($me['con']) : "{}" ?>;
             <? if ($this->thisvisitor->auth()): ?>
                 var CUR_VISITOR = <?= $me['user_id'] ?>;
-                <? if(isset($qparams)):?> 
+                <? if(isset($qparams)):?>
                 var QPARAMS = <?= json_encode($qparams); ?>;
                 <?endif;?>
             <? else: ?>
@@ -46,14 +46,11 @@
                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
             ga('create', 'UA-7929826-3', 'auto');
-            ga('set', '&uid', '<?=$me['session_id']?>'); 
-            //ga('require', 'linkid', 'linkid.js');
+            ga('set', '&uid', '<?=$me['session_id']?>');
             ga('send', 'pageview');
-
           </script>
-        <?endif;?>        
+        <?endif;?>
     </head>
     <body id="trackauthority" class="<?=$me['con']['pstyle'];?>" >
     	<img src="/wwwroot/images/cubespins/TUMBLE0054.png" id="printLogo" />
@@ -67,31 +64,7 @@
             <?endforeach;?>
         </span>
 
-        <div class="master" id="master">  
-            
-<!--                    <div id="cubeHolder">
-  <div id="domCube">
-    <div class="face one">
-      One face
-    </div>
-    <div class="face two">
-      Up, down, left, right
-    </div>
-    <div class="face three">
-      Lorem ipsum.
-    </div>
-    <div class="face four">
-      New forms of navigation are fun.
-    </div>
-    <div class="face five">
-      Rotating 3D cube
-    </div>
-    <div class="face six">
-      More content
-    </div>
-  </div>
-</div>-->
-            
+        <div class="master" id="master">
             <span id="tmmOpening" ref="0" style="display:none;top:-6px;left:-5px;"></span>
             <div class='topHeader'>
                 <?if (isset($qmenu)):?>
@@ -111,11 +84,11 @@
                     <a style="margin-top:2px" href="/companies" title="<?=ucwords($this->lang->en('Companies'))?>" class="menuBox lc">
                         <img src="/wwwroot/images/companies.png" />
                     </a>
-                    
+
                     <a href="/industries" title="<?=ucwords($this->lang->en('Industries'))?>" class="menuBox rc">
                         <img src="/wwwroot/images/industries.png" />
                     </a>
-                    
+
                     <a href="/technologies" title="<?=ucwords($this->lang->en('Technologies'))?>" class="menuBox rr">
                         <img src="/wwwroot/images/technologies.png" />
                     </a>
@@ -125,11 +98,11 @@
                            <img title="<?=$this->lang->msg('english')?>"
                                <?if ($me['con']['lang'] != 'en'):?> style="opacity:.60; filter:alpha(opacity=60);"<?endif;?>
                                onclick="tmt.changeLang('en')" src="/wwwroot/images/United-States_16x16-32.png" />
-                           <img 
+                           <img
                                title="<?=$this->lang->msg('español')?>"
                                <?if ($me['con']['lang'] != 'es'):?> style="opacity:.60; filter:alpha(opacity=60);"<?endif;?>
                                onclick="tmt.changeLang('es')" src="/wwwroot/images/Colombia_16x16-32.png" />
-                        </ul>                      
+                        </ul>
                     </div>
 
                     <a id="menuBoxBottom" href="/taylormade" title="<?=$this->lang->en("Taylor Made")?>" class="menuBox bc">
@@ -146,26 +119,26 @@
                             <a class='navItem<? if($key == $seg1 || (empty($seg1) && $key == 'technologies')):?> selected<?endif;?>' href="/<?=$key?>" ><?=ucwords($param['title'])?></a>
                         <?endif;?>
                     <?endforeach;?>
-                </div>            
-                <?endif;?>  
+                </div>
+                <?endif;?>
             </div>
-            
+
              <? if (!empty($errors)): ?>
-                <div class="serverErrors">  
+                <div class="serverErrors">
                     <ul>
-                    <? foreach ($errors as $key => $value): ?> 
+                    <? foreach ($errors as $key => $value): ?>
                         <li><?= $value ?></li>
-                    <? endforeach; ?>                    
+                    <? endforeach; ?>
                     </ul>
                 </div>
-            <? endif; ?>            
+            <? endif; ?>
             <div id="pageBlock" >
             <? if (isset($pages)): ?>
-                <? foreach ($pages as $key => $value): ?> 
+                <? foreach ($pages as $key => $value): ?>
                     <div class="moduleBlock <?= $key ?>" >
                         <?= $value ?>
                     </div>
-                <? endforeach; ?>                    
+                <? endforeach; ?>
             <? endif; ?>
             </div>
         </div>
@@ -173,9 +146,9 @@
             <div onclick='tmt.closeNotice();' class='closeBtn'>x</div>
             <div id='softNoticeBody'></div>
         </div>
-        <div class="starSprite" style="display:none;" id="taPreloader" > </div>            
+        <div class="starSprite" style="display:none;" id="taPreloader" > </div>
         <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1467202940"></script>
 	<link rel="stylesheet" type="text/css" href="/wwwroot/js/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
-	<script type="text/javascript" src="/wwwroot/js/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>       
+	<script type="text/javascript" src="/wwwroot/js/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
     </body>
 </html>
