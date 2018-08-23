@@ -311,8 +311,9 @@ class LenguaPlusController extends CI_Controller {
     	} else if (!empty($pid)) {
     		// http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=40
     		$obj = $this->projects->getProjectById($pid);
-    		if (!empty($obj)) $this->updateProjectTags($pid, $obj);
-    		return $this->output->set_output(json_encode($obj));
+    		if (!empty($obj)) $obj = $this->updateProjectTags($pid, $obj);
+        $this->output->set_content_type('text/javascript');
+        return $this->output->set_output(json_encode($obj));
     	}
     	return $this->output->set_output('invalid');
     }
@@ -389,8 +390,8 @@ class LenguaPlusController extends CI_Controller {
     		$tags = explode(',',$obj->project_devtools);
     		foreach($tags as $tag) {
     			$tag = trim($tag);
-    			if (empty($tag)) continue;
-    			array_push($humanStr, $tag);
+    			if (empty($tag) || isset($humanStr[$tag])) continue;
+    			$humanStr[$tag] = $tag;
     			if ($this->projects->hasTag($pid, $tag)) continue; // still keep in in humanStr
     			$t = new StdClass();
     			$t->tag_type = 'technologies';
@@ -409,8 +410,8 @@ class LenguaPlusController extends CI_Controller {
     		$tags = explode(',',$obj->project_copyright);
     		foreach($tags as $tag) {
     			$tag = trim($tag);
-    			if (empty($tag)) return true;
-    			array_push($humanStr, $tag);
+          if (empty($tag) || isset($humanStr[$tag])) continue;
+    			$humanStr[$tag] = $tag;
     			$t = new StdClass();
     			$t->tag_type = 'companies';
     			$t->tag_key = $tag;
@@ -426,8 +427,8 @@ class LenguaPlusController extends CI_Controller {
     		$tags = explode(',',$obj->project_client);
     		foreach($tags as $tag) {
     			$tag = trim($tag);
-    			if (empty($tag)) return true;
-    			array_push($humanStr, $tag);
+          if (empty($tag) || isset($humanStr[$tag])) continue;
+    			$humanStr[$tag] = $tag;
     			$t = new StdClass();
     			$t->tag_type = 'companies';
     			$t->tag_key = $tag;
@@ -444,8 +445,8 @@ class LenguaPlusController extends CI_Controller {
     		$tags = explode(',',$obj->project_industries);
     		foreach($tags as $tag) {
     			$tag = trim($tag);
-    			if (empty($tag)) return true;
-    			array_push($humanStr, $tag);
+          if (empty($tag) || isset($humanStr[$tag])) continue;
+    			$humanStr[$tag] = $tag;
     			if ($this->projects->hasTag($pid, $tag)) continue; // still keep in in humanStr
     			$t = new StdClass();
     			$t->tag_type = 'industries';
@@ -458,6 +459,8 @@ class LenguaPlusController extends CI_Controller {
     		$obj->project_industries = implode(', ', $humanStr);
     	}
 
+      // WARN doesn't prevent duplicates
+      /*
     	$humanStr = array();
     	if (isset($obj->project_team) && !empty($obj->project_team)) {
         $role_users = preg_split('/(?<=[.])\s+/', $obj->project_team, -1, PREG_SPLIT_NO_EMPTY);  // space is important since i use E.A.Taylor
@@ -497,6 +500,7 @@ class LenguaPlusController extends CI_Controller {
     		$t->project_id = $pid;
     		$this->projects->insertTag($t);
     	}
+      */
     	return $obj;
     }
 

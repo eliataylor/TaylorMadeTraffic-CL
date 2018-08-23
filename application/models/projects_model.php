@@ -272,7 +272,10 @@ class Projects_Model extends CI_Model {
 
     function insertTag($data) {
         if (!is_object($data) && !is_array($data)) return false;
-        $this->db->insert('tags', $data);
+        //$this->db->insert('tags', $data);
+        $sql = $this->db->insert_string('tags', $data);
+        $sql .= ' ON DUPLICATE KEY UPDATE tag_type = ?';
+        $this->db->query($sql, $data->tag_type);
         return $this->db->insert_id();
     }
 
