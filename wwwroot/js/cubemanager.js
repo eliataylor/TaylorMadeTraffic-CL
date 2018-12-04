@@ -1,8 +1,18 @@
-(function(cls, ctx) {   
-    ctx[cls] = { 
-        tNotice : 0,        
+/*
+before you do what i know you're gunna do and FREAK OUT!!!,
+just know i wrote this good 'ol jQuery back 08'.
+YEAH!!! ...so go take your modern day frameworks and webpackery and shove it!
+
+
+i'll be done the same :/
+
+*/
+
+(function(cls, ctx) {
+    ctx[cls] = {
+        tNotice : 0,
         growInterval : null, spinInterval : null, floatInterval : null, pulseInterval : null,
-        spinDeg : 0, growing : 1, opened : 0,       
+        spinDeg : 0, growing : 1, opened : 0,
         mousePos : [400, 400],
         openSpeed : 30, spinSpeed : 25, floatSpeed : 25, pulseSpeed : 25,
         opening : document.getElementById("tmmOpening"),
@@ -10,7 +20,7 @@
         curPage : "",
         autoSize : function() {
             VSETTINGS.swidth = Math.round($(window).width()); // set by isMobile / configs
-            VSETTINGS.sheight = Math.round($(window).height()); 
+            VSETTINGS.sheight = Math.round($(window).height());
             $.ajax({type:'GET', async:false, url:"/settings?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight});
 
             if (VSETTINGS.swidth < 400) {
@@ -18,35 +28,35 @@
             }
         },
         initPage : function(cont) {
-            
+
             if (ctx[cls].curPage.indexOf('/eli') === 0) {
             	ctx[cls].toggleGroupRows('all');
             } else if ($(cont).find(".tags_table").length > 0) {
-               $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});               
+               $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});
             }
-           
+
             $(cont).find('.companyHead').click(function() {
             	var groupname = $(this).attr('data-group');
             	ctx[cls].toggleGroupRows(groupname);
             });
-            
+
             $(cont).find('a').click(function(e){
                var href = $(this).attr('href');
-				if (href.indexOf('http') < 0 && !$(this).hasClass('fancybox')) { // not on external links      
+				if (href.indexOf('http') < 0 && !$(this).hasClass('fancybox')) { // not on external links
 				    e.preventDefault();
 		                    if (href && href != '')  ctx[cls].ajaxPage(href);
 				}
             });
-            
+
             $(cont).find('.teamInviteLink').click(function(e){
                e.preventDefault();
                ctx[cls].softNotice('Email me to setup (or hide) your account');
             });
-            
-            
+
+
             if ($(cont).find('.fancybox').length > 0) {
                 $(cont).find('.fancybox').click(function(){
-                    //onclick="$('#galleryImg<?=$project->project_id?>').attr('src',this.getAttribute('data-oimage')).css({maxWidth:this.getAttribute('data-owidth')});return false;" 
+                    //onclick="$('#galleryImg<?=$project->project_id?>').attr('src',this.getAttribute('data-oimage')).css({maxWidth:this.getAttribute('data-owidth')});return false;"
                     $('.fancybox').fancybox({
                             helpers : {
                                 thumbs : {
@@ -55,21 +65,21 @@
                                 }
                             }
                     });
-                    
+
                 });
-                
+
             }
-            
-            
+
+
             $(window).bind( 'hashchange', function( event ) {
-                 var hash = window.location.hash; 
+                 var hash = window.location.hash;
                  if (hash.indexOf("#!href=") > -1)
                  	hash = hash.substring(hash.indexOf("#!href=") + "#!href=".length);
                  if (hash != ctx[cls].curPage) {
                      ctx[cls].ajaxPage(hash);
                  }
              });
-            
+
         },
         toggleGroupRows : function(groupname) {
         	$('.projectRow').each(function(){
@@ -79,17 +89,18 @@
         		} else {
         			$(this).slideUp();
         		}
-        	});        	
+        	});
         },
         buildLightBox : function() {
-        	
+
         },
         ajaxPage : function(href) {
-           if (ctx[cls].cube.id == 'menuPreloader') { 
+           if (ctx[cls].cube.id == 'menuPreloader') {
                 //$(ctx[cls].cube).find('img:first').css({opacity:1});
+                clearInterval(ctx[cls].spinInterval);
                 ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
            }
-           
+
            ctx[cls].curPage = href;
            document.location.hash="!href=" + href;
            $.ajax({
@@ -103,7 +114,7 @@
                    clearInterval(ctx[cls].spinInterval);
                }
            });
-           
+
            var title = (href.indexOf("?") > -1) ? href.substring(0, href.indexOf('?')) : href;
            if (title.indexOf("/") === 0) title = title.substring(1);
            title = title.charAt(0).toUpperCase() + title.slice(1);
@@ -130,13 +141,13 @@
            });
         },
         changeLang : function(lang) {
-            
+
             var href = document.location.hash;
-            if (href && href.indexOf('!href=') > -1) 
+            if (href && href.indexOf('!href=') > -1)
                 href = href.substring(href.indexOf('!href=') + '!href='.length); //  assumes last hash param
             if (!href || href == '')
                 href = document.location.pathname;
-            
+
             if (lang == 'en') lang = 'www';
             var host = location.hostname.split('.');
             if (host.length > 2) {
@@ -148,13 +159,14 @@
         },
         initMouseIntro:function(autostart) {
             ctx[cls].cube.style.left = $(window).width() + "px";
-            ctx[cls].cube.style.top = 100 + "px";            
-            $(ctx[cls].cube).show();            
+            ctx[cls].cube.style.top = 100 + "px";
+            $(ctx[cls].cube).show();
             
+            clearInterval(ctx[cls].spinInterval);
             ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
-            ctx[cls].floatInterval = setInterval("tmt.floatCube();", ctx[cls].floatSpeed);                     
+            ctx[cls].floatInterval = setInterval("tmt.floatCube();", ctx[cls].floatSpeed);
             ctx[cls].pulseInterval = setInterval("tmt.pulseCube();", ctx[cls].pulseSpeed);
-            
+
             if (autostart){
                 ctx[cls].moveToMenu();
             } else {
@@ -164,11 +176,11 @@
                     ctx[cls].moveToMenu();
                 });
             }
-            
+
             if (VSETTINGS.swidth >= 960 && $('#pageBlock').height() < 1000) {
                 mousePos : [$(window).width() - 50, $(window).height() - 50];
             }
-            
+
             $("a.menuBox").hover(
                 function(){
                     if (!$(this).hasClass('selected')) {
@@ -184,18 +196,18 @@
             $("#navMenu").mouseout(function(){
                 $("#menuLabel").html('');
             });
-        },        
-        growMenu : function() {   
+        },
+        growMenu : function() {
             var kill = false;
             $(".menuBox").each(function(){
-                var dim = $(this).width();                
+                var dim = $(this).width();
                 $(this).width(dim + 1);
                 $(this).height(dim + 1);
                 if (dim > 43) {
                     kill = true;
                 }
             });
-            if (kill === true) {                
+            if (kill === true) {
                 $('a.menuBox').each(function() {
                     if ($(this).hasClass('selected') || ctx[cls].curPage == $(this).attr('href')) $(this).find('img:first').animate({opacity:1});
                     else $(this).find('img:first').animate({opacity:.5});
@@ -224,8 +236,8 @@
             ctx[cls].spinDeg = 6;
             imgs[0].src = imgs[ctx[cls].spinDeg].src;
             $('#menuBoxBottom').html(cube);
-        },        
-        pulseCube : function() {            
+        },
+        pulseCube : function() {
             if (ctx[cls].cube.id != 'menuPreloader') {
                 var wid = $(ctx[cls].cube).width();
                 var hei = $(ctx[cls].cube).height();
@@ -241,7 +253,7 @@
                 ctx[cls].cube.style.height = (hei+inc) + "px";
             }
         },
-        shrinkMenu : function() {            
+        shrinkMenu : function() {
             var kill = false;
             $(".menuBox").each(function(){
                 var dim = $(this).width();
@@ -261,7 +273,7 @@
             var imgs = ctx[cls].cube.getElementsByTagName('img');
             ctx[cls].spinDeg = (ctx[cls].spinDeg > 58) ? 0 : ctx[cls].spinDeg+1;
             imgs[0].src = imgs[ctx[cls].spinDeg].src;
-        }, 
+        },
         floatCube:function(e) {
             if (ctx[cls].mousePos) {
                 var wid = $(ctx[cls].cube).width();
@@ -280,11 +292,11 @@
                     ctx[cls].cube.style.top = Math.round(y+stepY) + "px";
                 }
             }
-        }, 
+        },
         moveToMenu:function() {
-            $('a.menuBox img').css({opacity:0});            
-            document.onmousemove = null; 
-            window.onmousemove = null; 
+            $('a.menuBox img').css({opacity:0});
+            document.onmousemove = null;
+            window.onmousemove = null;
             ctx[cls].spinSpeed = 5; // speed up spin
             clearInterval(ctx[cls].floatInterval);
             ctx[cls].floatInterval = null;
@@ -292,7 +304,7 @@
             var offset = $('.master:first').offset();
             x += offset.left;
             y += offset.top;
-            var cubeOff = $(ctx[cls].cube).offset();           
+            var cubeOff = $(ctx[cls].cube).offset();
             // relate to distance from target coordinate x // 0 offset should be around 1 second, 1700 should around 3 seconds
             var moveTime = Math.max((cubeOff.left - x), (cubeOff.top - y));
             moveTime = moveTime + (2500);
@@ -308,39 +320,39 @@
                 if (ctx[cls].spinDeg == 0) {
                     clearInterval(ctx[cls].spinInterval);
                 }
-            }            
+            }
             if (ctx[cls].spinDeg == 0 && cubeWid == 100) {
                 clearInterval(ctx[cls].floatInterval); // recalls checkforFrame1, but wait for both
                 $(ctx[cls].cube).hide();
                 ctx[cls].openCube();
                 ctx[cls].spinSpeed = 30; // reset for if reopened
-                $(ctx[cls].opening).show();                
+                $(ctx[cls].opening).show();
             }
         },
         startClose : function() {
             $("#closeBtn").fadeOut(function() {
                 ctx[cls].growInterval = setInterval("tmt.shrinkMenu();", ctx[cls].openSpeed);
-            });    
-            
+            });
+
         },
         closeCube:function() {
             var openDeg = parseInt(ctx[cls].opening.getAttribute("ref"));
             if (openDeg <= 0) {
                 $(ctx[cls].cube).show();
                 $(ctx[cls].opening).hide();
-                document.onmousemove = ctx[cls].setMousePos; 
-                window.onmousemove = ctx[cls].setMousePos; 
+                document.onmousemove = ctx[cls].setMousePos;
+                window.onmousemove = ctx[cls].setMousePos;
                 window.onclick = function(e){
-                    ctx[cls].setMousePos(e); 
-                    ctx[cls].moveToMenu(e); 
+                    ctx[cls].setMousePos(e);
+                    ctx[cls].moveToMenu(e);
                 };
-                window.onclick = ctx[cls].moveToMenu; 
+                window.onclick = ctx[cls].moveToMenu;
                 ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].openSpeed);
-                ctx[cls].floatInterval = setInterval("tmt.floatCube();", ctx[cls].openSpeed);                     
+                ctx[cls].floatInterval = setInterval("tmt.floatCube();", ctx[cls].openSpeed);
                 return;
             }
             else {
-                openDeg = openDeg - 101; 
+                openDeg = openDeg - 101;
                 ctx[cls].opening.setAttribute("ref", openDeg);
                 ctx[cls].opening.style.backgroundPosition = "0 -" + openDeg + "px";
                 setTimeout("tmt.closeCube();", ctx[cls].openSpeed);
@@ -354,12 +366,12 @@
                     ctx[cls].growInterval = setInterval("tmt.growMenu();", ctx[cls].openSpeed);
                 });
             } else {
-                openDeg = openDeg + 101; 
+                openDeg = openDeg + 101;
                 ctx[cls].opening.setAttribute("ref", openDeg);
                 ctx[cls].opening.style.backgroundPosition = "0 -" + openDeg + "px";
                 setTimeout("tmt.openCube();", ctx[cls].openSpeed);
             }
-        }, 
+        },
         setMousePos: function (e) {
             var posx = 50;
             var posy = 50;
@@ -389,7 +401,7 @@
             $("#softNotice").fadeIn();
             ctx[cls].tNotice = 1;
             if (!stayopen) ctx[cls].closeNoticeIf();
-        }, 
+        },
         closeNoticeIf : function() {
             if (ctx[cls].tNotice > 4) {
                 $('#softNotice').fadeOut(400);
@@ -404,7 +416,7 @@
         }
     };
 })("tmt", this);
-        
+
 $(document).ready(function() {
     tmt.autoSize();
     window.addEventListener('onorientationchange', tmt.autoSize);
@@ -414,7 +426,7 @@ $(document).ready(function() {
         href = href.substring(href.indexOf('!href=') + '!href='.length);
         if (href != '' && href != document.location.pathname) {
             tmt.ajaxPage(href);
-        }        
+        }
     }
     if ($(tmt.cube).length == 1) { // cms pages
         tmt.initMouseIntro(true);
