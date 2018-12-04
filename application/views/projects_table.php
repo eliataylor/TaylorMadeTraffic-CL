@@ -129,7 +129,12 @@
 	                    <?endif;?>
 	                </td>
 	                <td class="col2 project_title" colspan="2" >
-	                    <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
+	                    <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a>
+                      <?php if(!empty($row->project_subtitle)):?>
+                        <br />
+                        <small style='font-size:50%;'><em><?=$row->project_subtitle;?></em></small>
+                      <?php endif; ?>
+                      </h3>
 
 	                    <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?= $this->lang->ugc($row->project_desc); ?></div><? endif ?>
 	                    <? if (!empty($row->project_technotes)): ?><div class="technotes"><?= $this->lang->ugc($row->project_technotes); ?></div><? endif ?>

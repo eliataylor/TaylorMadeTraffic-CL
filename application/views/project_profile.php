@@ -1,15 +1,21 @@
 <table class="tablesorter">
     <tbody id="tableBody">
             <tr id="even pid_<?=$project->project_id?>" data-pid="<?=$project->project_id?>" >
-                <td style="width:60%" class="col2">    
-                    <h3><?=$project->project_title;?></h3>
+                <td style="width:60%" class="col2">
+                    <h3><?=$project->project_title;?>
+                    <?php if(!empty($project->project_subtitle)):?>
+                      <br />
+                      <small style='font-size:65%;'><em><?=$project->project_subtitle;?></em></small>
+                    <?php endif; ?>
+                    </h3>
+
                     <?if(!empty($project->project_desc)):?><p class="prjDesc"><?=$this->lang->ugc($project->project_desc);?></p><?endif?>
-                    <?if(!empty($project->project_technotes)):?><p><div class="technotes"><?=$this->lang->ugc($project->project_technotes);?></div></p><?endif?>                    
+                    <?if(!empty($project->project_technotes)):?><p><div class="technotes"><?=$this->lang->ugc($project->project_technotes);?></div></p><?endif?>
                 <? if (false || $me['con']['swidth'] > 980):?>
                 </td>
-                <td style="width:40%" class="col3">  
+                <td style="width:40%" class="col3">
                 <?endif;?>
-                    
+
                     <p><span class='lineName'><?=$this->lang->en("Started")?>:</span> <?=$project->project_startdate;?></p>
                     <?if(!empty($project->project_launchdate)):?><p><span class='lineName'><?=$this->lang->en("Launched/Lasted:")?>:</span> <?=$project->project_launchdate;?></p><?endif?>
                     <?if(!empty($project->project_liveurl)):?><p><span class='lineName'><?=$this->lang->en("Live")?>:</span><a href="<?=$project->project_liveurl;?>" target="_blank"> <?=$project->project_liveurl;?></a></p><?endif?>
@@ -26,12 +32,12 @@
 </table>
 
 <? if (!empty($project->images)): ?>
-<div class="galleryBlock">    
+<div class="galleryBlock">
     <?if (count($project->images) > 0):?>
-        <div class="galleryTopBar">    
-        <?foreach($project->images as $img):?>            
+        <div class="galleryTopBar">
+        <?foreach($project->images as $img):?>
             <a class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$project->project_id?>" >
-            <img src='<?=imageSize($img->image_src, "150x150")?>' 
+            <img src='<?=imageSize($img->image_src, "150x150")?>'
                  data-oimage="<?=$img->image_src?>"
                  data-owidth="<?=$img->image_width?>" data-oheight="<?=$img->image_height?>"
                  />
