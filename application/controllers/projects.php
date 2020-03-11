@@ -206,22 +206,15 @@ class Projects extends CI_Controller {
 				$groups[$company]['endDate'] = max($groups[$company]['endDate'], strtotime($row->project_launchdate));
 				array_push($groups[$company]['projects'], $row);
     	}
-    	if (isset($groups) && count($groups) > 0){
+
+    	if (count($groups) > 0) {
      		usort($groups, function($a, $b) {
           return $a['endDate'] < $b['endDate'];
-     			/* if (count($b['projects']) === count($a['projects'])) {
- 	    			$aDiff = $a['endDate'] - $b['endDate'];
- 	    			$bDiff = $b['endDate'] - $b['startDate'];
- 	    			return $aDiff < $bDiff;
-     			} else if ($a['company_tagname'] == 'TaylorMadeTraffic' || $b['company_tagname'] == 'TaylorMadeTraffic') {
-     				return true;
-     			}
-     			return count($b['projects']) - count($a['projects']);  */
      		});
     	}
     	$this->data['showGroup'] = true;
     	$this->data['groups'] = $groups;
-    	// unset($this->data['tableRows']);
+    	unset($this->data['tableRows']);
     }
 
     // just URL predefines qtags
