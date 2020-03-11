@@ -144,8 +144,8 @@ class Projects extends CI_Controller {
             $this->data['headers'] = array(
             'count'=>$this->lang->en("Total"),
             'tag_key'=>$this->data['docTitle'],
-            'tag_date'=>$this->lang->en("Last Used")
-                );
+            'tag_date'=>$this->lang->en("Last Connect")
+            );
             if ($this->data['qtags'] == "roles") $this->data['tableRows'] = $this->projects->getTagsTeamRoles();
             else $this->data['tableRows'] = $this->projects->getTagsTeamMembers();
             $this->sendOut('tags_table');
@@ -294,9 +294,16 @@ class Projects extends CI_Controller {
     private function getTableForTags() {
         $this->data['headers'] = array(
             'count'=>$this->lang->en("Total"),
-            'tag_key'=>$this->data['docTitle'],
-            'tag_date'=>$this->lang->en("Last Used")
-                );
+            'tag_key'=>$this->data['docTitle']
+        );
+
+        $this->data['headers']['tag_date'] = '-'; // years
+        if ($this->data['qtags'] === 'technologies') {
+          $this->data['headers']['tag_date'] = $this->lang->en("Last Used");
+        } else if ($this->data['qtags'] === 'companies' || $this->data['qtags'] === 'industries') {
+          $this->data['headers']['tag_date'] = $this->lang->en("Last Project");
+        }
+
         $this->data['tableRows'] = $this->projects->getTags($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
     }
 
