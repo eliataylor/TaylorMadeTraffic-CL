@@ -7,6 +7,7 @@ class Projects_Model extends CI_Model {
 
     function __construct() {
         parent::__construct();
+        // fuck it.
         $this->db->query('set sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"');
         //$this->db->query('set sql_mode=""');
     }
@@ -82,13 +83,16 @@ class Projects_Model extends CI_Model {
 
         $sql .= ' order by P.project_type desc, P.project_launchdate desc, P.project_startdate desc';
         $query = $this->db->query($sql, $params);
-        //echo $this->db->last_query();
-        if ($query->num_rows() > 0) return $query->result_object();
+        if ($query->num_rows() > 0) {
+          $rows = $query->result_object();
+          return $rows;
+        }
         return array();
     }
 
     function getProjectsByType($type=false, $filter=false) {
         $params = array();
+        // yeah, i wrote this some ~15 years ago.
         $sql = "SELECT P.*, T.*, I.*, min(I.image_weight) FROM `projects` P LEFT JOIN tags T on P.project_id = T.project_id LEFT JOIN images I on P.project_id = I.project_id ";
         $wheres = array("project_status != 'deleted'");
 
@@ -127,7 +131,7 @@ class Projects_Model extends CI_Model {
     }
 
     function getProjectImages($pid=false) {
-        $sql = "SELECT I.* FROM images I WHERE I.project_id = ? order by I.project_id asc, I.image_weight asc";
+        $sql = "SELECT I.* FROM images I WHERE I.project_id = ? order by I.image_weight asc, I.image_src desc";
         $query = $this->db->query($sql, array($pid));
         if ($query->num_rows() > 0) return $query->result_object();
         return array();

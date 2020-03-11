@@ -301,6 +301,7 @@ class LenguaPlusController extends CI_Controller {
 
     public function runUpdate() {
       // http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=46
+      // http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=51
     	// http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=40&dir=/wwwroot/images/sites/blingby
     	$pid = $this->input->get_post('pid');
     	$dir = $this->input->get_post('dir');

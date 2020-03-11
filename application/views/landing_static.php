@@ -4,17 +4,17 @@
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
               if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = "Home"; 
               else $docTitle = ucfirst(trim($docTitle)); ?>
-        <title><?= $docTitle ?> :: ID Dashboard</title>
+        <title><?php echo  $docTitle ?> :: ID Dashboard</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta property="fb:admins" content="100000210646549"/>
-        <meta name="author" content="Eli A Taylor &copy; <?= date("Y"); ?>" />
+        <meta name="author" content="Eli A Taylor &copy; <?php echo  date("Y"); ?>" />
         <meta name="language" content="en-us" />
         <LINK REL="SHORTCUT ICON" HREF="/wwwroot/images/tmm_menu.jpg">
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta http-equiv="Cache-control" content="public" />
         <meta HTTP-EQUIV="Pragma" CONTENT="public" />
-        <meta name="expires" content="<?= date(DATE_RFC822, strtotime("+3 month")) ?>" />
+        <meta name="expires" content="<?php echo  date(DATE_RFC822, strtotime("+3 month")) ?>" />
         <? if ($me['con']['isMobile']): ?>
             <meta name="viewport" content="width=device-width; initial-scale=1.0" />
             <meta name="apple-mobile-web-app-capable" content="yes"  />
@@ -24,13 +24,13 @@
         <? endif; ?>
         <meta name="format-detection" content="telephone=no" />
         <script language="javascript" type="text/javascript">
-        var TMT_HTTP = "<?= TMT_HTTP ?>";
+        var TMT_HTTP = "<?php echo  TMT_HTTP ?>";
         <? if ($this->thisvisitor->auth()): ?>
-            var CUR_VISITOR = <?= $me['user_id'] ?>;
+            var CUR_VISITOR = <?php echo  $me['user_id'] ?>;
         <? else: ?>
             var CUR_VISITOR = false;
         <? endif; ?>
-        var VSETTINGS = <?= json_encode($me['con']) ?>;
+        var VSETTINGS = <?php echo  json_encode($me['con']) ?>;
         </script>
         <? if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>        
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>            
@@ -41,7 +41,7 @@
         <? endif; ?>
         <link rel="stylesheet" href="/wwwroot/css/cubes.css" />
     </head>
-    <body <? if (isset($mobile)): ?>class="isMobile <?= $mobile ?>"<? endif; ?>  >
+    <body <? if (isset($mobile)): ?>class="isMobile <?php echo  $mobile ?>"<? endif; ?>  >
         <span id="tmmOpening" ref="0" style="display:none; top:50px; left:50px;"></span>
         <span id="tmmCube" style="display:none;"></span>  
 
@@ -146,7 +146,7 @@
                                 <div class="thWrap"><img src="/wwwroot/images/sites/healthline/sharecare_allergies.png" align="left" /></div>
                                 <span class="graytxt">made:</span> 2009-2012 
                                 <span class="graytxt">with:</span> Native JS / Java / SQL
-                                <span class="graytxt"><?= date("Y"); ?> &copy; </span> Healthline Networks
+                                <span class="graytxt"><?php echo  date("Y"); ?> &copy; </span> Healthline Networks
                             </h4>
                         </li>
 
@@ -157,7 +157,7 @@
                                 <span class="thWrap"><img src="/wwwroot/images/sites/healthline/DashboardCampaingBuilder.png" align="left" /></span>
                                 <span class="graytxt">made:</span> 2010, 2012
                                 <span class="graytxt">with:</span> jQuery,YUI / Flex / Java / SQL
-                                <span class="graytxt"><?= date("Y"); ?> &copy; </span> Healthline Networks
+                                <span class="graytxt"><?php echo  date("Y"); ?> &copy; </span> Healthline Networks
                             </h4>
                         </li>
                         <li class="pItem">
@@ -167,7 +167,7 @@
                                 <span class="thWrap"><img src="/wwwroot/images/sites/healthline/th/computeQA.png" align="left" /></span>
                                 <span class="graytxt">made:</span> 2012
                                 <span class="graytxt">with:</span> Native JS / Chrome Extensions / Local Storage &amp; Lawnchiar (websql-lite)
-                                <span class="graytxt"><?= date("Y"); ?> &copy; </span> Healthline Networks
+                                <span class="graytxt"><?php echo  date("Y"); ?> &copy; </span> Healthline Networks
                             </h4>
                         </li>
                     </ul>
@@ -182,7 +182,7 @@
                                 <span class="thWrap"><img src="/wwwroot/images/sites/bcbg/th/bcbg_02.jpg" align="left" /></span>
                                 <span class="graytxt">made:</span> 2009
                                 <span class="graytxt">with:</span> AS2
-                                <span class="graytxt">license:</span> BCBGMaxAzriaGroup &copy; <?= date("Y"); ?>
+                                <span class="graytxt">license:</span> BCBGMaxAzriaGroup &copy; <?php echo  date("Y"); ?>
                             </h4>
                         </li>                        
                         <li class="pItem">
@@ -191,7 +191,7 @@
                                 <span class="thWrap"><img src="/wwwroot/images/sites/wl/th/wl_th_performance.jpg" align="left" /></span>
                                 <span class="graytxt">made:</span> 2008
                                 <span class="graytxt">with:</span> jQuery / PHP / mySQL
-                                <span class="graytxt">license:</span> Beverly Clark Enterprises &copy; <?= date("Y"); ?>
+                                <span class="graytxt">license:</span> Beverly Clark Enterprises &copy; <?php echo  date("Y"); ?>
                             </h4>
                         </li>  
                         <li class="pItem">
@@ -200,7 +200,7 @@
                                 <span class="thWrap"><img src="/wwwroot/images/sites/gabby/th/gabby_11.jpg" align="left" /></span>
                                 <span class="graytxt">made:</span> 2008
                                 <span class="graytxt">with:</span>  AS3
-                                <span class="graytxt">license:</span> GoodLife With Gabby &copy; <?= date("Y"); ?>
+                                <span class="graytxt">license:</span> GoodLife With Gabby &copy; <?php echo  date("Y"); ?>
                             </h4>
                         </li>                                                 
                         <li class="pItem">
@@ -209,7 +209,7 @@
                                 <span class="thWrap"><img src="/wwwroot/images/sites/mycubi/th/cubi_11.jpg" align="left" /></span>
                                 <span class="graytxt">made:</span> 2009
                                 <span class="graytxt">with:</span> jQuery / Google Maps API v2 / PHP with CodeIgnitor
-                                <span class="graytxt">license:</span> MyCubi &copy; <?= date("Y"); ?>
+                                <span class="graytxt">license:</span> MyCubi &copy; <?php echo  date("Y"); ?>
                             </h4>
                         </li>   
                         <li class="pItem">
@@ -260,7 +260,7 @@
 <!--                            <p>Today, a platform for groups to challenge and reward each other for sharing good music.</p>-->
                             <input type="hidden" class="secondImgs" value="/wwwroot/images/sites/ta/onepage.jpg,/wwwroot/images/sites/ta/playlists.jpg" />
                             <br />
-                            <p>Taylor Made Traffic &copy; <?= date("Y"); ?></p>
+                            <p>Taylor Made Traffic &copy; <?php echo  date("Y"); ?></p>
                         </li>
                     </ul>
                 </div>
@@ -312,7 +312,7 @@
 
     <script type="text/javascript" >
         <? if (isset($mobile)): ?>
-                var mobile = "<?= $mobile; ?>";           
+                var mobile = "<?php echo  $mobile; ?>";           
         <? endif ?>
         </script>
         <script type="text/javascript" src="/wwwroot/js/cubebuilder.js?v=1368477918"></script>

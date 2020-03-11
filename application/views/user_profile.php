@@ -1,18 +1,18 @@
 <div class='userProfile'>
         <h1 class="userName">
-	        <?=$uProfile['user_screenname'];?>    
+	        <?php echo $uProfile['user_screenname'];?>    
 	        <span class='sociallinks'>
 	            <? if (!empty($uProfile['user_fburl'])):?>
-	                <a target='_blank' href='<?=$uProfile['user_fburl'];?>'>
-	                <img src="/wwwroot/images/fbIcon.png" title="<?=$uProfile['user_fburl'];?>" />
+	                <a target='_blank' href='<?php echo $uProfile['user_fburl'];?>'>
+	                <img src="/wwwroot/images/fbIcon.png" title="<?php echo $uProfile['user_fburl'];?>" />
 	                </a>
 	            <? endif?>
 	            <? if (!empty($uProfile['user_linkdinurl'])):?>
-	                <a target='_blank' href='<?=$uProfile['user_linkdinurl'];?>'>
-	                <img title="<?=$uProfile['user_linkdinurl'];?>" src="/wwwroot/images/linkedinIcon.png" />
+	                <a target='_blank' href='<?php echo $uProfile['user_linkdinurl'];?>'>
+	                <img title="<?php echo $uProfile['user_linkdinurl'];?>" src="/wwwroot/images/linkedinIcon.png" />
 	                </a>
 	            <? endif?>
-	            <? if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?=$uProfile['user_googleurl'];?>'><?=$uProfile['user_googleurl'];?></a></li><? endif?>
+	            <? if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?php echo $uProfile['user_googleurl'];?>'><?php echo $uProfile['user_googleurl'];?></a></li><? endif?>
 	            
 	           <?php if ($uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
 	                <a target='_blank' href='http://www.upwork.com/o/profiles/users/_~01979dd82b228abbb5/'>
@@ -33,7 +33,7 @@
         
         <? if (!empty($uProfile['user_bio'])):?>
         <div class='userBio'>
-            <?=$this->lang->ugc($uProfile['user_bio']);?>
+            <?php echo $this->lang->ugc($uProfile['user_bio']);?>
         </div>
         <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
         <section class="userSummary">

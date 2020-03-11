@@ -1,10 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<?=$me['con']['lang']?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<?php echo $me['con']['lang']?>">
     <head>
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
               if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags; 
               else $docTitle = ucfirst(trim($docTitle)); ?>
-        <title><?= $docTitle ?> :: TaylorMadeTraffic.com</title>
+        <title><?php echo  $docTitle ?> :: TaylorMadeTraffic.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="en" />
@@ -89,20 +89,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
             ga('create', 'UA-7929826-3', 'auto');
-            ga('set', '&uid', '<?=$me['session_id']?>'); 
+            ga('set', '&uid', '<?php echo $me['session_id']?>'); 
             //ga('require', 'linkid', 'linkid.js');
             ga('send', 'pageview');
 
           </script>
         <?endif;?>        
     </head>
-    <body id="trackauthority" class="<?=$me['con']['pstyle'];?>" >
+    <body id="trackauthority" class="<?php echo $me['con']['pstyle'];?>" >
  	<div id="cv-format">
  	<? if (isset($uProfile) && !empty($uProfile)):?>
-    <?=$this->load->view('user_profile');?>    
+    <?php echo $this->load->view('user_profile');?>    
 <?php endif; ?>
 <? if (isset($cProfile) && !empty($cProfile)):?>
-    <?=$this->load->view('company_profile');?>
+    <?php echo $this->load->view('company_profile');?>
 <? endif; ?>
 <section class="userExperience">
         <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
@@ -126,25 +126,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
 			}?>
 			
 			<div class="rowMargin"></div>
-			<div class="flexGroup companyHead" data-group="<?=$groupname?>"  
-				data-projectcount="<?=count($company['projects'])?>">
+			<div class="flexGroup companyHead" data-group="<?php echo $groupname?>"  
+				data-projectcount="<?php echo count($company['projects'])?>">
 				<div class="flexItemMain flexItem col1"><h2>
 					<?php if (isset($company['company_logo']) && isset($_GET['logos'])): ?>
-						<img title="<?=$company['company_screenname']?>" alt="<?=$company['company_screenname']?>"  class="companyLogo" src="<?=$company['company_logo']?>" /> 				
-						<span class="company_screenname"><?=$company['company_screenname'];?></span> 
+						<img title="<?php echo $company['company_screenname']?>" alt="<?php echo $company['company_screenname']?>"  class="companyLogo" src="<?php echo $company['company_logo']?>" /> 				
+						<span class="company_screenname"><?php echo $company['company_screenname'];?></span> 
 					<?php else: ?>
-						<?=$company['company_screenname'];?> 
+						<?php echo $company['company_screenname'];?> 
 					<?php endif; ?>
 				</h2></div>
 				<div class="flexItem col2">
-						<?=fDate($company['startDate'], 'month')?>
+						<?php echo fDate($company['startDate'], 'month')?>
 						- 
-						<?=fDate($company['endDate'], 'month')?>
+						<?php echo fDate($company['endDate'], 'month')?>
 				</div>
 				<div class="flexItem col3">
-					<span class="myrole"><?=htmlentities($company['company_myrole'])?></span>
+					<span class="myrole"><?php echo htmlentities($company['company_myrole'])?></span>
 					<?php if (isset($company['company_city'])): ?>
-						<?=$company['company_city']?>
+						<?php echo $company['company_city']?>
 						<?php if ($company['company_telecommuting']): ?>
 						(remote)
 						<?php endif; ?>
@@ -153,32 +153,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
 			</div>
 		<?php endif; ?>
 	    <?php foreach ($company['projects'] as $row): ?>
-	            <div id="pid_<?= $row->project_id ?>" data-pid="<?= $row->project_id ?>"
+	            <div id="pid_<?php echo  $row->project_id ?>" data-pid="<?php echo  $row->project_id ?>"
 	            	class="projectRow"
-	            	<?php if (isset($groupname)):?>data-group="<?=$groupname?>"<?php endif; ?>
+	            	<?php if (isset($groupname)):?>data-group="<?php echo $groupname?>"<?php endif; ?>
 	             >
 
 	                <div class="col2 project_title" colspan="2" >
-	                    <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a></h3>
+	                    <h3><a href='/projects?pid=<?php echo  $row->project_id; ?>'><?php echo  $row->project_title; ?></a></h3>
 	                    
-	                    <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?= $this->lang->ugc($row->project_desc); ?></div><? endif ?>
-	                    <? if (!empty($row->project_technotes)): ?><div class="technotes"><?= $this->lang->ugc($row->project_technotes); ?></div><? endif ?>
+	                    <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?php echo  $this->lang->ugc($row->project_desc); ?></div><? endif ?>
+	                    <? if (!empty($row->project_technotes)): ?><div class="technotes"><?php echo  $this->lang->ugc($row->project_technotes); ?></div><? endif ?>
 	                    
 	                    <div class="projectTags">
-	                        <p class="project_startdate"><span class='lineName'><?= $this->lang->en("Started") ?>:</span> <?= $row->project_startdate; ?></p>
-	                        <? if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?= $this->lang->en("Launched") ?>/<?= $this->lang->en("Lasted") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
+	                        <p class="project_startdate"><span class='lineName'><?php echo  $this->lang->en("Started") ?>:</span> <?php echo  $row->project_startdate; ?></p>
+	                        <? if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?php echo  $this->lang->en("Launched") ?>/<?php echo  $this->lang->en("Lasted") ?>:</span> <?php echo  $row->project_launchdate; ?></p><? endif ?>
 	                        <? if (!empty($row->project_liveurl)): ?>
 	                        <p class="projectLink">                       
-	                            <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>
+	                            <a href="<?php echo  $row->project_liveurl; ?>" target="_blank"> <?php echo  $row->project_liveurl; ?></a>
 	                        </p>
 	                        <? endif ?>
 	                        <? if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?>
-	                        <p class="projectLink"><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
-	                        <? if (!empty($row->project_devtools)): ?><p class="project_devtools"><span class='lineName'><?= $this->lang->en("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
-	                        <? if (!empty($row->project_industries)): ?><p class="industries"><span class='lineName'><?= $this->lang->en("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
-	                        <? if (!empty($row->project_team)): ?><p  class="team"><span class='lineName'><?= $this->lang->en("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
-	                        <? if (!empty($row->project_companies)): ?><p class="companies"><span class='lineName'><?= $this->lang->en("Companies") ?>/<?= $this->lang->en("Brands") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
-	                        <? if (!empty($row->license_id)): ?><!--<p><span class='lineName'><?= $this->lang->en("License") ?>:</span> <?= $row->license_id; ?></p>--><? endif ?>
+	                        <p class="projectLink"><a href="<?php echo  $row->project_devurl; ?>" target="_blank"> <?php echo  $row->project_devurl; ?></a></p><? endif ?>
+	                        <? if (!empty($row->project_devtools)): ?><p class="project_devtools"><span class='lineName'><?php echo  $this->lang->en("Technologies") ?>:</span> <?php echo  $row->project_devtools; ?></p><? endif ?>
+	                        <? if (!empty($row->project_industries)): ?><p class="industries"><span class='lineName'><?php echo  $this->lang->en("Industries") ?>:</span> <?php echo  ucwords($row->project_industries); ?></p><? endif ?>
+	                        <? if (!empty($row->project_team)): ?><p  class="team"><span class='lineName'><?php echo  $this->lang->en("Team") ?>:</span> <?php echo  $row->project_team; ?></p><? endif ?>
+	                        <? if (!empty($row->project_companies)): ?><p class="companies"><span class='lineName'><?php echo  $this->lang->en("Companies") ?>/<?php echo  $this->lang->en("Brands") ?>:</span> <?php echo  $row->project_companies; ?></p><? endif ?>
+	                        <? if (!empty($row->license_id)): ?><!--<p><span class='lineName'><?php echo  $this->lang->en("License") ?>:</span> <?php echo  $row->license_id; ?></p>--><? endif ?>
 	                    </div>
 	                </div>
 	            </div>

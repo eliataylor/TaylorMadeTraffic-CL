@@ -1,13 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<?=$me['con']['lang']?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<?php echo $me['con']['lang']?>">
     <head>
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
               if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags;
               else $docTitle = ucfirst(trim($docTitle)); ?>
-        <title><?= $docTitle ?> :: TaylorMadeTraffic.com</title>
+        <title><?php echo  $docTitle ?> :: TaylorMadeTraffic.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Eli A Taylor" />
-        <meta name="language" content="<?=$me['con']['lang']?>" />
+        <meta name="language" content="<?php echo $me['con']['lang']?>" />
 		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
         <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1467202940" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
@@ -23,13 +23,13 @@
         <link rel="shortcut icon" href="/wwwroot/images/favicon.ico" />
         <script type="text/javascript" src="/wwwroot/js/jquery.tablesorter.min.js"></script>
         <script language="javascript" type="text/javascript">
-            var TMT_HTTP = "<?= TMT_HTTP ?>";
+            var TMT_HTTP = "<?php echo  TMT_HTTP ?>";
             var taTools = {};
-            var VSETTINGS = <?= (is_array($me) && isset($me['con'])) ? json_encode($me['con']) : "{}" ?>;
+            var VSETTINGS = <?php echo  (is_array($me) && isset($me['con'])) ? json_encode($me['con']) : "{}" ?>;
             <? if ($this->thisvisitor->auth()): ?>
-                var CUR_VISITOR = <?= $me['user_id'] ?>;
+                var CUR_VISITOR = <?php echo  $me['user_id'] ?>;
                 <? if(isset($qparams)):?>
-                var QPARAMS = <?= json_encode($qparams); ?>;
+                var QPARAMS = <?php echo  json_encode($qparams); ?>;
                 <?endif;?>
             <? else: ?>
                 var CUR_VISITOR = false;
@@ -47,18 +47,18 @@
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
             ga('create', 'UA-7929826-3', 'auto');
-            ga('set', '&uid', '<?=$me['session_id']?>');
+            ga('set', '&uid', '<?php echo $me['session_id']?>');
             ga('send', 'pageview');
           </script>
         <?endif;?>
     </head>
-    <body id="trackauthority" class="<?=$me['con']['pstyle'];?>" >
+    <body id="trackauthority" class="<?php echo $me['con']['pstyle'];?>" >
     	<img src="/wwwroot/images/cubespins/TUMBLE0054.png" id="printLogo" />
         <span id="tmmCube" style="display:none;">
             <?php $cubespins = scandir(ROOT_CD . "/wwwroot/images/cubespins"); $index=0;?>
             <?foreach($cubespins as $img):?>
                 <? if($img != '.' && $img != '..' && !strpos($img, '.db')):?>
-                    <img data-index="<?=$index?>" <? if($index > 0):?>style='display:none;'<?endif;?>  src="/wwwroot/images/cubespins/<?=$img?>" />
+                    <img data-index="<?php echo $index?>" <? if($index > 0):?>style='display:none;'<?endif;?>  src="/wwwroot/images/cubespins/<?php echo $img?>" />
                     <?php $index++; ?>
                 <?endif;?>
             <?endforeach;?>
@@ -77,35 +77,35 @@
 
                     <div class="menuEmpty menuBox" id="menuLabelBox" ><span id="menuLabel"></span></div>
 
-                    <a href="/years" title="<?=ucwords($this->lang->en('Years'))?>" class="menuBox ll">
+                    <a href="/years" title="<?php echo ucwords($this->lang->en('Years'))?>" class="menuBox ll">
                         <img src="/wwwroot/images/calendar.png" />
                     </a>
 
-                    <a style="margin-top:2px" href="/companies" title="<?=ucwords($this->lang->en('Companies'))?>" class="menuBox lc">
+                    <a style="margin-top:2px" href="/companies" title="<?php echo ucwords($this->lang->en('Companies'))?>" class="menuBox lc">
                         <img src="/wwwroot/images/companies.png" />
                     </a>
 
-                    <a href="/industries" title="<?=ucwords($this->lang->en('Industries'))?>" class="menuBox rc">
+                    <a href="/industries" title="<?php echo ucwords($this->lang->en('Industries'))?>" class="menuBox rc">
                         <img src="/wwwroot/images/industries.png" />
                     </a>
 
-                    <a href="/technologies" title="<?=ucwords($this->lang->en('Technologies'))?>" class="menuBox rr">
+                    <a href="/technologies" title="<?php echo ucwords($this->lang->en('Technologies'))?>" class="menuBox rr">
                         <img src="/wwwroot/images/technologies.png" />
                     </a>
 
                     <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;">
                         <ul id="menuList" style="display:none" >
-                           <img title="<?=$this->lang->msg('english')?>"
+                           <img title="<?php echo $this->lang->msg('english')?>"
                                <?if ($me['con']['lang'] != 'en'):?> style="opacity:.60; filter:alpha(opacity=60);"<?endif;?>
                                onclick="tmt.changeLang('en')" src="/wwwroot/images/United-States_16x16-32.png" />
                            <img
-                               title="<?=$this->lang->msg('español')?>"
+                               title="<?php echo $this->lang->msg('español')?>"
                                <?if ($me['con']['lang'] != 'es'):?> style="opacity:.60; filter:alpha(opacity=60);"<?endif;?>
                                onclick="tmt.changeLang('es')" src="/wwwroot/images/Colombia_16x16-32.png" />
                         </ul>
                     </div>
 
-                    <a id="menuBoxBottom" href="/taylormade" title="<?=$this->lang->en("Taylor Made")?>" class="menuBox bc">
+                    <a id="menuBoxBottom" href="/taylormade" title="<?php echo $this->lang->en("Taylor Made")?>" class="menuBox bc">
 <!--                        <img src="/wwwroot/images/cubeCorner.png" />-->
                     </a>
 
@@ -116,7 +116,7 @@
                     <?foreach($qmenu as $key=>$param):?>
                         <?if($param['role'] < 0):?>
                             <?php $seg1 = $this->uri->segment(1); ?>
-                            <a class='navItem<? if($key == $seg1 || (empty($seg1) && $key == 'technologies')):?> selected<?endif;?>' href="/<?=$key?>" ><?=ucwords($param['title'])?></a>
+                            <a class='navItem<? if($key == $seg1 || (empty($seg1) && $key == 'technologies')):?> selected<?endif;?>' href="/<?php echo $key?>" ><?php echo ucwords($param['title'])?></a>
                         <?endif;?>
                     <?endforeach;?>
                 </div>
@@ -127,7 +127,7 @@
                 <div class="serverErrors">
                     <ul>
                     <? foreach ($errors as $key => $value): ?>
-                        <li><?= $value ?></li>
+                        <li><?php echo  $value ?></li>
                     <? endforeach; ?>
                     </ul>
                 </div>
@@ -135,8 +135,8 @@
             <div id="pageBlock" >
             <? if (isset($pages)): ?>
                 <? foreach ($pages as $key => $value): ?>
-                    <div class="moduleBlock <?= $key ?>" >
-                        <?= $value ?>
+                    <div class="moduleBlock <?php echo  $key ?>" >
+                        <?php echo  $value ?>
                     </div>
                 <? endforeach; ?>
             <? endif; ?>

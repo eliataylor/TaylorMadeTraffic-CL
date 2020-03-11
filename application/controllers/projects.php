@@ -149,7 +149,7 @@ class Projects extends CI_Controller {
             if ($this->data['qtags'] == "roles") $this->data['tableRows'] = $this->projects->getTagsTeamRoles();
             else $this->data['tableRows'] = $this->projects->getTagsTeamMembers();
             $this->sendOut('tags_table');
-        } else{
+        } else {
             if (empty($this->data['qgroup'])) $this->data['qgroup'] = 'project_client';
 
         	$this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
@@ -177,47 +177,51 @@ class Projects extends CI_Controller {
     		$this->data['qgroup'] = 'project_client';
     	}
     	$groups = array();
-
-    	foreach($this->data['tableRows'] as $index=>$row){
-
+    	foreach($this->data['tableRows'] as $index=>&$row) {
     		$row->images = $this->projects->getProjectImages($row->project_id);
     		$row->totalImages = count($row->images);
-	    			if (!isset($row->{$this->data['qgroup']})) {
-	    				$this->data['qgroup'] = 'project_client'; // should never happen
-	    			}
-    				$company = $row->{$this->data['qgroup']};
-    				if (!isset($groups[$company])) {
-    					$groups[$company] = $this->users->getCompanyByName($company);
-    					if (!$groups[$company]) {
-    						$groups[$company] = array('company_tagname'=>$company, 'company_screenname'=>$company, 'company_status'=>1);
-	    					$groups[$company]['company_startdate'] = $row->project_startdate;
-	    					$groups[$company]['company_enddate'] = $row->project_launchdate;
-	    					$groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
-    					}
-    					$groups[$company] = $this->users->getCompanyByName($company);
-    					$groups[$company]['startDate'] = strtotime($row->project_startdate);
-    					$groups[$company]['endDate'] = strtotime($row->project_launchdate);
-    					$groups[$company]['projects'] = array();
-    				}
-    				$groups[$company]['startDate'] = min($groups[$company]['startDate'], strtotime($row->project_startdate));
-    				$groups[$company]['endDate'] = max($groups[$company]['endDate'], strtotime($row->project_launchdate));
-    				array_push($groups[$company]['projects'], $row);
+        $row = (object) array_merge((array) $row, (array)$row->images[0]); // since queries suck
+
+        if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
+        if (empty($row->project_launchdate)) $row->project_launchdate = date('Y-m-d');
+
+  			if (!isset($row->{$this->data['qgroup']})) {
+  				$this->data['qgroup'] = 'project_client'; // should never happen
+  			}
+				$company = $row->{$this->data['qgroup']};
+				if (!isset($groups[$company])) {
+					$groups[$company] = $this->users->getCompanyByName($company);
+					if (!$groups[$company]) {
+						$groups[$company] = array('company_tagname'=>$company, 'company_screenname'=>$company, 'company_status'=>1);
+  					$groups[$company]['company_startdate'] = $row->project_startdate;
+  					$groups[$company]['company_enddate'] = $row->project_launchdate;
+  					$groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
+					}
+					$groups[$company] = $this->users->getCompanyByName($company);
+					$groups[$company]['startDate'] = strtotime($row->project_startdate);
+					$groups[$company]['endDate'] = strtotime($row->project_launchdate);
+					$groups[$company]['projects'] = array();
+				}
+				$groups[$company]['startDate'] = min($groups[$company]['startDate'], strtotime($row->project_startdate));
+				$groups[$company]['endDate'] = max($groups[$company]['endDate'], strtotime($row->project_launchdate));
+				array_push($groups[$company]['projects'], $row);
     	}
     	if (isset($groups) && count($groups) > 0){
-//     		usort($groups, function($a, $b) {
-//     			if (count($b['projects']) === count($a['projects'])) {
-// 	    			$aDiff = $a['endDate'] - $b['startDate'];
-// 	    			$bDiff = $b['endDate'] - $b['startDate'];
-// 	    			return $aDiff < $bDiff;
-//     			} else if ($a['company_tagname'] == 'TaylorMadeTraffic' || $b['company_tagname'] == 'TaylorMadeTraffic') {
-//     				return true;
-//     			}
-//     			return count($b['projects']) - count($a['projects']);
-//     		});
+     		usort($groups, function($a, $b) {
+          return $a['endDate'] < $b['endDate'];
+     			/* if (count($b['projects']) === count($a['projects'])) {
+ 	    			$aDiff = $a['endDate'] - $b['endDate'];
+ 	    			$bDiff = $b['endDate'] - $b['startDate'];
+ 	    			return $aDiff < $bDiff;
+     			} else if ($a['company_tagname'] == 'TaylorMadeTraffic' || $b['company_tagname'] == 'TaylorMadeTraffic') {
+     				return true;
+     			}
+     			return count($b['projects']) - count($a['projects']);  */
+     		});
     	}
     	$this->data['showGroup'] = true;
     	$this->data['groups'] = $groups;
-    	unset($this->data['tableRows']);
+    	// unset($this->data['tableRows']);
     }
 
     // just URL predefines qtags
@@ -268,12 +272,13 @@ class Projects extends CI_Controller {
         if (empty($this->data['qtfilter']) && empty($pid)) {
             $this->getTableForProjects();
             $this->sendOut('projects_table');
-        } else{
+        } else {
             $this->data['docTitle'] = $this->data['qtfilter'];
             $val = (empty($this->data['qtfilter'])) ? $pid : $this->data['qtfilter'];
             if (is_numeric($val)) {
               $this->data['project'] = $this->projects->getProject($val);
-              if ($this->data['project']) $this->data['project']->images = $this->projects->getProjectImages($this->data['project']->project_id);
+              if (empty($this->data['project'])) die('invalid project id');
+              $this->data['project']->images = $this->projects->getProjectImages($this->data['project']->project_id);
               $this->sendOut('project_profile');
             } else {
               $this->getTableForProjects();

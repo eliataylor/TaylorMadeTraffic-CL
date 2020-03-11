@@ -12,14 +12,14 @@
 <div class="page">
     <h2 class="pageTitle">Mobile</h2>
     <div class="pageBlock">
-        <iframe width="320" height="444" src="/<?=$this->uri->segment(2)?>?device=phone" seamless="seamless" ></iframe>
+        <iframe width="320" height="444" src="/<?php echo $this->uri->segment(2)?>?device=phone" seamless="seamless" ></iframe>
     </div>   
 </div>
 
 <div class="page">
     <h2 class="pageTitle">tablet</h2>
     <div class="pageBlock">
-        <iframe width="768" height="928"  src="/<?=$this->uri->segment(2)?>?device=tablet" seamless="seamless" ></iframe>
+        <iframe width="768" height="928"  src="/<?php echo $this->uri->segment(2)?>?device=tablet" seamless="seamless" ></iframe>
     </div>   
 </div>
 
@@ -29,6 +29,6 @@
 <div class="page">
     <h2 class="pageTitle">Fullscreen</h2>
     <div class="pageBlock">
-        <iframe width="1000" src="/<?=$this->uri->segment(2)?>" seamless="seamless" ></iframe>
+        <iframe width="1000" src="/<?php echo $this->uri->segment(2)?>" seamless="seamless" ></iframe>
     </div>   
 </div>

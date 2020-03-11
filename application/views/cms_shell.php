@@ -4,7 +4,7 @@
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
               if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags; 
               else $docTitle = ucfirst(trim($docTitle)); ?>
-        <title><?= $docTitle ?> :: TaylorMadeTraffic.com</title>
+        <title><?php echo  $docTitle ?> :: TaylorMadeTraffic.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="en-us" />
@@ -24,13 +24,13 @@
         <link rel="shortcut icon" href="/wwwroot/images/favicon.ico" />
         <script type="text/javascript" src="/wwwroot/js/jquery.tablesorter.min.js"></script>          
         <script language="javascript" type="text/javascript">
-            var TMT_HTTP = "<?= TMT_HTTP ?>";
+            var TMT_HTTP = "<?php echo  TMT_HTTP ?>";
             var taTools = {};
-            var VSETTINGS = <?= (is_array($me) && isset($me['con'])) ? json_encode($me['con']) : "{}" ?>;
+            var VSETTINGS = <?php echo  (is_array($me) && isset($me['con'])) ? json_encode($me['con']) : "{}" ?>;
             <? if ($this->thisvisitor->auth()): ?>
-                var CUR_VISITOR = <?= $me['user_id'] ?>;
+                var CUR_VISITOR = <?php echo  $me['user_id'] ?>;
                 <? if(isset($qparams)):?> 
-                var QPARAMS = <?= json_encode($qparams); ?>;
+                var QPARAMS = <?php echo  json_encode($qparams); ?>;
                 <?endif;?>
             <? else: ?>
                 var CUR_VISITOR = false;
@@ -48,19 +48,19 @@
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
             ga('create', 'UA-7929826-3', 'auto');
-            ga('set', '&uid', '<?=$me['session_id']?>'); 
+            ga('set', '&uid', '<?php echo $me['session_id']?>'); 
             ga('send', 'pageview');
 
           </script>
         <?endif;?>            
     </head>
-    <body id="trackauthority" class="narrowscreen <?=$me['con']['pstyle'];?>" >
+    <body id="trackauthority" class="narrowscreen <?php echo $me['con']['pstyle'];?>" >
         <div class="master">             
              <? if (!empty($errors)): ?>
                 <div class="serverErrors">  
                     <ul>
                     <? foreach ($errors as $key => $value): ?> 
-                        <li><?= $value ?></li>
+                        <li><?php echo  $value ?></li>
                     <? endforeach; ?>                    
                     </ul>
                 </div>
@@ -68,8 +68,8 @@
             <div id="pageBlock" class="clearer">
             <? if (isset($pages)): ?>
                 <? foreach ($pages as $key => $value): ?> 
-                    <div class="moduleBlock <?= $key ?>" >
-                        <?= $value ?>
+                    <div class="moduleBlock <?php echo  $key ?>" >
+                        <?php echo  $value ?>
                     </div>
                 <? endforeach; ?>                    
             <? endif; ?>

@@ -1,8 +1,8 @@
 <? if (isset($uProfile) && !empty($uProfile)):?>
-    <?=$this->load->view('user_profile');?>
+    <?php echo $this->load->view('user_profile');?>
 <?php endif; ?>
 <? if (isset($cProfile) && !empty($cProfile)):?>
-    <?=$this->load->view('company_profile');?>
+    <?php echo $this->load->view('company_profile');?>
 <? endif; ?>
 <section class="userExperience">
         <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
@@ -18,7 +18,7 @@
     	<?php endif; ?>
     	id="qTagSelector" onchange="if (this.options[this.selectedIndex].value != '') tmt.ajaxPage(this.options[this.selectedIndex].value); return false;" >
         <? if ( (isset($cProfile) && !empty($cProfile)) || (isset($uProfile) && !empty($uProfile))):?>
-        <option value=""><?=$this->lang->en('Other') . ' ' . $qtags?></option>
+        <option value=""><?php echo $this->lang->en('Other') . ' ' . $qtags?></option>
         <?endif;?>
         <?foreach($qtagOptions as $option):?>
             <option
@@ -35,22 +35,22 @@
                     selected='selected'
                 <? endif; ?>
 
-                value="<?=$qurl?>"  >
-                        <?=$this->lang->msg($option->tag_key)?>
+                value="<?php echo $qurl?>"  >
+                        <?php echo $this->lang->msg($option->tag_key)?>
 
             </option>
         <?endforeach;?>
     </select>
     <?endif;?>
     <? if (isset($uProfile) && empty($uProfile)):?>
-        <a class='teamInviteLink' href=''><?=$this->lang->en('Are You') . ' ' . $qtfilter . '?'?></a>
+        <a class='teamInviteLink' href=''><?php echo $this->lang->en('Are You') . ' ' . $qtfilter . '?'?></a>
     <?endif;?>
 
     <?if (isset($groups) && count($groups) === 1):?>
     	<?php $count = array_keys($groups); $count = $count[0]; $count = count($groups[$count]['projects']); ?>
         <span style="float:right;" class="pageTotal">
-            <?=$count?>
-            <?= ($count == 1) ? $this->lang->en('Project') : $this->lang->en('Projects');?>
+            <?php echo $count?>
+            <?php echo  ($count == 1) ? $this->lang->en('Project') : $this->lang->en('Projects');?>
         </span>
     <?endif?>
     </h2>
@@ -71,25 +71,25 @@
       <?php $groupname = $company['company_tagname']; ?>
 
 			<tr class="rowMargin"><td colspan="3"></td></tr>
-			<tr class="companyHead" data-group="<?=$groupname?>"
-				data-projectcount="<?=count($company['projects'])?>">
+			<tr class="companyHead" data-group="<?php echo $groupname?>"
+				data-projectcount="<?php echo count($company['projects'])?>">
 				<td class="col1"><h2>
 					<?php if (isset($company['company_logo']) && isset($_GET['logos'])): ?>
-						<img title="<?=$company['company_screenname']?>" alt="<?=$company['company_screenname']?>"  class="companyLogo" src="<?=$company['company_logo']?>" />
-						<span class="company_screenname"><?=$company['company_screenname'];?></span>
+						<img title="<?php echo $company['company_screenname']?>" alt="<?php echo $company['company_screenname']?>"  class="companyLogo" src="<?php echo $company['company_logo']?>" />
+						<span class="company_screenname"><?php echo $company['company_screenname'];?></span>
 					<?php else: ?>
-						<?=$company['company_screenname'];?>
+						<?php echo $company['company_screenname'];?>
 					<?php endif; ?>
 				</h2></td>
 				<td class="col2">
-						<?=fDate($company['startDate'], 'month')?>
+						<?php echo fDate($company['startDate'], 'month')?>
 						-
-						<?=fDate($company['endDate'], 'month')?>
+						<?php echo fDate($company['endDate'], 'month')?>
 				</td>
 				<td class="col3">
-					<span class="myrole"><?=htmlentities($company['company_myrole'])?></span>
+					<span class="myrole"><?php echo htmlentities($company['company_myrole'])?></span>
 					<?php if (isset($company['company_city'])): ?>
-						<?=$company['company_city']?>
+						<?php echo $company['company_city']?>
 						<?php if ($company['company_telecommuting']): ?>
 						(remote)
 						<?php endif; ?>
@@ -98,62 +98,62 @@
 			</tr>
 		<?php endif; ?>
 	    <?php foreach ($company['projects'] as $row): ?>
-	            <tr id="pid_<?= $row->project_id ?>" data-pid="<?= $row->project_id ?>"
+	            <tr id="pid_<?php echo  $row->project_id ?>" data-pid="<?php echo  $row->project_id ?>"
 	            	class="projectRow"
-	            	<?php if (isset($groupname)):?>data-group="<?=$groupname?>"<?php endif; ?>
+	            	<?php if (isset($groupname)):?>data-group="<?php echo $groupname?>"<?php endif; ?>
 	             >
 
 	                <td class="col1 image_src" >
 	                    <? if (!isset($_GET['noPics'])):?>
 		                    <div class="projectImgMask">
-		                        <a href='/projects?pid=<?= $row->project_id; ?>'>
-		                            <img  data-owidth="<?= $row->image_width ?>"
-		                                  data-oheight="<?= $row->image_height ?>"
-		                                  src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
+		                        <a href='/projects?pid=<?php echo  $row->project_id; ?>'>
+		                            <img  data-owidth="<?php echo  $row->image_width ?>"
+		                                  data-oheight="<?php echo  $row->image_height ?>"
+		                                  src='<?php echo ($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
 		                                  class="projectImg" />
 		                        </a>
 		                    </div>
 		<!--                    TODO, leave for old browser support from reflection <div class="blackOutFadeBG"></div>-->
 		                    <div class="reflectionMask">
-		                        <img  class="reflection" src='<?=($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>' />
+		                        <img  class="reflection" src='<?php echo ($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>' />
 		                    </div>
 		                    <?if (isset($row->images) && count($row->images) > 1):?>
 		                        <?foreach($row->images as $index=>$img):?>
 		                            <?if ($index==0):?>
-		                                <a class="fancybox" data-fancybox-group="gallery<?=$row->project_id?>" href="<?= $row->image_src; ?>"><?= $row->totalImages -1 ?> <?=$this->lang->en('more images')?></a>
+		                                <a class="fancybox" data-fancybox-group="gallery<?php echo $row->project_id?>" href="<?php echo  $row->image_src; ?>"><?php echo  $row->totalImages -1 ?> <?php echo $this->lang->en('more images')?></a>
 		                            <?else:?>
-		                                <a style="display:none;" class="fancybox" href="<?=$img->image_src?>" data-fancybox-group="gallery<?=$row->project_id?>" ></a>
+		                                <a style="display:none;" class="fancybox" href="<?php echo $img->image_src?>" data-fancybox-group="gallery<?php echo $row->project_id?>" ></a>
 		                            <?endif;?>
 		                        <?endforeach?>
 		                    <?endif;?>
 	                    <?endif;?>
 	                </td>
 	                <td class="col2 project_title" colspan="2" >
-	                    <h3><a href='/projects?pid=<?= $row->project_id; ?>'><?= $row->project_title; ?></a>
+	                    <h3><a href='/projects?pid=<?php echo  $row->project_id; ?>'><?php echo  $row->project_title; ?></a>
                       <?php if(!empty($row->project_subtitle)):?>
                         <br />
-                        <small style='font-size:50%;'><em><?=$row->project_subtitle;?></em></small>
+                        <small style='font-size:50%;'><em><?php echo $row->project_subtitle;?></em></small>
                       <?php endif; ?>
                       </h3>
 
-	                    <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?= $this->lang->ugc($row->project_desc); ?></div><? endif ?>
-	                    <? if (!empty($row->project_technotes)): ?><div class="technotes"><?= $this->lang->ugc($row->project_technotes); ?></div><? endif ?>
+	                    <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?php echo  $this->lang->ugc($row->project_desc); ?></div><? endif ?>
+	                    <? if (!empty($row->project_technotes)): ?><div class="technotes"><?php echo  $this->lang->ugc($row->project_technotes); ?></div><? endif ?>
 
 	                    <div class="projectTags">
-	                        <p class="project_startdate"><span class='lineName'><?= $this->lang->en("Started") ?>:</span> <?= $row->project_startdate; ?></p>
-	                        <? if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?= $this->lang->en("Launched") ?>/<?= $this->lang->en("Lasted") ?>:</span> <?= $row->project_launchdate; ?></p><? endif ?>
+	                        <p class="project_startdate"><span class='lineName'><?php echo  $this->lang->en("Started") ?>:</span> <?php echo  $row->project_startdate; ?></p>
+	                        <? if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?php echo  $this->lang->en("Launched") ?>/<?php echo  $this->lang->en("Lasted") ?>:</span> <?php echo  $row->project_launchdate; ?></p><? endif ?>
 	                        <? if (!empty($row->project_liveurl)): ?>
 	                        <p class="projectLink">
-	                            <a href="<?= $row->project_liveurl; ?>" target="_blank"> <?= $row->project_liveurl; ?></a>
+	                            <a href="<?php echo  $row->project_liveurl; ?>" target="_blank"> <?php echo  $row->project_liveurl; ?></a>
 	                        </p>
 	                        <? endif ?>
 	                        <? if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?>
-	                        <p class="projectLink"><a href="<?= $row->project_devurl; ?>" target="_blank"> <?= $row->project_devurl; ?></a></p><? endif ?>
-	                        <? if (!empty($row->project_devtools)): ?><p class="project_devtools"><span class='lineName'><?= $this->lang->en("Technologies") ?>:</span> <?= $row->project_devtools; ?></p><? endif ?>
-	                        <? if (!empty($row->project_industries)): ?><p class="industries"><span class='lineName'><?= $this->lang->en("Industries") ?>:</span> <?= ucwords($row->project_industries); ?></p><? endif ?>
-	                        <? if (!empty($row->project_team)): ?><p  class="team"><span class='lineName'><?= $this->lang->en("Team") ?>:</span> <?= $row->project_team; ?></p><? endif ?>
-	                        <? if (!empty($row->project_companies)): ?><p class="companies"><span class='lineName'><?= $this->lang->en("Companies") ?>/<?= $this->lang->en("Brands") ?>:</span> <?= $row->project_companies; ?></p><? endif ?>
-	                        <? if (!empty($row->license_id)): ?><!--<p><span class='lineName'><?= $this->lang->en("License") ?>:</span> <?= $row->license_id; ?></p>--><? endif ?>
+	                        <p class="projectLink"><a href="<?php echo  $row->project_devurl; ?>" target="_blank"> <?php echo  $row->project_devurl; ?></a></p><? endif ?>
+	                        <? if (!empty($row->project_devtools)): ?><p class="project_devtools"><span class='lineName'><?php echo  $this->lang->en("Technologies") ?>:</span> <?php echo  $row->project_devtools; ?></p><? endif ?>
+	                        <? if (!empty($row->project_industries)): ?><p class="industries"><span class='lineName'><?php echo  $this->lang->en("Industries") ?>:</span> <?php echo  ucwords($row->project_industries); ?></p><? endif ?>
+	                        <? if (!empty($row->project_team)): ?><p  class="team"><span class='lineName'><?php echo  $this->lang->en("Team") ?>:</span> <?php echo  $row->project_team; ?></p><? endif ?>
+	                        <? if (!empty($row->project_companies)): ?><p class="companies"><span class='lineName'><?php echo  $this->lang->en("Companies") ?>/<?php echo  $this->lang->en("Brands") ?>:</span> <?php echo  $row->project_companies; ?></p><? endif ?>
+	                        <? if (!empty($row->license_id)): ?><!--<p><span class='lineName'><?php echo  $this->lang->en("License") ?>:</span> <?php echo  $row->license_id; ?></p>--><? endif ?>
 	                    </div>
 	                </td>
 	            </tr>
