@@ -1,141 +1,141 @@
-<? if (isset($uProfile) && !empty($uProfile)):?>
+<?php if (isset($uProfile) && !empty($uProfile)):?>
     <div class='userProfile'>
         <h1 class="userName">
-        <?php echo $uProfile['user_screenname'];?>    
+        <?php echo $uProfile['user_screenname'];?>
         <span class='sociallinks'>
-            <? if (!empty($uProfile['user_fburl'])):?>
+            <?php if (!empty($uProfile['user_fburl'])):?>
                 <a target='_blank' href='<?php echo $uProfile['user_fburl'];?>'>
                 <img src="/wwwroot/images/fbIcon.png" title="<?php echo $uProfile['user_fburl'];?>" />
                 </a>
-            <? endif?>
-            <? if (!empty($uProfile['user_linkdinurl'])):?>
+            <?php endif?>
+            <?php if (!empty($uProfile['user_linkdinurl'])):?>
                 <a target='_blank' href='<?php echo $uProfile['user_linkdinurl'];?>'>
                 <img title="<?php echo $uProfile['user_linkdinurl'];?>" src="/wwwroot/images/linkedinIcon.png" />
                 </a>
-            <? endif?>
-            <? if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?php echo $uProfile['user_googleurl'];?>'><?php echo $uProfile['user_googleurl'];?></a></li><? endif?>
+            <?php endif?>
+            <?php if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?php echo $uProfile['user_googleurl'];?>'><?php echo $uProfile['user_googleurl'];?></a></li><?php endif?>
         </span>
         </h1>
-        
-        <? if (!empty($uProfile['user_bio'])):?>
+
+        <?php if (!empty($uProfile['user_bio'])):?>
         <div class='userBio'>
             <?php echo $this->lang->ugc($uProfile['user_bio']);?>
         </div>
-        <? endif?>
+        <?php endif?>
     </div>
-<? elseif (isset($cProfile) && !empty($cProfile)):?>
+<?php elseif (isset($cProfile) && !empty($cProfile)):?>
     <div class='userProfile'>
         <h1 class="userName">
-        <?php echo $cProfile['company_screenname'];?>    
+        <?php echo $cProfile['company_screenname'];?>
         <span class='sociallinks'>
-            <? if (!empty($cProfile['company_fburl'])):?>
+            <?php if (!empty($cProfile['company_fburl'])):?>
                 <a target='_blank' href='<?php echo $cProfile['company_fburl'];?>'>
                 <img src="/wwwroot/images/fbIcon.png" title="<?php echo $cProfile['company_fburl'];?>" />
                 </a>
-            <? endif?>
-            <? if (!empty($cProfile['company_linkdinurl'])):?>
+            <?php endif?>
+            <?php if (!empty($cProfile['company_linkdinurl'])):?>
                 <a target='_blank' href='<?php echo $cProfile['company_linkdinurl'];?>'>
                 <img title="<?php echo $cProfile['company_linkdinurl'];?>" src="/wwwroot/images/linkedinIcon.png" />
                 </a>
-            <? endif?>
-            <? if (!empty($cProfile['company_googleurl'])):?><li><a target='_blank' href='<?php echo $cProfile['company_googleurl'];?>'><?php echo $cProfile['company_googleurl'];?></a></li><? endif?>
+            <?php endif?>
+            <?php if (!empty($cProfile['company_googleurl'])):?><li><a target='_blank' href='<?php echo $cProfile['company_googleurl'];?>'><?php echo $cProfile['company_googleurl'];?></a></li><?php endif?>
         </span>
         </h1>
-        
-        <? if (!empty($cProfile['company_bio'])):?>
+
+        <?php if (!empty($cProfile['company_bio'])):?>
         <div class='userBio'>
             <?php echo $this->lang->ugc($cProfile['company_bio']);?>
         </div>
-        <? endif?>
+        <?php endif?>
     </div>
-<? endif; ?>
+<?php endif; ?>
 
 <table class="tablesorter projects_table biz_plans">
-    <tbody id="tableBody">        
-    <? foreach ($tableRows as $row): ?>
+    <tbody id="tableBody">
+    <?php foreach ($tableRows as $row): ?>
             <tr id="pid_<?php echo  $row->project_id ?>" data-pid="<?php echo  $row->project_id ?>" >
-                
+
                 <td class="col1 image_src">
                         <a class="fancybox" data-fancybox-group="gallery<?php echo $row->project_id?>" href="<?php echo  $row->image_src; ?>">
-                            <img  data-owidth="<?php echo  $row->image_width ?>" 
-                                  data-oheight="<?php echo  $row->image_height ?>" 
+                            <img  data-owidth="<?php echo  $row->image_width ?>"
+                                  data-oheight="<?php echo  $row->image_height ?>"
                                   src='<?php echo ($row->image_width > 1000) ? imageSize($row->image_src, "300x300") : $row->image_src; ?>'
                                   class="projectImg" />
                         </a>
-                        <?if (isset($row->images) && count($row->images) > 1):?>
-                            <?foreach($row->images as $index=>$img):?>            
-                                <?if ($index==0):?>
+                        <?php if (isset($row->images) && count($row->images) > 1):?>
+                            <?php foreach($row->images as $index=>$img):?>
+                                <?php if ($index==0):?>
                                     <a class="fancybox" data-fancybox-group="gallery<?php echo $row->project_id?>" href="<?php echo  $row->image_src; ?>"><?php echo  $row->totalImages -1 ?> <?php echo $this->lang->en('more images')?></a>
-                                <?else:?>
+                                <?php else:?>
                                     <a style="display:none;" class="fancybox" href="<?php echo $img->image_src?>" data-fancybox-group="gallery<?php echo $row->project_id?>" ></a>
-                                <?endif;?>
-                            <?endforeach?>
-                        <?endif;?>
+                                <?php endif;?>
+                            <?php endforeach?>
+                        <?php endif;?>
                 </td>
                 <td class="col2 project_title">
                     <h3><a href='/projects?pid=<?php echo  $row->project_id; ?>'><?php echo  $row->project_title; ?></a></h3>
-                    
-                    <? if (!empty($row->project_liveurl) || !empty($row->project_devurl)): ?>
+
+                    <?php if (!empty($row->project_liveurl) || !empty($row->project_devurl)): ?>
                         <div class="prjSection prjLinks">
-                                <? if (!empty($row->project_liveurl)): ?>
+                                <?php if (!empty($row->project_liveurl)): ?>
                                     <a href="<?php echo  $row->project_liveurl; ?>" target="_blank"> <?php echo  $row->project_liveurl; ?></a>
-                                <? endif ?>
-                                <? if (!empty($row->project_devurl)): ?>
+                                <?php endif ?>
+                                <?php if (!empty($row->project_devurl)): ?>
                                     <a href="<?php echo  $row->project_devurl; ?>" target="_blank"> <?php echo  $row->project_devurl; ?></a>
-                                <? endif ?>
+                                <?php endif ?>
                         </div>
-                    <? endif ?>
-                    <? if (!empty($row->project_pitch)): ?><div class="prjSection prjPitch">
+                    <?php endif ?>
+                    <?php if (!empty($row->project_pitch)): ?><div class="prjSection prjPitch">
                         <?php echo  $this->lang->ugc($row->project_pitch); ?></div>
-                    <? endif ?>
-                    
-                    <? if (!empty($row->project_bizmodel)): ?>
+                    <?php endif ?>
+
+                    <?php if (!empty($row->project_bizmodel)): ?>
                         <div class="prjSection prjBiz">
                             <h4 class="sectTitle">
                                 <?php echo $this->lang->en('Business Model')?>
                             </h4>
                             <?php echo  $this->lang->ugc($row->project_bizmodel); ?>
                         </div>
-                    <? endif ?>
-                    
-                    <? if (!empty($row->project_competition)): ?>
+                    <?php endif ?>
+
+                    <?php if (!empty($row->project_competition)): ?>
                         <div class="prjSection prjCompetition">
                             <h4 class="sectTitle">
                                 <?php echo $this->lang->en('Competition')?>
                             </h4>
                             <?php echo  $this->lang->ugc($row->project_competition); ?>
                         </div>
-                    <? endif ?>                    
-                   
-                    <? if (!empty($row->project_marketresearch)): ?>
+                    <?php endif ?>
+
+                    <?php if (!empty($row->project_marketresearch)): ?>
                         <div class="prjSection prjResearch">
                             <h4 class="sectTitle">
                                 <?php echo $this->lang->en('Target Markets')?> / <?php echo $this->lang->en('Research')?>
                             </h4>
                             <?php echo  $this->lang->ugc($row->project_marketresearch); ?>
                         </div>
-                    <? endif ?>                    
-                    
-                    <? if (!empty($row->project_expenses)): ?>
+                    <?php endif ?>
+
+                    <?php if (!empty($row->project_expenses)): ?>
                         <div class="prjSection prjCosts">
                             <h4 class="sectTitle">
                                 <?php echo $this->lang->en('Costs by Department')?>
                             </h4>
                             <?php echo  $this->lang->ugc($row->project_expenses); ?>
                         </div>
-                    <? endif ?>
-                    
-                    <? if (!empty($row->project_futuredate)): ?>
+                    <?php endif ?>
+
+                    <?php if (!empty($row->project_futuredate)): ?>
                         <div class="prjSection prjDates">
                             <h4 class="sectTitle">
                                 <?php echo $this->lang->en('Roadmap')?>
                             </h4>
                             <?php echo  $this->lang->ugc($row->project_futuredate); ?>
                         </div>
-                    <? endif ?>
-                    
+                    <?php endif ?>
+
                 </td>
             </tr>
-<? endforeach; ?>
+<?php endforeach; ?>
     </tbody>
 </table>

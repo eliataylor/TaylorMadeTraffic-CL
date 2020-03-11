@@ -15,33 +15,33 @@
         <meta http-equiv="Cache-control" content="public" />
         <meta HTTP-EQUIV="Pragma" CONTENT="public" />
         <meta name="expires" content="<?php echo  date(DATE_RFC822, strtotime("+3 month")) ?>" />
-        <? if ($me['con']['isMobile']): ?>
+        <?php if ($me['con']['isMobile']): ?>
             <meta name="viewport" content="width=device-width; initial-scale=1.0" />
             <meta name="apple-mobile-web-app-capable" content="yes"  />
             <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
             <link rel="stylesheet" href="//code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
             <script src="//code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-        <? endif; ?>
+        <?php endif; ?>
         <meta name="format-detection" content="telephone=no" />
         <script language="javascript" type="text/javascript">
         var TMT_HTTP = "<?php echo  TMT_HTTP ?>";
-        <? if ($this->thisvisitor->auth()): ?>
+        <?php if ($this->thisvisitor->auth()): ?>
             var CUR_VISITOR = <?php echo  $me['user_id'] ?>;
-        <? else: ?>
+        <?php else: ?>
             var CUR_VISITOR = false;
-        <? endif; ?>
+        <?php endif; ?>
         var VSETTINGS = <?php echo  json_encode($me['con']) ?>;
         </script>
-        <? if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>        
+        <?php if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>        
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>            
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-        <? else: ?>
+        <?php else: ?>
             <script type="text/javascript" src="/wwwroot/js/jquery.min.js"></script>
             <script type="text/javascript" src="/wwwroot/js/jquery-ui.min.js"></script>
-        <? endif; ?>
+        <?php endif; ?>
         <link rel="stylesheet" href="/wwwroot/css/cubes.css" />
     </head>
-    <body <? if (isset($mobile)): ?>class="isMobile <?php echo  $mobile ?>"<? endif; ?>  >
+    <body <?php if (isset($mobile)): ?>class="isMobile <?php echo  $mobile ?>"<?php endif; ?>  >
         <span id="tmmOpening" ref="0" style="display:none; top:50px; left:50px;"></span>
         <span id="tmmCube" style="display:none;"></span>  
 
@@ -311,13 +311,13 @@
         </div>
 
     <script type="text/javascript" >
-        <? if (isset($mobile)): ?>
+        <?php if (isset($mobile)): ?>
                 var mobile = "<?php echo  $mobile; ?>";           
-        <? endif ?>
+        <?php endif ?>
         </script>
         <script type="text/javascript" src="/wwwroot/js/cubebuilder.js?v=1368477918"></script>
         <div class="clearer"></div>
-        <? if (ENVIRONMENT == 'production'):?>
+        <?php if (ENVIRONMENT == 'production'):?>
         <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -327,6 +327,6 @@
                 var pageTracker = _gat._getTracker("UA-7929826-3");
                 pageTracker._trackPageview();
             } catch(err) {}</script>          
-        <?endif;?>           
+        <?php endif;?>           
     </body>
 </html>

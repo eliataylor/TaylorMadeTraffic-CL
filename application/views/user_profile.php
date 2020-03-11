@@ -2,17 +2,17 @@
         <h1 class="userName">
 	        <?php echo $uProfile['user_screenname'];?>    
 	        <span class='sociallinks'>
-	            <? if (!empty($uProfile['user_fburl'])):?>
+	            <?php if (!empty($uProfile['user_fburl'])):?>
 	                <a target='_blank' href='<?php echo $uProfile['user_fburl'];?>'>
 	                <img src="/wwwroot/images/fbIcon.png" title="<?php echo $uProfile['user_fburl'];?>" />
 	                </a>
-	            <? endif?>
-	            <? if (!empty($uProfile['user_linkdinurl'])):?>
+	            <?php endif?>
+	            <?php if (!empty($uProfile['user_linkdinurl'])):?>
 	                <a target='_blank' href='<?php echo $uProfile['user_linkdinurl'];?>'>
 	                <img title="<?php echo $uProfile['user_linkdinurl'];?>" src="/wwwroot/images/linkedinIcon.png" />
 	                </a>
-	            <? endif?>
-	            <? if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?php echo $uProfile['user_googleurl'];?>'><?php echo $uProfile['user_googleurl'];?></a></li><? endif?>
+	            <?php endif?>
+	            <?php if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?php echo $uProfile['user_googleurl'];?>'><?php echo $uProfile['user_googleurl'];?></a></li><?php endif?>
 	            
 	           <?php if ($uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
 	                <a target='_blank' href='http://www.upwork.com/o/profiles/users/_~01979dd82b228abbb5/'>
@@ -31,7 +31,7 @@
 	        </span>
         </h1>
         
-        <? if (!empty($uProfile['user_bio'])):?>
+        <?php if (!empty($uProfile['user_bio'])):?>
         <div class='userBio'>
             <?php echo $this->lang->ugc($uProfile['user_bio']);?>
         </div>
@@ -74,5 +74,5 @@
 			</ul>
         </section>
         <?php endif; ?>
-        <? endif?>
+        <?php endif?>
     </div>

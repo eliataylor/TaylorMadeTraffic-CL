@@ -9,10 +9,10 @@
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="en" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <? if ($me['con']['isMobile']): ?>
+        <?php if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />
             <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
-        <? endif; ?>      
+        <?php endif; ?>      
 
 		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />        
         <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1467202940" /> 
@@ -81,7 +81,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
    
 </style>          
         <link rel="shortcut icon" href="/wwwroot/images/favicon.ico" />
-        <? if (ENVIRONMENT == 'production'):?>
+        <?php if (ENVIRONMENT == 'production'):?>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -94,16 +94,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
             ga('send', 'pageview');
 
           </script>
-        <?endif;?>        
+        <?php endif;?>        
     </head>
     <body id="trackauthority" class="<?php echo $me['con']['pstyle'];?>" >
  	<div id="cv-format">
- 	<? if (isset($uProfile) && !empty($uProfile)):?>
+ 	<?php if (isset($uProfile) && !empty($uProfile)):?>
     <?php echo $this->load->view('user_profile');?>    
 <?php endif; ?>
-<? if (isset($cProfile) && !empty($cProfile)):?>
+<?php if (isset($cProfile) && !empty($cProfile)):?>
     <?php echo $this->load->view('company_profile');?>
-<? endif; ?>
+<?php endif; ?>
 <section class="userExperience">
         <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
         	<h3>EXPERIENCE</h3>
@@ -113,7 +113,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
 <div class="tablesorter projects_table">
     <div id="tableBody">        
     
-<? foreach ($groups as $company): ?> 
+<?php foreach ($groups as $company): ?> 
 		
 		<?php 
 		$groupname = $company['company_tagname']; ?>
@@ -161,29 +161,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
 	                <div class="col2 project_title" colspan="2" >
 	                    <h3><a href='/projects?pid=<?php echo  $row->project_id; ?>'><?php echo  $row->project_title; ?></a></h3>
 	                    
-	                    <? if (!empty($row->project_desc)): ?><div class="prjDesc"><?php echo  $this->lang->ugc($row->project_desc); ?></div><? endif ?>
-	                    <? if (!empty($row->project_technotes)): ?><div class="technotes"><?php echo  $this->lang->ugc($row->project_technotes); ?></div><? endif ?>
+	                    <?php if (!empty($row->project_desc)): ?><div class="prjDesc"><?php echo  $this->lang->ugc($row->project_desc); ?></div><?php endif ?>
+	                    <?php if (!empty($row->project_technotes)): ?><div class="technotes"><?php echo  $this->lang->ugc($row->project_technotes); ?></div><?php endif ?>
 	                    
 	                    <div class="projectTags">
 	                        <p class="project_startdate"><span class='lineName'><?php echo  $this->lang->en("Started") ?>:</span> <?php echo  $row->project_startdate; ?></p>
-	                        <? if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?php echo  $this->lang->en("Launched") ?>/<?php echo  $this->lang->en("Lasted") ?>:</span> <?php echo  $row->project_launchdate; ?></p><? endif ?>
-	                        <? if (!empty($row->project_liveurl)): ?>
+	                        <?php if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?php echo  $this->lang->en("Launched") ?>/<?php echo  $this->lang->en("Lasted") ?>:</span> <?php echo  $row->project_launchdate; ?></p><?php endif ?>
+	                        <?php if (!empty($row->project_liveurl)): ?>
 	                        <p class="projectLink">                       
 	                            <a href="<?php echo  $row->project_liveurl; ?>" target="_blank"> <?php echo  $row->project_liveurl; ?></a>
 	                        </p>
-	                        <? endif ?>
-	                        <? if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?>
-	                        <p class="projectLink"><a href="<?php echo  $row->project_devurl; ?>" target="_blank"> <?php echo  $row->project_devurl; ?></a></p><? endif ?>
-	                        <? if (!empty($row->project_devtools)): ?><p class="project_devtools"><span class='lineName'><?php echo  $this->lang->en("Technologies") ?>:</span> <?php echo  $row->project_devtools; ?></p><? endif ?>
-	                        <? if (!empty($row->project_industries)): ?><p class="industries"><span class='lineName'><?php echo  $this->lang->en("Industries") ?>:</span> <?php echo  ucwords($row->project_industries); ?></p><? endif ?>
-	                        <? if (!empty($row->project_team)): ?><p  class="team"><span class='lineName'><?php echo  $this->lang->en("Team") ?>:</span> <?php echo  $row->project_team; ?></p><? endif ?>
-	                        <? if (!empty($row->project_companies)): ?><p class="companies"><span class='lineName'><?php echo  $this->lang->en("Companies") ?>/<?php echo  $this->lang->en("Brands") ?>:</span> <?php echo  $row->project_companies; ?></p><? endif ?>
-	                        <? if (!empty($row->license_id)): ?><!--<p><span class='lineName'><?php echo  $this->lang->en("License") ?>:</span> <?php echo  $row->license_id; ?></p>--><? endif ?>
+	                        <?php endif ?>
+	                        <?php if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?>
+	                        <p class="projectLink"><a href="<?php echo  $row->project_devurl; ?>" target="_blank"> <?php echo  $row->project_devurl; ?></a></p><?php endif ?>
+	                        <?php if (!empty($row->project_devtools)): ?><p class="project_devtools"><span class='lineName'><?php echo  $this->lang->en("Technologies") ?>:</span> <?php echo  $row->project_devtools; ?></p><?php endif ?>
+	                        <?php if (!empty($row->project_industries)): ?><p class="industries"><span class='lineName'><?php echo  $this->lang->en("Industries") ?>:</span> <?php echo  ucwords($row->project_industries); ?></p><?php endif ?>
+	                        <?php if (!empty($row->project_team)): ?><p  class="team"><span class='lineName'><?php echo  $this->lang->en("Team") ?>:</span> <?php echo  $row->project_team; ?></p><?php endif ?>
+	                        <?php if (!empty($row->project_companies)): ?><p class="companies"><span class='lineName'><?php echo  $this->lang->en("Companies") ?>/<?php echo  $this->lang->en("Brands") ?>:</span> <?php echo  $row->project_companies; ?></p><?php endif ?>
+	                        <?php if (!empty($row->license_id)): ?><!--<p><span class='lineName'><?php echo  $this->lang->en("License") ?>:</span> <?php echo  $row->license_id; ?></p>--><?php endif ?>
 	                    </div>
 	                </div>
 	            </div>
-			<? endforeach; ?>
-		<? endforeach; ?>
+			<?php endforeach; ?>
+		<?php endforeach; ?>
     </div>
 </div>
 </section>

@@ -4,9 +4,9 @@
             <?php echo  $this->lang->en('LenguaPlus') ?>
             <span class="flags" style='float:right; margin:0'>
                 <span style='font-size:12px'>(<?php echo $this->lang->en('Cambiar Idioma')?>)</span>
-                <img <?if ($me['con']['lang'] != 'es'):?> style="opacity:.50; filter:alpha(opacity=50);"<?endif;?>
+                <img <?php if ($me['con']['lang'] != 'es'):?> style="opacity:.50; filter:alpha(opacity=50);"<?php endif;?>
                     data-language="es" class="langBtn" src="/wwwroot/img/Colombia_24x24-32.png" />
-                <img <?if ($me['con']['lang'] != 'en'):?> style="opacity:.50; filter:alpha(opacity=50);"<?endif;?>
+                <img <?php if ($me['con']['lang'] != 'en'):?> style="opacity:.50; filter:alpha(opacity=50);"<?php endif;?>
                     data-language="en" class="langBtn" src="/wwwroot/img/United-States_24x24-32.png" />
             </span>
         </h2>

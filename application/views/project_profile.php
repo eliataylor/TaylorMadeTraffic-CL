@@ -9,41 +9,41 @@
                     <?php endif; ?>
                     </h3>
 
-                    <?if(!empty($project->project_desc)):?><p class="prjDesc"><?php echo $this->lang->ugc($project->project_desc);?></p><?endif?>
-                    <?if(!empty($project->project_technotes)):?><p><div class="technotes"><?php echo $this->lang->ugc($project->project_technotes);?></div></p><?endif?>
-                <? if (false || $me['con']['swidth'] > 980):?>
+                    <?php if(!empty($project->project_desc)):?><p class="prjDesc"><?php echo $this->lang->ugc($project->project_desc);?></p><?php endif?>
+                    <?php if(!empty($project->project_technotes)):?><p><div class="technotes"><?php echo $this->lang->ugc($project->project_technotes);?></div></p><?php endif?>
+                <?php if (false || $me['con']['swidth'] > 980):?>
                 </td>
                 <td style="width:40%" class="col3">
-                <?endif;?>
+                <?php endif;?>
 
                     <p><span class='lineName'><?php echo $this->lang->en("Started")?>:</span> <?php echo $project->project_startdate;?></p>
-                    <?if(!empty($project->project_launchdate)):?><p><span class='lineName'><?php echo $this->lang->en("Launched/Lasted:")?>:</span> <?php echo $project->project_launchdate;?></p><?endif?>
-                    <?if(!empty($project->project_liveurl)):?><p><span class='lineName'><?php echo $this->lang->en("Live")?>:</span><a href="<?php echo $project->project_liveurl;?>" target="_blank"> <?php echo $project->project_liveurl;?></a></p><?endif?>
-                    <?if(!empty($project->project_devurl)):?><p><span class='lineName'><?php echo $this->lang->en("Dev")?>:</span><a href="<?php echo $project->project_devurl;?>" target="_blank"> <?php echo $project->project_devurl;?></a></p><?endif?>
-                    <?if(!empty($project->project_devtools)):?><p><span class='lineName'><?php echo $this->lang->en("Tools")?>:</span> <?php echo $project->project_devtools;?></p><?endif?>
-                    <?if(!empty($project->project_team)):?><p><span class='lineName'><?php echo $this->lang->en("Team")?>:</span> <?php echo $project->project_team;?></p><?endif?>
-                    <?if(!empty($project->project_client)):?><p><span class='lineName'><?php echo $this->lang->en("Client")?>:</span> <?php echo $project->project_client;?></p><?endif?>
-                    <?if(!empty($project->project_copyright)):?><p><span class='lineName'><?php echo $this->lang->en("Copyright")?>:</span> <?php echo $project->project_copyright;?></p><?endif?>
-                    <?if(!empty($project->project_industries)):?><p><span class='lineName'><?php echo $this->lang->en("Industries")?>:</span> <?php echo $project->project_industries;?></p><?endif?>
-                    <?if(!empty($project->license_id)):?><p><span class='lineName'><?php echo $this->lang->en("License")?>:</span> <?php echo $project->license_id;?></p><?endif?>
+                    <?php if(!empty($project->project_launchdate)):?><p><span class='lineName'><?php echo $this->lang->en("Launched/Lasted:")?>:</span> <?php echo $project->project_launchdate;?></p><?php endif?>
+                    <?php if(!empty($project->project_liveurl)):?><p><span class='lineName'><?php echo $this->lang->en("Live")?>:</span><a href="<?php echo $project->project_liveurl;?>" target="_blank"> <?php echo $project->project_liveurl;?></a></p><?php endif?>
+                    <?php if(!empty($project->project_devurl)):?><p><span class='lineName'><?php echo $this->lang->en("Dev")?>:</span><a href="<?php echo $project->project_devurl;?>" target="_blank"> <?php echo $project->project_devurl;?></a></p><?php endif?>
+                    <?php if(!empty($project->project_devtools)):?><p><span class='lineName'><?php echo $this->lang->en("Tools")?>:</span> <?php echo $project->project_devtools;?></p><?php endif?>
+                    <?php if(!empty($project->project_team)):?><p><span class='lineName'><?php echo $this->lang->en("Team")?>:</span> <?php echo $project->project_team;?></p><?php endif?>
+                    <?php if(!empty($project->project_client)):?><p><span class='lineName'><?php echo $this->lang->en("Client")?>:</span> <?php echo $project->project_client;?></p><?php endif?>
+                    <?php if(!empty($project->project_copyright)):?><p><span class='lineName'><?php echo $this->lang->en("Copyright")?>:</span> <?php echo $project->project_copyright;?></p><?php endif?>
+                    <?php if(!empty($project->project_industries)):?><p><span class='lineName'><?php echo $this->lang->en("Industries")?>:</span> <?php echo $project->project_industries;?></p><?php endif?>
+                    <?php if(!empty($project->license_id)):?><p><span class='lineName'><?php echo $this->lang->en("License")?>:</span> <?php echo $project->license_id;?></p><?php endif?>
                 </td>
             </tr>
     </tbody>
 </table>
 
-<? if (!empty($project->images)): ?>
+<?php if (!empty($project->images)): ?>
 <div class="galleryBlock">
-    <?if (count($project->images) > 0):?>
+    <?php if (count($project->images) > 0):?>
         <div class="galleryTopBar">
-        <?foreach($project->images as $img):?>
+        <?php foreach($project->images as $img):?>
             <a class="fancybox" href="<?php echo $img->image_src?>" data-fancybox-group="gallery<?php echo $project->project_id?>" >
             <img src='<?php echo imageSize($img->image_src, "150x150")?>'
                  data-oimage="<?php echo $img->image_src?>"
                  data-owidth="<?php echo $img->image_width?>" data-oheight="<?php echo $img->image_height?>"
                  />
             </a>
-        <?endforeach?>
+        <?php endforeach?>
         </div>
-    <?endif;?>
+    <?php endif;?>
 </div>
-<?endif?>
+<?php endif?>

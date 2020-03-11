@@ -11,36 +11,36 @@
 		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
         <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1467202940" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <? if ($me['con']['isMobile']): ?>
+        <?php if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />
             <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
-        <? endif; ?>
-        <? if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>
+        <?php endif; ?>
+        <?php if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <? else:?>
+        <?php else:?>
             <script type="text/javascript" src="/wwwroot/js/jquery.min.js"></script>
-        <?endif;?>
+        <?php endif;?>
         <link rel="shortcut icon" href="/wwwroot/images/favicon.ico" />
         <script type="text/javascript" src="/wwwroot/js/jquery.tablesorter.min.js"></script>
         <script language="javascript" type="text/javascript">
             var TMT_HTTP = "<?php echo  TMT_HTTP ?>";
             var taTools = {};
             var VSETTINGS = <?php echo  (is_array($me) && isset($me['con'])) ? json_encode($me['con']) : "{}" ?>;
-            <? if ($this->thisvisitor->auth()): ?>
+            <?php if ($this->thisvisitor->auth()): ?>
                 var CUR_VISITOR = <?php echo  $me['user_id'] ?>;
-                <? if(isset($qparams)):?>
+                <?php if(isset($qparams)):?>
                 var QPARAMS = <?php echo  json_encode($qparams); ?>;
-                <?endif;?>
-            <? else: ?>
+                <?php endif;?>
+            <?php else: ?>
                 var CUR_VISITOR = false;
-            <? endif; ?>
+            <?php endif; ?>
         </script>
-        <? if($this->uri->segment(1) == 'lenguaplus'):?>
+        <?php if($this->uri->segment(1) == 'lenguaplus'):?>
             <script type="text/javascript" src="/wwwroot/js/lenguaplus.js"></script>
             <link type="text/css" rel="stylesheet" href="/wwwroot/css/lenguaplus.css" />
-        <?endif;?>
+        <?php endif;?>
 	<script type="text/javascript" src="/wwwroot/js/jquery.fancybox.pack.js?v=2.1.5"></script>
-        <? if (ENVIRONMENT == 'production'):?>
+        <?php if (ENVIRONMENT == 'production'):?>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -50,24 +50,24 @@
             ga('set', '&uid', '<?php echo $me['session_id']?>');
             ga('send', 'pageview');
           </script>
-        <?endif;?>
+        <?php endif;?>
     </head>
     <body id="trackauthority" class="<?php echo $me['con']['pstyle'];?>" >
     	<img src="/wwwroot/images/cubespins/TUMBLE0054.png" id="printLogo" />
         <span id="tmmCube" style="display:none;">
             <?php $cubespins = scandir(ROOT_CD . "/wwwroot/images/cubespins"); $index=0;?>
-            <?foreach($cubespins as $img):?>
-                <? if($img != '.' && $img != '..' && !strpos($img, '.db')):?>
-                    <img data-index="<?php echo $index?>" <? if($index > 0):?>style='display:none;'<?endif;?>  src="/wwwroot/images/cubespins/<?php echo $img?>" />
+            <?php foreach($cubespins as $img):?>
+                <?php if($img != '.' && $img != '..' && !strpos($img, '.db')):?>
+                    <img data-index="<?php echo $index?>" <?php if($index > 0):?>style='display:none;'<?php endif;?>  src="/wwwroot/images/cubespins/<?php echo $img?>" />
                     <?php $index++; ?>
-                <?endif;?>
-            <?endforeach;?>
+                <?php endif;?>
+            <?php endforeach;?>
         </span>
 
         <div class="master" id="master">
             <span id="tmmOpening" ref="0" style="display:none;top:-6px;left:-5px;"></span>
             <div class='topHeader'>
-                <?if (isset($qmenu)):?>
+                <?php if (isset($qmenu)):?>
                 <div style="opacity:0; filter:alpha(opacity=0); visibility: hidden; " id="navMenu" >
                     <div style="padding-left: 1px;"  class="menuEmpty menuBox"></div>
 
@@ -96,11 +96,11 @@
                     <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;">
                         <ul id="menuList" style="display:none" >
                            <img title="<?php echo $this->lang->msg('english')?>"
-                               <?if ($me['con']['lang'] != 'en'):?> style="opacity:.60; filter:alpha(opacity=60);"<?endif;?>
+                               <?php if ($me['con']['lang'] != 'en'):?> style="opacity:.60; filter:alpha(opacity=60);"<?php endif;?>
                                onclick="tmt.changeLang('en')" src="/wwwroot/images/United-States_16x16-32.png" />
                            <img
                                title="<?php echo $this->lang->msg('español')?>"
-                               <?if ($me['con']['lang'] != 'es'):?> style="opacity:.60; filter:alpha(opacity=60);"<?endif;?>
+                               <?php if ($me['con']['lang'] != 'es'):?> style="opacity:.60; filter:alpha(opacity=60);"<?php endif;?>
                                onclick="tmt.changeLang('es')" src="/wwwroot/images/Colombia_16x16-32.png" />
                         </ul>
                     </div>
@@ -113,33 +113,33 @@
                 </div>
 
                 <div id="tagLinks" class="mainNav">
-                    <?foreach($qmenu as $key=>$param):?>
-                        <?if($param['role'] < 0):?>
+                    <?php foreach($qmenu as $key=>$param):?>
+                        <?php if($param['role'] < 0):?>
                             <?php $seg1 = $this->uri->segment(1); ?>
-                            <a class='navItem<? if($key == $seg1 || (empty($seg1) && $key == 'technologies')):?> selected<?endif;?>' href="/<?php echo $key?>" ><?php echo ucwords($param['title'])?></a>
-                        <?endif;?>
-                    <?endforeach;?>
+                            <a class='navItem<?php if($key == $seg1 || (empty($seg1) && $key == 'technologies')):?> selected<?php endif;?>' href="/<?php echo $key?>" ><?php echo ucwords($param['title'])?></a>
+                        <?php endif;?>
+                    <?php endforeach;?>
                 </div>
-                <?endif;?>
+                <?php endif;?>
             </div>
 
-             <? if (!empty($errors)): ?>
+             <?php if (!empty($errors)): ?>
                 <div class="serverErrors">
                     <ul>
-                    <? foreach ($errors as $key => $value): ?>
+                    <?php foreach ($errors as $key => $value): ?>
                         <li><?php echo  $value ?></li>
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                     </ul>
                 </div>
-            <? endif; ?>
+            <?php endif; ?>
             <div id="pageBlock" >
-            <? if (isset($pages)): ?>
-                <? foreach ($pages as $key => $value): ?>
+            <?php if (isset($pages)): ?>
+                <?php foreach ($pages as $key => $value): ?>
                     <div class="moduleBlock <?php echo  $key ?>" >
                         <?php echo  $value ?>
                     </div>
-                <? endforeach; ?>
-            <? endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
             </div>
         </div>
         <div id='softNotice' style="display:none;">

@@ -214,7 +214,6 @@ class Projects extends CI_Controller {
     	}
     	$this->data['showGroup'] = true;
     	$this->data['groups'] = $groups;
-    	unset($this->data['tableRows']);
     }
 
     // just URL predefines qtags
