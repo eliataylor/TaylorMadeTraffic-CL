@@ -8,7 +8,7 @@
                   else if ($key=='tag_key' && $qtags == 'years') echo 'headerSortUp';
                   else if ($key=='count' && $qtags == 'industries') echo 'headerSortUp'; ?>"
                     >
-                    <?php echo ($key != "tag_key") ? $head : '<p>'.$this->lang->en('Tags').'</p>'; ?>
+                    <?php echo ($key != "tag_key") ? $head : '<p>'.$this->lang->en($qtags).'</p>'; ?>
                 </th>
             <?php $index++;  endforeach; ?>
         </tr></thead>
