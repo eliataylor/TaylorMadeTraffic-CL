@@ -300,8 +300,7 @@ class LenguaPlusController extends CI_Controller {
     }
 
     public function runUpdate() {
-      // http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=46
-      // http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=51
+      // http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=52
     	// http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=40&dir=/wwwroot/images/sites/blingby
     	$pid = $this->input->get_post('pid');
     	$dir = $this->input->get_post('dir');
@@ -461,7 +460,6 @@ class LenguaPlusController extends CI_Controller {
     	}
 
       // WARN doesn't prevent duplicates
-      /*
     	$humanStr = array();
     	if (isset($obj->project_team) && !empty($obj->project_team)) {
         $role_users = preg_split('/(?<=[.])\s+/', $obj->project_team, -1, PREG_SPLIT_NO_EMPTY);  // space is important since i use E.A.Taylor
@@ -501,7 +499,7 @@ class LenguaPlusController extends CI_Controller {
     		$t->project_id = $pid;
     		$this->projects->insertTag($t);
     	}
-      */
+
     	return $obj;
     }
 

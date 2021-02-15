@@ -184,7 +184,7 @@ class Projects extends CI_Controller {
         $row = (object) array_merge((array) $row, (array)$row->images[0]); // since queries suck
 
         if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
-        if (empty($row->project_launchdate)) $row->project_launchdate = date('Y-m-d');
+        if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
 
   			if (!isset($row->{$this->data['qgroup']})) {
   				$this->data['qgroup'] = 'project_client'; // should never happen

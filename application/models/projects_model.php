@@ -119,11 +119,10 @@ class Projects_Model extends CI_Model {
 
     function getProject($pid) {
         $params = array();
-        $sql = "SELECT P.*, I.*, min(I.image_weight) FROM projects P, images I WHERE P.project_id = I.project_id ";
-        if (is_numeric($pid)) $sql .= " AND P.project_id = ? ";
-        else $sql .= " AND P.project_title = ? ";
-        $sql .= 'GROUP BY P.project_id ';
-        $sql .= 'order by I.image_weight asc';
+        $sql = "SELECT P.*, I.* FROM projects P LEFT JOIN images I ON P.project_id = I.project_id WHERE ";
+        if (is_numeric($pid)) $sql .= " P.project_id = ? ";
+        else $sql .= " P.project_title = ? ";
+        $sql .= 'ORDER BY I.image_weight ASC LIMIT 1';
         $query = $this->db->query($sql, array($pid));
         //echo $this->db->last_query();
         if ($query->num_rows() > 0) return $query->row();
