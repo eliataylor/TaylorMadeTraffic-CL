@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" lang="<?php echo $me['con']['lang']?>">
     <head>
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
-              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags; 
+              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = $qtags;
               else $docTitle = ucfirst(trim($docTitle)); ?>
         <title><?php echo  $docTitle ?> :: TaylorMadeTraffic.com</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -12,10 +12,10 @@
         <?php if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />
             <meta name="apple-mobile-web-app-status-bar-style" content="translucent" />
-        <?php endif; ?>      
+        <?php endif; ?>
 
-		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />        
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1467202940" /> 
+		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613473220" />
 <style type="text/css">
 
 
@@ -32,7 +32,7 @@ dl.detailList { padding: 0; margin:4px 0 0 0}
     padding: 0;
     vertical-align:middle;
  }
- 
+
  .companyHead.flexGroup {
 /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cccccc+5,ffffff+33,ffffff+66,cccccc+95 */
 background: rgb(204,204,204); /* Old browsers */
@@ -41,10 +41,10 @@ background: -webkit-linear-gradient(-45deg, rgba(204,204,204,1) 5%,rgba(255,255,
 background: linear-gradient(135deg, rgba(204,204,204,1) 5%,rgba(255,255,255,1) 33%,rgba(255,255,255,1) 66%,rgba(204,204,204,1) 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
--moz-border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0; -o-border-radius:5px 5px 0 0; 
+-moz-border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0; -o-border-radius:5px 5px 0 0;
 
 }
- 
+
 .flexGroup {
      display: -webkit-box;
 	  display: -moz-box;
@@ -76,10 +76,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  flex-grow:1;	
+  flex-grow:1;
 }
-   
-</style>          
+
+</style>
         <link rel="shortcut icon" href="/wwwroot/images/favicon.ico" />
         <?php if (ENVIRONMENT == 'production'):?>
         <script>
@@ -89,56 +89,56 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
             ga('create', 'UA-7929826-3', 'auto');
-            ga('set', '&uid', '<?php echo $me['session_id']?>'); 
+            ga('set', '&uid', '<?php echo $me['session_id']?>');
             //ga('require', 'linkid', 'linkid.js');
             ga('send', 'pageview');
 
           </script>
-        <?php endif;?>        
+        <?php endif;?>
     </head>
     <body id="trackauthority" class="<?php echo $me['con']['pstyle'];?>" >
  	<div id="cv-format">
  	<?php if (isset($uProfile) && !empty($uProfile)):?>
-    <?php echo $this->load->view('user_profile');?>    
+    <?php echo $this->load->view('user_profile');?>
 <?php endif; ?>
 <?php if (isset($cProfile) && !empty($cProfile)):?>
     <?php echo $this->load->view('company_profile');?>
 <?php endif; ?>
 <section class="userExperience">
-        <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>        
+        <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
         	<h3>EXPERIENCE</h3>
         <?php endif; ?>
 
 
 <div class="tablesorter projects_table">
-    <div id="tableBody">        
-    
-<?php foreach ($groups as $company): ?> 
-		
-		<?php 
+    <div id="tableBody">
+
+<?php foreach ($groups as $company): ?>
+
+		<?php
 		$groupname = $company['company_tagname']; ?>
-		
+
 		<?php if (isset($showGroup) && count($company['projects']) > 0): ?>
-		
-			
+
+
 			<?php if ($qhaving > 0 && $qhaving > count($company['projects'])) {
 				continue; // dont show group
 			}?>
-			
+
 			<div class="rowMargin"></div>
-			<div class="flexGroup companyHead" data-group="<?php echo $groupname?>"  
+			<div class="flexGroup companyHead" data-group="<?php echo $groupname?>"
 				data-projectcount="<?php echo count($company['projects'])?>">
 				<div class="flexItemMain flexItem col1"><h2>
 					<?php if (isset($company['company_logo']) && isset($_GET['logos'])): ?>
-						<img title="<?php echo $company['company_screenname']?>" alt="<?php echo $company['company_screenname']?>"  class="companyLogo" src="<?php echo $company['company_logo']?>" /> 				
-						<span class="company_screenname"><?php echo $company['company_screenname'];?></span> 
+						<img title="<?php echo $company['company_screenname']?>" alt="<?php echo $company['company_screenname']?>"  class="companyLogo" src="<?php echo $company['company_logo']?>" />
+						<span class="company_screenname"><?php echo $company['company_screenname'];?></span>
 					<?php else: ?>
-						<?php echo $company['company_screenname'];?> 
+						<?php echo $company['company_screenname'];?>
 					<?php endif; ?>
 				</h2></div>
 				<div class="flexItem col2">
 						<?php echo fDate($company['startDate'], 'month')?>
-						- 
+						-
 						<?php echo fDate($company['endDate'], 'month')?>
 				</div>
 				<div class="flexItem col3">
@@ -160,15 +160,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
 
 	                <div class="col2 project_title" colspan="2" >
 	                    <h3><a href='/projects?pid=<?php echo  $row->project_id; ?>'><?php echo  $row->project_title; ?></a></h3>
-	                    
+
 	                    <?php if (!empty($row->project_desc)): ?><div class="prjDesc"><?php echo  $this->lang->ugc($row->project_desc); ?></div><?php endif ?>
 	                    <?php if (!empty($row->project_technotes)): ?><div class="technotes"><?php echo  $this->lang->ugc($row->project_technotes); ?></div><?php endif ?>
-	                    
+
 	                    <div class="projectTags">
 	                        <p class="project_startdate"><span class='lineName'><?php echo  $this->lang->en("Started") ?>:</span> <?php echo  $row->project_startdate; ?></p>
 	                        <?php if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span class='lineName'><?php echo  $this->lang->en("Launched") ?>/<?php echo  $this->lang->en("Lasted") ?>:</span> <?php echo  $row->project_launchdate; ?></p><?php endif ?>
 	                        <?php if (!empty($row->project_liveurl)): ?>
-	                        <p class="projectLink">                       
+	                        <p class="projectLink">
 	                            <a href="<?php echo  $row->project_liveurl; ?>" target="_blank"> <?php echo  $row->project_liveurl; ?></a>
 	                        </p>
 	                        <?php endif ?>
@@ -187,8 +187,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
     </div>
 </div>
 </section>
- 	
- 	
+
+
  	</div>
 </body>
 </html>
