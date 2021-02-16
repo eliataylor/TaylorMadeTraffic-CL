@@ -181,10 +181,12 @@ class Projects extends CI_Controller {
     	foreach($this->data['tableRows'] as $index=>&$row) {
     		$row->images = $this->projects->getProjectImages($row->project_id);
     		$row->totalImages = count($row->images);
-        $row = (object) array_merge((array) $row, (array)$row->images[0]); // since queries suck
+    		if (!empty($row->images)) {
+                $row = (object) array_merge((array) $row, (array)$row->images[0]); // since queries suck
+            }
 
-        if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
-        if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
+            if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
+            if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
 
   			if (!isset($row->{$this->data['qgroup']})) {
   				$this->data['qgroup'] = 'project_client'; // should never happen

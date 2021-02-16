@@ -37,10 +37,15 @@
         <div class="galleryTopBar">
         <?php foreach($project->images as $img):?>
             <a class="fancybox" href="<?php echo $img->image_src?>" data-fancybox-group="gallery<?php echo $project->project_id?>" >
-            <img src='<?php echo imageSize($img->image_src, "150x150")?>'
-                 data-oimage="<?php echo $img->image_src?>"
-                 data-owidth="<?php echo $img->image_width?>" data-oheight="<?php echo $img->image_height?>"
-                 />
+                <?php if (substr($img->image_src, -4) === '.mp4'): ?>
+                    <video src='<?php echo $img->image_src; ?>'
+                      class="projectImg" muted="true" />
+                <?php else: ?>
+                        <img src='<?php echo imageSize($img->image_src, "150x150")?>'
+                             data-oimage="<?php echo $img->image_src?>"
+                             data-owidth="<?php echo $img->image_width?>" data-oheight="<?php echo $img->image_height?>"
+                             />
+                <?php endif; ?>
             </a>
         <?php endforeach?>
         </div>
