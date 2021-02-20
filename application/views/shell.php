@@ -9,7 +9,7 @@
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="<?php echo $me['con']['lang']?>" />
 		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613818573" />
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613820207" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <?php if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />

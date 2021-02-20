@@ -15,7 +15,7 @@
         <?php endif; ?>
 
 		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613473220" />
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613820207" />
 <style type="text/css">
 
 
