@@ -143,7 +143,7 @@
 		                    <?php endif;?>
 	                </td>
                     <?php endif;?>
-	                <td class="col2 project_title" colspan="2" >
+	                <td class="col2 project_title" colspan="<?php echo isset($_GET['noPics']) ? 3 : 2 ?>" >
 	                    <h3><a href='/projects?pid=<?php echo  $row->project_id; ?>'><?php echo  $row->project_title; ?></a>
                       <?php if(!empty($row->project_subtitle)):?>
                         <br />
