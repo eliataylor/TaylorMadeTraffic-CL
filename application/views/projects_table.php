@@ -57,7 +57,7 @@
 </div>
 <?php endif;?>
 
-<table class="tablesorter projects_table">
+<table class="tablesorter projects_table <?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>">
     <tbody id="tableBody">
 
 <?php foreach ($groups as $company): ?>
@@ -103,8 +103,8 @@
 	            	<?php if (isset($groupname)):?>data-group="<?php echo $groupname?>"<?php endif; ?>
 	             >
 
+                    <?php if (!isset($_GET['noPics'])):?>
 	                <td class="col1 image_src" >
-	                    <?php if (!isset($_GET['noPics'])):?>
 		                    <div class="projectImgMask">
                                 <a href='/projects?pid=<?php echo  $row->project_id; ?>'>
                                     <?php if (substr($row->image_src, -4) === '.mp4'): ?>
@@ -141,8 +141,8 @@
 		                            <?php endif;?>
 		                        <?php endforeach?>
 		                    <?php endif;?>
-	                    <?php endif;?>
 	                </td>
+                    <?php endif;?>
 	                <td class="col2 project_title" colspan="2" >
 	                    <h3><a href='/projects?pid=<?php echo  $row->project_id; ?>'><?php echo  $row->project_title; ?></a>
                       <?php if(!empty($row->project_subtitle)):?>

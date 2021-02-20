@@ -256,10 +256,13 @@ td a.popInfo { text-decoration:none;}
 .projectRow > td { padding-bottom:50px!important; }
 .projectRow .col1 { width:30%;}
 .projectRow .col2 { width:69%;}
+.noPics .projectRow .col2 { width:100%;}
 
 .companyHead .col1 { width:30%; }
 .companyHead .col2 { width:40%;}
 .companyHead .col3 { width:30%; }
+
+.noPics .companyHead .col2 { width:auto;}
 
 .col2 h3 { font-size:170%; }
 .tablesorter td.project_startdate { padding-top:28px; }
