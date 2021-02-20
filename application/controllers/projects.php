@@ -191,30 +191,33 @@ class Projects extends CI_Controller {
   			if (!isset($row->{$this->data['qgroup']})) {
   				$this->data['qgroup'] = 'project_client'; // should never happen
   			}
-				$company = $row->{$this->data['qgroup']};
-				if (!isset($groups[$company])) {
-					$groups[$company] = $this->users->getCompanyByName($company);
-					if (!$groups[$company]) {
-						$groups[$company] = array('company_tagname'=>$company, 'company_screenname'=>$company, 'company_status'=>1);
-  					$groups[$company]['company_startdate'] = $row->project_startdate;
-  					$groups[$company]['company_enddate'] = $row->project_launchdate;
-  					$groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
-					}
-					$groups[$company] = $this->users->getCompanyByName($company);
-					$groups[$company]['startDate'] = strtotime($row->project_startdate);
-					$groups[$company]['endDate'] = strtotime($row->project_launchdate);
-					$groups[$company]['projects'] = array();
-				}
-				$groups[$company]['startDate'] = min($groups[$company]['startDate'], strtotime($row->project_startdate));
-				$groups[$company]['endDate'] = max($groups[$company]['endDate'], strtotime($row->project_launchdate));
-				array_push($groups[$company]['projects'], $row);
+            $company = $row->{$this->data['qgroup']};
+            if (!isset($groups[$company])) {
+                $groups[$company] = $this->users->getCompanyByName($company);
+                if (!$groups[$company]) {
+                    $groups[$company] = array('company_tagname'=>$company, 'company_screenname'=>$company, 'company_status'=>1);
+                    $groups[$company]['company_startdate'] = $row->project_startdate;
+                    $groups[$company]['company_enddate'] = $row->project_launchdate;
+                    $groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
+                }
+                $groups[$company] = $this->users->getCompanyByName($company);
+                $groups[$company]['startDate'] = strtotime($row->project_startdate);
+                $groups[$company]['endDate'] = strtotime($row->project_launchdate);
+                $groups[$company]['projects'] = array();
+            }
+            $groups[$company]['startDate'] = min($groups[$company]['startDate'], strtotime($row->project_startdate));
+            array_push($groups[$company]['projects'], $row);
     	}
 
     	if (count($groups) > 0) {
      		usort($groups, function($a, $b) {
           return $a['endDate'] < $b['endDate'];
      		});
+            if ($groups[0]['company_tagname'] === 'Cypher LLC') {
+                $groups[0]['endDate'] = 'Present';
+            }
     	}
+
     	$this->data['showGroup'] = true;
     	$this->data['groups'] = $groups;
     }

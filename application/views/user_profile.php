@@ -21,7 +21,7 @@
 	                <a target='_blank' href='https://github.com/eliataylor'>
 		                <img title="Github" src="/wwwroot/images/github-icon.png" />
 	                </a>
-	           <?php endif; ?> 
+	           <?php endif; ?>
 	        </span>
         </h1>
 
@@ -31,14 +31,11 @@
         </div>
         <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
         <section class="userSummary">
-        	<h3>OVERVIEW</h3>
-        	<ul>
-        		<li>10 years building interactive browser-based interfaces</li>
-        		<li>8 years building scalable SQL schemas and PHP applications, analytical tools and content managers</li>
-        		<li>4 years building mobile applications with Cordova and Node.js</li>
-				<li>4 years building plugins and desiging with Adobe's Creative Suite to export bitmaps &amp; SVG animations</li>
-        		<li>3 years building automated contextual advertising with Java, Oracle, and JavaScript</li>
-        	</ul>
+            <p>Eli has over 20 years of experience in throughout the stack of software development, building systems of all sizes and needs.
+                As an entrepreneur by nature, Eli measures success by finding the perfect balance between scalability, time, and budget.
+                As an artist at heart, Eli's approach to programming is led by a passion for implementing beautiful designed systems and interfaces.
+                In his spare time, Eli spends time with his wife and son, and teaches youth courses on the software development life cycle for the Hidden Genius Project.
+            </p>
         </section>
         <?php endif; ?>
         <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>

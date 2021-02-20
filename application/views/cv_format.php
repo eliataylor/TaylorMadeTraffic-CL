@@ -139,7 +139,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
 				<div class="flexItem col2">
 						<?php echo fDate($company['startDate'], 'month')?>
 						-
-						<?php echo fDate($company['endDate'], 'month')?>
+                        <?php echo ($company['endDate'] === 'Present') ? $company['endDate'] : fDate($company['endDate'], 'month') ?>
 				</div>
 				<div class="flexItem col3">
 					<span class="myrole"><?php echo htmlentities($company['company_myrole'])?></span>

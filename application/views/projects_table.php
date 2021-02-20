@@ -84,7 +84,7 @@
 				<td class="col2">
 						<?php echo fDate($company['startDate'], 'month')?>
 						-
-						<?php echo fDate($company['endDate'], 'month')?>
+						<?php echo ($company['endDate'] === 'Present') ? $company['endDate'] : fDate($company['endDate'], 'month') ?>
 				</td>
 				<td class="col3">
 					<span class="myrole"><?php echo htmlentities($company['company_myrole'])?></span>
@@ -109,7 +109,11 @@
                                 <a href='/projects?pid=<?php echo  $row->project_id; ?>'>
                                     <?php if (substr($row->image_src, -4) === '.mp4'): ?>
                                         <video src='<?php echo $row->image_src; ?>'
-                                               class="projectImg" muted="true" controls autoplay loop />
+                                               class="projectImg" muted="true" controls autoplay loop
+                                               <?php if (count($row->images) > 1): ?>
+                                               poster="<?php echo $row->images[1]->image_src ?>"
+                                               <?endif; ?>
+                                        />
                                     <?php else: ?>
                                         <img  data-owidth="<?php echo  $row->image_width ?>"
                                               data-oheight="<?php echo  $row->image_height ?>"

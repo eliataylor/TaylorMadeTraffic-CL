@@ -45,7 +45,7 @@ a.navItem { margin:5px 3px;}
 a.navItem.selected { color:red; }
 
 
-.prjSection { width:100%; position:relative; line-height: 18px; font-size:14px; margin:10px 0; clear:both}
+.prjSection { width:100%; position:relative;  font-size:14px; margin:10px 0; clear:both}
 .prjSection img { width:97%; }
 .prjSection li:before {
     content: "•  ";
@@ -58,10 +58,11 @@ a.navItem.selected { color:red; }
 .expenselist li:before { color:#ff7901;}
 
 .lineName { font-style: italic; color:#a0a09f;}
-.technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; font-family:courier, monospace; font-size: 12px; line-height: 18px; }
+.technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block;
+    font-family:courier, monospace; font-size: 14px; line-height: 22px; }
 .technotes p { margin:5px 0; list-style:circle; }
 .technotes li { margin: 5px 0 0 15px; list-style:square; list-style-position: outside; }
-.prjDesc { font-size: 12px; line-height: 18px; text-align:justify;   }
+.prjDesc { font-size: 14px; line-height: 22px; text-align:justify;   }
 .technotes { background:#090909; word-break:break-word }
 .prjDesc img, .technotes img { width:97%; }
 .team a{ font-size:125%; }
@@ -78,6 +79,7 @@ a.navItem.selected { color:red; }
 section { margin:10px 0 0 0; padding:0; }
 section h3 { width:100%; border-bottom:1px solid #000; margin:0; }
 section h4 { margin:0; }
+.userEducation, .userSummary { margin-bottom:40px; }
 .userSummary ul, .userEducation ul {padding:auto; margin:0;}
 .userEducation li, .userSummary li  { list-style-type:disc; margin-left:25px;}
 
@@ -251,7 +253,8 @@ td a.popInfo { text-decoration:none;}
 .col1, .col2 { text-align: left; }
 .col3 { text-align: right; }
 
-.projectRow .col1 { width:30%; }
+.projectRow > td { padding-bottom:50px!important; }
+.projectRow .col1 { width:30%;}
 .projectRow .col2 { width:69%;}
 
 .companyHead .col1 { width:30%; }
@@ -302,7 +305,8 @@ a.fancybox { text-decoration:none; }
  #softNoticeBody a, #softNoticeBody a:visited { color:purple; }
  .companyHead, .companyHead td, .companyHead h2 {width:100%; }
  .companyLogo { max-height:54px; max-width:120px;}
- .projectTags { font-size: 12px; }
+ .projectTags { font-size: 14px; }
+ .projectTags .lineName { font-size:11px; }
  .instruct { font-size:80%; }
  .employmentSpan { float:right; }
 
@@ -401,7 +405,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 
 @media print {
     body, .master  {background:transparent!important; color:#000!important;}
-    body { padding:.5em}
+    body { padding:.5em; }
     .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -417,28 +421,31 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
     .tableBody td {display:table-cell!important;}
 	.myrole {font-weight:bolder;}
 
-	.pBlack .companyHead td.col1, .companyHead td.col1 {
-		background:#cccccc;
-		border:0 none;
-		background: -webkit-linear-gradient(-45deg, #cccccc 10%, #ffffff 80%);
-	}
+
 	.companyLogo { max-height:25px; float:left; margin:0 3px 2px 0; }
 	.company_screenname {float:left; display:inline-block; text-align:left; }
 	.companyHead td.col1 { max-height:54px; }
 	td, tr { border:0 none; border-collapse:collapse;}
-	.pBlack .companyHead td.col3, .companyHead td.col3 {
-		background:#cccccc;
-		border:0 none;
-		background: -webkit-linear-gradient(-45deg, #ffffff 15%, #cccccc 90%);
-	}
+
+    .pBlack .companyHead td.col1, .companyHead td.col1 {
+        background:#cccccc;
+        border:0 none;
+        background: -webkit-linear-gradient(-45deg, #cccccc 0%, #ffffff 90%);
+    }
+    .pBlack .companyHead td.col3, .companyHead td.col3 {
+        background:#cccccc;
+        border:0 none;
+        background: -webkit-linear-gradient(-45deg, #ffffff 15%, #cccccc 100%);
+    }
+
 	.rowMargin { height:30px; border:0 none;}
 	.rowMargin:nth-child(1) { height:0;}
 
-	.companyHead .col1, .projectRow .col1 { width:15%!important; padding:0 5px 0 0;  }
+	.companyHead .col1, .projectRow .col1 { padding:0 5px 0 0;  }
 	.companyHead { font-size:11px; border:0 none;}
 
 	.projectImgMask, .img_src { padding:0; margin:0}
-	.userProfile .userName { height:50px; margin:0; font-size:30px;}
+	.userProfile .userName { height:50px; margin:0 0 30px 0; font-size:30px;}
 
 	dl.detailList{ position:absolute; top:0; right:0;
 	padding: 0;
@@ -462,8 +469,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
 	.projectRow h3 a { text-decoration:none!important; color:#000!important; }
 	.tablesorter .projectTags p { margin:2px 0;}
-    .technotes { background:#fff!important; line-height:14px; margin:3px 0 8px 0;}
-	.prjDesc { line-height:14px;}
+    .technotes { background:#fff!important; margin:3px 0 8px 0;}
 
 	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style], .projectsTitle { display:none;}
     .reflectionMask { display:none; }
