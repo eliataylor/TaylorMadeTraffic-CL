@@ -262,8 +262,6 @@ td a.popInfo { text-decoration:none;}
 .companyHead .col2 { width:40%;}
 .companyHead .col3 { width:30%; }
 
-.noPics .companyHead .col2 { width:auto;}
-
 .col2 h3 { font-size:170%; }
 .tablesorter td.project_startdate { padding-top:28px; }
 .projectLink { word-break:break-all; }
