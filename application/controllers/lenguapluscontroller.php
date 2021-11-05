@@ -300,8 +300,8 @@ class LenguaPlusController extends CI_Controller {
     }
 
     public function runUpdate() {
-      // http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=52
-    	// http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=54&dir=/wwwroot/images/sites/democrasee-react
+      // http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=56
+    	// http://localhost.taylormadetraffic.com/lenguaplus/update-images?pid=56&dir=/wwwroot/images/sites/cosmo
     	$pid = $this->input->get_post('pid');
     	$dir = $this->input->get_post('dir');
     	$count = 0;
@@ -459,8 +459,7 @@ class LenguaPlusController extends CI_Controller {
     		$obj->project_industries = implode(', ', $humanStr);
     	}
 
-      // WARN doesn't prevent duplicates
-        /*
+          // WARN doesn't prevent duplicates
     	$humanStr = array();
     	if (isset($obj->project_team) && !empty($obj->project_team)) {
         $role_users = preg_split('/(?<=[.])\s+/', $obj->project_team, -1, PREG_SPLIT_NO_EMPTY);  // space is important since i use E.A.Taylor
@@ -488,7 +487,6 @@ class LenguaPlusController extends CI_Controller {
     		}
     		if (!empty($humanStr)) $obj->project_team = implode('. ', array_values($humanStr));
     	}
-        */
 
     	// industry: art,health,commerce,education,analytics
     	$max = (!empty($obj->project_launchyear)) ? (int)$obj->project_launchyear : (int)$obj->project_startyear;
