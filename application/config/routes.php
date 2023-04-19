@@ -5,6 +5,8 @@ $route['404_override'] = 'projects/error404';
 
 $route['default_controller'] = "projects/animatedIntro";
 
+$route['.well-known/acme-challenge/AokEJYwWYMEzWsLb_V8FTOMJ2H-CbJRjxqflxt_m-L4'] = 'projects/certbot';
+
 $route['years/design'] = "projects/years";
 $route['years'] = "projects/years";
 $route['technologies/development'] = "projects/technologies";

@@ -11,6 +11,10 @@ class Projects extends CI_Controller {
         $this->setGlobals();
     }
 
+    public function certbot() {
+        die('AokEJYwWYMEzWsLb_V8FTOMJ2H-CbJRjxqflxt_m-L4.5HgURcqD_GgzIOxgwT0BxhvPd3KERWoPqZUqCU0CKMk');
+    }
+
     function _remap() {
         $this->data['qmenu'] = array(
             "" => array("role" => 0, 'icon'=>'' , "title" => $this->lang->en("Technologies")),
