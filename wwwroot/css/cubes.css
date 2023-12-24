@@ -468,6 +468,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.projectRow { border-bottom:solid #fff 15px; border-top:solid #fff 10px; }
     .pageBreak {page-break-after: always}
 	.projectRow .col2 { width:83%!important; padding:0 0 0 3px; }
+	.pageBreak {page-break-after: always}
 	.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
 	.projectRow h3 a { text-decoration:none!important; color:#000!important; }
 	.tablesorter .projectTags p { margin:2px 0;}
