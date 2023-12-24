@@ -99,18 +99,38 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
     <body id="trackauthority" class="<?php echo $me['con']['pstyle'];?>" >
  	<div id="cv-format">
  	<?php if (isset($uProfile) && !empty($uProfile)):?>
-    <?php echo $this->load->view('user_profile');?>
+    <?php $this->load->view('user_profile');?>
 <?php endif; ?>
 <?php if (isset($cProfile) && !empty($cProfile)):?>
-    <?php echo $this->load->view('company_profile');?>
+    <?php $this->load->view('company_profile');?>
 <?php endif; ?>
 <section class="userExperience">
         <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
         	<h3>EXPERIENCE</h3>
         <?php endif; ?>
 
+    <!--
+    <ul>
+    <li>Rebuilt OpenCTI interface to follow streamlined workflow to control ingestion, triage alerts and fine tune ML engine analysis</li>
+    <li>
+        Wrote all parsers for transforming emails and various log formats into appropriate STIX2 objects
+    </li>
+    <li>
+        Built ingestion system to support custom configurations and toggle persistent storage of Observables while preserving analysis and prediction with or without historical data.
+    </li>
+    <li>
+        Wrote test cases and reproducible pen test with ZAP Security Scanner to validate performance, processing and predictions.
+    </li>
+    <li>
+        Used Stix2 ANTLR4 grammar for pattern matching log data with existing Indicators of Compromise
+    </li>
+    <li>
+        Leveraged inference engine settings to automated indirect relationships between different Stix objects
+    </li>
+</ul>
+    -->
 
-<div class="tablesorter projects_table">
+    <div class="tablesorter projects_table">
     <div id="tableBody">
 
 <?php foreach ($groups as $company): ?>
@@ -152,6 +172,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
 				</div>
 			</div>
 		<?php endif; ?>
+
 	    <?php foreach ($company['projects'] as $row): ?>
 	            <div id="pid_<?php echo  $row->project_id ?>" data-pid="<?php echo  $row->project_id ?>"
 	            	class="projectRow"

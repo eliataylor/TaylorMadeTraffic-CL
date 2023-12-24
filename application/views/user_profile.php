@@ -31,11 +31,20 @@
         </div>
         <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
         <section class="userSummary">
-            <p>Eli has over 20 years of experience in throughout the stack of software development, building systems of all sizes and needs.
+            <p>
+                Eli has over 20 years of experience throughout the stacks and life cycles of software development.
+                Lately Eli has specialized in training computer vision models with custom data sets and annotations.
+                In his spare time, Eli spends time with his wife and son, and stays active on surfboards, soccer fields, and basketball courts near you.
+
+                <!--
+                Eli has over 20 years of experience in throughout the stack of software development, building systems of all sizes and needs.
                 As an entrepreneur by nature, Eli measures success by finding the perfect balance between scalability, time, and budget.
                 As an artist at heart, Eli's approach to programming is led by a passion for implementing beautiful designed systems and interfaces.
                 In his spare time, Eli spends time with his wife and son, and teaches youth courses on the software development life cycle for the Hidden Genius Project.
+                -->
             </p>
+
+
         </section>
         <?php endif; ?>
         <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
