@@ -4,6 +4,7 @@ Deny from 188.143.232.111
 <IfModule mod_rewrite.c>
     RewriteEngine On
     DirectoryIndex index.php
+    RewriteBase /
 
     RewriteCond %{HTTPS} off [OR]
     RewriteCond %{HTTP_HOST} ^www\. [NC]
@@ -17,11 +18,6 @@ Deny from 188.143.232.111
     RewriteCond %{HTTPS} on
     RewriteRule ^ - [E=protossl:s]
 
-    # RewriteRule ^\.well-known/acme-challenge/AokEJYwWYMEzWsLb_V8FTOMJ2H-CbJRjxqflxt_m-L4 - [END]
-    # RewriteRule ^\.well-known/acme-challenge/test — [L]
-
-    RewriteBase /
-
     RewriteCond %{REQUEST_URI} ^system.*
     RewriteRule ^(.*)$ /index.php?/$1 [L]
 
@@ -30,7 +26,6 @@ Deny from 188.143.232.111
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-
     RewriteCond %{REQUEST_URI} !(^wwwroot.*)
     RewriteRule ^(.*)$ /index.php?/$1 [L]
 
