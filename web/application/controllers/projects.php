@@ -89,7 +89,7 @@ class projects extends CI_Controller {
 
     private function animatedIntro(){
         if ($this->input->is_ajax_request()) {
-            return false;
+            return $this->technologies();
         }
         $this->getTableForTags();
         $this->sendOut('tags_table');
