@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Users_Model extends CI_Model {
+class users_Model extends CI_Model {
 
     function __construct() {
         parent::__construct();
@@ -17,7 +17,7 @@ class Users_Model extends CI_Model {
             $row = $this->splitEmails($row);
         }
         return $rows;
-    }    
+    }
 
     function getUserByName($name) {
         $sql = "SELECT * from users WHERE user_tagname = ? and user_status > 0";
@@ -29,7 +29,7 @@ class Users_Model extends CI_Model {
         }
         return false;
     }
-    
+
     function getCompanyByName($name) {
         $sql = "SELECT * from companies WHERE company_tagname = ? and company_status > 0";
         $query = $this->db->query($sql, $name);
@@ -47,7 +47,7 @@ class Users_Model extends CI_Model {
         }
         return false;
     }
-    
+
     private function splitEmails($user) {
         $emails = explode(",", $user['user_email']);
         $user['allemails'] = $emails; // always as array: checks against in_array()
@@ -62,7 +62,7 @@ class Users_Model extends CI_Model {
 
         $sql = "SELECT * from users WHERE user_status > 0 ";
 //        $sql .= " AND user_passhash = " . $this->db->escape($passhash) . " AND lower(user_email) like '%" . $this->db->escape_like_str(strtolower($email)) . "%'"; // TODO: this needs to be an exact match
-        $sql .= " AND user_passhash = ? AND lower(user_email) = ?"; 
+        $sql .= " AND user_passhash = ? AND lower(user_email) = ?";
         $sql .= " LIMIT 1"; // like is slow anyway
 
         $query = $this->db->query($sql, array($passhash, strtolower($email)));
@@ -97,22 +97,22 @@ class Users_Model extends CI_Model {
         }
         return false;
     }
-    
+
     function insertUser($data) {
         if (!is_array($data))
             return false;
         $this->db->insert('users', $data);
         return $this->db->insert_id();
     }
-    
+
     function insertCompany($data) {
     	if (!is_array($data))
     		return false;
     		$this->db->insert('companies', $data);
     		return $this->db->insert_id();
-    }    
+    }
 
-    function updateUser($uid = -1, $data) {
+    function updateUser($uid, $data) {
         if (empty($data) || !is_array($data)) return -1;
         $this->db->where('user_id', $uid);
         $this->db->update('users', $data); // unchecked aside controller
