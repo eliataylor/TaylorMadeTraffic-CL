@@ -1,7 +1,6 @@
 .idea
 *.mp4
 *.mov
-application/config/database.php
 application/config/unversioned.php
 /nbproject/
 .DS_Store?
