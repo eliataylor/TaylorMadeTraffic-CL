@@ -96,16 +96,16 @@ class LenguaplusController extends CI_Controller {
     }
 
     function debug(){
-        $this->LenguaPlus_model->setCount(true);
-        $this->data['totalTexts'] = $this->LenguaPlus_model->getLanguageByFilters(
+        $this->Lenguaplus_model->setCount(true);
+        $this->data['totalTexts'] = $this->Lenguaplus_model->getLanguageByFilters(
                 $this->data['qparams']['status'],
                 $this->data['qparams']['type'],
                 $this->data['qparams']['likeUrl'],
                 $this->data['qparams']['groupby'],
                 $this->data['qparams']['from'],
                 $this->data['qparams']['want']);
-        $this->LenguaPlus_model->setCount(false);
-        $this->data['texts'] = $this->LenguaPlus_model->getLanguageByFilters(
+        $this->Lenguaplus_model->setCount(false);
+        $this->data['texts'] = $this->Lenguaplus_model->getLanguageByFilters(
                 $this->data['qparams']['status'],
                 $this->data['qparams']['type'],
                 $this->data['qparams']['likeUrl'],
@@ -141,10 +141,10 @@ class LenguaplusController extends CI_Controller {
         $updated = 0;
         $inserted = array();
         foreach($lang as $key=>$es) {
-            $lData = $this->LenguaPlus_model->getLanguageByKey($key); // any status!
+            $lData = $this->Lenguaplus_model->getLanguageByKey($key); // any status!
             if (!empty($lData)) {
                 $obj = array('langtracker_es' => $es, 'langtracker_status' => "live");
-                $updated += $this->LenguaPlus_model->updateLangByKey($obj, $key);
+                $updated += $this->Lenguaplus_model->updateLangByKey($obj, $key);
             } else {
                 $lData = array();
                 $lData['langtracker_linenum'] = -1;
@@ -157,7 +157,7 @@ class LenguaplusController extends CI_Controller {
                 $lData['langtracker_language'] = 'es';
                 $lData['langtracker_url'] = '';
                 $lData['langtracker_status'] = "live";
-                //array_push($inserted, $this->LenguaPlus_model->trackLang($lData));
+                //array_push($inserted, $this->Lenguaplus_model->trackLang($lData));
             }
         }
         echo "<h1>Inserted: ".print_r($inserted,TRUE)."</h1>";
@@ -175,8 +175,8 @@ class LenguaplusController extends CI_Controller {
         foreach($types as $type) {
 
             $fileRows = array(); // all lanuages of ugc OR msg data
-            //$dbRows = $this->LenguaPlus_model->getLanguageByFilters($this->config->item('status_2_watch'), 'key', $type);
-            $dbRows = $this->LenguaPlus_model->getLanguageByFilters(
+            //$dbRows = $this->Lenguaplus_model->getLanguageByFilters($this->config->item('status_2_watch'), 'key', $type);
+            $dbRows = $this->Lenguaplus_model->getLanguageByFilters(
                 $this->config->item('status_2_watch'),
                 $this->data['qparams']['type'],
                 null,
@@ -244,12 +244,12 @@ class LenguaplusController extends CI_Controller {
             if (empty($data['langtracker_'.$lang])) $data['langtracker_'.$lang] = NULL;
        }
 
-       $line = $this->LenguaPlus_model->getLanguageById($langId); // some keys are huge UGC strings. i'd rather not send those in the post
+       $line = $this->Lenguaplus_model->getLanguageById($langId); // some keys are huge UGC strings. i'd rather not send those in the post
        if ($line) {
            $data['langtracker_status'] = $this->input->get_post('statusChange'); // overwrite
             if (!in_array($data['langtracker_status'], array('debug','edited','live','deleted','propername'))) // security check
                 $data['langtracker_status'] = 'edited';
-           $test = $this->LenguaPlus_model->updateLangByKey($data, $line->langtracker_key);
+           $test = $this->Lenguaplus_model->updateLangByKey($data, $line->langtracker_key);
        } else {
            $resp['errors'] = array($this->lang->en('Invalid URL'));
        }

@@ -135,12 +135,12 @@ class CI_Lang {
                         $lData = NULL; // false is the query was already made
                         
                         if ($CI->config->item('use_msg_database') === TRUE) {
-                            $lData = $CI->LenguaPlus_model->getLanguageByKey($key, $CI->config->item('status_2_watch')); // only status == 'edited' or 'live' rows
+                            $lData = $CI->Lenguaplus_model->getLanguageByKey($key, $CI->config->item('status_2_watch')); // only status == 'edited' or 'live' rows
                             $langCol = 'langtracker_';
                             $langCol .= (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language'); // todo this should be handled better by load
                             if ($lData && !empty($lData->$langCol)) {
                                 $this->language[$key] =  $lData->$langCol; // CACHED for request life!
-                                // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                                // consider updating example URL list: $updated = $CI->Lenguaplus_model->updateLangById($lData, $lData['langtracker_id']);                                
                                 return $lData->$langCol;
                             } // nothing is in the database either
                         }
@@ -148,9 +148,9 @@ class CI_Lang {
                         if ($CI->config->item('track_msg_production') === true || $CI->config->item('environment') != 'production') {
                             
                             if (empty($lData)) { 
-                                $lData = $CI->LenguaPlus_model->getLanguageByKey($key); // any status!
+                                $lData = $CI->Lenguaplus_model->getLanguageByKey($key); // any status!
                                 if (!empty($lData)) {
-                                    // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                                    // consider updating example URL list: $updated = $CI->Lenguaplus_model->updateLangById($lData, $lData['langtracker_id']);                                
                                 }
                             }
                             if (empty($lData)) {
@@ -176,7 +176,7 @@ class CI_Lang {
                                         $lData['langtracker_language'] = (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language');
                                         $lData['langtracker_url'] = $_SERVER['REQUEST_URI'];
                                         $lData['langtracker_status'] = 'debug';
-                                        $CI->LenguaPlus_model->trackLang($lData); // always validated in model with default to 'debug'
+                                        $CI->Lenguaplus_model->trackLang($lData); // always validated in model with default to 'debug'
                                         break;
                                     }
                                 }
@@ -203,12 +203,12 @@ class CI_Lang {
                     $lData = NULL; // false is the query was already made
 
                     if ($CI->config->item('use_ugc_database') === TRUE) {
-                        $lData = $CI->LenguaPlus_model->getLanguageByKey($key, $CI->config->item('status_2_watch')); // only status == 'edited' or 'live' rows
+                        $lData = $CI->Lenguaplus_model->getLanguageByKey($key, $CI->config->item('status_2_watch')); // only status == 'edited' or 'live' rows
                         $langCol = 'langtracker_';
                         $langCol .= (!empty($this->curlanguage)) ? $this->curlanguage : $CI->config->item('language'); // todo this should be handled better by load
                         if ($lData && !empty($lData->$langCol)) {
                             //$this->language[$key] =  $lData->$langCol; // CACHED for request life!
-                            // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                            // consider updating example URL list: $updated = $CI->Lenguaplus_model->updateLangById($lData, $lData['langtracker_id']);                                
                             return $lData->$langCol;
                         } // nothing is in the database either
                     }
@@ -216,9 +216,9 @@ class CI_Lang {
                     if ($CI->config->item('environment') === 'production' && $CI->config->item('track_ugc_production') === false) return $line;                                    
 
                     if (empty($lData)) { 
-                        $lData = $CI->LenguaPlus_model->getLanguageByKey($key); // any status!
+                        $lData = $CI->Lenguaplus_model->getLanguageByKey($key); // any status!
                         if (!empty($lData)) {
-                            // consider updating example URL list: $updated = $CI->LenguaPlus_model->updateLangById($lData, $lData['langtracker_id']);                                
+                            // consider updating example URL list: $updated = $CI->Lenguaplus_model->updateLangById($lData, $lData['langtracker_id']);                                
                         }
                     }
                     if (empty($lData)) {
@@ -241,7 +241,7 @@ class CI_Lang {
                                 $obj['langtracker_host'] = $_SERVER['HTTP_HOST'];
                                 $obj['langtracker_url'] = $_SERVER['REQUEST_URI'];
                                 $obj['langtracker_status'] = "debug";
-                                $CI->LenguaPlus_model->trackLang($obj);
+                                $CI->Lenguaplus_model->trackLang($obj);
                                 break;
                             }
                         }

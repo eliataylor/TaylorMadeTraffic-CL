@@ -12,11 +12,11 @@ class Thisvisitor {
         $this->getSession(); // setDefaults depends on visitor already populated
         $this->setDefaults();
     }
-        
+
     private function setDefaults() {
          $CI = &get_instance();
-         
-         $lang = $CI->input->get_post('lang'); 
+
+         $lang = $CI->input->get_post('lang');
          if ($lang) { // overwrite
             if (!in_array($lang, array_keys($CI->config->item('languages')))) array_push($this->visitor['errors'], $CI->lang->en('Incorrect Language'));
             else $this->visitor['con']['lang'] = $lang;
@@ -29,15 +29,13 @@ class Thisvisitor {
          $CI->lang->load('langplus_msg', $this->visitor['con']['lang']);
          if ($CI->config->item('use_ugc_database') === FALSE)
              $CI->lang->load('langplus_ugc', $this->visitor['con']['lang']);
-         
+
          $pstyle = $CI->input->get_post('pstyle');
          if (!in_array($pstyle, array('pBlack','pWhite'))) $pstyle = 'pBlack';
-         $this->visitor['con']['pstyle'] = $pstyle;         
-         
-         if ($CI->input->get_post('debug')) {
-             if (ENVIRONMENT == 'production'){
-                 $CI->output->set_profiler_sections(array('config'=>FALSE, 'queries'=>FALSE));
-             }
+         $this->visitor['con']['pstyle'] = $pstyle;
+
+         if ($CI->input->get_post('debug') && ENVIRONMENT == 'development') {
+             $CI->output->set_profiler_sections(array('config'=>FALSE, 'queries'=>FALSE));
              $CI->output->enable_profiler(TRUE);
              $this->visitor['con']['debugMode'] = true;
          }
@@ -50,61 +48,61 @@ class Thisvisitor {
             if ($device || !isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 320;
             if ($device || !isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 444;
             $this->visitor['con']['isMobile'] = true;
-         } else { 
+         } else {
             if ($device || !isset($this->visitor['con']['swidth'])) $this->visitor['con']['swidth'] = 1000;
             if ($device || !isset($this->visitor['con']['sheight'])) $this->visitor['con']['sheight'] = 550;
             $this->visitor['con']['isMobile'] = false;
-        } 
-        
+        }
+
         $con = $CI->session->userdata('con');
         if(empty($con)) {
             $this->saveSession();
         } else {
             foreach($con as $key => $t) {
                 if (!isset($this->visitor['con'][$key]) || $this->visitor['con'][$key] != $t) {
-                    $this->saveSession(); 
+                    $this->saveSession();
                     break;// it's gunna save everything anyway
                 }
             }
         }
-        
-        
+
+
     }
-        
+
     function validateUser() {
         $CI = & get_instance();
-        
+
         $pass = $CI->input->post('password');
         $email = $CI->input->post('username');
-                
+
          if ($pass && $email) {
             $this->visitor['con']['lAttempts'] = (isset($this->visitor['con']['lAttempts'])) ? $this->visitor['con']['lAttempts'] + 1 : 1;
             $user = $CI->users->checkUserByPass(md5($pass . $CI->config->item('encryption_key')), $email);
             if ($user) {
-                $this->visitor = array_merge($this->visitor,  $user); 
+                $this->visitor = array_merge($this->visitor,  $user);
                 if ($this->auth()) {
                     $this->visitor["user_2ndlast_login"] = ($this->visitor["user_last_login"] > 0) ? $this->visitor["user_last_login"] : time();
                     $this->visitor["user_last_login"] = time();
                     $CI->users->updateUser($this->visitor['user_id'], array("user_last_login"=>$this->visitor['user_last_login'], "user_2ndlast_login"=>$this->visitor['user_2ndlast_login']));
                     $this->saveSession();
                 }
-            } else {            
+            } else {
                 array_push($this->visitor['errors'], $CI->lang->en('Incorrect Credentials'));
-                $this->updateSession('con', $this->visitor['con']); // update lAttempts                
+                $this->updateSession('con', $this->visitor['con']); // update lAttempts
             }
         } else {
             // just the login form page
         }
 
         return $this->visitor;
-    } 
-    
+    }
+
     function getVisitor() { // makes global assignment
-        $this->visitor = array_merge($this->visitor, $this->getSession());    
+        $this->visitor = array_merge($this->visitor, $this->getSession());
         if ($this->visitor['errors'] == null) $this->visitor['errors'] = array();
         return $this->visitor;
     }
-    
+
     private function getSession() {
         $CI = &get_instance();
         return $this->arrayToVisitor($CI->session->all_userdata());
@@ -126,7 +124,7 @@ class Thisvisitor {
         $this->visitor['con'] = array_merge($this->visitor['con'], $arr);
         return $this->visitor['con'];
     }
-    
+
     public function arrayToVisitor($arr) { // todo: security issue: private or change return value;
         if (!is_array($arr)) return $this->visitor;
         foreach ($arr as $key => $value) {
@@ -134,31 +132,31 @@ class Thisvisitor {
         }
         return $this->visitor;
     }
-    
+
     public function updateSession($prop, $val) { // todo: security issue?
         if ($prop == 'user_id' || $prop == "user_status" || $prop == "user_added") return false;
         if (isset($this->visitor[$prop])) {
-            $this->visitor[$prop] = $val;            
+            $this->visitor[$prop] = $val;
         }
         $this->saveSession();
-    }    
-    
+    }
+
     public function auth($isAdmin=1) {
         if (isset($this->visitor['user_id']) && isset($this->visitor['user_status']) && (int)$this->visitor['user_status'] >= 1) {
             if ($isAdmin > 0) {
                 if($this->visitor['user_status'] >= $isAdmin) return true;
                 else return false;
-            } 
+            }
             else return true;
         }
         return false;
-    }    
+    }
 
     public function getErrors() {
         return $this->visitor['errors'];
     }
-    
-    
+
+
     public function clear() {
         $CI = &get_instance();
         $CI->session->sess_destroy();
@@ -167,7 +165,7 @@ class Thisvisitor {
         $CI->session->sess_create();
         $this->visitor = array("con"=>array(), "errors"=>array());
         $this->setDefaults(); // using unset does this http://stackoverflow.com/questions/14599104/502-bad-gateway-and-codeigniter-nginx-apache-code-or-server-issue
-        $this->saveSession(); 
+        $this->saveSession();
         return $this->visitor;
     }
 

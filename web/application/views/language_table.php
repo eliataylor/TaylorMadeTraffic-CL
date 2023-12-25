@@ -110,7 +110,7 @@
         </tr>
     </thead>
     <tbody id="tableBody">
-        <?$rowNum=0?>
+        <?php $rowNum=0; ?>
         <?php foreach ($texts as $text): ?>
             <tr class="<?php echo ($rowNum&1) ? 'odd' : 'even'?> langRow" data-langid='<?php echo $text->langtracker_id?>' id='langtracker_<?php echo $text->langtracker_id?>' >
                 <?php foreach ($headers as $key=> $head): ?>

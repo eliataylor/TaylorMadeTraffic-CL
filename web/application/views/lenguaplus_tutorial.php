@@ -1,7 +1,7 @@
 <div class="tutorial">
     <div style='margin-bottom: 20px;'>                
         <h2 class='clearer' style='margin:0; clear:both; float:left; width:100%'>
-            <?php echo  $this->lang->en('LenguaPlus') ?>
+            <?php echo  $this->lang->en('Lenguaplus') ?>
             <span class="flags" style='float:right; margin:0'>
                 <span style='font-size:12px'>(<?php echo $this->lang->en('Cambiar Idioma')?>)</span>
                 <img <?php if ($me['con']['lang'] != 'es'):?> style="opacity:.50; filter:alpha(opacity=50);"<?php endif;?>
@@ -72,12 +72,12 @@
             <ul>
                 <li><?php echo  ucfirst($this->lang->en("Run")) ?> application/models/lenguaplus_schema.sql</li>
                 <li><?php echo  ucfirst($this->lang->en("Copy the required files into your CodeIgniter project")) ?></li>
-                <li><?php echo  ucfirst($this->lang->en("Adding your routing")) ?>: <code>$route['language(|.+?)'] = 'LenguaPlusController';</code></li>
+                <li><?php echo  ucfirst($this->lang->en("Adding your routing")) ?>: <code>$route['language(|.+?)'] = 'LenguaplusController';</code></li>
                 <li><?php echo  ucfirst($this->lang->en("Autoload")) ?>:
                     <ul>
                         <li><code>$autoload['libraries'] = array('database', 'session', 'Thisvisitor');</code></li>
                         <li><code>$autoload['helper'] = array('url', 'viewutils');</code></li>
-                        <li><code>$autoload['model'] = array('LenguaPlus_model');</code></li>
+                        <li><code>$autoload['model'] = array('Lenguaplus_model');</code></li>
                     </ul>
                 </li>
                 <li><?php echo  ucfirst($this->lang->en("In your main controller / library - ex. Thisvisitor.php - set your default language and load the file")) ?>: 
