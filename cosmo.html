@@ -1,22 +1,20 @@
 <ul>
-    <li>Rebuilt OpenCTI interface to follow streamlined workflow to control ingestion, triage alerts and fine tune ML
-        engine analysis
-    </li>
     <li>
         Wrote all parsers for transforming emails and various log formats into appropriate STIX2 objects
     </li>
     <li>
-        Built ingestion system to support custom configurations and toggle persistent storage of Observables while
-        preserving analysis and prediction with or without historical data.
+        Built customizable log ingestion system with basic runtime threat analysis to score and store relevant meta data as Stix2 objects while preserving context and source maps.
     </li>
     <li>
-        Wrote test cases and reproducible pen test with ZAP Security Scanner to validate performance, processing and
-        predictions.
+        Used Stix2 ANTLR4 grammar for pattern matching log data with existing Indicators of Compromise (IoC)
     </li>
     <li>
-        Used Stix2 ANTLR4 grammar for pattern matching log data with existing Indicators of Compromise
+        Used ZAP Security Scanner to pen test company domains with attack IDs in request headers. Then wrote generic IoC Patterns based on signatures seen in logs during pen test.
     </li>
     <li>
-        Leveraged inference engine settings to automated indirect relationships between different Stix objects
+        Wrote Opinions API to allow analysts to score IoCs by 'vulnerability' and 'severity' scales separately.
+    </li>
+    <li>Built atop OpenCTI interface to follow streamlined workflow to control ingestion, triage alerts and fine tune ML
+        engine analysis
     </li>
 </ul>
