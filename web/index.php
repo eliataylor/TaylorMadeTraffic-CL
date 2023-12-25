@@ -94,7 +94,7 @@ function userErrorHandler ($errno, $errmsg, $filename, $linenum,  $vars=NULL) {
         1024 => "User Notice");
     if (isset($errortype[$errno])) $errlevel=$errortype[$errno];
     else $errLevel = "Unknown Error";
-    $errfile=fopen("application/logs/tmt-".ENVIRONMENT."-errors.csv","a");
+    $errfile=fopen(__DIR__. "/application/logs/tmt-".ENVIRONMENT."-errors.csv","a");
     fputs($errfile,"\"$time\",\"$filename:$linenum\",\"($errlevel) $errmsg\"\r\n");
     fclose($errfile);
 
