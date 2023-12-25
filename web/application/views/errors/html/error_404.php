@@ -33,6 +33,15 @@ h1 {
 	padding: 14px 15px 10px 15px;
 }
 
+h6 {
+    color: #444;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: 800;
+    margin: 0 0 0 0;
+    padding: 14px 15px 10px 15px;
+}
+
 code {
 	font-family: Consolas, Monaco, Courier New, Courier, monospace;
 	font-size: 12px;
@@ -57,6 +66,7 @@ p {
 </head>
 <body>
 	<div id="container">
+        <h6>Shoots</h6>
 		<h1><?php echo $heading; ?></h1>
 		<?php echo $message; ?>
 	</div>

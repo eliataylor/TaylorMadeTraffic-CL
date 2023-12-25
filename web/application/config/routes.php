@@ -1,8 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-$route['404_override'] = 'projects/error404';
-
 $route['default_controller'] = "projects/animatedIntro";
 
 $route['years/design'] = "projects/years";
@@ -32,6 +30,7 @@ $route['deck'] = "projects/pitch";
 
 $route['lenguaplus(|.+?)'] = 'lenguapluscontroller';
 
+$route['404_override'] = 'errors/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
 

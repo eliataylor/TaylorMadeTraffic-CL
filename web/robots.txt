@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /team
+Allow: /companies
+Allow: /years
+Allow: /technologies
+Allow: /taylormade
+Allow: /eli
+Allow: /projects
+Allow: /biz
+Allow: /deck
+
+Disallow: /
