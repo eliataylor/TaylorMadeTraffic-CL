@@ -125,6 +125,7 @@ switch (ENVIRONMENT)
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
 		}
+        $old_error_handler = set_error_handler("userErrorHandler");
 	break;
 
 	default:
