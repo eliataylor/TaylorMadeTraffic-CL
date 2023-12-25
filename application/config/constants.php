@@ -106,5 +106,4 @@ else define('BOTH_HTTP', TMT_HTTP);
 
 define('ROOT_CD', (isset($_SERVER['DOCUMENT_ROOT'])) ? $_SERVER['DOCUMENT_ROOT'] : __DIR__);
 define('STATIC_CD', ROOT_CD . '/wwwroot/');
-define('VIEWPATH', ROOT_CD . '/application/views/');
 
