@@ -1,6 +1,6 @@
 <?php
 
-class LenguaPlusController extends CI_Controller {
+class LenguaplusController extends CI_Controller {
 
     private $data = array("pages"=>array(), "me"=>array(), 'errors'=>array());
 
