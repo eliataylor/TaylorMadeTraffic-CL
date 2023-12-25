@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class LenguaPlus_model extends CI_Model {
+class Lenguaplus_model extends CI_Model {
 
         private $count = false;
 
