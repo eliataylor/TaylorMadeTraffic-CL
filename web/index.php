@@ -58,17 +58,18 @@
  */
 date_default_timezone_set('America/Los_Angeles');
 
-$prods = array('www.taylormadetraffic.com','taylormadetraffic.com','es.taylormadetraffic.com','cube.taylormadetraffic.com','www.eliataylor.com','eliataylor.com','es.eliataylor.com','dev01.taylormadetraffic.com');
+
+$devs = array('localhost.taylormadetraffic.com');
 
 // define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 if (php_sapi_name() == 'cli' || defined('STDIN') || defined('STDOUT') || isset($_SERVER['SHELL'])) {
     define('ENVIRONMENT', 'production');
-} elseif (in_array(strtolower($_SERVER['SERVER_NAME']), $prods)) {
-    define('ENVIRONMENT', 'production');
-} else {
+} elseif (in_array(strtolower($_SERVER['SERVER_NAME']), $devs)) {
     define('ENVIRONMENT', 'development');
+} else {
+    define('ENVIRONMENT', 'production');
 }
-unset($prods);
+unset($devs);
 
 
 /*
@@ -80,7 +81,7 @@ unset($prods);
  * By default development will show errors but testing and live will hide them.
  */
 function userErrorHandler ($errno, $errmsg, $filename, $linenum,  $vars=NULL) {
-    $time=date("d M Y H:i:s");
+    $time=date("Y-m-d H:i:s");
     $errortype = array (1    => "Error",
         2    => "Warning",
         4    => "Parsing Error",
@@ -92,10 +93,10 @@ function userErrorHandler ($errno, $errmsg, $filename, $linenum,  $vars=NULL) {
         256  => "User Error",
         512  => "User Warning",
         1024 => "User Notice");
-    if (isset($errortype[$errno])) $errlevel=$errortype[$errno];
+    if (isset($errortype[$errno])) $errLevel=$errortype[$errno];
     else $errLevel = "Unknown Error";
     $errfile=fopen(__DIR__. "/application/logs/tmt-".ENVIRONMENT."-errors.csv","a");
-    fputs($errfile,"\"$time\",\"$filename:$linenum\",\"($errlevel) $errmsg\"\r\n");
+    fputs($errfile, $time . ": ".$errLevel." @ ".$filename ." #". $linenum ." | " . $errmsg . PHP_EOL);
     fclose($errfile);
 
     if($errno!=2 && $errno!=8) {
