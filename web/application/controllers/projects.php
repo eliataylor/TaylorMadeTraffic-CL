@@ -37,6 +37,8 @@ class Projects extends CI_Controller {
         );
 
         $path = uri_string();
+        if (empty($path)) return $this->animatedIntro();
+
         if (isset($this->data['qmenu'][$path]) && $this->data['qmenu'][$path]['role'] > 0 &&  !$this->thisvisitor->auth($this->data['qmenu'][$path]['role'])) {
             array_push($this->data['errors'], $this->lang->en("unauthorized"));
             $this->data['docTitle'] = $this->lang->en("Login");

@@ -1,7 +1,7 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 
-$route['default_controller'] = "projects/animatedIntro";
+$route['default_controller'] = "projects";
 
 $route['years/design'] = "projects/years";
 $route['years'] = "projects/years";
