@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Projects extends CI_Controller {
+class projects extends CI_Controller {
 
     private $data = array("docTitle"=>"",  "pages" => array(), "me" => array(), 'errors' => array());
 
