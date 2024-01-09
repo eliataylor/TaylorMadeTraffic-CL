@@ -44,7 +44,10 @@ class Projects_Model extends CI_Model {
         else $sql .= ' order by tag_date desc, count desc'; // alphabetically
 
         $query = $this->db->query($sql, $params);
-        if ($query->num_rows() > 0) return $query->result_object();
+        if ($query->num_rows() > 0) {
+            $results = $query->result_object();
+            return $results;
+        }
         return array();
     }
 

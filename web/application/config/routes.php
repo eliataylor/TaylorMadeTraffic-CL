@@ -25,10 +25,15 @@ $route['roles'] = "projects/team";
 $route['projects(|.+?)'] = "projects/projects";
 $route['devices(|.+?)'] = "projects/devices";
 
+$route['services/annotation(|.+?)'] = "projects/proservice_annotation";
+
 $route['biz'] = "projects/pitch";
 $route['deck'] = "projects/pitch";
 
 $route['lenguaplus(|.+?)'] = 'lenguapluscontroller';
+
+$route['upwork/fetchAndNotify'] = 'UpworkJobReader/fetchAndNotify';
+$route['upwork/showDifferences'] = 'UpworkJobReader/showDifferences';
 
 $route['404_override'] = 'errors/error_404';
 $route['translate_uri_dashes'] = FALSE;

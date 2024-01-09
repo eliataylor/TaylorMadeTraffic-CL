@@ -365,6 +365,10 @@ class Projects extends CI_Controller {
 
     }
 
+    public function proservice_annotation() {
+        $this->sendOut('proservice_annotation');
+    }
+
 }
 
 /* End of file welcome.php */
