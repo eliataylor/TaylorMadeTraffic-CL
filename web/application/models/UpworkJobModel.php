@@ -15,21 +15,19 @@ class UpworkJobModel extends CI_Model
         $this->linkId = 'eli';
         $this->rssFilePath = APPPATH . 'cache/upwork_jobs.xml';
         $this->load->model('projects');
-
-
-
     }
 
-    private function getLink($linkId) {
+    private function getLink($linkId)
+    {
         if ($linkId === 'sammie') {
             $this->linkId = 'sammie';
             $link = 'https://www.upwork.com/ab/feed/jobs/rss?q=UX%2BDesign&budget=100-499%2C500-999%2C1000-4999%2C5000-&client_hires=1-9%2C10-&verified_payment_only=1&sort=recency&paging=0%3B10&api_params=1&securityToken=447e79e00224ad4e7afdebd4bb32657c53a4d2e0504394fd6c451199fe56894f03047e7611e8941c2c90d79464fe13ce70a96ab0795b737ae66033d6c6f2e8d1&userUid=750475063883165696&orgUid=820460219548565505';
             $this->rssFilePath = APPPATH . 'cache/upwork_sammie.xml';
-        } else if ($linkId === 'eli-us-hashires') {
-            $link = 'https://www.upwork.com/ab/feed/jobs/rss?budget=500-&category2_uid=531770282580668420%2C531770282580668419%2C531770282580668418&client_hires=1-9%2C10-&hourly_rate=100-&q=developer&sort=recency&job_type=hourly%2Cfixed&user_location_match=1&paging=0%3B50&api_params=1&securityToken=316c29312fae11998afcc79025d43413448494ef73d43d01bdac747a91e7cdff4dc60abc04cddced60b0f1f686a7f179d90d7fe6e026cf5269d89284956b26a8&userUid=472375103315812352&orgUid=472375103382921217';
-            $this->rssFilePath = APPPATH . 'cache/upwork_eli.xml';
-        }  else {
+        } else if ($linkId === 'eli-all') {
             $link = 'https://www.upwork.com/ab/feed/jobs/rss?category2_uid=531770282580668420%2C531770282580668419%2C531770282580668418&q=developer&job_type=hourly%2Cfixed&budget=500-&hourly_rate=100-&sort=recency&paging=0%3B10&api_params=1&securityToken=316c29312fae11998afcc79025d43413448494ef73d43d01bdac747a91e7cdff4dc60abc04cddced60b0f1f686a7f179d90d7fe6e026cf5269d89284956b26a8&userUid=472375103315812352&orgUid=472375103382921217';
+            $this->rssFilePath = APPPATH . 'cache/upwork_eli.xml';
+        } else {
+            $link = 'https://www.upwork.com/ab/feed/jobs/rss?budget=500-&category2_uid=531770282580668420%2C531770282580668419%2C531770282580668418&client_hires=1-9%2C10-&hourly_rate=100-&location=United+States&paging=0%3B10&q=developer&sort=recency&job_type=hourly%2Cfixed&api_params=1&securityToken=316c29312fae11998afcc79025d43413448494ef73d43d01bdac747a91e7cdff4dc60abc04cddced60b0f1f686a7f179d90d7fe6e026cf5269d89284956b26a8&userUid=472375103315812352&orgUid=472375103382921217';
             $this->rssFilePath = APPPATH . 'cache/upwork_eli_us_hashires.xml';
         }
         return $link;
@@ -37,8 +35,13 @@ class UpworkJobModel extends CI_Model
 
     public function fetchAndCompare($linkId)
     {
-        $lastFetchedJobTitles = $this->getLastFetchedJobTitles();
         $link = $this->getLink($linkId);
+        if ($this->input->get_post('all')) {
+            $lastFetchedJobTitles = [];
+        } else {
+            $lastFetchedJobTitles = $this->getLastFetchedJobTitles($link);
+        }
+
         $rss = simplexml_load_file($link);
 
         $newJobs = [];
@@ -62,15 +65,14 @@ class UpworkJobModel extends CI_Model
         return $newJobs;
     }
 
-    private function getLastFetchedJobTitles()
+    private function getLastFetchedJobTitles($link)
     {
-        if (file_exists($this->rssFilePath)) {
-            $rssContent = file_get_contents($this->rssFilePath);
-            preg_match_all('/<title>(.*?)<\/title>/', $rssContent, $matches);
-            return $matches[1];
+        $lastFetchedJobTitles = [];
+        $rss = simplexml_load_file($link);
+        foreach ($rss->channel->item as $item) {
+            $lastFetchedJobTitles[] = (string)$item->title;
         }
-
-        return [];
+        return $lastFetchedJobTitles;
     }
 
     private function saveRssToFile($rss)
@@ -117,12 +119,12 @@ class UpworkJobModel extends CI_Model
                     if ($label === 'Skills' && $this->linkId === 'eli') {
                         $skills = explode(',', $val);
                         $mylinks = [];
-                        foreach($skills as $skillstr) {
+                        foreach ($skills as $skillstr) {
                             $skill = trim($skillstr);
                             $match = $this->projects->getTags('technologies', $skill, 1);
                             if (!empty($match)) {
                                 $link = 'https://taylormadetraffic.com/technologies?qtfilter=' . $skill;
-                                array_unshift($mylinks, "<a href='$link' target='_blank'>".$skill.'</a>');
+                                array_unshift($mylinks, "<a href='$link' target='_blank'>" . $skill . '</a>');
                             } else {
                                 $mylinks[] = $skill;
                             }
@@ -139,7 +141,8 @@ class UpworkJobModel extends CI_Model
         return $descriptionHtml;
     }
 
-    private function findNodeVal($bNodes, $label) {
+    private function findNodeVal($bNodes, $label)
+    {
         foreach ($bNodes as $bNode) {
             $test = trim($bNode->textContent);
             if ($test === $label) {
