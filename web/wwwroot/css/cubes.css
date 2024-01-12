@@ -487,15 +487,25 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	td, tr { border:0 none; border-collapse:collapse;}
 
     .pBlack .companyHead td.col1, .companyHead td.col1 {
-        background:#cccccc;
+        background:#ebebeb;
         border:0 none;
-        background: -webkit-linear-gradient(-45deg, #cccccc 0%, #ffffff 90%);
+        background: -webkit-linear-gradient(-45deg, #ebebeb 0%, #ffffff 90%);
     }
     .pBlack .companyHead td.col3, .companyHead td.col3 {
-        background:#cccccc;
+        background:#ebebeb;
         border:0 none;
-        background: -webkit-linear-gradient(-45deg, #ffffff 15%, #cccccc 100%);
+        background: -webkit-linear-gradient(-45deg, #ffffff 15%, #ebebeb 100%);
     }
+
+
+    .pBlack .companyHead .col1::before {
+        display:none;
+    }
+
+    .pBlack .companyHead .col1::after {
+        display:none;
+    }
+
 
 	.rowMargin { height:30px; border:0 none;}
 	.rowMargin:nth-child(1) { height:0;}
