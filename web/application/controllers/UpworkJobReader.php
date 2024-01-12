@@ -22,7 +22,6 @@ class UpworkJobReader extends CI_Controller
 
     private function sendEmail($newJobs)
     {
-        // Implement email sending logic here
         $this->load->library('email');
 
         $config['protocol'] = 'smtp';

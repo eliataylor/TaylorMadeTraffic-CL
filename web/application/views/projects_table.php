@@ -87,14 +87,16 @@
                             <?php else: ?>
                                 <?php echo $company['company_screenname']; ?>
                             <?php endif; ?>
-                        </h2></td>
+                        </h2>
+                    </td>
                     <td class="col2">
                         <?php echo fDate($company['startDate'], 'month') ?>
                         -
                         <?php echo ($company['endDate'] === 'Present') ? $company['endDate'] : fDate($company['endDate'], 'month') ?>
                     </td>
                     <td class="col3">
-                        <span class="myrole"><?php echo htmlentities($company['company_myrole']) ?></span>
+
+                        <?php if ($company['company_myrole']): ?><span class="myrole"><?php echo htmlentities($company['company_myrole']) ?></span><?php endif;?>
                         <?php if (isset($company['company_city'])): ?>
                             <?php echo $company['company_city'] ?>
                             <?php if ($company['company_telecommuting']): ?>

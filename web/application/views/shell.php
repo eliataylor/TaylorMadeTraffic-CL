@@ -10,6 +10,9 @@
         <meta name="language" content="<?php echo $me['con']['lang']?>" />
 		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
         <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613820207" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <?php if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />
@@ -93,15 +96,10 @@
                         <img src="/wwwroot/images/technologies.png" />
                     </a>
 
+
                     <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;">
                         <ul id="menuList" style="display:none" >
-                           <img title="<?php echo $this->lang->msg('english')?>"
-                               <?php if ($me['con']['lang'] != 'en'):?> style="opacity:.60; filter:alpha(opacity=60);"<?php endif;?>
-                               onclick="tmt.changeLang('en')" src="/wwwroot/images/United-States_16x16-32.png" />
-                           <img
-                               title="<?php echo $this->lang->msg('español')?>"
-                               <?php if ($me['con']['lang'] != 'es'):?> style="opacity:.60; filter:alpha(opacity=60);"<?php endif;?>
-                               onclick="tmt.changeLang('es')" src="/wwwroot/images/Colombia_16x16-32.png" />
+
                         </ul>
                     </div>
 

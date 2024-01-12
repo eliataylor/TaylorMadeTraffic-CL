@@ -311,7 +311,7 @@ class Projects extends CI_Controller {
 
         $this->data['headers']['tag_date'] = '-'; // years
         if ($this->data['qtags'] === 'technologies') {
-          $this->data['headers']['tag_date'] = $this->lang->en("Last Used");
+          $this->data['headers']['tag_date'] = $this->lang->en("Last Tagged");
         } else if ($this->data['qtags'] === 'companies' || $this->data['qtags'] === 'industries') {
           $this->data['headers']['tag_date'] = $this->lang->en("Last Project");
         }

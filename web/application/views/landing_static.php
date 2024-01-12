@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
     <head>
         <?php if (!isset($docTitle)) $docTitle = $this->uri->segment(1);
-              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = "Home"; 
+              if (empty($docTitle) || strlen($docTitle) < 2) $docTitle = "Home";
               else $docTitle = ucfirst(trim($docTitle)); ?>
         <title><?php echo  $docTitle ?> :: ID Dashboard</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -32,8 +32,8 @@
         <?php endif; ?>
         var VSETTINGS = <?php echo  json_encode($me['con']) ?>;
         </script>
-        <?php if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>        
-            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>            
+        <?php if (!isset($_SERVER['SERVER_NAME']) || strpos($_SERVER['SERVER_NAME'], "localhost") === false): ?>
+            <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
             <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         <?php else: ?>
             <script type="text/javascript" src="/wwwroot/js/jquery.min.js"></script>
@@ -43,46 +43,43 @@
     </head>
     <body <?php if (isset($mobile)): ?>class="isMobile <?php echo  $mobile ?>"<?php endif; ?>  >
         <span id="tmmOpening" ref="0" style="display:none; top:50px; left:50px;"></span>
-        <span id="tmmCube" style="display:none;"></span>  
+        <span id="tmmCube" style="display:none;"></span>
 
         <div style="display:none" id="navMenu" >
             <div style="padding-left: 1px;"  class="menuEmpty menuBox"><span style="display:none" id="menuBtn" onclick="tmt.showFullMenu();">MENU</span></div>
-            
+
             <div data-page="eat_menu" title="E.A.Taylor" class="menuBox tc">
                 <img src="/wwwroot/images/eat_menu.png" />
             </div>
-            
+
             <div class="menuEmpty menuBox" ><span id="menuLabel"></span></div>
-            
+
             <!--<div data-page="kh_menu" title="Kapuna Hale" class="menuBox ll">
                 <img src="/wwwroot/images/kh_menu.png" />
             </div>-->
-<!--            <div data-big="" data-page="gabby_menu" title="Gabby" class="menuBox ll">
-                <img src="/wwwroot/images/gabby_menu.png" />
-            </div>-->
-            
+
             <div data-big="http://graph.facebook.com/100000210646549/picture?width=300&height=300" id="quote_boxbtn" data-page="quote_menu" title="why?" class="menuBox ll">
                 <img src="http://graph.facebook.com/100000210646549/picture?type=square" width="45" height="45"  />
             </div>
-            
+
             <div data-page="tmm_menu" title="Taylor Made Traffic" class="menuBox lc">
-                <img src="/wwwroot/images/tmm_menu.png" />                
+                <img src="/wwwroot/images/tmm_menu.png" />
             </div>
-            
+
             <div data-page="means_menu" title="The Means..." class="menuBox rc">
                 <img src="/wwwroot/images/means_menu.png" />
             </div>
-            
+
             <div data-page="ta_menu" title="Track Authority Music" class="menuBox rr">
                 <img src="/wwwroot/images/ta_menu.png" />
             </div>
-            
+
             <div class="menuEmpty menuBox" style="margin-right:1px; clear:left;"><span onclick="tmt.startClose();" style="display:none" id="closeBtn">CLOSE</span></div>
-            
+
             <div data-page="hl_menu" title="Healthline Networks LLC" class="menuBox bc">
                 <img src="/wwwroot/images/hl_menu.png" />
-            </div> 
-            
+            </div>
+
             <div class="menuEmpty menuBox" style="height:auto; width:auto;" >
                 <ul id="menuList" style="display:none"  >
                     <a href="/#eat"><li title="E.A.Taylor" data-page="eat_menu">History...<img src="/wwwroot/images/eat_menu.png" /></li></a>
@@ -95,7 +92,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>
         <img style="display:none;" id="pageImg" src="/wwwroot/images/eat_big.png"  />
 
@@ -104,7 +101,7 @@
             <div class="pageBlock">
 
                 <div class="eat_menu">
-                    <ul> 
+                    <ul>
                         <li class="pItem">
                             <h3 style="text-align:left;">My name is Eli and this domain - www.TaylorMadeTraffic.com - was the first I ever owned.</h3>
                             <br />
@@ -112,10 +109,10 @@
                             <p>Meanwhile, my major was Astrophysics at <a href="http://www.sfsu.edu" target="_blank">SFSU</a> just so that I could tell you that one day. I did love the pure sciences, but I had to face it: I was 23, way to ADD, and not about to spend another 10 years broke in school.</p>
                             <p>I never took classes with a Degree in mind so had tons of credits, but did mind that immediate <a href="http://en.wikipedia.org/wiki/Return_on_investment" target="_blank">ROI</a> on each class. Plus, it turned out  I could finish in 1 year for a BA in Graphic Design and freelance a bit along the way... Done Deal.</p>
                             <p>Luckily, <a href="http://design.sfsu.edu/" target="_blank">DAI's</a> Flash MX class introduced me to <a href="http://en.wikipedia.org/wiki/ActionScript" target="_blank">ActionScript</a> and a few awesome professors. As I improved through AS2, AS3, and MXML (Flex), I started to see the patterns and how easy programming is. </p>
-                            <p>But as soon as I finished my degree requirements, I moved to Los Angeles without a bother to walk the stage. I wasn't a big fan of LaLa Land, but it was - at first - very lucrative; providing me the spare time for trail-and-error programming. Thankfully, I did a lot of that because the spare-time-money did dry up; but I had improved enough to take on some big clients still using <a href="http://en.wikipedia.org/wiki/Adobe_Flash" target="_blank">Flash</a>.</p>                      
+                            <p>But as soon as I finished my degree requirements, I moved to Los Angeles without a bother to walk the stage. I wasn't a big fan of LaLa Land, but it was - at first - very lucrative; providing me the spare time for trail-and-error programming. Thankfully, I did a lot of that because the spare-time-money did dry up; but I had improved enough to take on some big clients still using <a href="http://en.wikipedia.org/wiki/Adobe_Flash" target="_blank">Flash</a>.</p>
                             <p>Meanwhile, the huge problems with Adobe Flash were obvious. So I started checking out books for more complete <a href="http://en.wikipedia.org/wiki/LAMP_(software_bundle)" target="_blank">L.A.M.P</a> environments and enrolled in a few courses at Cal State LA.</p>
-                            <p>Eventually after learning a lot and exhausting myself completely with LA, I put my stuff in storage and moved to Rio De Janeiro to stay with one of my oldest friends - <a href="https://www.google.com.co/search?q=akintoye+moses" target="_blank">Akintoye Moses</a> - and complete an freelance contract. 
-                               But the work was way too consuming to explore or enjoy Basil to the fullest. So when my visa ran up, and a job came up back in the Bay Area, I had to move home. 
+                            <p>Eventually after learning a lot and exhausting myself completely with LA, I put my stuff in storage and moved to Rio De Janeiro to stay with one of my oldest friends - <a href="https://www.google.com.co/search?q=akintoye+moses" target="_blank">Akintoye Moses</a> - and complete an freelance contract.
+                               But the work was way too consuming to explore or enjoy Basil to the fullest. So when my visa ran up, and a job came up back in the Bay Area, I had to move home.
                                Soon later I took up an opportunity with Healthline Networks to rebuild an interesting, but ambitious product from their R&amp;D budget that included learning <a href="http://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank">Java</a> on-the-job. Win-Win!</p>
                             <p>After 3 years of that, I quit to retry <em>some</em> of my errors above that came from greater visions. And now, 10 years later from the beginning of this story, I'm back in the Heart of <a href="http://wikitravel.org/en/Bogot%C3%A1#Get_around" target="_blank">Traffic</a> - Bogota, Colombia - hoping to see them again and will try share each experience along the way.</p>
                         </li>
@@ -134,8 +131,8 @@
                         <li class="pItem">
                             <p>P.S. use the cube/menu above for snapshots of a few visions in-development and from my past</p>
                         </li>
-                    </ul>                    
-                </div>                          
+                    </ul>
+                </div>
 
                 <div class="hl_menu">
                     <ul>
@@ -144,7 +141,7 @@
                             <p>A Contextual Enrichment Tool Of Rich-Media Health Information and Ads</p>
                             <h4>
                                 <div class="thWrap"><img src="/wwwroot/images/sites/healthline/sharecare_allergies.png" align="left" /></div>
-                                <span class="graytxt">made:</span> 2009-2012 
+                                <span class="graytxt">made:</span> 2009-2012
                                 <span class="graytxt">with:</span> Native JS / Java / SQL
                                 <span class="graytxt"><?php echo  date("Y"); ?> &copy; </span> Healthline Networks
                             </h4>
@@ -171,7 +168,7 @@
                             </h4>
                         </li>
                     </ul>
-                </div> 
+                </div>
 
                 <div class="tmm_menu">
                     <p>Below are a few projects I've done over the past few years outside of my fulltime employment with Healthline Networks</p>
@@ -184,7 +181,7 @@
                                 <span class="graytxt">with:</span> AS2
                                 <span class="graytxt">license:</span> BCBGMaxAzriaGroup &copy; <?php echo  date("Y"); ?>
                             </h4>
-                        </li>                        
+                        </li>
                         <li class="pItem">
                             <h3><a href="http://www.weddinglocation.com/clientpass/index.php" target="_blank">EliteWeddingLocations.com</a></h3>
                             <h4>
@@ -193,7 +190,7 @@
                                 <span class="graytxt">with:</span> jQuery / PHP / mySQL
                                 <span class="graytxt">license:</span> Beverly Clark Enterprises &copy; <?php echo  date("Y"); ?>
                             </h4>
-                        </li>  
+                        </li>
                         <li class="pItem">
                             <h3><a href="http://www.goodlifewithgabby.com" target="_blank">GoodLifeWithGabby.com</a></h3>
                             <h4>
@@ -202,7 +199,7 @@
                                 <span class="graytxt">with:</span>  AS3
                                 <span class="graytxt">license:</span> GoodLife With Gabby &copy; <?php echo  date("Y"); ?>
                             </h4>
-                        </li>                                                 
+                        </li>
                         <li class="pItem">
                             <h3><a href="http://www.mycubi.com" target="_blank">MyCubi.com</a></h3>
                             <h4>
@@ -211,7 +208,7 @@
                                 <span class="graytxt">with:</span> jQuery / Google Maps API v2 / PHP with CodeIgnitor
                                 <span class="graytxt">license:</span> MyCubi &copy; <?php echo  date("Y"); ?>
                             </h4>
-                        </li>   
+                        </li>
                         <li class="pItem">
                             <p>For other older projects I've worked on, visit my early Flash-based site:</p>
                             <h3><a href="http://flash.taylormadetraffic.com/" target="_blank">flash.TaylorMadeTraffic.com</a></h3>
@@ -221,7 +218,7 @@
                                 <span class="graytxt">with:</span>  AS3 / MXML (Flex) / XML
                                 <span class="graytxt">license:</span> Taylor Made Traffic &copy; 2012</span>
                             </h4>
-                        </li>                                                 
+                        </li>
                     </ul>
                 </div>
 
@@ -266,7 +263,7 @@
                 </div>
 
                 <div class="quote_menu">
-                    <ul>   
+                    <ul>
                         <li class="pItem" style="margin:50px 25px; text-align:left;">
                             <h3>The navigation on this site is not really meant to be practical.</h3>
                             The essence of effective marketing starts with Design.
@@ -278,16 +275,16 @@
                             Strategies then decides how subtle or aggressive your approach, and Style is your angle to convince your audience and match their identity to yours.
 
                             All this is done through Simplicity.
-                            
+
                             <p>I just need one place to host a few top links for my more dedicated projects and clients.</p>
                             <p>So in 2 days I rewrote all animations here in JavaScript as inspired from my old Flash work: <a href="http://flash.taylormadetraffic.com/" target="_blank">flash.TaylorMadeTraffic.com</a>.</p>
                             <p>In other words, it's just for fun.</p>
                         </li>
-                    </ul>                    
+                    </ul>
                 </div>
-                
+
 <!--                <div class="kh_menu">
-                    <ul>   
+                    <ul>
                         <li class="pItem">
                             <h3><a target="_blank" href="http://www.kapunahale.com/">KapunaHale.com</a></h3>
                             <p>A family vision for building the perfect retirement home, party house, and wedding venue - all in one - on the most gorgeous Hawaiian Garden Island of Kauai.</p>
@@ -305,14 +302,14 @@
                             <br />
                             <input type="hidden" class="secondImgs" value="/wwwroot/images/sites/kapuna/th/kp_black_400.jpg,/wwwroot/images/sites/kapuna/with-fam.jpg" />
                         </li>
-                    </ul>                    
+                    </ul>
                 </div>-->
-            </div>   
+            </div>
         </div>
 
     <script type="text/javascript" >
         <?php if (isset($mobile)): ?>
-                var mobile = "<?php echo  $mobile; ?>";           
+                var mobile = "<?php echo  $mobile; ?>";
         <?php endif ?>
         </script>
         <script type="text/javascript" src="/wwwroot/js/cubebuilder.js?v=1368477918"></script>
@@ -326,7 +323,7 @@
             try {
                 var pageTracker = _gat._getTracker("UA-7929826-3");
                 pageTracker._trackPageview();
-            } catch(err) {}</script>          
-        <?php endif;?>           
+            } catch(err) {}</script>
+        <?php endif;?>
     </body>
 </html>

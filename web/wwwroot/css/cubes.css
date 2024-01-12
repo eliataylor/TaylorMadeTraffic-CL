@@ -1,3 +1,5 @@
+* { font-family: 'Chakra Petch', sans-serif;}
+
 body.pWhite, .pWhite .master  {background:#fff!important; color:#000!important;}
         .pWhite .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
@@ -11,6 +13,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .pWhite #navMenu a { background: #000; }
 .pWhite .reflectionMask { display:none; }
 .pWhite .projectImgMask { margin:0 0 20px 0;}
+
 
 a, a:visited, .alink { color:#5B74CF; }
 body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:.5em; }
@@ -41,7 +44,7 @@ ul, li { list-style: none; margin:0; padding:0; }
 .menuBox { border:1px solid #fff; overflow: hidden; }
 .menuBox.menuEmpty { border:none; cursor:pointer; overflow:visible;}
 
-a.navItem { margin:5px 3px;}
+a.navItem { margin:5px .5%;}
 a.navItem.selected { color:red; }
 
 
@@ -57,7 +60,7 @@ a.navItem.selected { color:red; }
 .datelist li:before { color:#fff;}
 .expenselist li:before { color:#ff7901;}
 
-.lineName { font-style: italic; color:#a0a09f;}
+.lineName { color:#a0a09f;}
 .technotes { padding:10px; margin:15px 0 15px 0; border:1px solid #a0a09f; display:block;
     font-family:courier, monospace; font-size: 14px; line-height: 22px; }
 .technotes p { margin:5px 0; list-style:circle; }
@@ -67,7 +70,7 @@ a.navItem.selected { color:red; }
 .prjDesc img, .technotes img { width:97%; }
 .team a{ font-size:125%; }
 
-.sectTitle { font-style:italic; margin:0; font-size:16px; text-decoration: underline; margin-top:15px; text-transform: capitalize;}
+.sectTitle { margin:0; font-size:16px; text-decoration: underline; margin-top:15px; text-transform: capitalize;}
 .sectTitle img { width:30px; height:30px; margin:0 5px 0 0; float:left; }
 .prjSection li { list-style: none; padding-left:2px }
 .prjPitch {font-size: 18px; line-height: 22px;}
@@ -189,8 +192,8 @@ table .header { width:auto; color:#a0a09f;}
 
 .tablesorter { margin:10px 0 15px 0; width: 100%; text-align: left; position: relative; }
 .tablesorter th, .tablesorter th { padding: 4px; font-weight: bolder; font-size:13px; }
-.tablesorter th.col3 { background-position: right center; padding-right: 20px;}
-.tablesorter th.col1, .projects_table th.col2 { padding-left: 20px;}
+.tablesorter th.col3 { background-position: right center; padding-bottom: 20px;}
+.tablesorter th.col1, .projects_table th.col2 { padding-bottom: 20px;}
 
 .tablesorter tbody td { padding: 4px; vertical-align: top; }
 
@@ -198,6 +201,13 @@ table .header { width:auto; color:#a0a09f;}
 .tags_table th.col1 { background-position: left center; }
 .tags_table th.col2 { background-position: center center; }
 .tags_table th.col3 { background-position: right center; }
+
+.tablesorter thead tr {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
 .tablesorter thead tr th { float:none; height:40px; background-image: url(/wwwroot/images/bg.png); background-repeat:no-repeat; background-position:left center;
                           cursor: pointer; }
 .tablesorter thead tr .headerSortUp {	background-image: url(/wwwroot/images/asc.png); background-repeat: no-repeat; color:red;}
@@ -250,6 +260,36 @@ td a.popInfo { text-decoration:none;}
 .tablesorter th.collapsed, .tablesorter td.collapsed { display: none; }
 .chkSelector { float:left; padding:2px 5px 0 5px; vertical-align:top; margin:0 5px 5px 0; background:#8dbdd8; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; }
 
+
+.companyHead > td {
+    display: table-cell;
+    position: relative;
+}
+
+.companyHead .col1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2%;
+    width: 110%;
+    height: .5px;
+    background-color:  #646464;
+    transform-origin: 6%;
+    transform: rotate(-45deg);
+}
+
+.companyHead .col1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -2%;
+    width: 110%;
+    height: .5px;
+    background-color: #8c8c8c;
+    transform-origin: 4%;
+    transform: rotate(-45deg);
+}
+
 .col1, .col2 { text-align: left; }
 .col3 { text-align: right; }
 
@@ -266,8 +306,11 @@ td a.popInfo { text-decoration:none;}
 .tablesorter td.project_startdate { padding-top:28px; }
 .projectLink { word-break:break-all; }
 tr.spacer { height:15px; }
-.tags_table tr { border:1px solid #000; vertical-align:middle; padding:8px;   }
-.tags_table td.col1, .tags_table td.col3 { font-size:12px; }
+.tags_table tr { border:1px solid #000; vertical-align:middle; padding:8px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between; }
+.tags_table td.col1, .tags_table td.col3 { font-size:12px; padding:1%; }
 .biz_plans.projects_table tr { border-bottom: 200px solid transparent; }
 
 .pageTotal { font-size:12px; vertical-align: baseline}
@@ -290,8 +333,10 @@ a.fancybox { text-decoration:none; }
 
 
 .userProfile .userName { margin:10px 0; font-size:37px; }
-.sociallinks { margin:0; float:right; }
+.userProfile .userTitleRow { }
 .sociallinks a { text-decoration: none; }
+.sociallinks > * { margin-left:10% }
+.sociallinks img { height:40px }
 .teamInviteLink { color:red; font-size:11px; float:left; margin:7px; clear:both }
 
 #softNotice { display:none; position:fixed; bottom:10px; right:10px; min-width:300px; max-width:600px;
@@ -341,6 +386,19 @@ a.fancybox { text-decoration:none; }
     .projectRow .col1 { width:40%; }
     .projectRow .col2 { width:60%; }
     .projectTags { font-size:100%; }
+}
+
+/* quick Grid implementation */
+.row {
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-content: space-between;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.col {
+    display: flex;
 }
 
 #cubeHolder {
@@ -446,7 +504,8 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.companyHead { font-size:11px; border:0 none;}
 
 	.projectImgMask, .img_src { padding:0; margin:0}
-	.userProfile .userName { height:50px; margin:0 0 30px 0; font-size:30px;}
+	.userProfile .userName { margin:0 0 30px 0; font-size:30px;}
+
 
 	dl.detailList{ position:absolute; top:0; right:0;
 	padding: 0;

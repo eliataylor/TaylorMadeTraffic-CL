@@ -1,12 +1,12 @@
-(function(wrap, cont) {   
-    cont[wrap] = { 
+(function(wrap, cont) {
+    cont[wrap] = {
         spinDeg : 0,
         growInterval : null,
         spinInterval : null,
         floatInterval : null,
         growing : 1,
         menuOpen : false,
-        opened : 0,       
+        opened : 0,
         mousePos : [400, 400],
         openSpeed : 30,
         spinSpeed : 25,
@@ -14,49 +14,49 @@
         opening : document.getElementById("tmmOpening"),
         cube : document.getElementById("tmmCube"),
         curPage : "eat_menu",
-        cubeTabs : ["eat_menu", "collectiv_menu", "quote_menu", "tmm_menu", "means_menu", "ta_menu", "hl_menu"],  // "kh_menu", 
+        cubeTabs : ["eat_menu", "collectiv_menu", "quote_menu", "tmm_menu", "means_menu", "ta_menu", "hl_menu"],  // "kh_menu",
         preinit:function() {
-            $("#pageImg").hide();            
+            $("#pageImg").hide();
             $(".page").hide();
-            $("#navMenu").hide();    
-            $("#menuBtn").hide();    
-            $("#closeBtn").hide();    
+            $("#navMenu").hide();
+            $("#menuBtn").hide();
+            $("#closeBtn").hide();
             $("#menuList").hide();
-        }, 
+        },
         init:function() {
-            $("#pageImg").hide();            
+            $("#pageImg").hide();
             document.onmousemove = tmt.setMousePos;
             window.onmousemove = tmt.setMousePos;
             document.onclick = tmt.moveToMenu;
             window.onclick = tmt.moveToMenu;
-            
+
             if ($("body").hasClass("isMobile")) {
                 mousePos : [$(window).width() - 50, $(window).height() - 50];
             }
-            
+
             document.getElementById("navMenu").onmouseout = function() {
-                document.getElementById("menuLabel").innerHTML = "";  
+                document.getElementById("menuLabel").innerHTML = "";
                 var els = document.getElementById("navMenu").getElementsByTagName("IMG"), i = 0;
                 for (i=0; i < els.length; i++) {
-                    if (els[i].getAttribute('data-page') && tmt.curPage != els[i].getAttribute('data-page') && $(els[i]).css('opacity') > 0)  
+                    if (els[i].getAttribute('data-page') && tmt.curPage != els[i].getAttribute('data-page') && $(els[i]).css('opacity') > 0)
                         $(els[i]).animate({opacity:.50}, 250);
-                }         
+                }
             }
             var wid = $("body").width();
             if (wid < 800) document.body.className += " narrow";
             if (!wid || wid < 10) wid = 400;
             tmt.cube.style.left = (wid - 50) + "px";
-            
+
             wid = ($("body").height() && $("body").height() > 10) ? $("body").height() : 400;
-            tmt.cube.style.top = (wid - 50) + "px";            
-            $(tmt.cube).show();            
+            tmt.cube.style.top = (wid - 50) + "px";
+            $(tmt.cube).show();
 
             tmt.spinInterval = setInterval("tmt.spinCube();", tmt.spinSpeed);
-            tmt.floatInterval = setInterval("tmt.floatCube();", tmt.floatSpeed);                     
+            tmt.floatInterval = setInterval("tmt.floatCube();", tmt.floatSpeed);
             tmt.activateMenu();
             //tmt.growMenu();
-            
-            if (document.location.hash != "" && document.location.hash != "#") {                
+
+            if (document.location.hash != "" && document.location.hash != "#") {
                 var hash = document.location.hash.substr(1);
                 for (i =0 ; i < tmt.cubeTabs.length; i++){
                     if (tmt.cubeTabs[i].indexOf(hash) == 0){
@@ -64,25 +64,25 @@
                         tmt.moveToMenu();
                         return true;
                     }
-                }                
+                }
             }
-            
+
         },
         activateMenu : function() {
             var els = tmt.getElementsByClassName("menuBox", document.getElementById("navMenu")), i = 0;
             for (i=0; i < els.length; i++) {
                 if (els[i].getAttribute("title") && els[i].getAttribute('data-page'))  {
-                    
+
                     els[i].getElementsByTagName("IMG")[0].setAttribute("data-page", els[i].getAttribute('data-page'));
-                    
+
                     els[i].onmouseover = function() {
                         document.getElementById("menuLabel").innerHTML = this.getAttribute("title");
                         var img = this.getElementsByTagName("IMG")[0];
                         if ($(img).css('opacity') < 1)
-                            $(img).animate({opacity:1}, 500);                        
-                    }, 
-                    els[i].getElementsByTagName("IMG")[0].onmouseout = function() { 
-                        if (tmt.curPage != this.getAttribute('data-page') && $(this).css('opacity') > 0) 
+                            $(img).animate({opacity:1}, 500);
+                    },
+                    els[i].getElementsByTagName("IMG")[0].onmouseout = function() {
+                        if (tmt.curPage != this.getAttribute('data-page') && $(this).css('opacity') > 0)
                             $(this).animate({opacity:.50}, 250);
                     }
                     els[i].onclick = function() {
@@ -91,15 +91,15 @@
                     }
                 }
             }
-            
+
             els = document.getElementById("menuList").getElementsByTagName("LI"), i = 0;
             for (i=0; i < els.length; i++) {
                 if (els[i].getAttribute('data-page'))  {
                     els[i].onmouseover = function() {
                         this.style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
                         document.getElementById("menuLabel").innerHTML = this.getAttribute("title");
-                    }, 
-                    els[i].onmouseout = function() { 
+                    },
+                    els[i].onmouseout = function() {
                         this.style.backgroundColor = '#000000';
                     }
                     els[i].onclick = function() {
@@ -107,23 +107,23 @@
                         return false;
                     }
                 }
-            }            
-        },  
+            }
+        },
         showFullMenu : function() {
             if (document.getElementById("menuList").style.display == "none") {
-                $('#menuList').slideDown();            
+                $('#menuList').slideDown();
                 tmt.menuOpen = true;
             } else {
-                $('#menuList').slideUp();            
+                $('#menuList').slideUp();
                 tmt.menuOpen = false;
             }
         },
         loadPage : function(page, title) {
-            
+
             tmt.curPage = page;
             $(".pageTitle").html( (title == "E.A.Taylor" ) ? "Hello World <span class='postDate'>Dec. 1st, 2012</span>" : title );
 
-            var pages = this.cubeTabs, i =0;            
+            var pages = this.cubeTabs, i =0;
             for (i=0; i < pages.length; i++) {
                 if (pages[i] != page) {
                     if ($(".page").is(":hidden")) $("." + pages[i]).hide();
@@ -132,22 +132,22 @@
             }
             if ($(".page").is(":hidden")) $(".page").slideDown();
             $("." + page).slideDown();
-            
-            var img = document.getElementById("pageImg");   
+
+            var img = document.getElementById("pageImg");
             var basename = page.replace("_menu", "");
             if (document.getElementById(basename + "_boxbtn") && document.getElementById(basename + "_boxbtn").getAttribute("data-big")) {
                 img.src = document.getElementById(basename + "_boxbtn").getAttribute("data-big");
             } else {
                 img.src = "/wwwroot/images/" + basename + "_big" + ".png";
             }
-            
+
             var els = tmt.getElementsByClassName("menuBox");
             for (i=0; i < els.length-1; i++) { // -1 last one is empty anyway
                 var img = els[i].getElementsByTagName("IMG")[0];
-                if (els[i].getAttribute("data-page") == tmt.curPage && $(img).css('opacity') < 1) 
+                if (els[i].getAttribute("data-page") == tmt.curPage && $(img).css('opacity') < 1)
                     $(img).animate({opacity:1});
             }
-            
+
             $("." + page + " .secondImgs").each(function() {
                 var paths = $(this).val();
                 els = paths.split(",");
@@ -159,7 +159,7 @@
                 };
                 $(this).removeClass("secondImgs");
             });
-            
+
 //            if (basename == 'ta') {
 //                $(img).hide();
 //                tmt.showTaPreloader(true);
@@ -169,14 +169,14 @@
             if ($("#pageImg").is(":hidden")) {
                 $("#pageImg").fadeIn();
             }
-            
+
             document.location.hash = page.replace("_menu", ""); // already on stage
-            
-        }, 
-        growMenu : function() {            
+
+        },
+        growMenu : function() {
             var kill = false, els = tmt.getElementsByClassName("menuBox"), title = "All";
             for (var i=0; i < els.length-1; i++) {
-                var dim = $(els[i]).width();                
+                var dim = $(els[i]).width();
                 $(els[i]).width(dim + 1);
                 $(els[i]).height(dim + 1);
                 if (dim > 43) {
@@ -186,12 +186,12 @@
             }
             if (kill == true) {
                 clearInterval(this.growInterval);
-                $("#menuBtn").fadeIn();    
-                $("#closeBtn").fadeIn();    
+                $("#menuBtn").fadeIn();
+                $("#closeBtn").fadeIn();
                 tmt.loadPage(tmt.curPage, title);
             }
         },
-        shrinkMenu : function() {            
+        shrinkMenu : function() {
             var kill = false, els = tmt.getElementsByClassName("menuBox");
             for (var i=0; i < els.length-1; i++) {
                 var dim = $(els[i]).width();
@@ -204,7 +204,7 @@
             if (kill == true) {
                 clearInterval(this.growInterval);
                 $(tmt.opening).show();
-                $("#pageImg").fadeOut("slow");            
+                $("#pageImg").fadeOut("slow");
                 $(".page").slideUp();
                 $("#navMenu").fadeOut(function(){
                     tmt.closeCube();
@@ -212,9 +212,9 @@
             }
         },
         spinCube:function() {
-            this.spinDeg = (this.spinDeg >= 5900) ? 0 : this.spinDeg + 100; // 98.3; 
+            this.spinDeg = (this.spinDeg >= 5900) ? 0 : this.spinDeg + 100; // 98.3;
             tmt.cube.style.backgroundPosition = "0 -" + this.spinDeg + "px";
-        }, 
+        },
         floatCube:function(e) {
             if (tmt.mousePos) {
                 var x = (!parseInt(tmt.cube.style.left)) ? 50 : parseInt(tmt.cube.style.left);
@@ -231,20 +231,20 @@
                     tmt.cube.style.top = Math.round(y+stepY) + "px";
                 }
             }
-        }, 
+        },
         moveToMenu:function() {
             tmt.spinSpeed = 5; // speed up spin
             clearTimeout(tmt.floatInterval);
             tmt.floatInterval = null;
-            document.onmousemove = null; 
-            document.onclick = null; 
-            window.onmousemove = null; 
-            window.onclick = null; 
-            
+            document.onmousemove = null;
+            document.onclick = null;
+            window.onmousemove = null;
+            window.onclick = null;
+
             var wid = $("body").width(), x = 50, y = 50;
             if (wid < 800) {
                 x = 5;
-                y = 10;           
+                y = 10;
                 document.getElementById("navMenu").style.marginLeft = (x + 10) + "px";
                 document.getElementById("navMenu").style.marginTop = (y + 7) + "px";
                 tmt.opening.style.top = y + "px";
@@ -252,11 +252,11 @@
                 $(".page").width(wid-35);
             }
             $('#tmmCube').animate({
-                left: x, 
+                left: x,
                 top:y
             }, 1000, function() {
                 tmt.floatInterval = setInterval("tmt.checkForFrame1();", 10);
-            });                    
+            });
         },
         checkForFrame1:function() {
             if (tmt.spinDeg == 0) {
@@ -266,37 +266,37 @@
                 tmt.openCube();
                 tmt.spinSpeed = 30; // reset for if reopened
                 tmt.opening.style.display = "";
-            }                    
+            }
         },
         startClose : function() {
             if (document.getElementById("menuList").style.display != "none") {
-                $('#menuList').slideUp();            
+                // $('#menuList').slideUp();
                 tmt.menuOpen = false;
             }
-            $("#menuBtn").fadeOut();    
+            $("#menuBtn").fadeOut();
             $("#closeBtn").fadeOut(function() {
                 tmt.growInterval = setInterval("tmt.shrinkMenu();", tmt.openSpeed);
-            });    
-            
+            });
+
         },
         closeCube:function() {
             var openDeg = parseInt(tmt.opening.getAttribute("ref"));
             if (openDeg <= 0) {
                 tmt.cube.style.display = "";
                 tmt.opening.style.display = "none";
-                document.onmousemove = tmt.setMousePos; 
-                window.onmousemove = tmt.setMousePos; 
+                document.onmousemove = tmt.setMousePos;
+                window.onmousemove = tmt.setMousePos;
                 window.onclick = function(e){
-                    tmt.setMousePos(e); 
-                    tmt.moveToMenu(e); 
+                    tmt.setMousePos(e);
+                    tmt.moveToMenu(e);
                 };
-                window.onclick = tmt.moveToMenu; 
+                window.onclick = tmt.moveToMenu;
                 tmt.spinInterval = setInterval("tmt.spinCube();", tmt.openSpeed);
-                tmt.floatInterval = setInterval("tmt.floatCube();", tmt.openSpeed);                     
+                tmt.floatInterval = setInterval("tmt.floatCube();", tmt.openSpeed);
                 return;
             }
             else {
-                openDeg = openDeg - 101; 
+                openDeg = openDeg - 101;
                 tmt.opening.setAttribute("ref", openDeg);
                 tmt.opening.style.backgroundPosition = "0 -" + openDeg + "px";
                 setTimeout("tmt.closeCube();", tmt.openSpeed);
@@ -312,12 +312,12 @@
                 return;
             }
             else {
-                openDeg = openDeg + 101; 
+                openDeg = openDeg + 101;
                 tmt.opening.setAttribute("ref", openDeg);
                 tmt.opening.style.backgroundPosition = "0 -" + openDeg + "px";
                 setTimeout("tmt.openCube();", tmt.openSpeed);
             }
-        }, 
+        },
         setMousePos: function (e) {
             var posx = 50;
             var posy = 50;
@@ -331,7 +331,7 @@
             }
             if (!posx || !posy) tmt.mousePos = [$("body").width()/2, $("body").height()/2];
             else tmt.mousePos = [posx, posy];
-        }, 
+        },
         getElementsByClassName : function (searchClass, node, tag) {
             var matches = [];
             if (!node) node = document;
@@ -363,11 +363,11 @@
             var next = (tmt.spinInterval >= 24) ? 0 : tmt.spinInterval + 1;
             tmt.spinInterval = next;
             document.getElementById("taPreloader").style.backgroundPosition = "0 -" + (next * 175) + "px";
-            setTimeout('tmt.showTaPreloader(false);', 50);                        
-        }          
+            setTimeout('tmt.showTaPreloader(false);', 50);
+        }
     };
 })("tmt", this);
-        
+
 tmt.preinit();
 
 $(document).ready(function() {

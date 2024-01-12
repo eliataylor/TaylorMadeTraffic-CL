@@ -1,29 +1,36 @@
 <div class='userProfile'>
-        <h1 class="userName">
-	        <?php echo $uProfile['user_screenname'];?>
-	        <span class='sociallinks'>
+    <div class="row userTitleRow">
+        <div class="col">
+            <h1 class="userName">
+                <?php echo $uProfile['user_screenname'];?>
+            </h1>
+        </div>
+        <div class="col sociallinks" style="justify-content:flex-end" >
 	            <?php if (!empty($uProfile['user_fburl'])):?>
-	                <a target='_blank' href='<?php echo $uProfile['user_fburl'];?>'>
+                    <a target='_blank' href='<?php echo $uProfile['user_fburl'];?>'>
 	                <img src="/wwwroot/images/fbIcon.png" title="<?php echo $uProfile['user_fburl'];?>" />
 	                </a>
-	            <?php endif?>
-	            <?php if (!empty($uProfile['user_linkdinurl'])):?>
-	                <a target='_blank' href='<?php echo $uProfile['user_linkdinurl'];?>'>
-	                <img title="<?php echo $uProfile['user_linkdinurl'];?>" src="/wwwroot/images/linkedinIcon.png" />
-	                </a>
-	            <?php endif?>
-	            <?php if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?php echo $uProfile['user_googleurl'];?>'><?php echo $uProfile['user_googleurl'];?></a></li><?php endif?>
+                <?php endif?>
+        <?php if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?php echo $uProfile['user_googleurl'];?>'><?php echo $uProfile['user_googleurl'];?></a></li><?php endif?>
 
-	           <?php if ($uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
-	                <a target='_blank' href='http://www.upwork.com/o/profiles/users/_~01979dd82b228abbb5/'>
-		                <img title="Upwork" src="/wwwroot/images/upwork_68416.png" />
+        <?php if ($uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
+
+            <a target='_blank' href='https://github.com/eliataylor'>
+                <img width="40" title="Github" src="/wwwroot/images/github-sq-blackbg.png" />
+            </a>
+            <a target='_blank' href='https://www.upwork.com/fl/~01979dd82b228abbb5'>
+		                <img width="40" title="Upwork" src="/wwwroot/images/upwork.svg" />
 	                </a>
-	                <a target='_blank' href='https://github.com/eliataylor'>
-		                <img title="Github" src="/wwwroot/images/github-icon.png" />
+        <?php endif; ?>
+
+
+        <?php if (!empty($uProfile['user_linkdinurl'])):?>
+            <a target='_blank' href='<?php echo $uProfile['user_linkdinurl'];?>'>
+	                <img width="40" title="<?php echo $uProfile['user_linkdinurl'];?>" src="/wwwroot/images/linkedin-icon.svg" />
 	                </a>
-	           <?php endif; ?>
-	        </span>
-        </h1>
+        <?php endif?>
+        </div>
+    </div>
 
         <?php if (!empty($uProfile['user_bio'])):?>
         <div class='userBio'>
