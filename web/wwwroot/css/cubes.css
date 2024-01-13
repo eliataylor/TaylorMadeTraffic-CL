@@ -306,7 +306,7 @@ td a.popInfo { text-decoration:none;}
 .tablesorter td.project_startdate { padding-top:28px; }
 .projectLink { word-break:break-all; }
 tr.spacer { height:15px; }
-.tags_table tr { border:1px solid #000; vertical-align:middle; padding:8px;
+.tags_table tr { border:1px solid #000; vertical-align:middle;
     align-items: center;
     display: flex;
     justify-content: space-between; }
@@ -372,7 +372,7 @@ a.fancybox { text-decoration:none; }
 
  /* PHONES */
 @media only screen and (max-width : 500px) {
-    .tags_table .col1, .tags_table .col3 { width:55px; }
+    .tags_table .col1, .tags_table .col3 { width:66px; }
     /* #tagLinks { width: 100%;text-align: center;margin:20px 0 10px 0;float: left;} */
     #tagLinks { position: absolute; top: 0;right: 0; padding-top:0;}
     a.navItem { clear:right; float:right; }
