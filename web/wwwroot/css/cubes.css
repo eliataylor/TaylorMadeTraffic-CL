@@ -372,6 +372,24 @@ a.fancybox { text-decoration:none; }
  .instruct { font-size:80%; }
  .employmentSpan { float:right; }
 
+.fadedImgContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.fadedImg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    transition: opacity 0.5s ease;
+    border-radius: 0 0 0 10px;
+    /* Apply the gradient to fade the edges */
+    mask-image: linear-gradient(325deg, rgba(0, 0, 0, 0), #000);
+    -webkit-mask-image: linear-gradient(325deg, rgba(0, 0, 0, 0), #000);
+
+}
+
  dl.detailList { padding: 0; margin:4px 0 0 0}
 .detailList dt {
     float: left;
