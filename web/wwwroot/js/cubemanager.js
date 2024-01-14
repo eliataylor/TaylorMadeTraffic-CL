@@ -50,7 +50,7 @@ i'll be done the same :/
 
             $(cont).find('.teamInviteLink').click(function(e){
                e.preventDefault();
-               ctx[cls].softNotice('Email me to setup (or hide) your account');
+               ctx[cls].softNotice('Email eli@taylormadetraffic.com to setup (or hide) your account');
             });
 
 
@@ -161,7 +161,7 @@ i'll be done the same :/
             ctx[cls].cube.style.left = $(window).width() + "px";
             ctx[cls].cube.style.top = 100 + "px";
             $(ctx[cls].cube).show();
-            
+
             clearInterval(ctx[cls].spinInterval);
             ctx[cls].spinInterval = setInterval("tmt.spinCube();", ctx[cls].spinSpeed);
             ctx[cls].floatInterval = setInterval("tmt.floatCube();", ctx[cls].floatSpeed);

@@ -19,14 +19,15 @@ class Projects extends CI_Controller {
             "biz" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Product Deck")),
             "deck" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Product Deck")),
 
-            "technologies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Technologies")),
-            "years" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Years")),
-            "companies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Companies")),
             "industries" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Industries")),
+            "technologies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Technologies")),
+            "companies" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Companies")),
+            "years" => array("role" => -1, 'icon'=>'',  "title" => $this->lang->en("Years")),
 
             "taylormade" => array("role" => 0, 'icon'=>'',  "title" => "TaylorMade"),
             "taylormade/development" => array("role" => 0, 'icon'=>'',  "title" => "TaylorMade " . $this->lang->en("Development")),
             "eli" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Eli")),
+            "saman" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Saman")),
 
             "projects" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Projects")),
 
@@ -45,8 +46,8 @@ class Projects extends CI_Controller {
             return $this->sendOut('loginForm');
         }
         $routing = $this->uri->rsegment_array();
-        $method = (count($routing) > 1) ? $routing["2"] : 'technologies';
-        if (!method_exists($this, $method)) $method = 'technologies';
+        $method = (count($routing) > 1) ? $routing["2"] : 'industries';
+        if (!method_exists($this, $method)) $method = 'industries';
         if (isset($this->data['qmenu'][$path])) $this->data['docTitle'] = $this->data['qmenu'][$path]['title'];
         if (!empty($this->data['qtfilter'])) $this->data['docTitle'] .= ' :: ' . $this->data['qtfilter'];
         call_user_func_array(array($this, $method), array());
@@ -55,7 +56,7 @@ class Projects extends CI_Controller {
     private function setGlobals() {
         $this->data['qtags'] = $this->input->get_post('qtags');
         if (empty($this->data['qtags'])) $this->data['qtags'] = $this->uri->segment(1);
-        if (empty($this->data['qtags'])) $this->data['qtags'] = 'technologies';
+        if (empty($this->data['qtags'])) $this->data['qtags'] = 'industries';
         $this->data['qtfilter'] = $this->input->get_post('qtfilter');
         if (empty($this->data['qtfilter'])) $this->data['qtfilter'] = $this->uri->segment(2);
 
@@ -86,12 +87,12 @@ class Projects extends CI_Controller {
 
     function error404() {
         $this->data['docTitle'] = $this->lang->en("Page Not Found");
-        $this->technologies();
+        $this->industries();
     }
 
     private function animatedIntro(){
         if ($this->input->is_ajax_request()) {
-            return $this->technologies();
+            return $this->industries();
         }
         $this->getTableForTags();
         $this->sendOut('tags_table');
@@ -220,7 +221,9 @@ class Projects extends CI_Controller {
             }
     	}
 
-    	$this->data['showGroup'] = true;
+        if ($this->data['qtfilter'] == 'E.A.Taylor') {
+            $this->data['showGroup'] = true;
+        }
     	$this->data['groups'] = $groups;
     }
 
@@ -266,6 +269,14 @@ class Projects extends CI_Controller {
     public function eli(){
         $this->data['qtags'] = 'team';
         $this->data['qtfilter'] = 'E.A.Taylor';
+        $this->data['qgroup'] = 'project_client';
+        //$this->data['qhaving'] = 2
+        $this->team();
+    }
+
+    public function saman(){
+        $this->data['qtags'] = 'team';
+        $this->data['qtfilter'] = 'Sammie Khalil Taylor';
         $this->data['qgroup'] = 'project_client';
         //$this->data['qhaving'] = 2
         $this->team();

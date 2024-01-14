@@ -37,11 +37,13 @@ class Projects_Model extends CI_Model {
         	$params[':having'] = $having;
         }
 
-        if ($type == 'years') $sql .= ' order by tag_key desc';
+        if ($type == 'team') $sql .= ' order by tag_key asc';
+        elseif ($type == 'years') $sql .= ' order by tag_key desc';
         elseif ($type == 'companies') $sql .= ' order by tag_date desc, count desc, tag_key asc ';
         elseif ($type == 'technologies') $sql .= ' order by tag_key asc';
         elseif ($type == 'industries') $sql .= ' order by count desc, tag_date desc, tag_key asc';
-        else $sql .= ' order by tag_date desc, count desc'; // alphabetically
+        else $sql .= ' order by tag_key desc, count desc'; // alphabetically
+
 
         $query = $this->db->query($sql, $params);
         if ($query->num_rows() > 0) {
@@ -125,7 +127,7 @@ class Projects_Model extends CI_Model {
         $sql = "SELECT P.*, I.* FROM projects P LEFT JOIN images I ON P.project_id = I.project_id WHERE ";
         if (is_numeric($pid)) $sql .= " P.project_id = ? ";
         else $sql .= " P.project_title = ? ";
-        $sql .= 'ORDER BY I.image_weight ASC LIMIT 1';
+        $sql .= 'ORDER BY I.image_weight ASC, I.image_src DESC LIMIT 1';
         $query = $this->db->query($sql, array($pid));
         //echo $this->db->last_query();
         if ($query->num_rows() > 0) return $query->row();
@@ -158,7 +160,7 @@ class Projects_Model extends CI_Model {
     }
 
     function getImages($pid=false) {
-        $sql = "SELECT P.project_id, P.project_title, I.* FROM `projects` P, images I WHERE P.project_id = I.project_id order by I.project_id asc, I.image_weight asc";
+        $sql = "SELECT P.project_id, P.project_title, I.* FROM `projects` P, images I WHERE P.project_id = I.project_id order by I.project_id asc, I.image_weight asc, I.image_src desc";
         $query = $this->db->query($sql, array($type));
         if ($query->num_rows() > 0) return $query->result_object();
         return array();
@@ -166,7 +168,7 @@ class Projects_Model extends CI_Model {
 
     // team members
     function getTagsTeamMembers() {
-        $sql = "SELECT COUNT( tag_id ) AS count, tag_key, tag_type, tag_date FROM  `tags`  WHERE tag_type LIKE  'team%' GROUP BY tag_key ORDER BY tag_date desc , count DESC";
+        $sql = "SELECT COUNT( tag_id ) AS count, tag_key, tag_type, tag_date FROM  `tags`  WHERE tag_type LIKE  'team%' GROUP BY tag_key ORDER BY tag_key asc , count DESC";
         $query = $this->db->query($sql);
         if ($query->num_rows() > 0) return $query->result_object();
         return array();

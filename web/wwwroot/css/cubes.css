@@ -314,11 +314,17 @@ tr.spacer { height:15px; }
 .biz_plans.projects_table tr { border-bottom: 200px solid transparent; }
 
 .pageTotal { font-size:12px; vertical-align: baseline}
-#qTagSelector, #qTagSelector option { text-transform: capitalize;
-         float:left;background:black ;color: white; outline:0 none; border: 0 none;
-         font-weight: bolder; vertical-align: middle; margin:0 0 0 3px;}
 
-.projectsTitle { margin: 10px 0;float: left;clear: both;width: 100%;vertical-align: baseline; }
+.caption { display:block; margin: 0 6px 0 5px;
+    font-weight: 900;
+    text-decoration: underline;}
+#qTagSelector, #qTagSelector option { text-transform: capitalize; font-size: 16px;
+         background:black ;color: white; outline:0 none; border: 0 none;
+         font-weight: bolder; vertical-align: middle; margin:0;}
+
+.projectsTitle { margin: 10px 0; text-transform: capitalize; font-size: 30px; }
+
+
 .tag_key { font-size:115%; text-align: center;  }
 .tablesorter .tag_key.header { background-position: center center; padding: 0;  }
 .tag_key p { margin-top:-23px; text-align: center; }
@@ -327,6 +333,16 @@ tr.spacer { height:15px; }
 .galleryBlock { position:relative; width:100%; margin:20px 0 }
 .galleryTopBar { float:left; clear:both; width:100%; }
 a.fancybox { text-decoration:none; }
+.morePics {
+    position: absolute;
+    z-index: 9999;
+    bottom: -43px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+}
 .galleryTopBar img { cursor:pointer; height:100px;  margin:0 0 5px 0; }
 .galleryImg { position: relative; float:left; width:100%; }
 .galleryImg img { width:100%; }
@@ -543,7 +559,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.tablesorter .projectTags p { margin:2px 0;}
     .technotes { background:#fff!important; margin:3px 0 8px 0;}
 
-	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style], .projectsTitle { display:none;}
+	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style],
     .reflectionMask { display:none; }
     #qTagSelector { display:none;}
 	.col1.image_src > a { display:none; }

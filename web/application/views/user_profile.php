@@ -16,7 +16,7 @@
         <?php if ($uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
 
             <a target='_blank' href='https://github.com/eliataylor'>
-                <img width="40" title="Github" src="/wwwroot/images/github-sq-blackbg.png" />
+                <img width="40" title="Github" src="/wwwroot/images/github.png" />
             </a>
             <a target='_blank' href='https://www.upwork.com/fl/~01979dd82b228abbb5'>
 		                <img width="40" title="Upwork" src="/wwwroot/images/upwork.svg" />

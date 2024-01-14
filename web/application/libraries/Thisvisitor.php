@@ -35,7 +35,7 @@ class Thisvisitor {
          $this->visitor['con']['pstyle'] = $pstyle;
 
          if ($CI->input->get_post('debug') && ENVIRONMENT == 'development') {
-             $CI->output->set_profiler_sections(array('config'=>FALSE, 'queries'=>FALSE));
+             $CI->output->set_profiler_sections(array('config'=>FALSE, 'queries'=>TRUE));
              $CI->output->enable_profiler(TRUE);
              $this->visitor['con']['debugMode'] = true;
          }
