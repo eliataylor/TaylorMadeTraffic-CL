@@ -340,6 +340,13 @@ class Projects extends CI_Controller {
         if ($seg  == 'development' || $seg  == 'design') $rows = $this->projects->getProjectsByType($seg);
         else $rows = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
 
+        /*
+        if (count($rows) === 1 && $this->input->is_ajax_request() == false) { // not ajax
+            $this->load->helper('url');
+            redirect(TMT_HTTP. 'projects?pid='.$rows[0]->project_id, 'location', '302');
+        }
+        */
+
         $groups = array();
         foreach($rows as $index=>&$row){
         	if (!isset($row->{$this->data['qgroup']})) {
@@ -350,7 +357,9 @@ class Projects extends CI_Controller {
         		$groups[$company] = $this->users->getCompanyByName($company);
         		$groups[$company]['projects'] = array();
         	}
-            $row->images = $this->projects->getProjectImages($row->project_id);
+            $images = $this->projects->getProjectImages($row->project_id);
+            $row =  (object) array_merge((array)$row, (array) $images[0]);
+            $row->images = $images;
             $row->totalImages = count($row->images);
             array_push($groups[$company]['projects'], $row);
         }

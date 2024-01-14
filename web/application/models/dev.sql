@@ -68,4 +68,6 @@ select project_id, project_title, project_technotes, project_devtools, project_t
 update projects set project_team = replace(project_team, 'Bootstrap 4', 'Bootstrap');
 
 
-select * from images where project_id = 59;
+select * from images
+where project_id = 3
+order by project_id, image_weight;

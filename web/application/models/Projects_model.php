@@ -124,7 +124,7 @@ class Projects_Model extends CI_Model {
 
     function getProject($pid) {
         $params = array();
-        $sql = "SELECT P.*, I.* FROM projects P LEFT JOIN images I ON P.project_id = I.project_id WHERE ";
+        $sql = "SELECT P.*, I.*, min(I.image_weight) FROM projects P LEFT JOIN images I ON P.project_id = I.project_id WHERE ";
         if (is_numeric($pid)) $sql .= " P.project_id = ? ";
         else $sql .= " P.project_title = ? ";
         $sql .= 'ORDER BY I.image_weight ASC, I.image_src DESC LIMIT 1';
@@ -150,7 +150,7 @@ class Projects_Model extends CI_Model {
 
 
     function countProjectImages($pid=false) {
-        $sql = "SELECT count(I.image_id) as count FROM images I WHERE I.project_id = ? order by I.project_id asc, I.image_weight asc";
+        $sql = "SELECT count(I.image_id) as count FROM images I WHERE I.project_id = ?";
         $query = $this->db->query($sql, array($pid));
         if ($query->num_rows() > 0) {
             $row = $query->row();
@@ -159,9 +159,9 @@ class Projects_Model extends CI_Model {
         return 0;
     }
 
-    function getImages($pid=false) {
+    function getImages() {
         $sql = "SELECT P.project_id, P.project_title, I.* FROM `projects` P, images I WHERE P.project_id = I.project_id order by I.project_id asc, I.image_weight asc, I.image_src desc";
-        $query = $this->db->query($sql, array($type));
+        $query = $this->db->query($sql);
         if ($query->num_rows() > 0) return $query->result_object();
         return array();
     }
