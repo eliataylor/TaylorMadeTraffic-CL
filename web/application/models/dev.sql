@@ -17,7 +17,7 @@ values ('current', 'development', '2023-01-01', '2023', 'Flora',
         'Build your own bath box concept',
         'https://flora.taylormadetraffic.com',
         'Ruhral', 'Drupal, NextJS, NodeJS', 'Health, Wellness, Manufacturing, Lifestyle', 'Ruhral',
-        '<a href=\'/team?qtfilter=Sammie Khalil Taylor\'>Sammie Khalil Taylor</a>: Graphic / UX Design & Product Development. <a href=\'/team?qtfilter=E.A.Taylor\'>E.A.Taylor</a>: Die Layouts and logistics.',
+        '<a href=\'/team?qtfilter=Samanta Khalil Taylor\'>Samanta Khalil Taylor</a>: Graphic / UX Design & Product Development. <a href=\'/team?qtfilter=E.A.Taylor\'>E.A.Taylor</a>: Die Layouts and logistics.',
         '<ul><li>Build your own box experience for bathboxes</li></ul>',
         '');
 
@@ -60,14 +60,18 @@ WHERE  tag_type = 'technologies'
 group by tag_key, project_id  order by project_id, tag_key asc ;
 
 
-select * from tags where tag_key like 'React%' order by project_id;
-update tags set tag_key = 'ReactJS' where tag_key like 'React.js%';
+select * from tags where tag_key like 'General Public License (GNU)' order by project_id;
+update tags set tag_key = 'Federal Laboratory Consortium' where tag_key like 'Federal%';
 update projects set project_technotes = replace(project_technotes, 'Sammie Khalil Taylor', 'Samanta Amna Khalil');
 
-select project_id, project_title, project_technotes, project_devtools, project_team from projects where project_team like '%Biko%' order by project_id;
-update projects set project_team = replace(project_team, 'Bootstrap 4', 'Bootstrap');
+select project_id, project_title, project_technotes, project_devtools, project_team, project_companies from projects where projects.project_companies like '%Federal%' order by project_id;
+update projects set project_companies = replace(project_companies, 'Federal Laboratory Consortium', 'Federal Labs Consortium');
 
+select project_id, project_technotes from projects where project_companies like '%Flexible%';
 
 select * from images
 where project_id = 3
 order by project_id, image_weight;
+
+
+select project_id, project_technotes, project_team from projects where project_title like '%Florul%';

@@ -276,7 +276,7 @@ class Projects extends CI_Controller {
 
     public function saman(){
         $this->data['qtags'] = 'team';
-        $this->data['qtfilter'] = 'Sammie Khalil Taylor';
+        $this->data['qtfilter'] = 'Samanta Amna Khalil';
         $this->data['qgroup'] = 'project_client';
         //$this->data['qhaving'] = 2
         $this->team();

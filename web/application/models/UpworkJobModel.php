@@ -19,8 +19,8 @@ class UpworkJobModel extends CI_Model
 
     private function getLink($linkId)
     {
-        if ($linkId === 'sammie') {
-            $this->linkId = 'sammie';
+        if ($linkId === 'saman') {
+            $this->linkId = 'saman';
             $link = 'https://www.upwork.com/ab/feed/jobs/rss?q=UX%2BDesign&budget=100-499%2C500-999%2C1000-4999%2C5000-&client_hires=1-9%2C10-&verified_payment_only=1&sort=recency&paging=0%3B10&api_params=1&securityToken=447e79e00224ad4e7afdebd4bb32657c53a4d2e0504394fd6c451199fe56894f03047e7611e8941c2c90d79464fe13ce70a96ab0795b737ae66033d6c6f2e8d1&userUid=750475063883165696&orgUid=820460219548565505';
             $this->rssFilePath = APPPATH . 'cache/upwork_sammie.xml';
         } else if ($linkId === 'eli-all') {

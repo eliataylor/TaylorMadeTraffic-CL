@@ -374,14 +374,11 @@ a.fancybox { text-decoration:none; }
 
 .fadedImgContainer {
     position: relative;
-    overflow: hidden;
 }
 
 .fadedImg {
     display: block;
-    width: 100%;
     height: auto;
-    max-width: 100%;
     transition: opacity 0.5s ease;
     border-radius: 0 0 0 10px;
     /* Apply the gradient to fade the edges */
