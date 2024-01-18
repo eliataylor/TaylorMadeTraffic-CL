@@ -74,4 +74,6 @@ where project_id = 3
 order by project_id, image_weight;
 
 
-select project_id, project_technotes, project_team from projects where project_title like '%Florul%';
+select project_id, project_technotes, project_team from projects where project_title like '%flexible%';
+
+select * from images where project_id = 59 order by image_weight;

@@ -1,6 +1,7 @@
+<?php if (!empty($cProfile['company_bio'])):?>
 <div class='userProfile'>
         <h1 class="userName">
-        <?php echo $cProfile['company_screenname'];?>    
+        <?php echo $cProfile['company_screenname'];?>
         <span class='sociallinks'>
             <?php if (!empty($cProfile['company_fburl'])):?>
                 <a target='_blank' href='<?php echo $cProfile['company_fburl'];?>'>
@@ -15,10 +16,11 @@
             <?php if (!empty($cProfile['company_googleurl'])):?><li><a target='_blank' href='<?php echo $cProfile['company_googleurl'];?>'><?php echo $cProfile['company_googleurl'];?></a></li><?php endif?>
         </span>
         </h1>
-        
+
         <?php if (!empty($cProfile['company_bio'])):?>
         <div class='userBio'>
             <?php echo $this->lang->ugc($cProfile['company_bio']);?>
         </div>
         <?php endif?>
     </div>
+<?php endif?>
