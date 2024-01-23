@@ -30,7 +30,7 @@ class UpworkJobModel extends CI_Model
             $link = 'https://www.upwork.com/ab/feed/jobs/rss?budget=500-&category2_uid=531770282580668420%2C531770282580668419%2C531770282580668418&client_hires=1-9%2C10-&hourly_rate=100-&location=United+States&paging=0%3B10&q=developer&sort=recency&job_type=hourly%2Cfixed&api_params=1&securityToken=316c29312fae11998afcc79025d43413448494ef73d43d01bdac747a91e7cdff4dc60abc04cddced60b0f1f686a7f179d90d7fe6e026cf5269d89284956b26a8&userUid=472375103315812352&orgUid=472375103382921217';
             $this->rssFilePath = APPPATH . 'cache/upwork_eli_us_hashires.xml';
         } else {
-            $link = 'https://www.upwork.com/ab/feed/jobs/rss?budget=5000-&category2_uid=531770282580668420%2C531770282580668419%2C531770282580668418&client_hires=1-9%2C10-&hourly_rate=120-&location=United+States&paging=0%3B10&q=developer&sort=recency&job_type=hourly%2Cfixed&api_params=1&securityToken=316c29312fae11998afcc79025d43413448494ef73d43d01bdac747a91e7cdff4dc60abc04cddced60b0f1f686a7f179d90d7fe6e026cf5269d89284956b26a8&userUid=472375103315812352&orgUid=472375103382921217'
+            $link = 'https://www.upwork.com/ab/feed/jobs/rss?budget=5000-&category2_uid=531770282580668420%2C531770282580668419%2C531770282580668418&client_hires=1-9%2C10-&hourly_rate=120-&location=United+States&paging=0%3B10&q=developer&sort=recency&job_type=hourly%2Cfixed&api_params=1&securityToken=316c29312fae11998afcc79025d43413448494ef73d43d01bdac747a91e7cdff4dc60abc04cddced60b0f1f686a7f179d90d7fe6e026cf5269d89284956b26a8&userUid=472375103315812352&orgUid=472375103382921217';
             $this->rssFilePath = APPPATH . 'cache/upwork_eli_us_hashires_5k.xml';
         }
         return $link;
