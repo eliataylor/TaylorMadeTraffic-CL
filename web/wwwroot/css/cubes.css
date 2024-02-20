@@ -69,6 +69,7 @@ a.navItem.selected { color:red; }
 .technotes { background:#090909; word-break:break-word }
 .prjDesc img, .technotes img { width:97%; }
 .team a{ font-size:125%; }
+.project_dates { float:right; font-size:11px; color: #dadada; margin-bottom: 2px}
 
 .sectTitle { margin:0; font-size:16px; text-decoration: underline; margin-top:15px; text-transform: capitalize;}
 .sectTitle img { width:30px; height:30px; margin:0 5px 0 0; float:left; }
@@ -567,7 +568,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 
 	.projectRow { border-bottom:solid #fff 15px; border-top:solid #fff 10px; }
     .pageBreak {page-break-after: always}
-	.projectRow .col2 { width:83%!important; padding:0 0 0 3px; }
+	.projectRow .col2 { width:83%!important; padding:0 0 0 6px!important; }
 	.pageBreak {page-break-after: always}
 	.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
 	.projectRow h3 a { text-decoration:none!important; color:#000!important; }
@@ -576,12 +577,13 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 
 	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style],
     .reflectionMask { display:none; }
-    #qTagSelector { display:none;}
+    #qTagSelector, #qTagSelectorBlock { display:none;}
 	.col1.image_src > a { display:none; }
 	.topHeader { display:none; }
 	.sociallinks { display:none;}
 	.userBio p { display:none; }
 	#tmmOpening, #tmmCube, #tmmCube img {display:none;}
 	.project_launchdate, .project_startdate { display:none; }
+    .project_dates { color: #606060;}
 	.projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
 }

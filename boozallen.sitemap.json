@@ -15,7 +15,7 @@
     },
     {
       "id": "pagination",
-      "paginationType": "auto",
+      "paginationType": "linkFromHref",
       "parentSelectors": [
         "serp-table",
         "pagination"
@@ -28,7 +28,8 @@
       "linkType": "linkFromHref",
       "multiple": true,
       "parentSelectors": [
-        "serp-table"
+        "pagination",
+        "joblink"
       ],
       "selector": "td.cell-title a",
       "type": "SelectorLink"
@@ -60,6 +61,16 @@
         "joblink"
       ],
       "regex": "\\$([0-9,]+(\\.[0-9]{2})?) to \\$([0-9,]+(\\.[0-9]{2})?) \\(annualized USD\\)",
+      "selector": ".article__content--rich-text .article__content__view__field__value",
+      "type": "SelectorText"
+    },
+    {
+      "id": "clearance",
+      "multiple": false,
+      "parentSelectors": [
+        "joblink"
+      ],
+      "regex": "(\\S+)\\s+clearance is required",
       "selector": ".article__content--rich-text .article__content__view__field__value",
       "type": "SelectorText"
     }

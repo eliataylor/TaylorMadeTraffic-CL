@@ -6,7 +6,7 @@ select project_id, project_title, project_technotes, project_subtitle from proje
 
 
 use tmt_portfolio;
-UPDATE `projects` SET `project_team` = '<a href=\"/team?qtfilter=E.A.Taylor\">E.A.Taylor</a>: Front-End, Back-End.\r\n<a href=\"/team?qtfilter=David Hilliard\">David Hilliard</a>: Brand Development.\r\n<a href=\"/team?qtfilter=Justin Herman\">Justin Herman</a>: Flash Movie Animation.' WHERE `projects`.`project_id` = 23
+-- UPDATE `projects` SET `project_team` = '<a href=\"/team?qtfilter=E.A.Taylor\">E.A.Taylor</a>: Front-End, Back-End.\r\n<a href=\"/team?qtfilter=David Hilliard\">David Hilliard</a>: Brand Development.\r\n<a href=\"/team?qtfilter=Justin Herman\">Justin Herman</a>: Flash Movie Animation.' WHERE `projects`.`project_id` = 23
 
 insert into projects (project_status, project_type, project_startdate,
                       project_startyear, project_title, project_subtitle,
@@ -73,7 +73,12 @@ select * from images
 where project_id = 3
 order by project_id, image_weight;
 
+select * from tags where tag_key like '%CSS3%' order by tag_date desc;
+select project_id, project_title, project_devtools from projects where project_devtools like '%Node-Red%' order by project_startdate desc;
 
-select project_id, project_technotes, project_team from projects where project_title like '%flexible%';
+
+select project_id, project_title, project_technotes, project_devtools from projects where projects.project_devtools like '%drupal%';
+
+select project_id, project_technotes, project_devtools, project_startdate, project_launchdate from projects where project_title like '%FLC%';
 
 select * from images where project_id = 59 order by image_weight;

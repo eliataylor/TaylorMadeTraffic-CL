@@ -137,6 +137,13 @@
                                 <br/>
                                 <small style='font-size:50%;'><em><?php echo $row->project_subtitle; ?></em></small>
                             <?php endif; ?>
+
+                            <?php if (isset($_GET['allDates'])): ?>
+                                <span class="project_dates">
+                                    <?php if (!empty($row->project_launchdate)): ?><?php echo $row->project_launchdate; ?> ~ <?php endif ?>
+                                    <?php echo $row->project_startdate; ?>
+                            </span>
+                            <?php endif ?>
                         </h3>
 
                         <?php if (!empty($row->project_desc)): ?>
@@ -162,6 +169,7 @@
                             <?php if (!empty($row->project_launchdate)): ?><p class="project_launchdate"><span
                                     class='lineName'><?php echo $this->lang->en("Launched") ?>/<?php echo $this->lang->en("Lasted") ?>:</span> <?php echo $row->project_launchdate; ?>
                                 </p><?php endif ?>
+
                             <?php if (!empty($row->project_devtools)): ?><p class="project_devtools"><span
                                     class='lineName'><?php echo $this->lang->en("Technologies") ?>:</span> <?php echo $row->project_devtools; ?>
                                 </p><?php endif ?>
@@ -183,7 +191,7 @@
         </tbody>
     </table>
 
-    <div class="row" style="margin-top:50px">
+    <div id="qTagSelectorBlock" class="row" style="margin-top:50px">
         <div>
             <?php if (isset($qtagOptions) && !empty($qtagOptions)): ?>
                 <h6 class="caption">Other <?php echo $this->lang->msg($qtags); ?></h6>

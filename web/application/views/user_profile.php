@@ -39,8 +39,8 @@
         <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
         <section class="userSummary">
             <p>
-                Eli has over 20 years of experience throughout the stacks and life cycles of software development.
-                Lately Eli has specialized in training computer vision models with custom data sets and annotations.
+                Eli has over 20 years of experience throughout the stacks &amp; life cycles of software development.
+                Lately Eli has specialized in training computer vision models around sports highlights in order to automate smooth video effects.
                 In his spare time, Eli spends time with his wife and son, and stays active on surfboards, soccer fields, and basketball courts near you.
 
                 <!--
