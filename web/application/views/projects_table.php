@@ -229,4 +229,9 @@
             <?php endif; ?>
         </div>
     </div>
+
+    <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
+    <p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is just a print-friendly version of TaylorMadeTraffic.com/eli</p>
+    <?php endif; ?>
+
 </section>
