@@ -79,6 +79,6 @@ select project_id, project_title, project_devtools from projects where project_d
 
 select project_id, project_title, project_technotes, project_devtools from projects where projects.project_devtools like '%drupal%';
 
-select project_id, project_technotes, project_devtools, project_startdate, project_launchdate from projects where project_title like '%FLC%';
+select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 
 select * from images where project_id = 59 order by image_weight;

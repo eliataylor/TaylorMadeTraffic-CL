@@ -69,7 +69,7 @@
 				<span>2000 - 2002</span>
 			</h4>
 			<ul>
-				<li>Legacy Scholarship Recipient (academic merit scholarship)</li>
+				<li>Academic Merit Legacy Scholarship Recipient</li>
 				<li>Vice President, American Institute of Aeronautics and Astronautics (AIAA), Washington, D.C. Chapter</li>
 			</ul>
 

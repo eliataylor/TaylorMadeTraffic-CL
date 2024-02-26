@@ -231,7 +231,7 @@
     </div>
 
     <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
-    <p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is just a print-friendly version of TaylorMadeTraffic.com/eli</p>
+    <p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is just a print-friendly version of TaylorMadeTraffic.com/eli?<?php echo $_SERVER['QUERY_STRING']?></p>
     <?php endif; ?>
 
 </section>
