@@ -8,6 +8,7 @@
 <h4>Assembly line job builder and progress monitoring</h4>
 <ul>
     <li>Built offline-first interface to configure assembly-line jobs and control tools & machinery over WebSockets and LocalStorage</li>
+    <li>Deployed Node-Red backend on Raspberry PI connected to station Windows computer</li>
     <li>Built client-side performance tracker averaging the time to assemble one project in a job</li>
     <li>Created custom node-red modules for smoother synchronization with Fanuc robots</li>
     <li>Wrote Station Service request tool to allow operators to order more parts or tool servicing</li>
@@ -20,3 +21,7 @@ Node-Red, Node.js, JavaScript, HTML5, ReactJS, Express.js, Bootstrap, WebSockets
 
 
 <a href="/team?qtfilter=E.A.Taylor">E.A.Taylor</a>: Front-End, Back-End. <a href="/team?qtfilter=Aaron Silverberg">Aaron Silverberg</a>: Vice President. <a href="/team?qtfilter=Saiman Shetty">Saiman Shetty</a>: Project Management
+
+
+ffmpeg -i /Users/elitaylor/Developer/tmt/TaylorMadeTraffic-CL/web/wwwroot/images/sites/refinedmotion/motion-arm.webm -c:v libx264 -an -t 60 /Users/elitaylor/Developer/tmt/TaylorMadeTraffic-CL/web/wwwroot/images/sites/refinedmotion/motion-arm.mp4
+
