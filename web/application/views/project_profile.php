@@ -22,8 +22,10 @@
                     <?php if(!empty($project->project_devurl)):?><p><span class='lineName'><?php echo $this->lang->en("Dev")?>:</span><a href="<?php echo $project->project_devurl;?>" target="_blank"> <?php echo $project->project_devurl;?></a></p><?php endif?>
                     <?php if(!empty($project->project_devtools)):?><p><span class='lineName'><?php echo $this->lang->en("Tools")?>:</span> <?php echo $project->project_devtools;?></p><?php endif?>
                     <?php if(!empty($project->project_team)):?><p><span class='lineName'><?php echo $this->lang->en("Team")?>:</span> <?php echo $project->project_team;?></p><?php endif?>
-                    <?php if(!empty($project->project_client)):?><p><span class='lineName'><?php echo $this->lang->en("Client")?>:</span> <?php echo $project->project_client;?></p><?php endif?>
-                    <?php if(!empty($project->project_copyright)):?><p><span class='lineName'><?php echo $this->lang->en("Copyright")?>:</span> <?php echo $project->project_copyright;?></p><?php endif?>
+                    <?php if(!empty($project->project_companies)):?><p><span class='lineName'><?php echo $this->lang->en("Companies")?>:</span> <?php
+                        echo mergeStringsUniquely($project->project_companies, $project->project_client, $project->project_copyright);
+                        ?>
+                        </p><?php endif?>
                     <?php if(!empty($project->project_industries)):?><p><span class='lineName'><?php echo $this->lang->en("Industries")?>:</span> <?php echo $project->project_industries;?></p><?php endif?>
                     <?php if(!empty($project->license_id)):?><p><span class='lineName'><?php echo $this->lang->en("License")?>:</span> <?php echo $project->license_id;?></p><?php endif?>
                 </td>

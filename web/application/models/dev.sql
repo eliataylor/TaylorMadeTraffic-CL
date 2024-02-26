@@ -3,7 +3,7 @@ set sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVIS
 
 
 select project_id, project_title, project_technotes, project_subtitle from projects order by project_id desc;
-
+desc projects;
 
 use tmt_portfolio;
 -- UPDATE `projects` SET `project_team` = '<a href=\"/team?qtfilter=E.A.Taylor\">E.A.Taylor</a>: Front-End, Back-End.\r\n<a href=\"/team?qtfilter=David Hilliard\">David Hilliard</a>: Brand Development.\r\n<a href=\"/team?qtfilter=Justin Herman\">Justin Herman</a>: Flash Movie Animation.' WHERE `projects`.`project_id` = 23
@@ -82,3 +82,7 @@ select project_id, project_title, project_technotes, project_devtools from proje
 select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 
 select * from images where project_id = 59 order by image_weight;
+
+
+update tags set tag_type = replace(tag_type, '.', '') where tag_type like '%.';
+<a href="/team?qtfilter=E.A.Taylor">E.A.Taylor</a>: Front-End, Back-End. <a href="/team?qtfilter=Aaron Silverberg">Aaron Silverberg</a>: Vice President. <a href="/team?qtfilter=Saiman Shetty">Saiman Shetty</a>: Project Management
