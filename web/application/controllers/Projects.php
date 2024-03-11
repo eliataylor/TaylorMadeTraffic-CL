@@ -77,11 +77,25 @@ class Projects extends CI_Controller {
         } else {
             array_push($this->data['pages'], $page);
         }
+
+        if (isset($this->data['uProfile']) && isset($this->data['uProfile']['user_email']) && $this->data['uProfile']['user_email'] == 'eli@taylormadetraffic.com') {
+            if (isset($_GET['education'])) {
+                array_push($this->data['pages'], $this->load->view('user_education', $this->data, TRUE));
+            }
+
+            if (isset($_GET['summary'])) {
+                array_push($this->data['pages'], '<p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is a print-friendly version of <u>TaylorMadeTraffic.com/eli</u>?'.$_SERVER['QUERY_STRING'].'</p>');
+            }
+        }
+
+
         if ($this->input->is_ajax_request()) {
             return $this->output->set_output($this->load->view($page, $this->data, TRUE));
         }
-        $cv = $this->input->get_post('cv-format');
-        if ($cv) $shell = "cv_format";
+
+
+
+        if (isset($_GET['cv'])) $shell = "cv_format";
         $this->load->view($shell, $this->data);
     }
 
@@ -191,7 +205,16 @@ class Projects extends CI_Controller {
             if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
             if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
 
-  			if (!isset($row->{$this->data['qgroup']})) {
+            $minYear = $this->input->get_post('year_min');
+            if ($minYear && intval($minYear)) {
+                if (intval($minYear) > intval($row->project_launchyear)) {
+                    continue;
+                }
+                if ($row->project_title === "WBAT" || $row->project_title === "FLC") continue;
+
+            }
+
+            if (!isset($row->{$this->data['qgroup']})) {
   				$this->data['qgroup'] = 'project_client'; // should never happen
   			}
             $company = $row->{$this->data['qgroup']};

@@ -86,3 +86,8 @@ select * from images where project_id = 59 order by image_weight;
 
 update tags set tag_type = replace(tag_type, '.', '') where tag_type like '%.';
 <a href="/team?qtfilter=E.A.Taylor">E.A.Taylor</a>: Front-End, Back-End. <a href="/team?qtfilter=Aaron Silverberg">Aaron Silverberg</a>: Vice President. <a href="/team?qtfilter=Saiman Shetty">Saiman Shetty</a>: Project Management
+
+
+select project_id, project_title, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;
+
+select project_id, project_title, project_devtools, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;

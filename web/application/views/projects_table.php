@@ -1,9 +1,13 @@
 <?php if (isset($uProfile) && !empty($uProfile)): ?>
     <?php $this->load->view('user_profile'); ?>
 <?php endif; ?>
+
+
 <?php if (isset($cProfile) && !empty($cProfile)): ?>
     <?php $this->load->view('company_profile'); ?>
 <?php endif; ?>
+
+
 <section class="userExperience">
     <?php if (isset($_GET['education']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
         <h3>EXPERIENCE</h3>
@@ -148,7 +152,9 @@
 
                         <?php if (!empty($row->project_desc)): ?>
                             <div class="prjDesc"><?php echo $this->lang->ugc($row->project_desc); ?></div><?php endif ?>
-                        <?php if (!empty($row->project_technotes)): ?>
+                        <?php if (!empty($row->project_tech_short) && isset($_GET['condensed'])): ?>
+                            <div class="technotes"><?php echo $this->lang->ugc($row->project_tech_short); ?></div>
+                        <?php elseif (!empty($row->project_technotes)): ?>
                             <div class="technotes"><?php echo $this->lang->ugc($row->project_technotes); ?></div><?php endif ?>
 
                         <div class="projectTags">
@@ -191,6 +197,8 @@
         </tbody>
     </table>
 
+    <?php if (!isset($_GET['cv'])): ?>
+
     <div id="qTagSelectorBlock" class="row" style="margin-top:50px">
         <div>
             <?php if (isset($qtagOptions) && !empty($qtagOptions)): ?>
@@ -230,8 +238,5 @@
         </div>
     </div>
 
-    <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
-    <p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is just a print-friendly version of TaylorMadeTraffic.com/eli?<?php echo $_SERVER['QUERY_STRING']?></p>
     <?php endif; ?>
-
 </section>
