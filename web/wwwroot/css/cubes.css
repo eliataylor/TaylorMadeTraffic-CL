@@ -549,7 +549,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.userProfile .userName { margin:0 0 30px 0; font-size:30px;}
 
 
-	dl.detailList{ position:absolute; top:0; right:0;
+	dl.detailList{
 	padding: 0;
     margin: 0;
     width: 260px;

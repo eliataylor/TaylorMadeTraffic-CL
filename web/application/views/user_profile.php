@@ -38,20 +38,25 @@
             </div>
 
         <?php endif; ?>
-    </div>
+        <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
 
-    <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
-        <section class="userSummary">
-            <p>
-                For the past 20 years, I've built skills throughout all stacks and life cycles of software development, from planning to deployment.
-                Currently, I'm honing my skills with machine learning through cyber security monitoring and with Computer Vision for automating video effects on sports reels.
-                In my free time, I travel with my wife and son, while seeking ways to stay active on land, water and snow.
-            </p>
+        <div class="col">
             <dl class="detailList">
                 <dt>Voicemail</dt> <dd>+1 415-300-0834</dd>
                 <dt>E-mail</dt> <dd>eli@taylormadetraffic.com</dd>
                 <dt>LinkedIn</dt> <dd>linkedin.com/in/elitaylor</dd>
             </dl>
+        </div>
+        <?php endif; ?>
+    </div>
+
+    <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
+        <section class="userSummary">
+            <p style="text-align: justify">
+                For the past 20 years, I've built skills throughout all stacks and life cycles of software development, from planning to deployment.
+                Currently, I'm honing my skills with machine learning through cyber security monitoring, and with Computer Vision by automating video effects on sports reels.
+                In my free time, I travel with my wife and son, while seeking ways to stay active on land, water and snow.
+            </p>
         </section>
     <?php elseif (!empty($uProfile['user_bio'])): ?>
         <div class='userBio'>
