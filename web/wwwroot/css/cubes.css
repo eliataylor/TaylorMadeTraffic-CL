@@ -496,7 +496,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 
 @media print {
     body, .master  {background:transparent!important; color:#000!important;}
-    body { padding:.5em; }
+    body { padding:0; margin:0; }
     .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
@@ -507,6 +507,8 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 
 /* 	#printLogo { display:block; top:0; right:5px; position:absolute; }	 */
 
+    .morePics { display:none; }
+
     .projectImgMask { margin:0 0 20px 0;}
     .tableBody tr, .projectRow {display:table-row!important;}
     .tableBody td {display:table-cell!important;}
@@ -515,7 +517,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 
 	.companyLogo { max-height:25px; float:left; margin:0 3px 2px 0; }
 	.company_screenname {float:left; display:inline-block; text-align:left; }
-	.companyHead td.col1 { max-height:54px; }
+	.companyHead td.col1 { max-height:54px; height:40px; }
 	td, tr { border:0 none; border-collapse:collapse;}
 
     .pBlack .companyHead td.col1, .companyHead td.col1 {
