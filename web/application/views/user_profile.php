@@ -2,7 +2,9 @@
     <div class="row userTitleRow">
         <div class="col">
             <h1 class="userName">
-                <?php echo $uProfile['user_screenname']; ?>
+                <?php
+                echo $uProfile['user_screenname'];
+                // $this->load->view('color_spreader', ['word'=>$uProfile['user_screenname'], 'color'=>'56, 101, 7']); ?>
             </h1>
         </div>
         <?php if (!isset($_GET['cv'])): ?>
@@ -39,12 +41,12 @@
 
         <?php endif; ?>
         <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
-
         <div class="col">
             <dl class="detailList">
                 <dt>Voicemail</dt> <dd>+1 415-300-0834</dd>
                 <dt>E-mail</dt> <dd>eli@taylormadetraffic.com</dd>
                 <dt>LinkedIn</dt> <dd>linkedin.com/in/elitaylor</dd>
+                <dt>Github</dt> <dd>github.com/eliataylor</dd>
             </dl>
         </div>
         <?php endif; ?>

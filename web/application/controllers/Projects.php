@@ -210,7 +210,7 @@ class Projects extends CI_Controller {
                 if (intval($minYear) > intval($row->project_launchyear)) {
                     continue;
                 }
-                if ($row->project_title === "WBAT" || $row->project_title === "FLC") continue;
+                if ($row->project_title === "FLC") continue;
 
             }
 
@@ -222,13 +222,19 @@ class Projects extends CI_Controller {
                 $groups[$company] = $this->users->getCompanyByName($company);
                 if (!$groups[$company]) {
                     $groups[$company] = array('company_tagname'=>$company, 'company_screenname'=>$company, 'company_status'=>1);
-                    $groups[$company]['company_startdate'] = $row->project_startdate;
-                    $groups[$company]['company_enddate'] = $row->project_launchdate;
+                    if (empty( $groups[$company]['company_startdate'] ))
+                        $groups[$company]['company_startdate'] = $row->project_startdate;
+                    if (empty( $groups[$company]['company_enddate'] ))
+                        $groups[$company]['company_enddate'] = $row->project_launchdate;
                     $groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
                 }
                 $groups[$company] = $this->users->getCompanyByName($company);
-                $groups[$company]['startDate'] = strtotime($row->project_startdate);
-                $groups[$company]['endDate'] = strtotime($row->project_launchdate);
+                $groups[$company]['startDate'] =  (!empty( $groups[$company]['company_startdate'] )) ?
+                    strtotime($groups[$company]['company_startdate']) :
+                    strtotime($row->project_startdate);
+                $groups[$company]['endDate'] =  (!empty( $groups[$company]['company_enddate'] )) ?
+                    strtotime($groups[$company]['company_enddate']) :
+                    strtotime($row->project_launchdate);
                 $groups[$company]['projects'] = array();
             }
             $groups[$company]['startDate'] = min($groups[$company]['startDate'], strtotime($row->project_startdate));

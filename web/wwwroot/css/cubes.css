@@ -494,7 +494,26 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 .company_screenname, #printLogo { display:none; }
 .myrole:after { content:" - "}
 
+
+
+/* MUI STUFF */
+.chip-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow chips to wrap to next line if needed */
+}
+
+.chip {
+    margin-right: 4px;
+    margin-bottom: 4px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    background-color: rgba(91, 116, 207, 0.5); /* Set background color */
+    color: #dcdcdc; /* Set text color */
+}
+
+
 @media print {
+    a, a:visited { color:rgba(56, 101, 7, 0.85); }
     body, .master  {background:transparent!important; color:#000!important;}
     body { padding:0; margin:0; }
     .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
@@ -532,16 +551,49 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
     }
 
 
-    .pBlack .companyHead .col1::before {
-        display:none;
+    .companyHead .col1::before {
+        background-color: rgba(56, 101, 7, 0.25);
     }
 
-    .pBlack .companyHead .col1::after {
-        display:none;
+    .companyHead .col1::after {
+        background-color: rgba(56, 101, 7, 0.65);
+    }
+    /*
+    .companyHead .col3 {position: relative}
+    .companyHead .col3::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: -2%;
+        width: 110%;
+        height: .5px;
+        background-color:  #646464;
+        transform-origin: 6%;
+        transform: rotate(-45deg);
     }
 
+    .companyHead .col3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: -2%;
+        width: 110%;
+        height: .5px;
+        background-color: #8c8c8c;
+        transform-origin: 4%;
+        transform: rotate(-45deg);
+    }
 
-	.rowMargin { height:30px; border:0 none;}
+    .companyHead .col3::before {
+        background-color: rgba(56, 101, 7, 0.25);
+    }
+
+    .companyHead .col3::after {
+        background-color: rgba(56, 101, 7, 0.65);
+    }*/
+
+
+    .rowMargin { height:30px; border:0 none;}
 	.rowMargin:nth-child(1) { height:0;}
 
 	.companyHead .col1, .projectRow .col1 { padding:0 5px 0 0;  }
@@ -549,6 +601,7 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 
 	.projectImgMask, .img_src { padding:0; margin:0}
 	.userProfile .userName { margin:0 0 30px 0; font-size:30px;}
+
 
 
 	dl.detailList{
@@ -572,9 +625,14 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
     .pageBreak {page-break-after: always}
 	.projectRow .col2 { width:83%!important; padding:0 0 0 6px!important; }
 	.pageBreak {page-break-after: always}
+    section h3 { border-bottom:none; }
+
 	.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
 	.projectRow h3 a { text-decoration:none!important; color:#000!important; }
 	.tablesorter .projectTags p { margin:2px 0;}
+
+    .projectLink { width:100%; margin:5px auto 10px auto!important; text-align:center; font-weight:900; }
+
     .technotes { background:#fff!important; margin:3px 0 8px 0;}
 
 	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style],
@@ -588,4 +646,13 @@ transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 	.project_launchdate, .project_startdate { display:none; }
     .project_dates { color: #606060;}
 	.projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
+
+
+    .project_devtools { display:none }
+    /* MUI STUFF */
+    .chip {
+        background-color: rgba(56, 101, 7, 0.5); /* Set background color */
+        color: #181818; /* Set text color */
+    }
+
 }

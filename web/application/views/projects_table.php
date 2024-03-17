@@ -137,7 +137,7 @@
                     <td class="col2 project_title" colspan="<?php echo isset($_GET['noPics']) ? 3 : 2 ?>">
                         <h3>
                             <a href='/projects?pid=<?php echo $row->project_id; ?>'><?php echo $row->project_title; ?></a>
-                            <?php if (!empty($row->project_subtitle)): ?>
+                            <?php if (!isset($_GET['condensed']) && !empty($row->project_subtitle)): ?>
                                 <br/>
                                 <small style='font-size:50%;'><em><?php echo $row->project_subtitle; ?></em></small>
                             <?php endif; ?>
@@ -177,7 +177,12 @@
                                 </p><?php endif ?>
 
                             <?php if (!empty($row->project_devtools)): ?><p class="project_devtools"><span
-                                    class='lineName'><?php echo $this->lang->en("Technologies") ?>:</span> <?php echo $row->project_devtools; ?>
+                                    class='lineName'><?php echo $this->lang->en("Technologies") ?>:</span>
+
+                                <?php
+                                $devtools  =  explode(',', $row->project_devtools);
+                                $this->load->view('devtools', array("devtools"=>$devtools)); ?>
+
                                 </p><?php endif ?>
                             <?php if (!empty($row->project_industries)): ?><p class="industries"><span
                                     class='lineName'><?php echo $this->lang->en("Industries") ?>:</span> <?php echo ucwords($row->project_industries); ?>
