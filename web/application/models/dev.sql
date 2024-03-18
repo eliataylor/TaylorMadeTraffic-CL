@@ -91,3 +91,6 @@ update tags set tag_type = replace(tag_type, '.', '') where tag_type like '%.';
 select project_id, project_title, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;
 
 select project_id, project_title, project_devtools, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;
+
+select project_id, project_title, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;
+

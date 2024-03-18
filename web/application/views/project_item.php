@@ -25,12 +25,13 @@
     <?php if (!empty($row->project_liveurl)): ?>
         <p class="projectLink">
             <a href="<?php echo $row->project_liveurl; ?>"
-               target="_blank"> <?php echo $row->project_liveurl; ?></a>
+               target="_blank"> <?php echo stripos($row->project_liveurl, '//') ? substr($row->project_liveurl, stripos($row->project_liveurl, '//') + 2) : $row->project_liveurl; ?></a>
         </p>
     <?php endif ?>
     <?php if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?>
-        <p class="projectLink"><a href="<?php echo $row->project_devurl; ?>"
-                                  target="_blank"> <?php echo $row->project_devurl; ?></a>
+        <p class="projectLink">
+        <a href="<?php echo $row->project_devurl; ?>"
+           target="_blank"> <?php echo stripos($row->project_devurl, '//') ? substr($row->project_devurl, stripos($row->project_devurl, '//') + 2) : $row->project_devurl; ?></a>
         </p><?php endif ?>
 
     <p class="project_startdate"><span class='lineName'><?php echo $this->lang->en("Started") ?>:</span> <?php echo $row->project_startdate; ?>

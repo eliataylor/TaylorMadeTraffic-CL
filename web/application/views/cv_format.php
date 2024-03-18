@@ -44,17 +44,30 @@
         </script>
     <?php endif;?>
 </head>
-<body id="trackauthority" class="<?php echo $me['con']['pstyle'];?>" >
+<body id="trackauthority" >
 <div class="master" id="master">
-    <span id="tmmOpening" ref="0" style="display:none;top:-6px;left:-5px;"></span>
     <div id="pageBlock" >
+        <?php echo $this->load->view('cv_cover', $this, TRUE);
+        ?>
+        <div class="pageBreak"></div>
         <?php if (isset($pages)): ?>
+
             <?php foreach ($pages as $key => $value): ?>
                 <div class="moduleBlock <?php echo  $key ?>" >
                     <?php echo  $value ?>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
+
+        <?php
+
+        if (isset($_GET['education'])) {
+            echo $this->load->view('user_education', $this, TRUE);
+        }
+
+        ?>
+
+        <p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is a print-friendly version of <u>TaylorMadeTraffic.com/eli</u>?<?php echo $_SERVER['QUERY_STRING']?></p>
     </div>
 </div>
 </body>

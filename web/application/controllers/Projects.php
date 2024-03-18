@@ -27,6 +27,7 @@ class Projects extends CI_Controller {
             "taylormade" => array("role" => 0, 'icon'=>'',  "title" => "TaylorMade"),
             "taylormade/development" => array("role" => 0, 'icon'=>'',  "title" => "TaylorMade " . $this->lang->en("Development")),
             "eli" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Eli")),
+            "eli/cover" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("CV Cover Letter")),
             "saman" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Saman")),
 
             "projects" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Projects")),
@@ -78,26 +79,20 @@ class Projects extends CI_Controller {
             array_push($this->data['pages'], $page);
         }
 
-        if (isset($this->data['uProfile']) && isset($this->data['uProfile']['user_email']) && $this->data['uProfile']['user_email'] == 'eli@taylormadetraffic.com') {
-            if (isset($_GET['education'])) {
-                array_push($this->data['pages'], $this->load->view('user_education', $this->data, TRUE));
-            }
-
-            if (isset($_GET['summary'])) {
-                array_push($this->data['pages'], '<p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is a print-friendly version of <u>TaylorMadeTraffic.com/eli</u>?'.$_SERVER['QUERY_STRING'].'</p>');
+        if (isset($this->data['uProfile'])) {
+            if (!isset($_GET['cv'])) {
+                array_push($this->data['pages'], $this->load->view('tag_selector', $this->data, TRUE));
             }
         }
-
 
         if ($this->input->is_ajax_request()) {
             return $this->output->set_output($this->load->view($page, $this->data, TRUE));
         }
 
-
-
         if (isset($_GET['cv'])) $shell = "cv_format";
         $this->load->view($shell, $this->data);
     }
+
 
     function error404() {
         $this->data['docTitle'] = $this->lang->en("Page Not Found");
