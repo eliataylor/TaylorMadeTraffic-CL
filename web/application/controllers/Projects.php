@@ -210,8 +210,6 @@ class Projects extends CI_Controller {
                 if (intval($minYear) > intval($row->project_launchyear)) {
                     continue;
                 }
-                if ($row->project_title === "FLC") continue;
-
             }
 
             if (!isset($row->{$this->data['qgroup']})) {
@@ -243,7 +241,7 @@ class Projects extends CI_Controller {
 
     	if (count($groups) > 0) {
      		usort($groups, function($a, $b) {
-          return $a['endDate'] < $b['endDate'] ? 1 : -1;
+          return $a['endDate'] - $a['startDate'] < $b['endDate'] - $b['startDate'] ? 1 : -1;
      		});
             if ($groups[0]['company_tagname'] === 'Cypher LLC') {
                 $groups[0]['endDate'] = 'Present';

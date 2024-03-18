@@ -55,9 +55,16 @@
     <?php if (isset($_GET['summary']) && $uProfile['user_email'] == 'eli@taylormadetraffic.com'): ?>
         <section class="userSummary">
             <p style="text-align: justify">
-                For the past 20 years, I've built skills throughout all stacks and life cycles of software development, from planning to deployment.
-                Currently, I'm honing my skills with machine learning through cyber security monitoring, and with Computer Vision by automating video effects on sports reels.
-                In my free time, I travel with my wife and son, while seeking ways to stay active on land, water and snow.
+                For the past 20 years, I've mastered the front and backend of several stacks, while leading and working through all life cycles of software development, from planning to deployment.
+            </p>
+            <p style="text-align: justify">
+                This resume begins in 2017 when I married an amazing Graphic Designer and we launched a joint design and development firm. We've spent the past 7 years wearing many hats, while traveling the world and starting a family.
+            </p>
+            <p style="text-align: justify">
+                Along all these years, Cypher and Flexible Assembly Systems have remained my consistent clients and their recommendations on my LinkedIn attest to my work ethic and customer satisfaction. As for code quality, I approach every project with the best practices of test-driven development, while pen-testing my servers and interfaces for security and performance under high traffic. A more recent project - PickupMVP - has been a successful soft launch validating the viability of the architecture and our UX for crowd sourcing pickup games with real rewards and AI assisted highlight reels.
+            </p>
+            <p style="text-align: justify">
+                Now that our son is 3.3, we've decided to move back home to the Bay Area to be near family and put him into a more steady school. In turn, now seems like a good opportunity to explore opportunities like yours.
             </p>
         </section>
     <?php elseif (!empty($uProfile['user_bio'])): ?>
