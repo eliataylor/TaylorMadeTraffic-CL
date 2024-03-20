@@ -71,6 +71,7 @@ class Projects extends CI_Controller {
     }
 
     private function sendOut($page, $shell="shell") {
+
         if ($page == $shell) {
           // do nothing
         } elseif (is_string($page)) {
@@ -82,6 +83,9 @@ class Projects extends CI_Controller {
         if (isset($this->data['uProfile'])) {
             if (!isset($_GET['cv'])) {
                 array_push($this->data['pages'], $this->load->view('tag_selector', $this->data, TRUE));
+            } elseif ($this->data['uProfile']['user_email'] === 'eli@taylormadetraffic.com') {
+                array_unshift($this->data['pages'], $this->load->view('cv_cover', $this->data, TRUE));
+                $this->data['pages'][] = $this->load->view('user_education', $this->data, TRUE);
             }
         }
 
@@ -190,12 +194,15 @@ class Projects extends CI_Controller {
     		$this->data['qgroup'] = 'project_client';
     	}
     	$groups = array();
+
+        $this->data['projects_count'] = 0;
     	foreach($this->data['tableRows'] as $index=>&$row) {
     		$row->images = $this->projects->getProjectImages($row->project_id);
     		$row->totalImages = count($row->images);
     		if (!empty($row->images)) {
                 $row = (object) array_merge((array) $row, (array)$row->images[0]); // since queries suck
             }
+            $this->data['projects_count']++;
 
             if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
             if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
@@ -238,14 +245,20 @@ class Projects extends CI_Controller {
      		usort($groups, function($a, $b) {
           return $a['endDate'] - $a['startDate'] < $b['endDate'] - $b['startDate'] ? 1 : -1;
      		});
+
+             /*
             if ($groups[0]['company_tagname'] === 'Cypher LLC') {
                 $groups[0]['endDate'] = 'Present';
             }
+             */
+
     	}
 
         if ($this->data['qtfilter'] == 'E.A.Taylor') {
             $this->data['showGroup'] = true;
         }
+
+
     	$this->data['groups'] = $groups;
     }
 
@@ -255,7 +268,7 @@ class Projects extends CI_Controller {
 
     // just URL predefines qtags
     public function taylormade(){
-        $this->data['qtfilter'] = 'TaylorMadeTraffic';
+        $this->data['qtfilter'] = 'Taylor Made Traffic';
         $this->data['qtags'] = 'companies';
         $this->data['qgroup'] = 'project_copyright';
 
@@ -369,6 +382,7 @@ class Projects extends CI_Controller {
         }
         */
 
+        $this->data['projects_count'] = 0;
         $groups = array();
         foreach($rows as $index=>&$row){
         	if (!isset($row->{$this->data['qgroup']})) {
@@ -379,6 +393,7 @@ class Projects extends CI_Controller {
         		$groups[$company] = $this->users->getCompanyByName($company);
         		$groups[$company]['projects'] = array();
         	}
+            $this->data['projects_count']++;
             $images = $this->projects->getProjectImages($row->project_id);
             $row =  (object) array_merge((array)$row, (array) $images[0]);
             $row->images = $images;

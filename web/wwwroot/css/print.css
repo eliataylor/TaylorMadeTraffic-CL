@@ -1,0 +1,84 @@
+a, a:visited { color:#66391D; }
+body, .master  {background:transparent!important; color:#000!important;}
+body { padding:2%;  margin:0; }
+.blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
+.pageBreak {page-break-after: always}
+.pageBreak:last-child {page-break-after:unset}
+
+
+
+/* 	#printLogo { display:block; top:0; right:5px; position:absolute; }	 */
+
+.morePics { display:none; }
+
+.projectImgMask { margin:0 0 20px 0;}
+.tableBody td {display:table-cell!important;}
+.myrole {font-weight:bolder;}
+
+
+.companyLogo { max-height:25px; float:left; margin:0 3px 2px 0; }
+td, tr { border:0 none; border-collapse:collapse;}
+
+.rowMargin { height:30px; border:0 none;}
+.rowMargin:nth-child(1) { height:0;}
+
+.projectImgMask, .img_src { padding:0; margin:0}
+.userProfile .userName { margin:0; font-size:30px;}
+
+
+
+dl.detailList{
+    padding: 0;
+    margin: 0;
+    width: 260px;
+    text-align: right;}
+.detailList dt {
+    float: right;
+    margin:0 0 0 7px;
+    font-size:100%;
+    font-weight:bold;
+}
+.detailList dd {
+    margin:0;
+    padding: 0;
+}
+
+.projectRow { border-bottom:solid #fff 15px; border-top:solid #fff 10px; }
+.projectRow .col2 { width:83%!important; padding:0 0 0 6px!important; }
+
+.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
+.projectRow h3 a { text-decoration:none!important; color:#000!important; }
+
+
+.projectLink { width:100%; margin:0 auto 10px auto!important; text-align:right; font-weight:900; }
+
+.technotes { background:#fff!important; margin:3px 0 8px 0;}
+
+#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style],
+.reflectionMask { display:none; }
+#qTagSelector, #qTagSelectorBlock { display:none;}
+.col.image_src > a { display:none; }
+.topHeader { display:none; }
+.sociallinks { display:none;}
+.userBio p { display:none; }
+#tmmOpening, #tmmCube, #tmmCube img {display:none;}
+.project_launchdate, .project_startdate { display:none; }
+.project_dates { color: #606060;}
+.projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
+
+.companyHead .letterhead { padding:2px 8px; }
+.companySection[data-company="Cypher LLC"] { page-break-after: always }
+.companySection[data-company="Flexible Assembly Systems"] { page-break-after: always }
+
+/* MUI STUFF */
+.chip {
+    background-color: rgba(56, 101, 7, 0.5); /* Set background color */
+    color: #181818; /* Set text color */
+    font-size:13px;
+}

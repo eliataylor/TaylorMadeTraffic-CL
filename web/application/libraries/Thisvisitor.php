@@ -30,7 +30,7 @@ class Thisvisitor {
          if ($CI->config->item('use_ugc_database') === FALSE)
              $CI->lang->load('langplus_ugc', $this->visitor['con']['lang']);
 
-         $pstyle = $CI->input->get_post('pstyle');
+         $pstyle = isset($_GET['cv']) ? 'pWhite' : $CI->input->get_post('pstyle');
          if (!in_array($pstyle, array('pBlack','pWhite'))) $pstyle = 'pBlack';
          $this->visitor['con']['pstyle'] = $pstyle;
 

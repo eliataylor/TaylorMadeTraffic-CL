@@ -9,7 +9,8 @@
     <meta name="author" content="Eli A Taylor" />
     <meta name="language" content="<?php echo $me['con']['lang']?>" />
     <link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
-    <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613820207" />
+    <link type="text/css" rel="stylesheet" media="all" href="/wwwroot/css/cubes.css" />
+    <link type="text/css" rel="stylesheet" media="<?php echo (isset($_GET['cv'])) ? 'all' : 'print'; ?>" href="/wwwroot/css/print.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -44,29 +45,16 @@
         </script>
     <?php endif;?>
 </head>
-<body id="trackauthority" >
+<body id="trackauthority pWhite" >
 <div class="master" id="master">
     <div id="pageBlock" >
-        <?php echo $this->load->view('cv_cover', $this, TRUE);
-        ?>
-        <div class="pageBreak"></div>
         <?php if (isset($pages)): ?>
-
             <?php foreach ($pages as $key => $value): ?>
                 <div class="moduleBlock <?php echo  $key ?>" >
                     <?php echo  $value ?>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
-
-        <?php
-
-        if (isset($_GET['education'])) {
-            echo $this->load->view('user_education', $this, TRUE);
-        }
-
-        ?>
-
         <p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is a print-friendly version of <u>TaylorMadeTraffic.com/eli</u>?<?php echo $_SERVER['QUERY_STRING']?></p>
     </div>
 </div>

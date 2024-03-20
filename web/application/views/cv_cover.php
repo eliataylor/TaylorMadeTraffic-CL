@@ -3,14 +3,14 @@
         <?php if (isset($uProfile) && !empty($uProfile)): ?>
             <?php $this->load->view('user_profile'); ?>
         <?php endif; ?>
-    <div class="letterheader" style="height: 4px;margin-top: 4px;">
+    <div class="letterhead" style="height: 4px;margin-top: 4px;">
         <?php $this->load->view('letterhead', ['variant' => 'footer', "style" => "opacity:.7;"]); ?>
     </div>
     </div>
 
     <section style="font-size: 100%; line-height: 22px; margin:0 auto 0 auto; text-align: justify">
-        <p>
-            For the past 20 years, I've mastered the frontend and backend of several stacks, while leading and assisting
+        <p style="font-weight: 800">
+            Over the past 20 years, I've mastered the frontend and backend of several stacks, while leading and assisting
             through all life cycles of software development, from planning to deployment.
         </p>
         <p>
@@ -19,7 +19,7 @@
             family.
         </p>
         <p>
-            Through those years, Cypher and Flexible Assembly Systems have remained my consistent clients and their
+            Through those years, Cypher and Flexible Assembly Systems have remained my consistent clients. Their
             recommendations on my LinkedIn attest to my work ethic and customer satisfaction. As for code quality, I
             approach every project with the best practices of test-driven development, while pen-testing my servers and
             interfaces for security and performance under high traffic. My more recent project - PickupMVP - has been a
@@ -27,19 +27,19 @@
             games with real rewards and AI assisted highlight reels.
         </p>
         <p>
-            Feel free to ask for profiles, references, documentation or demos on any of my work listed below or throughout my online portfolio: taylormadetraffic.com
+            Feel free to ask for profiles, references, documentation or demos on any of my work listed below or throughout my <strong>online portfolio: <a href="https://taylormadetraffic.com/eli" target="_blank">taylormadetraffic.com/eli</a></strong>
         </p>
         <p>
             Now that our son is 3.3, we've decided to move back home to the Bay Area to be near family and put him into
-            a more steady school. In turn, now seems like a good opportunity to explore opportunities like yours.
+            a better school. In turn, it seems like now a good time to explore opportunities like yours.
         </p>
     </section>
 
     <div class="col"></div>
 
-    <footer class="letterheader" >
+    <footer class="letterhead" >
         <?php $devtools = ['Full Stack', 'Machine Learning', 'Quality Assurance', 'Testing', 'Automation', 'Architecture']; ?>
-        <div class="chip-container" style="margin-top:4px">
+        <div class="chip-container" >
             <?php foreach ($devtools as $tool): ?>
                 <div class="chip"><?php echo $tool; ?></div>
             <?php endforeach; ?>
@@ -49,3 +49,4 @@
     </footer>
 
 </div>
+<div class="pageBreak"></div>

@@ -1,4 +1,8 @@
+
 * { font-family: 'Chakra Petch', sans-serif;}
+
+a, a:visited, .alink { color:#5B74CF; }
+body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:.5em; }
 
 body.pWhite, .pWhite .master  {background:#fff!important; color:#000!important;}
         .pWhite .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
@@ -13,9 +17,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 .pWhite .reflectionMask { display:none; }
 .pWhite .projectImgMask { margin:0 0 20px 0;}
 
-
-a, a:visited, .alink { color:#5B74CF; }
-body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:.5em; }
 ul, li { list-style: none; margin:0; padding:0; }
 #pageBlock  { max-width: 1000px; margin: auto;}
 
@@ -59,6 +60,13 @@ a.navItem.selected { color:red; }
 .datelist li:before { color:#fff;}
 .expenselist li:before { color:#ff7901;}
 
+.projects_table { font-size:13px;}
+h2, h3 { margin:0 }
+
+.project_header { margin-bottom:10px; border-bottom:1px solid #ccc; }
+.project_header a { text-decoration:none; }
+.project_header h3 { font-size:150% }
+
 .lineName { color:#a0a09f;}
 .technotes { margin:15px 0 15px 0; border:1px solid #a0a09f; display:block; width:100%;
     font-family:courier, monospace; font-size: 14px; line-height: 22px; }
@@ -81,7 +89,7 @@ a.navItem.selected { color:red; }
 .snapshots img { width:100%; max-width:400px; margin:10px 0 }
 
 section { margin:10px 0 0 0; padding:0; }
-section > h3 { width:100%; border-bottom:1px solid #000; margin:0 0 5px 0; }
+section > h3 { width:100%; border-bottom:1px solid #ccc; margin:0 0 5px 0; }
 section h4 { margin:0; }
 .userEducation, .userSummary { margin-bottom:40px; }
 .userSummary ul, .userEducation ul {padding:auto; margin:0;}
@@ -94,7 +102,6 @@ section h4 { margin:0; }
 .prjDates {font-size: 13px;} .prjDates li  { list-style:upper-roman; }
 */
 
-.projectImg { width: 100%; }
 .projectImgMask, .reflectionMask  { width:100%; position:relative;}
 .projectImgMask img, .reflectionMask img { width:100%; max-width:500px; }
 .reflectionMask { max-height:250px; overflow:hidden; }
@@ -238,10 +245,10 @@ border-color: transparent transparent #007bff transparent;
 }
 
 .tablesorter p { margin:10px 0 0 0; }
-.image_src { width:25%; }
+.image_src { width:25%; min-width: 25%; margin-right:5px; align-self: flex-start!important }
 
 .iconImg { max-height:50px; }
-.nolink, td a.popInfo { text-decoration:none;}
+.nolink, td a.popInfo { text-decoration:none; color:inherit; }
 
 .tablesorter th.collapsed, .tablesorter td.collapsed { display: none; }
 .chkSelector { float:left; padding:2px 5px 0 5px; vertical-align:top; margin:0 5px 5px 0; background:#8dbdd8; -webkit-border-radius: 8px; -moz-border-radius: 8px; border-radius: 8px; }
@@ -251,13 +258,12 @@ border-color: transparent transparent #007bff transparent;
 .col3 { text-align: right; }
 
 .projectRow > td { padding-bottom:50px!important; }
-.projectRow .col1 { width:30%;}
-.projectRow .col2 { width:69%;}
-.noPics .projectRow .col2 { width:100%;}
 
 .col2 h3 { font-size:170%; }
 .tablesorter td.project_startdate { padding-top:28px; }
-.projectLink { word-break:break-all; }
+
+.projectLink { width:100%; margin:0 auto 15px auto!important; text-align:left; font-weight:900; }
+
 tr.spacer { height:15px; }
 .tags_table tr { border:1px solid #000; vertical-align:middle;
     align-items: center;
@@ -265,7 +271,8 @@ tr.spacer { height:15px; }
     justify-content: space-between; }
 .tags_table td.col1, .tags_table td.col3 { font-size:12px; padding:1%; }
 
-.pageTotal { font-size:12px; vertical-align: baseline}
+.projects_count { font-size:12px; vertical-align: baseline; text-align: right; }
+.userBio { margin:10px auto 20px auto; }
 
 .caption { display:block; margin: 0 6px 0 5px;
     font-weight: 900;
@@ -274,7 +281,7 @@ tr.spacer { height:15px; }
          background:black ;color: white; outline:0 none; border: 0 none;
          font-weight: bolder; vertical-align: middle; margin:0;}
 
-.projectsTitle { margin: 10px 0; text-transform: capitalize; font-size: 30px; }
+.projectsTitle { margin: 10px 0; text-transform: capitalize; font-size: 20px; }
 
 
 .tag_key { font-size:115%; text-align: center;  }
@@ -295,13 +302,13 @@ a.fancybox { text-decoration:none; }
     font-weight: 500;
     font-size: 16px;
 }
-.galleryTopBar img { cursor:pointer; height:100px;  margin:0 0 5px 0; }
-.galleryImg { position: relative; float:left; width:100%; }
-.galleryImg img { width:100%; }
+
+.projectImg { width: 100%;  max-height: 90vh; }
+.galleryTopBar img, .galleryTopBar video { cursor:pointer; height:100px; width:auto;  margin:0 0 5px 0; }
+.galleryImg { position: relative; width:100%; }
+.galleryImg img, .galleryImg video { width:100%; }
 
 
-.userProfile .userName { margin:0; font-size:37px; }
-.userProfile .userTitleRow { }
 .sociallinks a { text-decoration: none; }
 .sociallinks > * { margin-left:10% }
 .sociallinks img { height:40px }
@@ -317,8 +324,7 @@ a.fancybox { text-decoration:none; }
             -moz-box-shadow: 2px 2px 2px #aaa; -webkit-box-shadow: 2px 2px 2px #aaa; box-shadow: 2px 2px 2px #aaa;
             color:#fff; cursor: pointer; }
  #softNoticeBody a, #softNoticeBody a:visited { color:purple; }
- .companyLogo { max-height:54px; max-width:120px;}
- .projectTags { font-size: 14px; }
+ .companyLogo { max-height:30px; max-width:120px; margin-top:3px }
  .projectTags .lineName { font-size:11px; }
  .instruct { font-size:80%; }
  .employmentSpan { float:right; }
@@ -363,13 +369,6 @@ a.fancybox { text-decoration:none; }
     .projectRow .col2 { width:60%; }
 }
 
-/* TABLETS */
-@media only screen and (min-width : 500px) and (max-width : 900px) {
-    .projectRow .col1 { width:40%; }
-    .projectRow .col2 { width:60%; }
-    .projectTags { font-size:100%; }
-}
-
 /* quick Grid implementation */
 .row {
     display: flex;
@@ -386,13 +385,18 @@ a.fancybox { text-decoration:none; }
     align-content: center;
 }
 
+.projectRow .col { align-self: flex-start;}
+
 .aline { display:flex; align-items:center}
 .aline img { margin-right:3px; margin-left:3px }
 
 .row .col:last-child { flex-grow:1; }
 .userTitleRow.row .col:last-child { align-items:flex-end}
+.companySection { margin-bottom:10px }
+.companyHead { font-size:11px; }
+.companyHead h2 { font-size:13px; }
 .companyHead .col:nth-child(2) {text-align:center}
-
+.companyHead .letterhead { padding:10px 5px }
 
 #cubeHolder {
     position: absolute; top:50px; left:50%;
@@ -452,11 +456,6 @@ a.fancybox { text-decoration:none; }
 transform: rotateX(-90deg) rotate(180deg) translateZ(50px);
 }
 
-.company_screenname, #printLogo { display:none; }
-
-
-
-
 
 /* MUI STUFF */
 .chip-container {
@@ -475,29 +474,21 @@ footer .chip-container {
     padding: 2px 6px;
     border-radius: 10px;
     position: relative;
-    background-color: rgba(162,181,144,0.5);
-    background-image: url("/wwwroot/images/a4_bigcube.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #000; /* Set text color */
-}
-
-.letterheader .chip {
-    background: rgba(255, 255, 255, 0.5); /* Set background color */
-    background-image:none;
-}
-
-.project_devtools .chip {
     background-color: rgba(91, 116, 207, 0.5); /* Set background color */
 }
+
+.letterhead .chip {
+    background: rgba(255, 255, 255, 0.5); /* Set background color */
+    font-size:12px;
+}
+
 .cv_cover { height: 96vh; position: relative;
     justify-content: space-between; }
 
-.letterheader {position:relative; overflow: hidden;
+.letterhead {position:relative; overflow: hidden;
     border-radius: 3px;
     padding:2px 8px; z-index: 1}
-.letterheader .bg { position:absolute;
+.letterhead .bg { position:absolute;
     width: 100%;
     height:100%; top:0; left:0;
     margin:0; z-index: -999;
@@ -507,116 +498,31 @@ footer .chip-container {
     background-position: top center;
 }
 
-.letterheader .masked {
+.letterhead .masked {
     mask-image: linear-gradient(-45deg, rgba(162,181,144,1) 10%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(162,181,144,1) 90%);
     filter:brightness(.3);
 }
-.cv_cover .letterheader .masked {
-    mask-image: linear-gradient(-45deg, rgba(162,181,144,1) 10%, rgba(255,255,255,.3) 50%, rgba(255,255,255,.3) 50%, rgba(162,181,144,1) 90%);
-    filter: brightness(.3);
-}
-.projects_table .letterheader .masked {
+.cv_cover .letterhead .masked {
     mask-image: linear-gradient(-45deg, rgba(162,181,144,1) 10%, rgba(255,255,255,.3) 50%, rgba(255,255,255,.3) 50%, rgba(162,181,144,1) 90%);
     filter: brightness(.3);
 }
 
-.letterheader .bg {
+.projects_table .letterhead .masked {
+    mask-image: linear-gradient(-45deg, rgba(162,181,144,1) 10%, rgba(255,255,255,.3) 50%, rgba(255,255,255,.3) 50%, rgba(162,181,144,1) 90%);
+    filter: brightness(.3);
+}
+
+.letterhead .bg {
     filter:brightness(.3);
 }
 
-  .a4_header { background:transparent url(/wwwroot/images/a4_header.png) no-repeat top left;
+.a4_header { background:transparent url(/wwwroot/images/a4_header.png) no-repeat top left;
     background-size: contain;
     width: 100%; min-height:50px; overflow: hidden; margin:0;
 }
 
+.cv_cover .chip-container { margin:4px auto 0px auto}
 
-@media print {
-    a, a:visited { color:#66391D; }
-    body, .master  {background:transparent!important; color:#000!important;}
-    body { padding:2%;  margin:0; }
-    .blackOutFadeBG { background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
-    .pageBreak {page-break-after: always}
-    .pageBreak:last-child {page-break-after:unset}
-
-
-
-/* 	#printLogo { display:block; top:0; right:5px; position:absolute; }	 */
-
-    .morePics { display:none; }
-
-    .projectImgMask { margin:0 0 20px 0;}
-    .tableBody td {display:table-cell!important;}
-	.myrole {font-weight:bolder;}
-
-
-	.companyLogo { max-height:25px; float:left; margin:0 3px 2px 0; }
-	.company_screenname {float:left; display:inline-block; text-align:left; }
-	td, tr { border:0 none; border-collapse:collapse;}
-
-    .rowMargin { height:30px; border:0 none;}
-	.rowMargin:nth-child(1) { height:0;}
-
-	.companyHead { font-size:11px; border:0 none;}
-    .companyHead h2 { font-size:120%;}
-    .companyHead h3 { font-size:110%;}
-
-	.projectImgMask, .img_src { padding:0; margin:0}
-	.userProfile .userName { margin:0; font-size:30px;}
-
-
-
-	dl.detailList{
-	padding: 0;
-    margin: 0;
-    width: 260px;
-    text-align: right;}
-	.detailList dt {
-	    float: right;
-	    margin:0 0 0 7px;
-	    font-size:100%;
-	    font-weight:bold;
-	}
-	.detailList dd {
-	    margin:0;
-	    padding: 0;
-	 }
-	.projectRow { border-bottom:solid #fff 15px; border-top:solid #fff 10px; }
-    .projectRow .col2 { width:83%!important; padding:0 0 0 6px!important; }
-
-	.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
-	.projectRow h3 a { text-decoration:none!important; color:#000!important; }
-	.tablesorter .projectTags p { margin:2px 0; }
-
-    .projectLink { width:100%; margin:0 auto 10px auto!important; text-align:right; font-weight:900; }
-
-    .technotes { background:#fff!important; margin:3px 0 8px 0;}
-
-	#tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style],
-    .reflectionMask { display:none; }
-    #qTagSelector, #qTagSelectorBlock { display:none;}
-	.col1.image_src > a { display:none; }
-	.topHeader { display:none; }
-	.sociallinks { display:none;}
-	.userBio p { display:none; }
-	#tmmOpening, #tmmCube, #tmmCube img {display:none;}
-	.project_launchdate, .project_startdate { display:none; }
-    .project_dates { color: #606060;}
-	.projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
-
-    .companySection[data-company="Cypher LLC"] { page-break-after: always }
-    .companySection[data-company="Flexible Assembly Systems"] { page-break-after: always }
-
-    .project_devtools { display:none }
-    /* MUI STUFF */
-    .project_devtools .chip {
-        background-color: rgba(56, 101, 7, 0.5); /* Set background color */
-        color: #181818; /* Set text color */
-    }
-
+@media only screen  {
+    .pageBreak { margin-bottom:100px }
 }

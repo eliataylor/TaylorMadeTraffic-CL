@@ -83,11 +83,14 @@
     }
 
     function mergeStringsUniquely(...$strings) {
+//         if (empty($strings)) return "";
         $uniqueValues = [];
 
         // Loop through each input string
         foreach ($strings as $string) {
-            // Explode the string into an array of values
+
+            if (empty($string)) continue;
+
             $values = explode(',', $string);
 
             // Trim whitespace from each value and add unique values to the $uniqueValues array
