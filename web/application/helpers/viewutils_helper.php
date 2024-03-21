@@ -9,7 +9,19 @@
         return $str;
     }
 
-    function ellipseMid($str, $num){
+function displayLink($str){
+    $str = stripos($str, '//') ? substr($str, stripos($str, '//') + 2) : $str;
+    if (stripos($str, 'www.') === 0) {
+        $str = substr($str, strlen('www.'));
+    }
+    if ($str[strlen($str)-1] === '/') {
+        $str = substr($str, 0, -1);
+    }
+    return $str;
+}
+
+
+function ellipseMid($str, $num){
         if (strlen($str) > $num) {
             $num = ceil($num/2);
             $str1 = substr($str, 0, $num);

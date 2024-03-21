@@ -272,7 +272,12 @@ tr.spacer { height:15px; }
 .tags_table td.col1, .tags_table td.col3 { font-size:12px; padding:1%; }
 
 .projects_count { font-size:12px; vertical-align: baseline; text-align: right; }
-.userBio { margin:10px auto 20px auto; }
+
+.userProfile { margin-bottom:40px; }
+.userHeader { margin-bottom: 10px; }
+.userName { margin:0; }
+.userBio { margin-top:15px; }
+.userBio .letterhead { margin-top:5px; }
 
 .caption { display:block; margin: 0 6px 0 5px;
     font-weight: 900;
@@ -379,10 +384,12 @@ a.fancybox { text-decoration:none; }
 }
 
 .col {
-    min-width:33%;
     display: flex;
     flex-direction: column;
     align-content: center;
+}
+.projects_table .col, .tags_table .col {
+    min-width:33%;
 }
 
 .projectRow .col { align-self: flex-start;}
@@ -391,7 +398,6 @@ a.fancybox { text-decoration:none; }
 .aline img { margin-right:3px; margin-left:3px }
 
 .row .col:last-child { flex-grow:1; }
-.userTitleRow.row .col:last-child { align-items:flex-end}
 .companySection { margin-bottom:10px }
 .companyHead { font-size:11px; }
 .companyHead h2 { font-size:13px; }

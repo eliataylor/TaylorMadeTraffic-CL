@@ -11,10 +11,6 @@ body { padding:2%;  margin:0; }
 .pageBreak {page-break-after: always}
 .pageBreak:last-child {page-break-after:unset}
 
-
-
-/* 	#printLogo { display:block; top:0; right:5px; position:absolute; }	 */
-
 .morePics { display:none; }
 
 .projectImgMask { margin:0 0 20px 0;}
@@ -66,7 +62,6 @@ dl.detailList{
 .col.image_src > a { display:none; }
 .topHeader { display:none; }
 .sociallinks { display:none;}
-.userBio p { display:none; }
 #tmmOpening, #tmmCube, #tmmCube img {display:none;}
 .project_launchdate, .project_startdate { display:none; }
 .project_dates { color: #606060;}

@@ -81,12 +81,23 @@ class Projects extends CI_Controller {
         }
 
         if (isset($this->data['uProfile'])) {
-            if (!isset($_GET['cv'])) {
+            if ($this->data['uProfile']['user_email'] === 'eli@taylormadetraffic.com') {
+                if (isset($_GET['cover'])) {
+                    array_unshift($this->data['pages'], $this->load->view('cv_cover', $this->data, TRUE));
+                } elseif (!isset($_GET['cv'])) {
+                    array_unshift($this->data['pages'], $this->load->view('user_profile', $this->data, TRUE));
+                }
+                if (isset($_GET['education'])) {
+                    $this->data['pages'][] = $this->load->view('user_education', $this->data, TRUE);
+                }
+            } else if (!isset($_GET['cv'])) {
+                array_unshift($this->data['pages'], $this->load->view('user_profile', $this->data, TRUE));
                 array_push($this->data['pages'], $this->load->view('tag_selector', $this->data, TRUE));
-            } elseif ($this->data['uProfile']['user_email'] === 'eli@taylormadetraffic.com') {
-                array_unshift($this->data['pages'], $this->load->view('cv_cover', $this->data, TRUE));
-                $this->data['pages'][] = $this->load->view('user_education', $this->data, TRUE);
             }
+        } else if (isset($this->data['cProfile']) && !empty($this->data['cProfile'])) {
+            array_unshift($this->data['pages'], $this->load->view('company_profile', $this->data, TRUE));
+        } elseif (isset($this->data['projects_count']) && !empty($this->data['projects_count'])) {
+            array_unshift($this->data['pages'], $this->load->view('projects_table_meta_header', $this->data, TRUE));
         }
 
         if ($this->input->is_ajax_request()) {
@@ -169,9 +180,9 @@ class Projects extends CI_Controller {
         } else {
             if (empty($this->data['qgroup'])) $this->data['qgroup'] = 'project_client';
 
-        	$this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
-            if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
-            if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
+        	// $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
+            // if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
+            // if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
 
             if ($this->data['qtags'] == "roles") $this->data['qtagOptions'] = $this->projects->getTagsTeamRoles();
             else $this->data['qtagOptions'] = $this->projects->getTagsTeamMembers();

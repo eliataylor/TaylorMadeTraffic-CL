@@ -1,10 +1,3 @@
-<?php if (isset($cProfile) && !empty($cProfile)) {
-    $this->load->view('company_profile', $this);
-} elseif (isset($qtfilter) && !empty($qtfilter)) {
-    echo $this->load->view('projects_table_meta_header', ['qfilter'=>$qtfilter, 'projects_count'=>$projects_count], TRUE);
-}
-?>
-
 <?php if (isset($_GET['cv'])): ?>
     <h3>EXPERIENCE</h3>
 <?php endif; ?>

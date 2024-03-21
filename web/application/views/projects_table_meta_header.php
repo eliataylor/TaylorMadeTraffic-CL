@@ -4,7 +4,7 @@
             <?php echo $qtfilter; ?>
         </h2>
     </div>
-    <div class="col projects_count" style="text-align: right">
+    <div class="col projects_count" style="align-items:flex-end">
         <?php echo $projects_count; ?>
         <?php echo ($projects_count == 1) ? $this->lang->en('Project') : $this->lang->en('Projects'); ?>
     </div>

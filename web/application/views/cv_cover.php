@@ -1,8 +1,8 @@
 <div class="col cv_cover">
     <div>
-        <?php if (isset($uProfile) && !empty($uProfile)): ?>
-            <?php $this->load->view('user_profile'); ?>
-        <?php endif; ?>
+    <?php if (isset($uProfile) && !empty($uProfile)): ?>
+        <?php $this->load->view('user_header'); ?>
+    <?php endif; ?>
     <div class="letterhead" style="height: 4px;margin-top: 4px;">
         <?php $this->load->view('letterhead', ['variant' => 'footer', "style" => "opacity:.7;"]); ?>
     </div>
