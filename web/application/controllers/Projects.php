@@ -256,12 +256,24 @@ class Projects extends CI_Controller {
 
     	if (count($groups) > 0) {
      		usort($groups, function($a, $b) {
-                 if (empty($a['endDate']) || empty($b['endDate'])) {
-                     return $a['startDate'] < $b['startDate'] ? 1 : -1;
-                 }
+
                  $diffa = $a['endDate'] - $a['startDate'];
                  $diffb = $b['endDate'] - $b['startDate'];
-                 return $diffa < $diffb  ? 1 : -1;
+
+                 if ($diffa > 31556926 * 2 && $diffb > 31556926 * 2) {
+                     // return $a['endDate'] > $b['endDate'] ? 1 : -1;
+                     return $diffa > $diffb  ? -1 : 1;
+                 }
+                 /*
+                 if ($diffa > 31556926 * 2) {
+                     return -1;
+                 }
+                 if ($diffb > 31556926 * 2) {
+                    return 1;
+                 }
+                 */
+
+                 return $a['endDate'] > $b['endDate'] ? -1 : 1;
      		});
 
     	}
