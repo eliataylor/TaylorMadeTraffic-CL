@@ -395,7 +395,7 @@ a.fancybox { text-decoration:none; }
 .aline img { margin-right:3px; margin-left:3px }
 
 .row .col:last-child { flex-grow:1; }
-.companySection { margin-bottom:11px }
+.companySection { margin-top:10px; margin-bottom:10px }
 .companyHead { font-size:12px; }
 .companyHead h2 { font-size:130%; }
 .companyHead .col.daterange {text-align:center}
@@ -522,8 +522,8 @@ footer .chip-container {
 }
 
 .projects_table .letterhead .masked {
-    mask-image: linear-gradient(-45deg, rgba(162,181,144,0.4) 10%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,.1) 60%, rgba(162,181,144,0.4) 90%);
-    filter: brightness(.4);
+    mask-image: linear-gradient(-45deg, rgba(0,0,0,0.4) 10%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0) 50%, rgba(0,0,0,.1) 70%, rgba(0,0,0,0.15) 90%);
+    filter: grayscale(1);
 }
 
 .letterhead .bg {
