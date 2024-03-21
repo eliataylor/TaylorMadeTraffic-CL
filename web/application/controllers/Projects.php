@@ -324,7 +324,12 @@ class Projects extends CI_Controller {
         $this->data['qtags'] = 'team';
         $this->data['qtfilter'] = 'Samanta Amna Khalil';
         $this->data['qgroup'] = 'project_client';
-        //$this->data['qhaving'] = 2
+
+        // $con = [];
+        // $con['pstyle'] = 'pWhite';
+        // $this->thisvisitor->upConstants($con);
+        // $this->data['me'] = $this->thisvisitor->getVisitor(false);
+
         $this->team();
     }
 

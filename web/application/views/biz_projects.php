@@ -8,9 +8,9 @@
                 <img src="/wwwroot/images/fbIcon.png" title="<?php echo $uProfile['user_fburl'];?>" />
                 </a>
             <?php endif?>
-            <?php if (!empty($uProfile['user_linkdinurl'])):?>
-                <a target='_blank' href='<?php echo $uProfile['user_linkdinurl'];?>'>
-                <img title="<?php echo $uProfile['user_linkdinurl'];?>" src="/wwwroot/images/linkedinIcon.png" />
+            <?php if (!empty($uProfile['user_linkdin'])):?>
+                <a target='_blank' href='<?php echo $uProfile['user_linkdin'];?>'>
+                <img title="<?php echo $uProfile['user_linkdin'];?>" src="/wwwroot/images/linkedinIcon.png" />
                 </a>
             <?php endif?>
             <?php if (!empty($uProfile['user_googleurl'])):?><li><a target='_blank' href='<?php echo $uProfile['user_googleurl'];?>'><?php echo $uProfile['user_googleurl'];?></a></li><?php endif?>

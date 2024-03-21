@@ -39,7 +39,7 @@ CREATE TABLE `companies` (
   `company_status` int NOT NULL DEFAULT '1' COMMENT '-1 is deleted, 0 is unverified, 1 is extra space',
   `user_website` varchar(2000) DEFAULT NULL,
   `user_fburl` varchar(2000) DEFAULT NULL,
-  `user_linkdinurl` varchar(2000) DEFAULT NULL,
+  `user_linkdin` varchar(2000) DEFAULT NULL,
   `user_googleurl` varchar(2000) DEFAULT NULL,
   `company_myrole` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`company_id`),
@@ -290,7 +290,7 @@ CREATE TABLE `users` (
   `user_2ndlast_login` int DEFAULT NULL,
   `user_bio` text,
   `user_fburl` varchar(2000) DEFAULT NULL,
-  `user_linkdinurl` varchar(2000) DEFAULT NULL,
+  `user_linkdin` varchar(2000) DEFAULT NULL,
   `user_googleurl` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   KEY `users_status_key` (`user_status`)

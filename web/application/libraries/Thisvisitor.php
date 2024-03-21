@@ -97,11 +97,15 @@ class Thisvisitor {
         return $this->visitor;
     }
 
-    function getVisitor() { // makes global assignment
-        $this->visitor = array_merge($this->visitor, $this->getSession());
+    function getVisitor($useSession=true) { // makes global assignment
+        if ($useSession === true) {
+            $this->visitor = array_merge($this->visitor, $this->getSession());
+        }
         if ($this->visitor['errors'] == null) $this->visitor['errors'] = array();
         return $this->visitor;
     }
+
+
 
     private function getSession() {
         $CI = &get_instance();
@@ -112,7 +116,7 @@ class Thisvisitor {
         $CI = &get_instance();
         $ref = &$this->visitor;
         $copy = $ref;
-        $unsets = array('errors','user_bio','user_fburl','user_linkdinurl','user_gooogleurl');
+        $unsets = array('errors','user_bio','user_fburl','user_linkdin','user_upwork');
         foreach($unsets as $un) {
             unset($copy[$un]);
         }

@@ -1,8 +1,11 @@
-<?php if (isset($_GET['cv'])): ?>
-    <h3>EXPERIENCE</h3>
-<?php endif; ?>
+<?php if (empty($groups)): ?>
+    <p style="margin:50px auto; font-size: 17px; text-align: center"><strong>OOPS.</strong> We still need to tag projects with this filter</p>
+<?php else: ?>
 
 <section>
+    <?php if (isset($_GET['cv'])): ?>
+        <h3>EXPERIENCE</h3>
+    <?php endif; ?>
 
     <div class="projects_table <?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>">
         <?php foreach ($groups as $company): ?>
@@ -44,3 +47,4 @@
     </div>
 
 </section>
+<?php endif; ?>

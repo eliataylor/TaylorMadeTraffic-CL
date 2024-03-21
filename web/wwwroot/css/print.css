@@ -13,7 +13,6 @@ body { padding:2%;  margin:0; }
 
 .morePics { display:none; }
 
-.projectImgMask { margin:0 0 20px 0;}
 .tableBody td {display:table-cell!important;}
 .myrole {font-weight:bolder;}
 
@@ -45,12 +44,8 @@ dl.detailList{
     padding: 0;
 }
 
-.projectRow { border-bottom:solid #fff 15px; border-top:solid #fff 10px; }
-.projectRow .col2 { width:83%!important; padding:0 0 0 6px!important; }
-
-.projectRow h3 { margin:0 0 5px 0;font-size:1em; text-decoration:none; }
+.projectRow h3 { margin:0 0 5px 0;font-size:1em;  }
 .projectRow h3 a { text-decoration:none!important; color:#000!important; }
-
 
 .projectLink { width:100%; margin:0 auto 10px auto!important; text-align:right; font-weight:900; }
 
@@ -73,7 +68,8 @@ dl.detailList{
 
 /* MUI STUFF */
 .chip {
-    background-color: rgba(56, 101, 7, 0.5); /* Set background color */
+    background-color:#A2B590; /* Set background color */
     color: #181818; /* Set text color */
     font-size:13px;
 }
+
