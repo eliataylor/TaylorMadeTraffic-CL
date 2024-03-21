@@ -101,7 +101,7 @@ class Projects extends CI_Controller {
         }
 
         if ($this->input->is_ajax_request()) {
-            return $this->output->set_output($this->load->view($page, $this->data, TRUE));
+            return $this->output->set_output($this->load->view('shell_pages', $this->data, TRUE));
         }
 
         if (isset($_GET['cv'])) $shell = "cv_format";

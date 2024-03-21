@@ -130,13 +130,7 @@
                 </div>
             <?php endif; ?>
             <div id="pageBlock" >
-            <?php if (isset($pages)): ?>
-                <?php foreach ($pages as $key => $value): ?>
-                    <div class="moduleBlock <?php echo  $key ?>" >
-                        <?php echo  $value ?>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+            <?php $this->load->view('shell_pages'); ?>
             </div>
         </div>
         <div id='softNotice' style="display:none;">
