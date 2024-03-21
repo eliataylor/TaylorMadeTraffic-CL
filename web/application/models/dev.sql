@@ -35,6 +35,7 @@ values ('current', 'development', '2023-01-01', '2023', 'Electrek',
         '<ul><li>Revived project and relaunch</li></ul>',
         '');
 
+select project_client, project_companies from projects;
 
 # /saman
 SELECT min(I.image_weight), count(P.project_id) as count,

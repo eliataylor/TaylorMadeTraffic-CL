@@ -236,8 +236,10 @@ class Projects extends CI_Controller {
                     if (empty( $groups[$company]['company_startdate'] ))
                         $groups[$company]['company_startdate'] = $row->project_startdate;
                     if (empty( $groups[$company]['company_enddate'] ))
-                        $groups[$company]['company_enddate'] = $row->project_launchdate;
+                        $groups[$company]['company_enddate'] = null;
+
                     $groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
+
                 }
                 $groups[$company] = $this->users->getCompanyByName($company);
                 $groups[$company]['startDate'] =  (!empty( $groups[$company]['company_startdate'] )) ?
@@ -245,7 +247,7 @@ class Projects extends CI_Controller {
                     strtotime($row->project_startdate);
                 $groups[$company]['endDate'] =  (!empty( $groups[$company]['company_enddate'] )) ?
                     strtotime($groups[$company]['company_enddate']) :
-                    strtotime($row->project_launchdate);
+                    time();
                 $groups[$company]['projects'] = array();
             }
             $groups[$company]['startDate'] = min($groups[$company]['startDate'], strtotime($row->project_startdate));
@@ -254,14 +256,13 @@ class Projects extends CI_Controller {
 
     	if (count($groups) > 0) {
      		usort($groups, function($a, $b) {
-          return $a['endDate'] - $a['startDate'] < $b['endDate'] - $b['startDate'] ? 1 : -1;
+                 if (empty($a['endDate']) || empty($b['endDate'])) {
+                     return $a['startDate'] < $b['startDate'] ? 1 : -1;
+                 }
+                 $diffa = $a['endDate'] - $a['startDate'];
+                 $diffb = $b['endDate'] - $b['startDate'];
+                 return $diffa < $diffb  ? 1 : -1;
      		});
-
-             /*
-            if ($groups[0]['company_tagname'] === 'Cypher LLC') {
-                $groups[0]['endDate'] = 'Present';
-            }
-             */
 
     	}
 
@@ -297,7 +298,7 @@ class Projects extends CI_Controller {
     public function pitch() {
         $this->data['qtags'] = 'companies';
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']);
-        $this->data['qtfilter'] = 'TaylorMadeTraffic';
+        $this->data['qtfilter'] = 'Taylor Made Traffic';
         $this->data['cProfile'] = $this->users->getCompanyByName("TaylorMadeManagement");
 
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags']);

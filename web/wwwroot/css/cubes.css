@@ -20,7 +20,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 
 
 ul, li { list-style: none; margin:0; padding:0; }
-#pageBlock  { max-width: 1000px; margin: auto;}
+#pageBlock  { max-width: 1000px; margin:40px auto 0 auto;}
 
 /* #navMenu a, #navMenu a:visited, #navMenu a:hover { border:0 none; outline:0 none; padding:0; margin:0; } */
 #menuList a, #menuList a:visited, #menuList a:hover { text-decoration:none; color:#fff; }
@@ -62,7 +62,7 @@ a.navItem.selected { color:red; }
 .datelist li:before { color:#fff;}
 .expenselist li:before { color:#ff7901;}
 
-.projects_table { font-size:13px;}
+.projects_table { font-size:13px; margin-top:20px}
 h2, h3 { margin:0 }
 
 .project_header { margin-bottom:10px; border-bottom:1px solid #ccc; }
@@ -93,10 +93,11 @@ h2, h3 { margin:0 }
 section { margin:10px 0 0 0; padding:0; }
 section > h3 { width:100%; border-bottom:1px solid #ccc; margin:0 0 5px 0; }
 section h4 { margin:0; }
-.userEducation, .userSummary { margin-bottom:40px; }
+.userEducation { margin-top:40px; }
+.userSummary { margin-bottom:40px; }
 .userSummary ul, .userEducation ul {padding:auto; margin:0;}
 .userEducation li, .userSummary li  { list-style-type:disc; margin-left:25px;}
-
+.myrole {font-weight:bolder; font-size: 120% }
 
 /*
 .prjBiz {font-size: 13px;} .prjBiz li  { list-style:decimal; }
@@ -193,7 +194,7 @@ section h4 { margin:0; }
 /* table { table-layout:fixed;} */
 table .header { width:auto; color:#a0a09f;}
 
-.tablesorter { margin:10px 0 15px 0; width: 100%; text-align: left; position: relative; }
+.tablesorter { margin:30px 0 15px 0; width: 100%; text-align: left; position: relative; }
 .tablesorter th, .tablesorter th { padding: 4px; font-weight: bolder; font-size:13px; }
 .tablesorter th.col3 { background-position: right center; padding-bottom: 20px;}
 
@@ -285,7 +286,7 @@ tr.spacer { height:15px; }
 .projectsTitle { margin: 10px 0; text-transform: capitalize; font-size: 20px; }
 
 
-.tag_key { font-size:115%; text-align: center;  }
+.tag_key { font-size:115%; text-align: center; text-transform: capitalize;  }
 .tablesorter .tag_key.header { background-position: center center; padding: 0;  }
 .tag_key p { margin-top:-23px; text-align: center; }
 .tag_date { text-align: right; }
@@ -394,10 +395,10 @@ a.fancybox { text-decoration:none; }
 .aline img { margin-right:3px; margin-left:3px }
 
 .row .col:last-child { flex-grow:1; }
-.companySection { margin-bottom:10px }
-.companyHead { font-size:11px; }
-.companyHead h2 { font-size:13px; }
-.companyHead .col:nth-child(2) {text-align:center}
+.companySection { margin-bottom:11px }
+.companyHead { font-size:12px; }
+.companyHead h2 { font-size:130%; }
+.companyHead .col.daterange {text-align:center}
 .companyHead .letterhead { padding:10px 5px }
 
 #cubeHolder {
@@ -508,20 +509,25 @@ footer .chip-container {
 
 .letterhead .masked {
     mask-image: linear-gradient(-45deg, rgba(162,181,144,1) 10%, rgba(255,255,255,0) 40%, rgba(255,255,255,0) 60%, rgba(162,181,144,1) 90%);
-    filter:brightness(.3);
+    filter:brightness(.4);
 }
-.cv_cover .letterhead .masked, .pWhite .userBio .letterhead .masked {
+.cv_cover .letterhead .masked {
     mask-image: linear-gradient(-45deg, rgba(162,181,144,1) 10%, rgba(255,255,255,.3) 50%, rgba(255,255,255,.3) 50%, rgba(162,181,144,1) 90%);
     filter: brightness(.3);
+}
+
+.pWhite .userBio .letterhead .masked {
+    mask-image: linear-gradient(-45deg, rgba(162,181,144,1) 10%, rgba(255,255,255,.3) 50%, rgba(255,255,255,.3) 50%, rgba(162,181,144,1) 90%);
+    filter: brightness(.4);
 }
 
 .projects_table .letterhead .masked {
-    mask-image: linear-gradient(-45deg, rgba(162,181,144,1) 10%, rgba(255,255,255,.3) 50%, rgba(255,255,255,.3) 50%, rgba(162,181,144,1) 90%);
-    filter: brightness(.3);
+    mask-image: linear-gradient(-45deg, rgba(162,181,144,0.4) 10%, rgba(255,255,255,0.1) 40%, rgba(255,255,255,.1) 60%, rgba(162,181,144,0.4) 90%);
+    filter: brightness(.4);
 }
 
 .letterhead .bg {
-    filter:brightness(.3);
+    filter:brightness(.4);
 }
 
 .a4_header { background:transparent url(/wwwroot/images/a4_header.png) no-repeat top left;

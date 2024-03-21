@@ -10,12 +10,11 @@ body { padding:2%;  margin:0; }
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */}
 .pageBreak {page-break-after: always}
 .pageBreak:last-child {page-break-after:unset}
+#pageBlock { margin:0 auto; }
 
 .morePics { display:none; }
 
 .tableBody td {display:table-cell!important;}
-.myrole {font-weight:bolder;}
-
 
 .companyLogo { max-height:25px; float:left; margin:0 3px 2px 0; }
 td, tr { border:0 none; border-collapse:collapse;}

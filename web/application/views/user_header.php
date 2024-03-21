@@ -35,9 +35,9 @@
         <?php
 
         $linkMap = [
-            'user_linkdin' => '/wwwroot/images/linkedin-icon.svg',
-            'user_github' => '/wwwroot/images/github-mark.png',
+            'user_github' => '/wwwroot/images/github.png',
             'user_upwork' => '/wwwroot/images/upwork.svg',
+            'user_linkdin' => '/wwwroot/images/linkedin-icon.svg',
             'user_fburl' => '/wwwroot/images/fbIcon.svg',
         ];
 

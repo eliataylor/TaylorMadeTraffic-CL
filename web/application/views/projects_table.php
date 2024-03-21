@@ -1,14 +1,13 @@
 <?php if (empty($groups)): ?>
-    <p style="margin:50px auto; font-size: 17px; text-align: center"><strong>OOPS.</strong> We still need to tag projects with this filter</p>
+    <p style="margin:50px auto; font-size: 17px; text-align: center"><strong>OOPS.</strong> We still need to tag
+        projects with this filter</p>
 <?php else: ?>
 
-<section>
-    <?php if (isset($_GET['cv'])): ?>
-        <h3>EXPERIENCE</h3>
-    <?php endif; ?>
-
-    <div class="projects_table <?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>">
-        <?php foreach ($groups as $company): ?>
+<section class="<?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>">
+        <?php if (isset($_GET['cv'])): ?>
+            <h3>EXPERIENCE</h3>
+        <?php endif; ?>
+        <?php foreach ($groups as $index => $company): ?>
 
             <div class="companySection" data-company="<?php echo $company['company_tagname']; ?>">
 
@@ -19,7 +18,7 @@
                         continue; // don't show group
                     }
                     $groupname = $company['company_tagname'];
-                    $this->load->view('company_header', ['company' => $company, 'groupname' => $groupname]);
+                    $this->load->view('company_header', ['company' => $company, 'groupname' => $groupname, 'index' => $index]);
                 }
 
                 ?>
@@ -44,7 +43,5 @@
             </div>
 
         <?php endforeach; ?>
-    </div>
-
-</section>
+    </section>
 <?php endif; ?>
