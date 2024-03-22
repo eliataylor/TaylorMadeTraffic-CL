@@ -9,7 +9,7 @@
                     <?php if (substr($img->image_src, -4) === '.mp4'): ?>
                         <video src='<?php echo $img->image_src; ?>'
                                class="projectImg" muted="true"
-                               autoplay="true"
+                               autoplay="true" playsinline
                                data-oimage="<?php echo $img->image_src ?>"
                                data-owidth="<?php echo $img->image_width ?>"
                                data-oheight="<?php echo $img->image_height ?>"

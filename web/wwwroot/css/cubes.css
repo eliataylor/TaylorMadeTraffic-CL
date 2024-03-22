@@ -270,6 +270,7 @@ tr.spacer { height:15px; }
 .userProfile { margin-bottom:40px; }
 .userHeader { margin-bottom: 10px; }
 .userName { margin:0; }
+.userContact span { white-space: pre; }
 .userBio { margin-top:15px; }
 .userBio .letterhead { margin-top:5px; }
 
@@ -314,6 +315,7 @@ a.fancybox { text-decoration:none; }
 
 .sociallinks a { text-decoration: none; }
 .sociallinks > * { margin-left:10% }
+.sociallinks > *:first-child { margin-left:0 }
 .sociallinks img { height:40px }
 .teamInviteLink { color:red; font-size:11px; float:left; margin:7px; clear:both }
 
@@ -362,6 +364,7 @@ a.fancybox { text-decoration:none; }
 
  /* PHONES */
 @media only screen and (max-width : 500px) {
+    .sociallinks img { height:30px }
     .tags_table .col1, .tags_table .col3 { width:66px; }
     /* #tagLinks { width: 100%;text-align: center;margin:20px 0 10px 0;float: left;} */
     #tagLinks { position: absolute; top: 0;right: 0; padding-top:0;}

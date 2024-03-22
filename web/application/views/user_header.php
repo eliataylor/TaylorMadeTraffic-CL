@@ -5,7 +5,7 @@
             echo $uProfile['user_screenname'];
             ?>
         </h1>
-        <span><?php echo $uProfile['user_email']; ?> &bullet; <?php echo $uProfile['user_phone']; ?></span>
+        <div class="userContact"><span><?php echo $uProfile['user_email']; ?></span> &bullet; <span><?php echo $uProfile['user_phone']; ?></span></div>
     </div>
 
     <?php if (isset($_GET['cv'])): ?>
@@ -48,7 +48,7 @@
             <?php foreach ($linkMap as $key => $img): ?>
                 <?php if (!empty($uProfile[$key])): ?>
                     <a target='_blank' href='<?php echo $uProfile[$key]; ?>' class="nolink">
-                        <img width="40" title="<?php echo $uProfile[$key]; ?>"
+                        <img height="40" title="<?php echo $uProfile[$key]; ?>"
                              src="<?php echo $img; ?>"/>
                     </a>
                 <?php endif; ?>

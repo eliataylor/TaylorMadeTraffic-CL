@@ -18,15 +18,6 @@ i'll be done the same :/
         opening : document.getElementById("tmmOpening"),
         cube : document.getElementById("tmmCube"),
         curPage : "",
-        autoSize : function() {
-            VSETTINGS.swidth = Math.round($(window).width()); // set by isMobile / configs
-            VSETTINGS.sheight = Math.round($(window).height());
-            $.ajax({type:'GET', async:false, url:"/settings?swidth=" + VSETTINGS.swidth + "&sheight=" + VSETTINGS.sheight});
-
-            if (VSETTINGS.swidth < 400) {
-            	$('#master').width(VSETTINGS.swidth - 55);
-            }
-        },
         initPage : function(cont) {
 
             if (ctx[cls].curPage.indexOf('/eli') === 0) {
@@ -418,8 +409,6 @@ i'll be done the same :/
 })("tmt", this);
 
 $(document).ready(function() {
-    tmt.autoSize();
-    window.addEventListener('onorientationchange', tmt.autoSize);
     tmt.curPage = document.location.pathname + document.location.search;
     var href = document.location.hash;
     if (href && href.indexOf('!href=') > -1) {

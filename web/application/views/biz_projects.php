@@ -59,7 +59,7 @@
                         <a class="fancybox" data-fancybox-group="gallery<?php echo $row->project_id?>" href="<?php echo  $row->image_src; ?>">
                             <?php if (substr($row->image_src, -4) === '.mp4'): ?>
                                 <video src='<?php echo $row->image_src; ?>'
-                                  class="projectImg" muted="true" controls="true" autoplay="true" />
+                                  class="projectImg" muted="true" controls="true" autoplay="true" playsinline />
                             <?php else: ?>
                                 <img  data-owidth="<?php echo  $row->image_width ?>"
                                       data-oheight="<?php echo  $row->image_height ?>"
