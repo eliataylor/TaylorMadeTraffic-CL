@@ -43,8 +43,10 @@ $variant = $index % 2 == 0 ? 'footer' : 'header';
                     <?php endif; ?>
                 </small>
 
-                <?php if ($company['company_telecommuting']): ?>
-                    <!--<small>remote</small>-->
+                <?php if ($company['company_telecommuting'] == 1): ?>
+                    - <small>remote</small>
+                <?php elseif ($company['company_telecommuting'] == 0): ?>
+                    - <small>hybrid</small>
                 <?php endif; ?>
 
             </div>

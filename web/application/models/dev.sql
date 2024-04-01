@@ -68,6 +68,9 @@ update projects set project_technotes = replace(project_technotes, 'Sammie Khali
 select project_id, project_title, project_technotes, project_devtools, project_team, project_companies from projects where projects.project_companies like '%Federal%' order by project_id;
 update projects set project_companies = replace(project_companies, 'Federal Laboratory Consortium', 'Federal Labs Consortium');
 
+
+update projects set project_launchdate = project_startdate where project_launchdate is NULL and project_startdate is not null;
+
 select project_id, project_technotes from projects where project_companies like '%Flexible%';
 
 select * from images
@@ -83,6 +86,8 @@ select project_id, project_title, project_technotes, project_devtools from proje
 select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 
 select * from images where project_id = 59 order by image_weight;
+
+select * from tags where tag_key = 'Neha Kotecha';
 
 
 update tags set tag_type = replace(tag_type, '.', '') where tag_type like '%.';

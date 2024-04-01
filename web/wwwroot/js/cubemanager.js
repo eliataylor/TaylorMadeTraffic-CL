@@ -20,7 +20,7 @@ i'll be done the same :/
         curPage : "",
         initPage : function(cont) {
 
-            if (ctx[cls].curPage.indexOf('/eli') === 0) {
+            if ($('.companyHead').length > 0) {
             	ctx[cls].toggleGroupRows('all');
             } else if ($(cont).find(".tags_table").length > 0) {
                $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});

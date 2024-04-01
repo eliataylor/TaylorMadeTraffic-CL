@@ -80,7 +80,7 @@ class Projects extends CI_Controller {
             array_push($this->data['pages'], $page);
         }
 
-        if (isset($this->data['uProfile'])) {
+        if (isset($this->data['uProfile']) && !empty($this->data['uProfile'])) {
             if ($this->data['uProfile']['user_email'] === 'eli@taylormadetraffic.com') {
                 if (isset($_GET['cover'])) {
                     array_unshift($this->data['pages'], $this->load->view('cv_cover', $this->data, TRUE));
@@ -179,10 +179,6 @@ class Projects extends CI_Controller {
             $this->sendOut('tags_table');
         } else {
             if (empty($this->data['qgroup'])) $this->data['qgroup'] = 'project_client';
-
-        	// $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
-            // if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
-            // if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
 
             if ($this->data['qtags'] == "roles") $this->data['qtagOptions'] = $this->projects->getTagsTeamRoles();
             else $this->data['qtagOptions'] = $this->projects->getTagsTeamMembers();
@@ -397,19 +393,12 @@ class Projects extends CI_Controller {
     private function getTableForProjects() {
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags'], false, $this->data['qhaving']);
         $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
-        if ($this->data['me']['con']['swidth'] > 600) $this->data['headers']['project_title'] = $this->lang->en("Info");
-        if ($this->data['me']['con']['swidth'] > 980) $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
+        $this->data['headers']['project_title'] = $this->lang->en("Info");
+        $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
 
         $seg = $this->uri->segment(2);
         if ($seg  == 'development' || $seg  == 'design') $rows = $this->projects->getProjectsByType($seg);
         else $rows = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
-
-        /*
-        if (count($rows) === 1 && $this->input->is_ajax_request() == false) { // not ajax
-            $this->load->helper('url');
-            redirect(TMT_HTTP. 'projects?pid='.$rows[0]->project_id, 'location', '302');
-        }
-        */
 
         $this->data['projects_count'] = 0;
         $groups = array();
