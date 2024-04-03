@@ -5,13 +5,26 @@
     contributed.</p>
 
 
-<div><p>Over the past 20 years, I've mastered the frontend and backend of several stacks, while leading and assisting
-        the whole life cycle of software development, from planning to deployment.</p>
-    <p>This page is a short summary of featured work and skills. Navigate the <a href="/technologies">technology</a>
-        tag to search by your needs or interests. Reach out by any method above if you feel I may be able to help
-        with your project.
+<div><p>.</p>
+    <p>This page describes some of my work since 2017. Navigate the technology tags on this site to search my experience
+        by your needs or interests. Reach out by any method above if you feel I may be able to help with your project.
     </p>
     <p>For those interested in Open Source software, visit <a
-                href="https://github.com/sponsors/eliataylor">github.com/sponsors/eliataylor</a> for a few projects we can all share.
+                href="https://github.com/sponsors/eliataylor">github.com/sponsors/eliataylor</a> for a few projects we
+        can all share.
+    </p>
+</div>
+
+
+<div><p>Over the past 20 years, I've mastered the front and backend of several stacks, while leading and assisting
+        throughout the life cycle of software development, from planning and implementation through successful
+        deployments.</p>
+    <p>This page describes some of my work since 2017. Navigate the <a href="/technologies">technology</a> tags on this
+        site to search my experience by your needs or interests. Reach out by any method above if you feel I may be able
+        to help with your project.
+    </p>
+    <p>For those interested in Open Source software, visit <a href="https://github.com/sponsors/eliataylor">github.com/sponsors/eliataylor</a>
+        for a few projects we can all share.
+
     </p>
 </div>

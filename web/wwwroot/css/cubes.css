@@ -242,6 +242,11 @@ border-color: transparent transparent #007bff transparent;
 
 .tablesorter p { margin:10px 0 0 0; }
 .image_src { width:25%; min-width: 25%; margin-right:5px; align-self: flex-start!important }
+@media only screen and (max-width : 600px) {
+    .projectRow .row { flex-wrap:wrap-reverse}
+    .projectRow .col { width:100%!important; min-width:100%!important; }
+    .reflectionMask {max-height:150px; margin-bottom: 20px;}
+}
 
 .iconImg { max-height:50px; }
 .nolink, .nolink:visited, td a.popInfo { text-decoration:none; color:inherit; }
