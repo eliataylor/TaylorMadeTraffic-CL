@@ -404,7 +404,7 @@ a.fancybox { text-decoration:none; }
 
 .row .col:last-child { flex-grow:1; }
 .companySection { margin-top:10px; margin-bottom:10px }
-.companyHead { font-size:12px; }
+.companyHead { font-size:12px; cursor:pointer}
 .companyHead h2 { font-size:130%; }
 .companyHead .col.daterange {text-align:center}
 .companyHead .letterhead { padding:10px 5px }
