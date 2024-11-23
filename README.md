@@ -13,3 +13,5 @@ Style Params:
 
 Ex: https://localhost.taylormadetraffic.com/eli?cv&noPics&condensed&year_min=2017&education&cover
 
+# Dev:
+- docker-compose up -d
