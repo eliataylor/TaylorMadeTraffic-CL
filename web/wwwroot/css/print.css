@@ -72,3 +72,5 @@ dl.detailList{
     font-size:13px;
 }
 
+.caret { display: none}
+.companyHead .companyRegion { margin-right:0 }
