@@ -6,18 +6,20 @@ $variant = $index % 2 == 0 ? 'footer' : 'header';
      data-projectcount="<?php echo count($company['projects']) ?>">
     <div class="row <?php if (!isset($_GET['cv'])): ?>letterhead<?php endif; ?>">
         <div class="col">
-            <h2>
-                <div class="company_screenname"><?php echo $company['company_screenname']; ?></div>
-                <?php if (isset($company['company_logo']) && isset($_GET['logos'])): ?>
-                    <img title="<?php echo $company['company_screenname'] ?>"
-                         alt="<?php echo $company['company_screenname'] ?>" class="companyLogo"
-                         src="<?php echo $company['company_logo'] ?>"/>
-                <?php endif; ?>
-            </h2>
-            <div class="daterange">
-                <?php echo fDate($company['startDate'], 'month') ?>
-                -
-                <?php echo (empty($company['company_enddate'])) ? 'Present' : fDate($company['endDate'], 'month'); ?>
+            <div>
+                <h2>
+                    <div class="company_screenname"><?php echo $company['company_screenname']; ?></div>
+                    <?php if (isset($company['company_logo']) && isset($_GET['logos'])): ?>
+                        <img title="<?php echo $company['company_screenname'] ?>"
+                             alt="<?php echo $company['company_screenname'] ?>" class="companyLogo"
+                             src="<?php echo $company['company_logo'] ?>"/>
+                    <?php endif; ?>
+                </h2>
+                <div class="daterange">
+                    <?php echo fDate($company['startDate'], 'month') ?>
+                    -
+                    <?php echo (empty($company['company_enddate'])) ? 'Present' : fDate($company['endDate'], 'month'); ?>
+                </div>
             </div>
         </div>
 
@@ -27,8 +29,8 @@ $variant = $index % 2 == 0 ? 'footer' : 'header';
             <?php endif; ?>
         </div>
 
-        <div class="col">
-            <div style="text-align: right">
+        <div class="col"  style="text-align: right;">
+            <div class="companyRegion">
 
                 <?php if (isset($company['company_city'])): ?>
                     <div class="locale">
@@ -50,6 +52,12 @@ $variant = $index % 2 == 0 ? 'footer' : 'header';
                 <?php endif; ?>
 
             </div>
+
+            <span  class="caret closed" >
+                <svg width="10" height="30" viewBox="0 0 10 30" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 15 L0 0 L0 2 L8 15 L0 28 L0 30 L10 15 Z" />
+                </svg>
+            </span>
         </div>
         <?php if (!isset($_GET['cv'])): ?>
             <?php $this->load->view('letterhead', ['variant' => $variant, "style" => "opacity:1;"]); ?>

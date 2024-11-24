@@ -28,6 +28,12 @@ i'll be done the same :/
 
             $(cont).find('.companyHead').click(function() {
             	var groupname = $(this).attr('data-group');
+                var caret = $(this).find('.caret');
+                if (caret.hasClass('opened')) {
+                    caret.removeClass('opened').addClass('closed');
+                } else {
+                    caret.removeClass('closed').addClass('opened');
+                }
             	ctx[cls].toggleGroupRows(groupname);
             });
 
@@ -72,6 +78,10 @@ i'll be done the same :/
              });
 
         },
+        toggleCaret: function() {
+            $(this).find('.caret').toggle('open');
+            $(this).find('.caret').toggle('closed');
+        },
         toggleGroupRows : function(groupname) {
         	$('.projectRow').each(function(){
         		if ($(this).attr('data-group') == groupname || groupname == 'all') {
@@ -81,9 +91,6 @@ i'll be done the same :/
         			$(this).slideUp();
         		}
         	});
-        },
-        buildLightBox : function() {
-
         },
         ajaxPage : function(href) {
            if (ctx[cls].cube.id == 'menuPreloader') {

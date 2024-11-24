@@ -39,7 +39,7 @@ class Projects extends CI_Controller {
         );
 
         $path = uri_string();
-        if (empty($path)) return $this->animatedIntro();
+        if (ENVIRONMENT == "production" && empty($path)) return $this->animatedIntro();
 
         if (isset($this->data['qmenu'][$path]) && $this->data['qmenu'][$path]['role'] > 0 &&  !$this->thisvisitor->auth($this->data['qmenu'][$path]['role'])) {
             array_push($this->data['errors'], $this->lang->en("unauthorized"));
@@ -49,6 +49,11 @@ class Projects extends CI_Controller {
         $routing = $this->uri->rsegment_array();
         $method = (count($routing) > 1) ? $routing["2"] : 'industries';
         if (!method_exists($this, $method)) $method = 'industries';
+
+        if (ENVIRONMENT != "production") {
+            $method = 'eli';
+        }
+
         if (isset($this->data['qmenu'][$path])) $this->data['docTitle'] = $this->data['qmenu'][$path]['title'];
         if (!empty($this->data['qtfilter'])) $this->data['docTitle'] .= ' :: ' . $this->data['qtfilter'];
         call_user_func_array(array($this, $method), array());
@@ -66,8 +71,6 @@ class Projects extends CI_Controller {
 
         $this->data['qhaving'] =(int) $this->input->get_post('qhaving');
         if (empty($this->data['qhaving'])) $this->data['qhaving'] = (int)$this->uri->segment(4);
-
-
     }
 
     private function sendOut($page, $shell="shell") {
