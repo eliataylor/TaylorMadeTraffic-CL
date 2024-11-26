@@ -1,5 +1,5 @@
 <?php
-$variant = $index % 2 == 0 ? 'footer' : 'header';
+$variant = ($index || 1) % 2 == 0 ? 'footer' : 'header';
 ?>
 
 <div class="container companyHead" data-group="<?php echo $groupname ?>"

@@ -55,7 +55,7 @@
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
-        <p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is a print-friendly version of <u>TaylorMadeTraffic.com/eli</u>?<?php echo $_SERVER['QUERY_STRING']?></p>
+        <p style="margin-top: 30px; font-size: 11px; color:#757575; font-style: italic">This resume is a print-friendly version of <u>TaylorMadeTraffic.com<?php echo $_SERVER['REQUEST_URI']?></u></p>
     </div>
 </div>
 </body>

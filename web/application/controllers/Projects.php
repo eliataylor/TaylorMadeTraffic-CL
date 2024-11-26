@@ -132,6 +132,17 @@ class Projects extends CI_Controller {
             $this->sendOut('tags_table');
         } else {
             $this->getTableForProjects();
+
+            if (isset($_GET['cv'])) {
+                $this->data['showGroup'] = true;
+               $this->load->model('Users_model', 'user');
+
+               array_unshift($this->data['pages'], $this->load->view('tag_story', $this->data, TRUE));
+
+               $this->data['uProfile'] = $this->users->getUserByName('E.A.Taylor');
+
+            }
+
             $this->sendOut('projects_table');
         }
     }
@@ -389,11 +400,8 @@ class Projects extends CI_Controller {
           $this->data['headers']['tag_date'] = $this->lang->en("Last Project");
         }
 
-        if (isset($_GET['byclient'])) {
-            $this->regroupProjects();
-        }
-
         $this->data['tableRows'] = $this->projects->getTags($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
+
     }
 
     private function getTableForProjects() {
@@ -412,9 +420,19 @@ class Projects extends CI_Controller {
         	if (!isset($row->{$this->data['qgroup']})) {
         		$this->data['qgroup'] = 'project_client';
         	}
+
+            if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
+            if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
+
         	$company = $row->{$this->data['qgroup']};
         	if (!isset($groups[$company])) {
         		$groups[$company] = $this->users->getCompanyByName($company);
+                $groups[$company]['startDate'] =  (!empty( $groups[$company]['company_startdate'] )) ?
+                    strtotime($groups[$company]['company_startdate']) :
+                    strtotime($row->project_startdate);
+                $groups[$company]['endDate'] =  (!empty( $groups[$company]['company_enddate'] )) ?
+                    strtotime($groups[$company]['company_enddate']) :
+                    time();
         		$groups[$company]['projects'] = array();
         	}
             $this->data['projects_count']++;
