@@ -1,11 +1,10 @@
-use tmt_portfolio;
+use localdb;
 set sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
 
 
 select project_id, project_title, project_technotes, project_subtitle from projects order by project_id desc;
 desc projects;
 
-use tmt_portfolio;
 -- UPDATE `projects` SET `project_team` = '<a href=\"/team?qtfilter=E.A.Taylor\">E.A.Taylor</a>: Front-End, Back-End.\r\n<a href=\"/team?qtfilter=David Hilliard\">David Hilliard</a>: Brand Development.\r\n<a href=\"/team?qtfilter=Justin Herman\">Justin Herman</a>: Flash Movie Animation.' WHERE `projects`.`project_id` = 23
 
 insert into projects (project_status, project_type, project_startdate,
@@ -85,7 +84,7 @@ select project_id, project_title, project_technotes, project_devtools from proje
 
 select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 
-select * from images where project_id = 59 order by image_weight;
+select project_id, image_id, image_src, image_weight from images where project_id = 61 order by image_weight;
 
 select * from tags where tag_key = 'Neha Kotecha';
 
