@@ -73,8 +73,15 @@ class Projects_Model extends CI_Model {
         }
 
         if (!empty($value)) {
-            array_push($wheres, " T.tag_key = ? ");
-            array_push($params, $value);
+            $alltags = explode(',', $value);
+            if (count($alltags) > 1) {
+                $placeholders = implode(',', array_fill(0, count($alltags), '?'));
+                array_push($wheres, " T.tag_key IN ($placeholders)");
+                array_push($params, ...$alltags);
+            } else {
+                array_push($wheres, " T.tag_key = ? ");
+                array_push($params, $value);
+            }
         }
         if (count($wheres) > 0) {
             $sql .= " WHERE " . implode(" AND ", $wheres);
