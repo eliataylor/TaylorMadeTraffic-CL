@@ -62,8 +62,11 @@ dl.detailList{
 .projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
 
 .companyHead .letterhead { padding:2px 8px; }
+
+/*
 .companySection[data-company="Cypher LLC"] { page-break-after: always }
 .companySection[data-company="Flexible Assembly Systems"] { page-break-after: always }
+ */
 
 /* MUI STUFF */
 .chip {

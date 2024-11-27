@@ -242,6 +242,9 @@ border-color: transparent transparent #007bff transparent;
 
 .tablesorter p { margin:10px 0 0 0; }
 .image_src { width:25%; min-width: 25%; margin-right:5px; align-self: flex-start!important }
+.imageGridItem { display: inline-block; }
+.imageGridItem img, .imageGridItem video { width: 100% }
+
 @media only screen and (max-width : 600px) {
     .projectRow .row { flex-wrap:wrap-reverse}
     .projectRow .col { width:100%!important; min-width:100%!important; }

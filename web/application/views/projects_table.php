@@ -30,8 +30,12 @@
                          <?php if (isset($groupname)): ?>data-group="<?php echo $groupname ?>"<?php endif; ?>>
                         <div class="row">
                             <?php if (!isset($_GET['noPics'])): ?>
-                                <div class="col image_src">
-                                    <?php $this->load->view('project_images', ['row' => $row]); ?>
+                                <div class="col image_src"
+                                    <?php if (isset($_GET['picSize']) && $_GET['picSize'] > 0): ?>
+                                    style="width:<?php echo $_GET['picSize']; ?>%; min-width:<?php echo $_GET['picSize']; ?>%;"
+                                    <?php endif; ?>
+                                    >
+                                        <?php $this->load->view(isset($_GET['picCount']) ? 'project_images' : 'project_imagelinks', ['row' => $row]); ?>
                                 </div>
                             <?php endif; ?>
                             <div class="col project_title">
