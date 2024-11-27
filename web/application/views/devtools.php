@@ -1,3 +1,10 @@
+<?php
+
+$devtools = sortDevToolsByFilters($devtools, $qtfilter);
+
+?>
+
+
 <div class="chip-container">
     <?php foreach ($devtools as $tool): ?>
         <span class="chip" >

@@ -1,6 +1,35 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 // --------------------------------------------------------------------
 
+
+function sortDevToolsByFilters($devtools, $filters) {
+    $filters = explode(',', $filters);
+
+     // Normalize the filters to only alphanumeric characters
+    $normalizedFilters = array_map(function($filter) {
+        return preg_replace('/[^a-zA-Z0-9]/', '', $filter);
+    }, $filters);
+
+    // Normalize the devtools to only alphanumeric characters
+    $normalizedDevtools = array_map(function($devtool) {
+        return preg_replace('/[^a-zA-Z0-9]/', '', $devtool);
+    }, $devtools);
+
+    // Filter devtools that match any value in normalized filters
+    $matched = array_filter($devtools, function($devtool) use ($normalizedDevtools, $normalizedFilters) {
+        return in_array(preg_replace('/[^a-zA-Z0-9]/', '', $devtool), $normalizedFilters);
+    });
+
+    // Filter devtools that do not match any value in normalized filters
+    $notMatched = array_filter($devtools, function($devtool) use ($normalizedDevtools, $normalizedFilters) {
+        return !in_array(preg_replace('/[^a-zA-Z0-9]/', '', $devtool), $normalizedFilters);
+    });
+
+    // Merge matched and not matched arrays
+    return array_merge($matched, $notMatched);
+}
+
+
     function ellipse($str, $num){
         if (strlen($str) > $num) {
             if ($num > 0) return substr($str, 0, $num) . "...";

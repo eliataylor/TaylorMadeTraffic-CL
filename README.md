@@ -6,6 +6,7 @@ Style Params:
 - condensed
 - bio
 - year_min=2017
+- tagged
 - cover
 - education
 - logos
