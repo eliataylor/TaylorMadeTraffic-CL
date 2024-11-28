@@ -3,6 +3,8 @@
 
 
 function sortDevToolsByFilters($devtools, $filters) {
+    if (empty($filters)) return $filters;
+
     $filters = explode(',', $filters);
 
      // Normalize the filters to only alphanumeric characters

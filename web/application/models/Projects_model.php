@@ -141,6 +141,23 @@ class Projects_Model extends CI_Model {
         return array();
     }
 
+    function getProjectsByIds($pids) {
+        $sql = "SELECT P.* FROM projects P WHERE ";
+        if (count($pids) > 1) {
+            $placeholders =  implode(', ', $pids);
+            $sql .= " P.project_id IN ($placeholders) ";
+            $params = $pids;
+        } else {
+            $sql .= " P.project_id = ? ";
+            $params = $pids;
+        }
+        $sql .= 'ORDER BY P.project_startdate DESC';
+        $query = $this->db->query($sql, $params);
+        // echo $this->db->last_query();
+        if ($query->num_rows() > 0) return $query->result_object();
+        return array();
+    }
+
     function getProjectImages($pid=false) {
         $sql = "SELECT I.* FROM images I WHERE I.project_id = ? order by I.image_weight asc, I.image_src desc";
         $query = $this->db->query($sql, array($pid));

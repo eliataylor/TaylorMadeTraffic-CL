@@ -2,7 +2,7 @@ use localdb;
 set sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
 
 
-select project_id, project_title, project_technotes, project_subtitle from projects order by project_id desc;
+select project_id, project_title, project_technotes, project_devtools from projects order by project_id desc;
 desc projects;
 
 -- UPDATE `projects` SET `project_team` = '<a href=\"/team?qtfilter=E.A.Taylor\">E.A.Taylor</a>: Front-End, Back-End.\r\n<a href=\"/team?qtfilter=David Hilliard\">David Hilliard</a>: Brand Development.\r\n<a href=\"/team?qtfilter=Justin Herman\">Justin Herman</a>: Flash Movie Animation.' WHERE `projects`.`project_id` = 23
@@ -34,6 +34,49 @@ values ('current', 'development', '2023-01-01', '2023', 'Electrek',
         '<ul><li>Revived project and relaunch</li></ul>',
         '');
 
+
+# Object/Actions:
+insert into projects (project_status, project_type, project_startdate,
+                      project_startyear, project_title, project_subtitle, project_desc,
+                      project_devurl,  project_client, project_companies, project_devtools,
+                      project_industries, project_team, project_technotes)
+values ('tagged', 'development', '2024-03-02', '2024',
+        'Object/Actions',
+        'An open source scaffolding tool from spreadsheet to full stack',
+         'a tool for helping entrepreneurs document their projects, and scaffold their systems.',
+        'https://github.com/eliataylor/object-actions',
+        'Taylor Made Traffic', 'Taylor Made Traffic', 'Python, Django, TypeScript, ReactJS, Material-UI, NodeJS, Cypress.io, Google Cloud Platform', 'Technology',
+        '<a href=\'/team?qtfilter=E.A.Taylor\'>E.A.Taylor</a>: Developer',
+        '<ul>
+<li>Wrote CLI tool to parse Object/Actions spreadsheets to generate a Django DRF models, views, urls, serializers, swagger docs and more.</li>
+<li>Wrote CLI tool to also generate strict TypeScript of all interfaces and types to define models and API response types</li>
+<li>Built extendable ReactJS web app reusuable as basic CMS for all content types</li>
+<li>Wrote NodeJS fake world build to generate infinite rows of realistic data following field types using `faker` library</li>
+<li>Wrote Cypress.io test suite to automate end-to-end testing on all CRUD operations against API</li>
+</ul>');
+
+# prompt automator:
+
+insert into projects (project_status, project_type,
+                      project_startdate, project_launchdate,
+                      project_startyear, project_launchyear, project_title, project_subtitle, project_desc,
+                      project_devurl, project_liveurl, project_client, project_companies, project_devtools,
+                      project_industries, project_team, project_technotes)
+values ('tagged', 'development', '2024-05-02', '2024-06-02',
+        '2024','2024',
+        'Prompt Automator',
+        'A tool to automate testing and comparing ChatGPT responses based on variations in prompts and configurations',
+        'a tool for helping entrepreneurs document their projects, and scaffold their systems.',
+        'https://github.com/eliataylor/promptautomator',
+         'https://promptautomator.taylormadetraffic.com',
+        'Presideo Creative', 'Taylor Made Traffic', 'Python, TypeScript, ReactJS, Material-UI', 'Technology',
+        '<a href=\'/team?qtfilter=E.A.Taylor\'>E.A.Taylor</a>: Developer',
+        '<ul>
+<li>Wrote tool to test performance of different OpenAI use cases allowing speed comparisons between Embeddings, Completions, and Assistants each with different prompt structures</li>
+<li>Wrote front end visualization table to filter and compare results</li>
+</ul>');
+
+
 select project_client, project_companies from projects;
 
 # /saman
@@ -64,7 +107,7 @@ select * from tags where tag_key like 'General Public License (GNU)' order by pr
 update tags set tag_key = 'Federal Laboratory Consortium' where tag_key like 'Federal%';
 update projects set project_technotes = replace(project_technotes, 'Sammie Khalil Taylor', 'Samanta Amna Khalil');
 
-select project_id, project_title, project_technotes, project_devtools, project_team, project_companies from projects where projects.project_companies like '%Federal%' order by project_id;
+select project_id, project_title, project_technotes, project_devtools, project_team, project_companies from projects where projects.project_companies like '%Track%' order by project_id;
 update projects set project_companies = replace(project_companies, 'Federal Laboratory Consortium', 'Federal Labs Consortium');
 
 
@@ -99,3 +142,11 @@ select project_id, project_title, project_devtools, project_technotes, project_t
 
 select project_id, project_title, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;
 
+
+
+
+SELECT P.*, I.*, min(I.image_weight) FROM projects P
+    LEFT JOIN images I
+    ON P.project_id = I.project_id
+    WHERE P.project_id IN (61, 62)
+    ORDER BY I.image_weight ASC, I.image_src DESC;

@@ -27,7 +27,7 @@ class Projects extends CI_Controller {
             "taylormade" => array("role" => 0, 'icon'=>'',  "title" => "TaylorMade"),
             "taylormade/development" => array("role" => 0, 'icon'=>'',  "title" => "TaylorMade " . $this->lang->en("Development")),
             "eli" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Eli")),
-            "eli/cover" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("CV Cover Letter")),
+            "eli/cv" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("CV")),
             "saman" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Saman")),
 
             "projects" => array("role" => 0, 'icon'=>'',  "title" => $this->lang->en("Projects")),
@@ -47,8 +47,8 @@ class Projects extends CI_Controller {
             return $this->sendOut('loginForm');
         }
         $routing = $this->uri->rsegment_array();
-        $method = (count($routing) > 1) ? $routing["2"] : 'industries';
-        if (!method_exists($this, $method)) $method = 'industries';
+        $method = (count($routing) > 1) ? $routing["2"] : 'technologies';
+        if (!method_exists($this, $method)) $method = 'technologies';
 
         if (isset($this->data['qmenu'][$path])) $this->data['docTitle'] = $this->data['qmenu'][$path]['title'];
         if (!empty($this->data['qtfilter'])) $this->data['docTitle'] .= ' :: ' . $this->data['qtfilter'];
@@ -375,6 +375,21 @@ class Projects extends CI_Controller {
         }
     }
 
+    public function projects_list(){
+        $pids = $this->input->get_post('pids');
+        if (empty($pids)) {
+            return $this->sendOut();
+        }
+        $this->getTableForProjects();
+        $this->data['showGroup'] = true;
+        if (isset($_GET['cv'])) {
+            $this->load->model('Users_model', 'user');
+            array_unshift($this->data['pages'], $this->load->view('tag_story', $this->data, TRUE));
+            $this->data['uProfile'] = $this->users->getUserByName('E.A.Taylor');
+        }
+        $this->sendOut('projects_table');
+    }
+
     private function images() {
         $this->data['headers'] = array();
         $this->data['tableRows'] = $this->projects->getImages();
@@ -412,6 +427,10 @@ class Projects extends CI_Controller {
 
         $seg = $this->uri->segment(2);
         if ($seg  == 'development' || $seg  == 'design') $rows = $this->projects->getProjectsByType($seg);
+        else if ($seg  == 'cv' && $this->input->get_post('pids')) {
+            $pids = explode(',' , $this->input->get_post('pids'));
+            $rows = $this->projects->getProjectsByIds($pids);
+        }
         else $rows = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
 
         $this->data['projects_count'] = 0;

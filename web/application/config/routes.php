@@ -18,7 +18,12 @@ $route['taylormade/design'] = "projects/taylormade";
 $route['taylormade'] = "projects/taylormade";
 
 $route['eli'] = "projects/eli";
+
+$route['eli/cv'] = "projects/projects_list";
+
 $route['saman'] = "projects/saman";
+
+
 
 $route['team'] = "projects/team";
 $route['roles'] = "projects/team";

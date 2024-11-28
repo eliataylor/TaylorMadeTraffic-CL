@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `users_status_key` (`user_status`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
-
+---
 INSERT INTO `users` (`user_id`, `user_email`, `user_passhash`, `user_screenname`, `user_status`, `user_last_login`, `user_2ndlast_login`) VALUES
 (1, 'eli@taylormadetraffic.com', 'df749b0c433f2d82151488ab8861c200', 'Eli Taylor', 10, 1389042155, 1389041565);
 
