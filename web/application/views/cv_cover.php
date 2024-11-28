@@ -30,7 +30,7 @@
             Feel free to ask for profiles, references, documentation or demos on any of my work listed below or throughout my <strong>online portfolio: <a href="https://taylormadetraffic.com/eli" target="_blank">taylormadetraffic.com/eli</a></strong>
         </p>
         <p>
-            Now that our son is 3.3, we've decided to move back home to the Bay Area to be near family and put him into
+            Now that our son is 4, we've decided to move back home to the Bay Area to be near family and put him into
             a better school. In turn, it seems like now a good time to explore opportunities like yours.
         </p>
     </section>
