@@ -6,7 +6,7 @@
         valuable when working with teams across South America.</p>
 
     <p>I've organized my experience below to highlight the languages listed in your job description. However, syntax
-        has never been an obstacle and for a clearer chronology of my work please visit <b>taylormadetraffic.com/eli</b>.</p>
+        has never been an obstacle and for a clearer chronology of my work please visit <b>taylormadetraffic.com/eli/cv</b>.</p>
     <p>
         Overall, from over 20 years of debugging and designing systems, I've grown a strong appreciation for problem-solving,
         test-driven development, and agile methodologies.</p>

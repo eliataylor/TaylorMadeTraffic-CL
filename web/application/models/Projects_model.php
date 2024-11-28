@@ -60,10 +60,11 @@ class Projects_Model extends CI_Model {
         		LEFT JOIN tags T on P.project_id = T.project_id
         		LEFT JOIN images I on P.project_id = I.project_id ";
 
-        if ($this->uri->segment(1) == 'eli')
-        	$wheres = array("project_status = 'current' ");
-        else
-        	$wheres = array("project_status != 'deleted' ");
+        if ($this->uri->segment(1) == 'eli' && empty($this->uri->segment(2))) {
+            $wheres = array("project_status = 'current' ");
+        } else {
+            $wheres = array("project_status != 'deleted' ");
+        }
 
         if ($type == 'team') {
         	array_push($wheres, " T.tag_type LIKE 'team_%' ");

@@ -382,8 +382,14 @@ class Projects extends CI_Controller {
     public function projects_list(){
         $pids = $this->input->get_post('pids');
         if (empty($pids)) {
-            return $this->sendOut();
+            $this->data['qtags'] = 'team';
+            $this->data['qtfilter'] = 'E.A.Taylor';
+            $this->data['qgroup'] = 'project_client';
+
+            //$this->data['qhaving'] = 2
+            return $this->team();
         }
+
         $this->getTableForProjects();
         $this->data['showGroup'] = true;
         if (isset($_GET['intro'])) {
