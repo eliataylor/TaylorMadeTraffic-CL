@@ -12,6 +12,7 @@ Style Params:
 - `education`: show education
 - `logos`: show company logos
 - `qtfilter`: comman deliminated list of tech tags
+- `intro`: show short intro paragraph
 
 - CV by Tech Tag
 Ex: https://taylormadetraffic.com/eli?cv&noPics&condensed&year_min=2017&education&cover

@@ -203,6 +203,10 @@ class Projects extends CI_Controller {
 
             $this->regroupProjects();
 
+            if (isset($_GET['intro'])) {
+                array_unshift($this->data['pages'], $this->load->view('cv_intro', $this->data, TRUE));
+            }
+
             $this->load->model('Users_model', 'user');
             $this->data['uProfile'] = $this->users->getUserByName($this->data['qtfilter']);
             $this->sendOut('projects_table');
@@ -382,8 +386,10 @@ class Projects extends CI_Controller {
         }
         $this->getTableForProjects();
         $this->data['showGroup'] = true;
+        if (isset($_GET['intro'])) {
+            array_unshift($this->data['pages'], $this->load->view('cv_intro', $this->data, TRUE));
+        }
         if (isset($_GET['cv'])) {
-            // array_unshift($this->data['pages'], $this->load->view('cv_intro', $this->data, TRUE));
 
             $this->load->model('Users_model', 'user');
             array_unshift($this->data['pages'], $this->load->view('tag_story', $this->data, TRUE));
