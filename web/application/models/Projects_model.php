@@ -62,6 +62,10 @@ class Projects_Model extends CI_Model {
 
         if ($this->uri->segment(1) == 'eli' && empty($this->uri->segment(2))) {
             $wheres = array("project_status = 'current' ");
+            $wheres[] = "P.project_type = 'development' ";
+        } else if ($this->uri->segment(1) == 'eli' && $this->uri->segment(2) === 'cv') {
+            $wheres = array("project_status != 'deleted' ");
+            $wheres[] = "P.project_type = 'development' ";
         } else {
             $wheres = array("project_status != 'deleted' ");
         }

@@ -8,3 +8,11 @@ web/application/config/unversioned.php
 thumbs.db
 Icon?
 Thumbs.db
+
+web/application/logs
+web/public
+localhost.sql
+sql
+certs
+*.pdf
+private.txt

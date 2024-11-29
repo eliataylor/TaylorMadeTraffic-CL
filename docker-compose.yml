@@ -8,13 +8,20 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "9003:9003" # Xdebug port
     volumes:
+      - ../../kapunahale/codeignitor:/var/www/kapunahale:delegated
       - ./web:/var/www/html:delegated
       - ./apache-config:/etc/apache2/sites-enabled
       - ./certs:/etc/ssl/certs:ro
+      - ./xdebug:/usr/local/etc/php/conf.d # Xdebug configuration
     environment:
       - APACHE_RUN_USER=www-data
       - APACHE_RUN_GROUP=www-data
+      - XDEBUG_MODE=debug
+      - XDEBUG_CLIENT_HOST=host.docker.internal
+      - XDEBUG_CLIENT_PORT=9003
+      - PHP_IDE_CONFIG=serverName=lamp_apache
     depends_on:
       - mysql
     command: >
@@ -36,3 +43,4 @@ services:
 
 volumes:
   mysql-data:
+  xdebug: # Volume for xdebug.ini
