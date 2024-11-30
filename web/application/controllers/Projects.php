@@ -241,6 +241,9 @@ class Projects extends CI_Controller {
             if (!isset($row->{$this->data['qgroup']})) {
   				$this->data['qgroup'] = 'project_client'; // should never happen
   			}
+
+            $this->data['qgroup'] = preg_replace('/\s/', '', $this->data['qgroup']);
+
             $company = $row->{$this->data['qgroup']};
             if (!isset($groups[$company])) {
                 $groups[$company] = $this->users->getCompanyByName($company);
@@ -252,9 +255,8 @@ class Projects extends CI_Controller {
                         $groups[$company]['company_enddate'] = null;
 
                     $groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
-
+                    $groups[$company] = $this->users->getCompanyByName($company);
                 }
-                $groups[$company] = $this->users->getCompanyByName($company);
                 $groups[$company]['startDate'] =  (!empty( $groups[$company]['company_startdate'] )) ?
                     strtotime($groups[$company]['company_startdate']) :
                     strtotime($row->project_startdate);
@@ -458,6 +460,7 @@ class Projects extends CI_Controller {
             if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
             if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
 
+            $this->data['qgroup'] = preg_replace('/\s/', '', $this->data['qgroup']);
         	$company = $row->{$this->data['qgroup']};
         	if (!isset($groups[$company])) {
         		$groups[$company] = $this->users->getCompanyByName($company);

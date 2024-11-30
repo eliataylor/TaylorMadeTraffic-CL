@@ -2,7 +2,7 @@ use localdb;
 set sql_mode = "STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"
 
 
-select project_id, project_title, project_technotes, project_devtools from projects order by project_id desc;
+select project_id, project_title, project_technotes, project_tech_short, project_devtools from projects order by project_id desc;
 desc projects;
 
 -- UPDATE `projects` SET `project_team` = '<a href=\"/team?qtfilter=E.A.Taylor\">E.A.Taylor</a>: Front-End, Back-End.\r\n<a href=\"/team?qtfilter=David Hilliard\">David Hilliard</a>: Brand Development.\r\n<a href=\"/team?qtfilter=Justin Herman\">Justin Herman</a>: Flash Movie Animation.' WHERE `projects`.`project_id` = 23
@@ -123,7 +123,7 @@ select * from tags where tag_key like '%CSS3%' order by tag_date desc;
 select project_id, project_title, project_devtools from projects where project_devtools like '%Node-Red%' order by project_startdate desc;
 
 
-select project_id, project_title, project_technotes, project_devtools from projects where projects.project_devtools like '%drupal%';
+select project_id, project_title, project_technotes, project_devtools from projects where projects.project_type = 'development' order by project_id desc;
 
 select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 

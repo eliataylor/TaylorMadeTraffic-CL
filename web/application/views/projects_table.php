@@ -9,7 +9,7 @@
         <?php endif; ?>
         <?php foreach ($groups as $index => $company): ?>
 
-            <div class="companySection" data-company="<?php echo $company['company_tagname']; ?>">
+            <div class="companySection" data-index="<?php echo $index; ?>" data-company="<?php echo $company['company_tagname']; ?>">
 
                 <?php
 

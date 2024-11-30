@@ -11,7 +11,7 @@ Style Params:
 - `cover`: show cover letter
 - `education`: show education
 - `logos`: show company logos
-- `qtfilter`: comman deliminated list of tech tags
+- `qtfilter`: comman deliminatd list of tech tags. This also sorts the list of technology tag below each project
 - `intro`: show short intro paragraph
 
 - CV by Tech Tag

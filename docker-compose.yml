@@ -8,13 +8,13 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "9003:9003" # Xdebug port
+#      - "9003:9003" # Xdebug port
     volumes:
-      - ../../kapunahale/codeignitor:/var/www/kapunahale:delegated
       - ./web:/var/www/html:delegated
+      - ../../kapunahale/codeignitor:/var/www/kapunahale:delegated
       - ./apache-config:/etc/apache2/sites-enabled
       - ./certs:/etc/ssl/certs:ro
-      - ./xdebug:/usr/local/etc/php/conf.d # Xdebug configuration
+#      - ./xdebug:/usr/local/etc/php/conf.d # Xdebug configuration
     environment:
       - APACHE_RUN_USER=www-data
       - APACHE_RUN_GROUP=www-data

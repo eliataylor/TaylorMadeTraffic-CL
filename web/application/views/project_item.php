@@ -2,7 +2,7 @@
     <h3>
         <a href='/projects?pid=<?php echo $row->project_id; ?>'><?php echo $row->project_title; ?></a>
     </h3>
-    <?php if (!isset($_GET['condensed']) && !empty($row->project_subtitle)): ?>
+    <?php if (!isset($_GET['hide_subtitle']) && !empty($row->project_subtitle)): ?>
         <small><em><?php echo $row->project_subtitle; ?></em></small>
     <?php endif; ?>
 

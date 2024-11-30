@@ -1,12 +1,24 @@
-CREATE TABLE IF NOT EXISTS `tmt_sessions2`
-(
-    `id`         varchar(128) NOT NULL,
-    `ip_address` varchar(45)  NOT NULL,
-    `timestamp`  int(10) unsigned DEFAULT 0 NOT NULL,
-    `data`       blob         NOT NULL,
-    KEY          `ci_sessions_timestamp`(`timestamp`
-)
-    );
-
-ALTER TABLE tmt_sessions2
-    ADD PRIMARY KEY(id, ip_address);
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('years', '2020', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('years', '2021', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'Apache', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'Cypress.io', 65, '2021-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'Drupal', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('team_back-end', 'E.A.Taylor', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('team_business developmen', 'E.A.Taylor', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('team_business development', 'E.A.Taylor', 65, '2021-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('team_design', 'E.A.Taylor', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('team_front-end', 'E.A.Taylor', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('industries', 'events', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('industries', 'gaming', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'Material-UI', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('industries', 'music', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'mySQL', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'PHP', 65, '2021-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'ReactJS', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'Shell Scripting', 65, '2021-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'Symfony', 65, '2021-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('companies', 'Taylor Made Traffic', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('companies', 'TaylorMadeTraffic', 65, '2021-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('companies', 'Track Authority Music', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'WebVTT', 65, '2020-01-01', null, null, 'en');
+INSERT INTO localdb.tags (tag_type, tag_key, project_id, tag_date, tag_singular, tag_plural, tag_language) VALUES ('technologies', 'Youtube API', 65, '2020-01-01', null, null, 'en');

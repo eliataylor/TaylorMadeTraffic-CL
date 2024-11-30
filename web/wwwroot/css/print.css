@@ -43,12 +43,16 @@ dl.detailList{
     padding: 0;
 }
 
-.projectRow h3 { margin:0 0 5px 0;font-size:1em;  }
-.projectRow h3 a { text-decoration:none!important; color:#000!important; }
+.projectRow h3 { margin:0 0 0 0;font-size:1em;  }
+.projectRow h3 a { text-decoration:none!important; color: #495f8d
+}
+
 
 .projectLink { width:100%; margin:0 auto 10px auto!important; text-align:right; font-weight:900; }
 
 .technotes { background:#fff!important; margin:3px 0 8px 0;}
+.technotes a, .prjDesc a  { color:#000; }
+
 
 #tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style],
 .reflectionMask { display:none; }
