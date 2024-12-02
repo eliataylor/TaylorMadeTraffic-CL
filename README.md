@@ -13,13 +13,21 @@ Style Params:
 - `logos`: show company logos
 - `qtfilter`: comman deliminatd list of tech tags. This also sorts the list of technology tag below each project
 - `intro`: show short intro paragraph
+- `hide_subtitle`: hides the subtitle often not useful on printable CVs
 
 - CV by Tech Tag
 Ex: https://taylormadetraffic.com/eli?cv&noPics&condensed&year_min=2017&education&cover
 
 - CV by Tech Tag
-Ex. https://taylormadetraffic.com/technologies?qtfilter=React%20Native,Django,ReactJS&cv&condensed&education&year_min=2018&picSize=10
-- 
+Ex. https://taylormadetraffic.com/technologies?qtfilter=React%20Native,Django,ReactJS&cv&condensed&education&year_min=2018&noPics
+
+
+- CV
+Ex. https://localhost.taylormadetraffic.com/eli/cv?pids=65,57,49,47&cv&noPics&intro=fonzi&hide_subtitle=true&qtfilter=OpenCV,Kuberbetes,Cypressio,Websockets,WebRTC,HLS,Docker,ReactJS,TypeScript
+
+- Health: 
+- https://localhost.taylormadetraffic.com/eli/cv?pids=60,61,62,57,56,49&cv&noPics&intro=healthcare&hide_subtitle=true&qtfilter=Redux,Context,Material-UI,ReactJS,TypeScript&education
+
 
 # Dev:
 - docker-compose up -d

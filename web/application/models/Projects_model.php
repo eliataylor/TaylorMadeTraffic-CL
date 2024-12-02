@@ -149,8 +149,12 @@ class Projects_Model extends CI_Model {
     function getProjectsByIds($pids) {
         $sql = "SELECT P.* FROM projects P WHERE ";
         if (count($pids) > 1) {
-            $placeholders =  implode(', ', $pids);
-            $sql .= " P.project_id IN ($placeholders) ";
+            $placeholders = implode(',', array_fill(0, count($pids), '?'));
+            if (is_numeric($pids[0])) {
+                $sql .= " P.project_id IN ($placeholders) ";
+            } else {
+                $sql .= " P.project_title IN ($placeholders) ";
+            }
             $params = $pids;
         } else {
             $sql .= " P.project_id = ? ";
