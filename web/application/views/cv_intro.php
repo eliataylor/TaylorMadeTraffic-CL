@@ -18,14 +18,12 @@
 
 <?php if ($this->input->get_post('intro') === 'reactnative'): ?>
 
-I have been building scalable mobile applications with React Native since 2019. Leveraging React
-Native’s versatility, I focus on creating seamless cross-platform experiences that balance
-performance and user-centric design. Some noteworthy features include efficient background
+<p>I have been building scalable mobile applications with React Native since 2019. Leveraging React
+Native's versatility, I focus on creating seamless cross-platform experiences that balance
+performance and user-centric design. Some noteworthy features include efficient background location tracking, audio recording, QR/barcode scanning, offline-first functionality, picture-in-
+picture mode, and robust authentication systems (email/password, SMS, OAuth, and MFA).</p>
 
-location tracking, audio recording, QR/barcode scanning, offline-first functionality, picture-in-
-picture mode, and robust authentication systems (email/password, SMS, OAuth, and MFA). I hope
-
-to bring my expertise to your team to continue building impactful solutions.
+    <p>I've also played a major role in the APIs and architecture for all these apps. You can review more of that work at <b>taylormadetraffic.com/eli</b>.</p>
 
 <?php endif; ?>
 
@@ -98,7 +96,7 @@ to bring my expertise to your team to continue building impactful solutions.
 <?php endif; ?>
 
 
-<?php if (false) ?>
+<?php if (false): ?>
 
 I was one of the first to do i.
 

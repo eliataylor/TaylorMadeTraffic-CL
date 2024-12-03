@@ -58,7 +58,7 @@ class Projects extends CI_Controller {
     private function setGlobals() {
         $this->data['qtags'] = $this->input->get_post('qtags');
         if (empty($this->data['qtags'])) $this->data['qtags'] = $this->uri->segment(1);
-        if (empty($this->data['qtags'])) $this->data['qtags'] = 'industries';
+        if (empty($this->data['qtags'])) $this->data['qtags'] = 'technologies';
         $this->data['qtfilter'] = $this->input->get_post('qtfilter');
         if (empty($this->data['qtfilter'])) $this->data['qtfilter'] = $this->uri->segment(2);
 

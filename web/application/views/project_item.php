@@ -18,9 +18,14 @@
 <?php if (!empty($row->project_desc)): ?>
     <div class="prjDesc"><?php echo $this->lang->ugc($row->project_desc); ?></div><?php endif ?>
 <?php if (!empty($row->project_tech_short) && isset($_GET['condensed'])): ?>
-    <div class="technotes"><?php echo $this->lang->ugc($row->project_tech_short); ?></div>
+    <div class="technotes">
+        <?php echo $this->lang->ugc($row->project_tech_short); ?>
+    </div>
 <?php elseif (!empty($row->project_technotes)): ?>
-    <div class="technotes"><?php echo $this->lang->ugc($row->project_technotes); ?></div><?php endif ?>
+    <div class="technotes">
+        <?php echo $this->lang->ugc($row->project_technotes); ?>
+    </div>
+<?php endif ?>
 
 <div class="projectTags">
 

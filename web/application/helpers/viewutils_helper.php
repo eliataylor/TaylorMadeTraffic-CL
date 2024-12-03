@@ -2,6 +2,38 @@
 // --------------------------------------------------------------------
 
 
+function parseTeamList($html) {
+    if (empty($html)) return 'no team data';
+
+    $result = [];
+
+    // Use DOMDocument to parse the HTML
+    $dom = new DOMDocument();
+    @$dom->loadHTML($html);
+
+    // Get all <a> tags
+    $anchors = $dom->getElementsByTagName('a');
+
+    foreach ($anchors as $anchor) {
+        $text = $anchor->nodeValue;
+
+        // Exclude the ones containing "E.A.Taylor"
+        if (stripos($text, "E.A.Taylor") === false) {
+            $result[] = $text;
+        }
+    }
+
+    if (empty($result)) return 'just me';
+
+    if (count($result) === 1) {
+        return '2 person team'; // maybe say "2 person team"
+    }
+
+    $str = '<li class="team_count">Worked with team of ' . count($result) . ' others</li>';
+    return $str;
+}
+
+
 function sortDevToolsByFilters($devtools, $filters) {
     if (empty($filters)) return $filters;
 
