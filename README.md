@@ -29,5 +29,11 @@ Ex. https://localhost.taylormadetraffic.com/eli/cv?pids=65,57,49,47&cv&noPics&in
 - https://localhost.taylormadetraffic.com/eli/cv?pids=60,61,62,57,56,49&cv&noPics&intro=healthcare&hide_subtitle=true&qtfilter=Redux,Context,Material-UI,ReactJS,TypeScript&education
 
 
+- FrontEnd
+- https://localhost.taylormadetraffic.com/eli/cv?pids=fwcanvass,djmote,democrasee,wbat,refined motion,flexible vision,pickupmvp,object/actions,Track Authority Music frontend&cv&noPics&intro=frontend&hide_subtitle=true&qtfilter=ReactJS,TypeScript,Redux,Context,Material-UI,NodeJS,Cypress,Firebase&education
+
+
+
+
 # Dev:
 - docker-compose up -d

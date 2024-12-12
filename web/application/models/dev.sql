@@ -138,15 +138,20 @@ update tags set tag_type = replace(tag_type, '.', '') where tag_type like '%.';
 
 select project_id, project_title, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;
 
-select project_id, project_title, project_devtools, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;
+select project_id, project_title, project_devtools, project_technotes, project_tech_short from projects
+where project_status = 'current' order by project_id desc;
 
-select project_id, project_title, project_technotes, project_tech_short from projects where project_status = 'current' order by project_id desc;
+select project_id, project_title, project_technotes, project_devtools from projects
+where project_title like '%Pickup%' order by project_id desc;
 
 
+INSERT INTO tags (project_id, tag_type, tag_key, tag_date, tag_singular, tag_plural, tag_language)
+SELECT 68, tag_type, tag_key, tag_date, tag_singular, tag_plural, tag_language FROM tags
+WHERE project_id = 57;
 
 
 SELECT P.*, I.*, min(I.image_weight) FROM projects P
     LEFT JOIN images I
     ON P.project_id = I.project_id
-    WHERE P.project_id IN (61, 62)
+    WHERE P.project_id IN (62)
     ORDER BY I.image_weight ASC, I.image_src DESC;
