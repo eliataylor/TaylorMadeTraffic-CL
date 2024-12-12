@@ -35,13 +35,12 @@
 <?php if ($this->input->get_post('intro') === 'frontend'): ?>
 
     <section style="font-size: 100%; line-height: 22px; margin:10px auto 0 auto; text-align: justify">
-        <p>
-            From over 20 years of debugging and designing systems, I've grown a strong appreciation for problem-solving,
-            test-driven development, and building beautifully user-centric products. For a deeper look into my work
-            please visit <b>taylormadetraffic.com/eli</b></p>
+            With over 20 years designing, developing, and debugging applications, I can hit the ground running and make an impact from day one.
 
-        <p>Although I've grown strong expertise with several tech stacks, I mostly enjoy working closer to the product
-            from the API to the front-end with TypeScript and ReactJS</p>
+            Although extremely versed in several backend stacks, I mostly enjoy working closer to the interface
+            with TypeScript and ReactJS.
+
+            For a deeper look into my work please visit taylormadetraffic.com/eli/cv
     </section>
 <?php endif; ?>
 
@@ -50,20 +49,16 @@
 
 <?php if ($this->input->get_post('intro') === 'frontend-long'): ?>
 
-    <p>With over 20 years of experience designing and developing applications, I can hit the ground running and make an
-        impact from day one.
-        <br/>
-        And with all that time debugging, I now know how to harness the benefits of AI to enhance my work, while
-        ensuring core architecture and best practices remain grounded in my expertise.
-        <br/>
-        I arrive ready with proactive approach to every project, without overbearing anyone when tasks are already
-        organized.
+    <p>With over 20 years of experience designing, developing, and debugging applications, I can hit the ground running and make an impact from day one.
 
-        <br/>
-        I'm no stranger to tight deadlines and rapid development cycles and have
-        developed the mental resilience and adaptability needed to tackle them head-on.
-        <br/>
-        For more details on my work visit TaylorMadeTraffic.com/eli/cv</p>
+        Having witnessed the raise and fall of many technologies, I bring all the modern benefits of AI and advanced IDEs in my work, but ensure core architecture and best practices remain grounded in my expertise.
+
+        I love working independently to achieve goals and can also follow direction with precision, always in line with team objectives.
+
+    Although extremely versed in several backend stacks, I mostly enjoy working closer to the interface and product experience
+        with TypeScript and ReactJS.
+
+        For a deeper look into my work visit TaylorMadeTraffic.com/eli/cv</p>
 
 
 <?php endif; ?>

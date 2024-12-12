@@ -30,7 +30,7 @@ Ex. https://localhost.taylormadetraffic.com/eli/cv?pids=65,57,49,47&cv&noPics&in
 
 
 - FrontEnd
-- https://localhost.taylormadetraffic.com/eli/cv?pids=fwcanvass,djmote,democrasee,wbat,refined motion,flexible vision,pickupmvp,object/actions,Track Authority Music frontend&cv&noPics&intro=frontend&hide_subtitle=true&qtfilter=ReactJS,TypeScript,Redux,Context,Material-UI,NodeJS,Cypress,Firebase&education
+- https://localhost.taylormadetraffic.com/eli/cv?pids=fwcanvass,djmote,democrasee,wbat,refined motion,flexible vision,pickupmvp,object/actions,TrackAuthorityMusic.com&cv&noPics&hide_subtitle=true&qtfilter=ReactJS,TypeScript,Redux,Context,Material-UI,NodeJS,Cypress,Firebase&education&intro=frontend
 
 
 
