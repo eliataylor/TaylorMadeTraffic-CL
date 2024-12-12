@@ -9,7 +9,7 @@
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="<?php echo $me['con']['lang']?>" />
 		<link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613820219" />
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613820229" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -138,7 +138,7 @@
             <div id='softNoticeBody'></div>
         </div>
         <div class="starSprite" style="display:none;" id="taPreloader" > </div>
-        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1613473186"></script>
+        <script type="text/javascript" src="/wwwroot/js/cubemanager.js?v=1613473199"></script>
 	<link rel="stylesheet" type="text/css" href="/wwwroot/js/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
 	<script type="text/javascript" src="/wwwroot/js/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
     </body>

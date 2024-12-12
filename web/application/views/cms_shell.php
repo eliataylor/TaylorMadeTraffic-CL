@@ -8,7 +8,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="author" content="Eli A Taylor" />
         <meta name="language" content="en-us" />
-        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613820207" />
+        <link type="text/css" rel="stylesheet" href="/wwwroot/css/cubes.css?v=1613820208" />
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <?php if ($me['con']['isMobile']): ?>
             <meta name="apple-mobile-web-app-capable" content="yes"  />

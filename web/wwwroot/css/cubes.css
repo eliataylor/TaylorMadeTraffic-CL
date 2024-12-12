@@ -1,7 +1,8 @@
 
 * { font-family: 'Chakra Petch', sans-serif;}
 
-a, a:visited, .alink { color:#5B74CF; }
+a, a:visited, .alink { color:#5B74CF;
+    cursor: pointer; }
 
 body { background:#000; color:#fff; font-family:Calibri, Arial, Sans-Serif; margin:.5em; }
 

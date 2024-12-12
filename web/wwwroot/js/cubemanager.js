@@ -26,6 +26,19 @@ i'll be done the same :/
                $(cont).find(".tablesorter").tablesorter({widgets: ['zebra']});
             }
 
+            if (document.getElementById('toggleAll')) {
+                const btn = document.getElementById('toggleAll');
+                btn.onclick = (e) => {
+                    if (btn.innerText === 'Open All') {
+                        ctx[cls].toggleAll('open');
+                        btn.innerText = 'Close All';
+                    } else {
+                        ctx[cls].toggleAll('close');
+                        btn.innerText = 'Open All';
+                    }
+                }
+            }
+
             $(cont).find('.companyHead').click(function() {
             	var groupname = $(this).attr('data-group');
                 var caret = $(this).find('.caret');
@@ -81,6 +94,12 @@ i'll be done the same :/
         toggleCaret: function() {
             $(this).find('.caret').toggle('open');
             $(this).find('.caret').toggle('closed');
+        },
+        toggleAll : function(open) {
+            $('.projectRow').each(function(){
+                if (open == 'open') $(this).slideDown();
+                else $(this).slideUp();
+            });
         },
         toggleGroupRows : function(groupname) {
         	$('.projectRow').each(function(){

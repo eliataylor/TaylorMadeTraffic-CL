@@ -3,13 +3,20 @@
         projects with this filter</p>
 <?php else: ?>
 
-<section class="<?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>">
+    <section class="<?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>">
         <?php if (isset($_GET['cv'])): ?>
             <h3>EXPERIENCE</h3>
         <?php endif; ?>
+
+
+        <?php if ($this->uri->segment(2) === 'cv'): ?>
+        <div id="toggleAll" class="alink" >Open All</div>
+        <?php endif; ?>
+
         <?php foreach ($groups as $index => $company): ?>
 
-            <div class="companySection" data-index="<?php echo $index; ?>" data-company="<?php echo $company['company_tagname']; ?>">
+            <div class="companySection" data-index="<?php echo $index; ?>"
+                 data-company="<?php echo $company['company_tagname']; ?>">
 
                 <?php
 
@@ -32,10 +39,10 @@
                             <?php if (!isset($_GET['noPics'])): ?>
                                 <div class="col image_src"
                                     <?php if (isset($_GET['picSize']) && $_GET['picSize'] > 0): ?>
-                                    style="width:<?php echo $_GET['picSize']; ?>%; min-width:<?php echo $_GET['picSize']; ?>%;"
+                                        style="width:<?php echo $_GET['picSize']; ?>%; min-width:<?php echo $_GET['picSize']; ?>%;"
                                     <?php endif; ?>
-                                    >
-                                        <?php $this->load->view(isset($_GET['picCount']) ? 'project_images' : 'project_imagelinks', ['row' => $row]); ?>
+                                >
+                                    <?php $this->load->view(isset($_GET['picCount']) ? 'project_images' : 'project_imagelinks', ['row' => $row]); ?>
                                 </div>
                             <?php endif; ?>
                             <div class="col project_title">
