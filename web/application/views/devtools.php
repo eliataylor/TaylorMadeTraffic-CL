@@ -1,6 +1,8 @@
 <?php
 
-$devtools = sortDevToolsByFilters($devtools, $qtfilter);
+if (!empty($qtfilter)) {
+    $devtools = sortDevToolsByFilters($devtools, $qtfilter);
+}
 if (empty($devtools)) return '';
 
 ?>

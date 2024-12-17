@@ -47,6 +47,7 @@
 
 
 
+
 <?php if ($this->input->get_post('intro') === 'frontend-long'): ?>
 
     <p>With over 20 years of experience designing, developing, and debugging applications, I can hit the ground running and make an impact from day one.
@@ -63,6 +64,19 @@
 
 <?php endif; ?>
 
+
+<?php if ($this->input->get_post('intro') === 'alo'): ?>
+
+    <section style="font-size: 100%; line-height: 22px; margin:10px auto 0 auto;">
+        With nearly 20 years designing, developing, and debugging applications, I can hit the ground running and make an impact from day one.
+
+        I'm well versed in literally every technology listed on this job description.
+
+        However, I'm mostly interested in this opportunity because of all the mobility I regained doing classes with Dylan Werner on Alo Moves.
+
+        This resume was tailored for this role but for a deeper look into my work please visit taylormadetraffic.com/eli/cv
+    </section>
+<?php endif; ?>
 
 <?php if ($this->input->get_post('intro') === 'healthcare'): ?>
 
@@ -88,7 +102,8 @@
         <p>
             From over 20 years of debugging and designing systems, I've grown a strong appreciation for problem-solving,
             test-driven development, and building beautifully user-centric products backed by scalable, efficient APIs
-            and databases. For a deeper look into my work please visit <b>taylormadetraffic.com/eli</b></p>
+            and databases. For a deeper look into my work please visit <b>taylormadetraffic.com/eli/cv</b>
+        </p>
     </section>
 <?php endif; ?>
 

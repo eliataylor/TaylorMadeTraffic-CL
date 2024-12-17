@@ -27,7 +27,7 @@
             games with real rewards and AI assisted highlight reels.
         </p>
         <p>
-            Feel free to ask for profiles, references, documentation or demos on any of my work listed below or throughout my <strong>online portfolio: <a href="https://taylormadetraffic.com/eli" target="_blank">taylormadetraffic.com/eli</a></strong>
+            Feel free to ask for references, documentation or demos on any of my work listed below or throughout my <strong>online portfolio: <a href="https://taylormadetraffic.com/eli" target="_blank">taylormadetraffic.com/eli</a></strong>
         </p>
         <p>
             Now that our son is 4, we've decided to move back home to the Bay Area to be near family and put him into
@@ -38,7 +38,7 @@
     <div class="col"></div>
 
     <footer class="letterhead" >
-        <?php $devtools = ['Full Stack', 'Machine Learning', 'Quality Assurance', 'Testing', 'Automation', 'Architecture']; ?>
+        <?php $devtools = ['Full Stack', 'Product Development', 'Quality Assurance', 'Dev Operations', 'Architecture']; ?>
         <div class="chip-container" >
             <?php foreach ($devtools as $tool): ?>
                 <div class="chip"><?php echo $tool; ?></div>
