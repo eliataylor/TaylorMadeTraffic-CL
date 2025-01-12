@@ -441,6 +441,7 @@ class Projects extends CI_Controller {
         $this->data['headers'] = array('image_src'=>$this->lang->en("Pics"));
         $this->data['headers']['project_title'] = $this->lang->en("Info");
         $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
+        $minYear = $this->input->get_post('year_min');
 
         $seg = $this->uri->segment(2);
         if ($seg  == 'development' || $seg  == 'design') $rows = $this->projects->getProjectsByType($seg);
@@ -459,6 +460,12 @@ class Projects extends CI_Controller {
 
             if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
             if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
+
+            if ($minYear && intval($minYear)) {
+                if (intval($minYear) > intval($row->project_launchyear)) {
+                    continue;
+                }
+            }
 
             $this->data['qgroup'] = preg_replace('/\s/', '', $this->data['qgroup']);
         	$company = $row->{$this->data['qgroup']};
