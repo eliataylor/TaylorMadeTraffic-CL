@@ -29,6 +29,7 @@
 
 <div class="projectTags">
 
+    <div class="projectLinks">
     <?php if (!empty($row->project_liveurl)): ?>
         <p class="projectLink">
             <a href="<?php echo $row->project_liveurl; ?>"
@@ -39,8 +40,9 @@
         <p class="projectLink">
         <a href="<?php echo $row->project_devurl; ?>"
            target="_blank"> <?php echo stripos($row->project_devurl, '//') ? substr($row->project_devurl, stripos($row->project_devurl, '//') + 2) : $row->project_devurl; ?></a>
-        </p><?php endif ?>
-
+        </p>
+    <?php endif ?>
+    </div>
 
     <?php if (!empty($row->project_devtools)): ?>
         <div class="project_devtools">

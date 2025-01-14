@@ -127,6 +127,8 @@ select project_id, project_title, project_technotes, project_devtools from proje
 
 select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 
+select project_id, project_title, project_desc, project_subtitle, project_technotes from projects order by project_client, project_id desc;
+
 select project_id, image_id, image_src, image_weight from images where project_id = 53 order by image_weight;
 
 select * from tags where tag_key = 'Neha Kotecha';

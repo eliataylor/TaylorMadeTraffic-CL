@@ -65,6 +65,13 @@ dl.detailList{
 .project_dates { color: #606060;}
 .projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
 
+.projectTags {    display: flex;
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: space-between; width:100%; }
+.projectLinks { }
+.project_devtools { }
+
 .companyHead .letterhead { padding:2px 8px; }
 
 /*
