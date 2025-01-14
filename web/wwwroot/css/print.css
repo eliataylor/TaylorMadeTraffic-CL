@@ -63,6 +63,7 @@ dl.detailList{
 #tmmOpening, #tmmCube, #tmmCube img {display:none;}
 .project_launchdate, .project_startdate { display:none; }
 .project_dates { color: #606060;}
+.project_header { margin-bottom:0; border-bottom:none; }
 .projectTags .industries, .projectTags .team, .projectTags .companies  { display:none; }
 
 .projectTags {    display: flex;
