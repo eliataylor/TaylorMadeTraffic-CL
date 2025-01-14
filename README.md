@@ -33,7 +33,11 @@ Ex. https://localhost.taylormadetraffic.com/eli/cv?pids=65,57,49,47&cv&noPics&in
 - https://localhost.taylormadetraffic.com/eli/cv?pids=fwcanvass,djmote,democrasee,wbat,refined motion,flexible vision,pickupmvp,object/actions,TrackAuthorityMusic.com&cv&noPics&hide_subtitle=true&qtfilter=ReactJS,TypeScript,Redux,Context,Material-UI,NodeJS,Cypress,Firebase&education&intro=frontend
 
 
+https://taylormadetraffic.com/technologies?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&picSize=15
 
+
+ReactJS / Python / PHP:
+https://taylormadetraffic.com/eli/cv?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&noPics&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Prompt%20Automator,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Object%2FActions
 
 # Dev:
 - docker-compose up -d
