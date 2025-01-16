@@ -6,11 +6,14 @@
         <small><em><?php echo $row->project_subtitle; ?></em></small>
     <?php endif; ?>
 
-    <?php if (isset($_GET['allDates'])): ?>
+    <?php
+        $dateRange = dateRange($row->project_startdate, $row->project_launchdate, 'month');
+    ?>
+
+    <?php if (!empty($dateRange) && isset($_GET['allDates'])): ?>
         <span class="project_dates">
-                                    <?php if (!empty($row->project_launchdate)): ?><?php echo $row->project_launchdate; ?> ~ <?php endif ?>
-            <?php echo $row->project_startdate; ?>
-                            </span>
+            <?php echo $dateRange; ?>
+        </span>
     <?php endif ?>
 </div>
 
@@ -30,18 +33,18 @@
 <div class="projectTags">
 
     <div class="projectLinks">
-    <?php if (!empty($row->project_liveurl)): ?>
-        <p class="projectLink">
-            <a href="<?php echo $row->project_liveurl; ?>"
-               target="_blank"> <?php echo stripos($row->project_liveurl, '//') ? substr($row->project_liveurl, stripos($row->project_liveurl, '//') + 2) : $row->project_liveurl; ?></a>
-        </p>
-    <?php endif ?>
-    <?php if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?>
-        <p class="projectLink">
-        <a href="<?php echo $row->project_devurl; ?>"
-           target="_blank"> <?php echo stripos($row->project_devurl, '//') ? substr($row->project_devurl, stripos($row->project_devurl, '//') + 2) : $row->project_devurl; ?></a>
-        </p>
-    <?php endif ?>
+        <?php if (!empty($row->project_liveurl)): ?>
+            <p class="projectLink">
+                <a href="<?php echo $row->project_liveurl; ?>"
+                   target="_blank"> <?php echo stripos($row->project_liveurl, '//') ? substr($row->project_liveurl, stripos($row->project_liveurl, '//') + 2) : $row->project_liveurl; ?></a>
+            </p>
+        <?php endif ?>
+        <?php if (!empty($row->project_devurl) && $row->project_devurl != $row->project_liveurl): ?>
+            <p class="projectLink">
+                <a href="<?php echo $row->project_devurl; ?>"
+                   target="_blank"> <?php echo stripos($row->project_devurl, '//') ? substr($row->project_devurl, stripos($row->project_devurl, '//') + 2) : $row->project_devurl; ?></a>
+            </p>
+        <?php endif ?>
     </div>
 
     <?php if (!empty($row->project_devtools)): ?>

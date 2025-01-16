@@ -80,7 +80,7 @@ h2, h3 { margin:0 }
 .technotes { background:#090909; word-break:break-word }
 .prjDesc img, .technotes img { width:97%; }
 .team a{ font-size:125%; }
-.project_dates { float:right; font-size:11px; color: #dadada; margin-bottom: 2px}
+.project_dates { font-size:11px; color: #dadada; margin-bottom: 2px}
 
 .sectTitle { margin:0; font-size:16px; text-decoration: underline; margin-top:15px; text-transform: capitalize;}
 .sectTitle img { width:30px; height:30px; margin:0 5px 0 0; float:left; }

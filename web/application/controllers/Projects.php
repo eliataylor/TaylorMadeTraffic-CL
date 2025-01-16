@@ -486,6 +486,7 @@ class Projects extends CI_Controller {
             $row->totalImages = count($row->images);
             array_push($groups[$company]['projects'], $row);
         }
+
         $this->data['groups'] = $groups;
     }
 
