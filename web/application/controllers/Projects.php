@@ -82,7 +82,10 @@ class Projects extends CI_Controller {
         if (isset($this->data['uProfile']) && !empty($this->data['uProfile'])) {
             if ($this->data['uProfile']['user_email'] === 'eli@taylormadetraffic.com') {
                 if (isset($_GET['cover'])) {
+                    array_unshift($this->data['pages'], $this->load->view('letterhead_bg', $this->data, TRUE));
+                    array_unshift($this->data['pages'], $this->load->view('user_header', $this->data, TRUE));
                     array_unshift($this->data['pages'], $this->load->view('cv_cover', $this->data, TRUE));
+
                 } elseif (isset($_GET['bio']) || !isset($_GET['cv'])) {
                     array_unshift($this->data['pages'], $this->load->view('user_profile', $this->data, TRUE));
                 } else {
