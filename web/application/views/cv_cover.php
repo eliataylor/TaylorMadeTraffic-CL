@@ -37,15 +37,8 @@
 
     <div class="col"></div>
 
-    <footer class="letterhead" >
-        <?php $devtools = ['Full Stack', 'Product Development', 'Quality Assurance', 'DevOps', 'Automation', 'Architecture']; ?>
-        <div class="chip-container" >
-            <?php foreach ($devtools as $tool): ?>
-                <div class="chip"><?php echo $tool; ?></div>
-            <?php endforeach; ?>
-        </div>
 
-        <?php $this->load->view('letterhead', ['variant' => 'footer', "style" => "opacity:1;"]); ?>
+    <footer class="letterhead" >
     </footer>
 
 </div>
