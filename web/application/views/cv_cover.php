@@ -24,7 +24,7 @@
             approach every project with the best practices of test-driven development, while pen-testing my servers and
             interfaces for security and performance under high traffic.</p>
         <p>
-            In parallel, I have dedicated time to building proprietary and passion projects - PickupMVP, Track Authority, and Objects/Actions - that have significantly enriched my professional skill set. These projects have allowed me to explore cutting-edge technologies like TensorFlow for machine learning and OpenAI for AI-driven applications. This hands-on experimentation has not only fueled my personal growth but also directly contributed to the innovative solutions I’ve implemented for my clients. By staying at the forefront of emerging tech trends, I ensure my work is both forward-thinking and impactful.
+            In parallel, I have dedicated time to building proprietary and passion projects - PickupMVP, Track Authority, and Objects/Actions - that have significantly enriched my professional skill set. These projects have allowed me to explore cutting-edge technologies like TensorFlow for computer vision and OpenAI for LLM driven applications. This hands-on experimentation has not only fueled my personal growth but also directly contributed to the innovative solutions I’ve implemented for my clients. By staying at the forefront of emerging tech trends, I ensure my work is both forward-thinking and impactful.
         </p>
         <p>
             Feel free to ask for references, documentation or demos on any of my work listed below or throughout my <strong>online portfolio: <a href="https://taylormadetraffic.com/eli" target="_blank">taylormadetraffic.com/eli</a></strong>
