@@ -51,8 +51,9 @@ dl.detailList{
 .projectLink { width:100%; margin:0 auto 10px auto!important; text-align:right; font-weight:900; }
 
 .technotes { background:#fff!important; margin:3px 0 8px 0;}
+.technotes a, .prjDesc  { line-height:16px; }
 .technotes a, .prjDesc a  { color:#000; }
-
+.technotes li { margin:0 0 0 15px; }
 
 #tagLinks, #navMenu, #navMenu[style], #tmmOpening, #tmmOpening[style],
 .reflectionMask { display:none; }
