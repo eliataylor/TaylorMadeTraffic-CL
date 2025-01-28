@@ -48,7 +48,7 @@ dl.detailList{
 }
 
 
-.projectLink { width:100%; margin:0 auto 10px auto!important; text-align:right; font-weight:900; }
+.projectLink { width:100%; margin:0 auto 0px auto!important; text-align:right; font-weight:900; }
 
 .technotes { background:#fff!important; margin:3px 0 8px 0;}
 .technotes a, .prjDesc  { line-height:16px; }
@@ -83,9 +83,12 @@ dl.detailList{
 
 /* MUI STUFF */
 .chip {
-    background-color:#A2B590; /* Set background color */
+    background-color:#A2B59080; /* Set background color */
     color: #181818; /* Set text color */
-    font-size:13px;
+    font-size:11px;
+    padding:2px 4px;
+    border-radius:5px;
+
 }
 
 #toggleAll { display:none; }
