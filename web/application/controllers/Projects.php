@@ -137,7 +137,6 @@ class Projects extends CI_Controller {
             $this->getTableForProjects();
 
             if (isset($_GET['cv'])) {
-                $this->data['showGroup'] = true;
                $this->load->model('Users_model', 'user');
 
                array_unshift($this->data['pages'], $this->load->view('tag_story', $this->data, TRUE));
@@ -232,7 +231,7 @@ class Projects extends CI_Controller {
             $this->data['projects_count']++;
 
             if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
-            if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
+            // if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
 
             $minYear = $this->input->get_post('year_min');
             if ($minYear && intval($minYear)) {
@@ -396,7 +395,6 @@ class Projects extends CI_Controller {
         }
 
         $this->getTableForProjects();
-        $this->data['showGroup'] = true;
         if (isset($_GET['intro'])) {
             array_unshift($this->data['pages'], $this->load->view('cv_intro', $this->data, TRUE));
         }
@@ -446,6 +444,12 @@ class Projects extends CI_Controller {
         $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
         $minYear = $this->input->get_post('year_min');
 
+        if ($this->data['qgroup'] !== 'project_title') {
+            $this->data['showGroup'] = true;
+        } else {
+            $this->data['showGroup'] = false;
+        }
+
         $seg = $this->uri->segment(2);
         if ($seg  == 'development' || $seg  == 'design') $rows = $this->projects->getProjectsByType($seg);
         else if ($seg  == 'cv' && $this->input->get_post('pids')) {
@@ -462,7 +466,7 @@ class Projects extends CI_Controller {
         	}
 
             if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
-            if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
+            // if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
 
             if ($minYear && intval($minYear)) {
                 if (intval($minYear) > intval($row->project_launchyear)) {
@@ -473,20 +477,30 @@ class Projects extends CI_Controller {
             $this->data['qgroup'] = preg_replace('/\s/', '', $this->data['qgroup']);
         	$company = $row->{$this->data['qgroup']};
         	if (!isset($groups[$company])) {
-        		$groups[$company] = $this->users->getCompanyByName($company);
+                if ($this->data['qgroup'] === 'project_title') {
+                    $groups[$company] = $this->users->getCompanyByName('Taylor Made Traffic');
+                } else {
+                    $groups[$company] = $this->users->getCompanyByName($company);
+                }
                 $groups[$company]['startDate'] =  (!empty( $groups[$company]['company_startdate'] )) ?
                     strtotime($groups[$company]['company_startdate']) :
                     strtotime($row->project_startdate);
                 $groups[$company]['endDate'] =  (!empty( $groups[$company]['company_enddate'] )) ?
                     strtotime($groups[$company]['company_enddate']) :
                     time();
-        		$groups[$company]['projects'] = array();
+                $groups[$company]['projects'] = array();
+
         	}
             $this->data['projects_count']++;
             $images = $this->projects->getProjectImages($row->project_id);
             $row =  (object) array_merge((array)$row, (array) $images[0]);
             $row->images = $images;
             $row->totalImages = count($row->images);
+            if ($this->data['qgroup'] === 'project_title') {
+                foreach ($this->users->getCompanyByName($row->project_client) as $key => $value) {
+                    $row->$key = $value;
+                }
+            }
             array_push($groups[$company]['projects'], $row);
         }
 

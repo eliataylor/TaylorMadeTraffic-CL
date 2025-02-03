@@ -14,9 +14,12 @@
             through all life cycles of software development, from planning to deployment.
         </p>
         <p>
-            This resume begins in 2018 when I married a talented Graphic Designer and we launched a joint design and
-            development firm. We've spent the past 7 years building products and applications, while traveling the world and starting a
-            family.
+            This resume highlights the projects that most fit your job description.
+            Each project offers a brief summary of relevant work.
+            In the interested of brevity,
+            Those projects are grouped by company headers and
+            Because of that, the timeline show gaps or spans that overlap.
+            Over all these years, I've worked complete
         </p>
         <p>
             Through those years, Cypher and Flexible Assembly Systems have remained my most consistent clients. Their

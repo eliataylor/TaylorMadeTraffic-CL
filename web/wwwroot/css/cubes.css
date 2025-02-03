@@ -79,6 +79,9 @@ h2, h3 { margin:0 }
 .prjDesc { font-size: 14px; line-height: 22px; text-align:justify;   }
 .technotes { background:#090909; word-break:break-word }
 .prjDesc img, .technotes img { width:97%; }
+
+.timelineNote { padding:0 5px; line-height: 14px;}
+
 .team a{ font-size:125%; }
 .project_dates { font-size:11px; color: #dadada; margin-bottom: 2px}
 
@@ -98,7 +101,13 @@ section h4 { margin:0; }
 .userSummary { margin-bottom:40px; }
 .userSummary ul, .userEducation ul {padding:auto; margin:0;}
 .userEducation li, .userSummary li  { list-style-type:disc; margin-left:25px;}
+
 .myrole {font-weight:bolder; font-size: 120% }
+[aria-groupby='project_title'] .technotes { border:0 none; }
+[aria-groupby='project_title'] .companyHead { margin-bottom: 0; }
+[aria-groupby='project_title'] .myrole { font-size:100%; }
+[aria-groupby='project_title'] .projectRow h3 { font-size:120%; }
+[aria-groupby='project_title'] .project_dates { font-size:11px; color: #000000; margin-bottom:0}
 
 /*
 .prjBiz {font-size: 13px;} .prjBiz li  { list-style:decimal; }

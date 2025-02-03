@@ -154,10 +154,11 @@ function dateRange($start, $end, $format = "short")
         $parts[] = fDate($part, $format);
     }
 
-    if ($end && $part = strtotime($end)) {
+    if (empty($end)) {
+        $parts[] = 'Present';
+    } else if ($part = strtotime($end)) {
         $parts[] = fDate($part, $format);
     }
-
 
     if (sizeof($parts) > 0) return implode(' ~ ', $parts);
     return '';

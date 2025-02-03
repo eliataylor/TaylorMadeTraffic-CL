@@ -3,7 +3,7 @@
         projects with this filter</p>
 <?php else: ?>
 
-    <section class="<?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>">
+    <section class="<?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>" aria-groupby="<?php echo $qgroup; ?>">
         <?php if (isset($_GET['cv'])): ?>
             <h3>EXPERIENCE</h3>
         <?php endif; ?>
@@ -20,7 +20,7 @@
 
                 <?php
 
-                if (isset($showGroup) && count($company['projects']) > 0) {
+                if (isset($showGroup) && $showGroup === true && count($company['projects']) > 0) {
                     if ($qhaving > 0 && $qhaving > count($company['projects'])) {
                         continue; // don't show group
                     }
@@ -30,7 +30,7 @@
 
                 ?>
 
-                <?php foreach ($company['projects'] as $row): ?>
+                <?php foreach ($company['projects'] as $project_index=>$row): ?>
                     <div class="container projectRow"
                          id="pid_<?php echo $row->project_id ?>"
                          data-pid="<?php echo $row->project_id ?>"
@@ -46,7 +46,7 @@
                                 </div>
                             <?php endif; ?>
                             <div class="col project_title">
-                                <?php $this->load->view('project_item', ['row' => $row]); ?>
+                                <?php $this->load->view('project_item', ['row' => $row, 'index'=>$project_index]); ?>
                             </div>
                         </div>
                     </div>

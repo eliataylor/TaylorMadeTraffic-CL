@@ -1,25 +1,31 @@
-<div class="project_header">
-    <h3>
-        <a href='/projects?pid=<?php echo $row->project_id; ?>'><?php echo $row->project_title; ?></a>
-    </h3>
-    <?php if (!isset($_GET['hide_subtitle']) && !empty($row->project_subtitle)): ?>
-        <small><em><?php echo $row->project_subtitle; ?></em></small>
-    <?php endif; ?>
+<?php if (isset($_GET['cv']) && $showGroup === false): ?>
+    <?php $this->load->view('project_item_header', ['row' => $row, 'index' => $index]); ?>
+<?php else: ?>
+    <div class="project_header">
+        <h3>
+            <a href='/projects?pid=<?php echo $row->project_id; ?>'><?php echo $row->project_title; ?></a>
+        </h3>
+        <?php if (!isset($_GET['hide_subtitle']) && !empty($row->project_subtitle)): ?>
+            <small><em><?php echo $row->project_subtitle; ?></em></small>
+        <?php endif; ?>
 
-    <?php
+        <?php
         $dateRange = dateRange($row->project_startdate, $row->project_launchdate, 'month');
-    ?>
+        ?>
 
-    <?php if (!empty($dateRange) && isset($_GET['allDates'])): ?>
-        <span class="project_dates">
+        <?php if (!empty($dateRange) && isset($_GET['allDates'])): ?>
+            <span class="project_dates">
             <?php echo $dateRange; ?>
         </span>
-    <?php endif ?>
-</div>
+        <?php endif ?>
+    </div>
+<?php endif; ?>
 
 
-<?php if (!empty($row->project_desc)): ?>
-    <div class="prjDesc"><?php echo $this->lang->ugc($row->project_desc); ?></div><?php endif ?>
+
+<?php if (!empty($row->project_desc) && !isset($_GET['hide_desc'])): ?>
+    <div class="prjDesc"><?php echo $this->lang->ugc($row->project_desc); ?></div>
+<?php endif ?>
 <?php if (!empty($row->project_tech_short) && isset($_GET['condensed'])): ?>
     <div class="technotes">
         <?php echo $this->lang->ugc($row->project_tech_short); ?>

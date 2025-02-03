@@ -102,7 +102,9 @@ class Projects_Model extends CI_Model
             array_push($params, $having);
         }
 
-        $sql .= ' order by P.project_type desc, P.project_launchdate desc, P.project_startdate desc';
+
+        $sql .= 'ORDER BY P.project_launchdate IS NOT NULL, P.project_launchdate DESC, P.project_startdate desc';
+        # $sql .= ' order by P.project_type desc, P.project_launchdate desc, P.project_startdate desc';
         $query = $this->db->query($sql, $params);
         if ($query->num_rows() > 0) {
             $rows = $query->result_object();
@@ -190,7 +192,7 @@ class Projects_Model extends CI_Model
             $sql .= " P.project_id = ? ";
             $params = $pids;
         }
-        $sql .= 'ORDER BY P.project_startdate DESC';
+        $sql .= 'ORDER BY P.project_launchdate IS NOT NULL, P.project_launchdate DESC';
         $query = $this->db->query($sql, $params);
         // echo $this->db->last_query();
         if ($query->num_rows() > 0) return $query->result_object();

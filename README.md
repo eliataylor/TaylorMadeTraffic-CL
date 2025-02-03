@@ -1,6 +1,7 @@
 # TMT Portfolio
 
 Style Params:
+- `groupby` project | company (default)
 - `cv`: print format
 - `allDates`: show dates for actual projects
 - `noPics`: hide all pics
@@ -12,9 +13,10 @@ Style Params:
 - `cover`: show cover letter
 - `education`: show education
 - `logos`: show company logos
-- `qtfilter`: comman deliminatd list of tech tags. This also sorts the list of technology tag below each project
+- `qtfilter`: comma-deliminated list of tech tags. This also sorts the list of technology tag below each project
 - `intro`: show short intro paragraph
 - `hide_subtitle`: hides the subtitle often not useful on printable CVs
+- `hide_desc`: hides the project descriptions
 
 - CV by Tech Tag
 Ex: https://taylormadetraffic.com/eli?cv&noPics&condensed&year_min=2017&education&cover
