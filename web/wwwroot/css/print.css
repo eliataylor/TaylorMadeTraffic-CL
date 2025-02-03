@@ -79,7 +79,7 @@ dl.detailList{
 /*
 .companySection[data-company="Cypher LLC"] { page-break-after: always }
 .companySection[data-company="Flexible Assembly Systems"] { page-break-after: always }
- */
+*/
 
 /* MUI STUFF */
 .chip {
@@ -88,7 +88,6 @@ dl.detailList{
     font-size:11px;
     padding:2px 4px;
     border-radius:5px;
-
 }
 
 #toggleAll { display:none; }
