@@ -452,7 +452,7 @@ class Projects extends CI_Controller {
 
         $seg = $this->uri->segment(2);
         if ($seg  == 'development' || $seg  == 'design') $rows = $this->projects->getProjectsByType($seg);
-        else if ($seg  == 'cv' && $this->input->get_post('pids')) {
+        else if ($this->input->get_post('pids')) {
             $pids = explode(',' , $this->input->get_post('pids'));
             $rows = $this->projects->getProjectsByIds($pids);
         }

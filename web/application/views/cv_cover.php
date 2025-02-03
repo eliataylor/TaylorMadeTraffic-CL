@@ -14,27 +14,19 @@
             through all life cycles of software development, from planning to deployment.
         </p>
         <p>
-            This resume highlights the projects that most fit your job description.
-            Each project offers a brief summary of relevant work.
-            In the interested of brevity,
-            Those projects are grouped by company headers and
-            Because of that, the timeline show gaps or spans that overlap.
-            Over all these years, I've worked complete
+            This resume highlights the projects most relevant to your job description and is listed by date rather than company.
+            By the nature of freelance contracting, my work with clients has spanned many years with gaps in between sprints.
         </p>
         <p>
-            Through those years, Cypher and Flexible Assembly Systems have remained my most consistent clients. Their
+            Cypher and Flexible Assembly Systems have been my most consistent clients over the past 7 years. Their
             recommendations on my LinkedIn attest to my work ethic and customer satisfaction. As for code quality, I
             approach every project with the best practices of test-driven development, while pen-testing my servers and
             interfaces for security and performance under high traffic.</p>
         <p>
-            In parallel, I have dedicated time to building proprietary and passion projects - PickupMVP, Track Authority, and Objects/Actions - that have significantly enriched my professional skill set. These projects have allowed me to explore cutting-edge technologies like TensorFlow for computer vision and OpenAI for LLM driven applications. This work has not only fueled my personal growth but also directly contributed to the innovative solutions I’ve implemented for my clients. By staying at the forefront of emerging tech trends, I ensure my work is both forward-thinking and impactful.
+            In parallel, I invested time in myself through open source and proprietary ventures that have significantly enriched my professional skill set. This work has not only fueled my personal growth but also directly contributed to the innovative solutions I’ve implemented for my clients.
         </p>
         <p>
-            Feel free to ask for references, documentation or demos on any of my work listed below or throughout my <strong>online portfolio: <a href="https://taylormadetraffic.com/eli" target="_blank">taylormadetraffic.com/eli</a></strong>
-        </p>
-        <p>
-            Now that our son is 4, we've decided to settle back home to the Bay Area to be near family and put him into
-            a better school. In turn, it seems like now a good time to explore opportunities like yours.
+            For screenshots, videos, links and team members on each project visit my <strong>online portfolio: <a href="https://taylormadetraffic.com" target="_blank">taylormadetraffic.com</a></strong>
         </p>
     </section>
 

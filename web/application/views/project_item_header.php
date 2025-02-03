@@ -34,7 +34,7 @@ $variant = ($index || 1) % 2 == 0 ? 'footer' : 'header';
         <div class="col" style="text-align: right;">
             <div class="companyRegion">
                 <div class="locale">
-                    <?php echo $row->company_screenname; ?>
+                    <em><?php echo $row->company_screenname; ?></em>
                 </div>
                 <small>
                     <?php if (isset($row->company_city) && $row->company_city !== $row->company_state): ?>

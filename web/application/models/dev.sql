@@ -127,18 +127,18 @@ select * from tags where project_id = 67;
 
 select project_id, project_title, project_startdate, project_launchdate from projects where projects.project_type = 'development' order by project_title, project_id desc;
 
-select project_id, project_title, project_startdate, project_launchdate from projects where projects.project_type = 'development' order by project_startdate desc;
+select project_id, project_title, project_startdate, project_launchdate from projects where projects.project_type = 'development' order by project_startdate desc;∂
 
 select project_id, project_title, project_technotes, project_devtools from projects where projects.project_type = 'development' order by project_id desc;
 
 select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 
-select project_id, project_title, project_desc, project_subtitle, project_technotes from projects order by project_client, project_id desc;
+select project_id, project_title, project_technotes, project_launchdate from projects order by projects.project_launchdate is null desc, project_launchdate desc;
+
 
 select project_id, image_id, image_src, image_weight from images where project_id = 53 order by image_weight;
 
 select * from tags where tag_key = 'Neha Kotecha';
-
 
 update tags set tag_type = replace(tag_type, '.', '') where tag_type like '%.';
 <a href="/team?qtfilter=E.A.Taylor">E.A.Taylor</a>: Front-End, Back-End. <a href="/team?qtfilter=Aaron Silverberg">Aaron Silverberg</a>: Vice President. <a href="/team?qtfilter=Saiman Shetty">Saiman Shetty</a>: Project Management
@@ -156,6 +156,12 @@ where project_title like '%Pickup%' order by project_id desc;
 INSERT INTO tags (project_id, tag_type, tag_key, tag_date, tag_singular, tag_plural, tag_language)
 SELECT 68, tag_type, tag_key, tag_date, tag_singular, tag_plural, tag_language FROM tags
 WHERE project_id = 57;
+
+
+select * from tags where tag_key = '2025';
+
+INSERT INTO tags (project_id, tag_type, tag_key, tag_date)
+values (49, 'years', '2025', '2025-01-01');
 
 
 SELECT P.*, I.*, min(I.image_weight) FROM projects P

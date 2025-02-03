@@ -40,7 +40,7 @@ https://taylormadetraffic.com/technologies?qtfilter=ReactJS,Python,PHP,Django&cv
 
 
 ReactJS / Python / PHP:
-https://taylormadetraffic.com/eli/cv?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&noPics&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Prompt%20Automator,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Object%2FActions
+https://localhost.taylormadetraffic.com/eli/cv?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&noPics&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Objects%2FActions&qtfilter=ReactJS,Python,PHP,Django
 
 
 https://taylormadetraffic.com/eli/cv?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&noPics&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Objects%2FActions
