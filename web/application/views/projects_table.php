@@ -3,7 +3,7 @@
         projects with this filter</p>
 <?php else: ?>
 
-    <section class="<?php echo isset($_GET['noPics']) ? 'noPics' : ''; ?>" aria-groupby="<?php echo $qgroup; ?>">
+    <section class="<?php echo ($this->input->get("picSize") > 0 ? '' : 'noPics'); ?>" aria-groupby="<?php echo $qgroup; ?>">
         <?php if (isset($_GET['cv'])): ?>
             <h3>EXPERIENCE</h3>
         <?php endif; ?>
@@ -36,12 +36,9 @@
                          data-pid="<?php echo $row->project_id ?>"
                          <?php if (isset($groupname)): ?>data-group="<?php echo $groupname ?>"<?php endif; ?>>
                         <div class="row">
-                            <?php if (!isset($_GET['noPics'])): ?>
+                            <?php if (!isset($_GET["picSize"]) || $this->input->get("picSize") > 0): ?>
                                 <div class="col image_src"
-                                    <?php if (isset($_GET['picSize']) && $_GET['picSize'] > 0): ?>
-                                        style="width:<?php echo $_GET['picSize']; ?>%; min-width:<?php echo $_GET['picSize']; ?>%;"
-                                    <?php endif; ?>
-                                >
+                                    style="width:<?php echo $this->input->get("picSize"); ?>%; min-width:<?php echo $this->input->get("picSize"); ?>%;" >
                                     <?php $this->load->view(isset($_GET['picCount']) ? 'project_images' : 'project_imagelinks', ['row' => $row]); ?>
                                 </div>
                             <?php endif; ?>

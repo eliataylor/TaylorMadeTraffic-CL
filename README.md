@@ -4,7 +4,6 @@ Style Params:
 - `groupby` project | company (default)
 - `cv`: print format
 - `allDates`: show dates for actual projects
-- `noPics`: hide all pics
 - `picSize`: image size 0-100% 
 - `picCount`: number of pics to show 
 - `condensed`: removes subtitles
@@ -18,38 +17,45 @@ Style Params:
 - `hide_subtitle`: hides the subtitle often not useful on printable CVs
 - `hide_desc`: hides the project descriptions
 
-- CV by Tech Tag
-Ex: https://taylormadetraffic.com/eli?cv&noPics&condensed&year_min=2017&education&cover
+- BY DATE:
+- https://localhost.taylormadetraffic.com/eli?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&picSize=0
+
+- BY  CLIENT
+- https://localhost.taylormadetraffic.com/eli?cv&hide_desc&hide_subtitle&allDates&education&picSize=0
+
 
 - CV by Tech Tag
-Ex. https://taylormadetraffic.com/technologies?qtfilter=React%20Native,Django,ReactJS&cv&condensed&education&year_min=2018&noPics
+Ex: https://taylormadetraffic.com/eli?cv&picSize=0&condensed&year_min=2017&education&cover
+
+- CV by Tech Tag
+Ex. https://taylormadetraffic.com/technologies?qtfilter=React%20Native,Django,ReactJS&cv&condensed&education&year_min=2018&picSize=0
 
 
 - CV
-Ex. https://localhost.taylormadetraffic.com/eli/cv?pids=65,57,49,47&cv&noPics&intro=fonzi&hide_subtitle=true&qtfilter=OpenCV,Kuberbetes,Cypressio,Websockets,WebRTC,HLS,Docker,ReactJS,TypeScript
+Ex. https://localhost.taylormadetraffic.com/eli/cv?pids=65,57,49,47&cv&picSize=0&intro=fonzi&hide_subtitle=true&qtfilter=OpenCV,Kuberbetes,Cypressio,Websockets,WebRTC,HLS,Docker,ReactJS,TypeScript
 
 - Health: 
-- https://localhost.taylormadetraffic.com/eli/cv?pids=60,61,62,57,56,49&cv&noPics&intro=healthcare&hide_subtitle=true&qtfilter=Redux,Context,Material-UI,ReactJS,TypeScript&education
+- https://localhost.taylormadetraffic.com/eli/cv?pids=60,61,62,57,56,49&cv&picSize=0&intro=healthcare&hide_subtitle=true&qtfilter=Redux,Context,Material-UI,ReactJS,TypeScript&education
 
 
 - FrontEnd
-- https://localhost.taylormadetraffic.com/eli/cv?pids=fwcanvass,djmote,democrasee,wbat,refined motion,flexible vision,pickupmvp,object/actions,TrackAuthorityMusic.com&cv&noPics&hide_subtitle=true&qtfilter=ReactJS,TypeScript,Redux,Context,Material-UI,NodeJS,Cypress,Firebase&education&intro=frontend
+- https://localhost.taylormadetraffic.com/eli/cv?pids=fwcanvass,djmote,democrasee,wbat,refined motion,flexible vision,pickupmvp,object/actions,TrackAuthorityMusic.com&cv&picSize=0&hide_subtitle=true&qtfilter=ReactJS,TypeScript,Redux,Context,Material-UI,NodeJS,Cypress,Firebase&education&intro=frontend
 
 
 https://taylormadetraffic.com/technologies?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&picSize=15
 
 
 ReactJS / Python / PHP:
-https://localhost.taylormadetraffic.com/eli/cv?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&noPics&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Objects%2FActions&qtfilter=ReactJS,Python,PHP,Django
+https://localhost.taylormadetraffic.com/eli/cv?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&picSize=0&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Objects%2FActions&qtfilter=ReactJS,Python,PHP,Django
 
 
-https://taylormadetraffic.com/eli/cv?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&noPics&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Objects%2FActions
+https://taylormadetraffic.com/eli/cv?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&picSize=0&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Objects%2FActions
 
 
-https://taylormadetraffic.com/eli/cv?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&noPics&pids=fwcanvass,FieldWorks%20APIs,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Object%2FActions
+https://taylormadetraffic.com/eli/cv?qtfilter=ReactJS,Python,PHP,Django&cv&condensed&education&year_min=2018&picSize=0&pids=fwcanvass,FieldWorks%20APIs,Cosmo,FLC,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Track%20Authority%20Music%20backend,Object%2FActions
 
 # Django / React / Shell / AWS / Python
-https://taylormadetraffic.com/eli/cv?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&noPics&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Cosmo,WBAT,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Objects%2FActions&qtfilter=ReactJS,Python,Django,Shell,AWS
+https://taylormadetraffic.com/eli/cv?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&picSize=0&pids=fwcanvass,FieldWorks%20APIs,Djmote,DJmote%20API,Cosmo,WBAT,Flexible%20Vision,PickupMVP,PickupMVP%20Backend,Objects%2FActions&qtfilter=ReactJS,Python,Django,Shell,AWS
 
 # Dev:
 - docker-compose up -d

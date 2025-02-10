@@ -103,7 +103,7 @@ class Projects_Model extends CI_Model
         }
 
 
-        $sql .= 'ORDER BY P.project_launchdate IS NOT NULL, P.project_launchdate DESC, P.project_startdate desc';
+        $sql .= 'ORDER BY P.project_launchdate IS NOT NULL, P.project_launchdate DESC, P.project_startdate DESC';
         # $sql .= ' order by P.project_type desc, P.project_launchdate desc, P.project_startdate desc';
         $query = $this->db->query($sql, $params);
         if ($query->num_rows() > 0) {
