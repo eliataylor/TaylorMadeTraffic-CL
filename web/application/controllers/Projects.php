@@ -200,11 +200,6 @@ class Projects extends CI_Controller
 
     public function team()
     {
-        if ($this->data['qgroup'] !== 'project_title') {
-            $this->data['showGroup'] = true;
-        } else {
-            $this->data['showGroup'] = false;
-        }
 
         if (empty($this->data['qtfilter'])) {
             $this->data['headers'] = array(
@@ -241,6 +236,13 @@ class Projects extends CI_Controller
     {
         $groups = array();
 
+        if ($this->data['qgroup'] !== 'project_title' && $this->uri->segment(1) === 'eli') {
+            $this->data['showGroup'] = true;
+        } else {
+            $this->data['showGroup'] = false;
+        }
+
+
         $this->data['projects_count'] = 0;
         foreach ($this->data['tableRows'] as $index => &$row) {
             $row->images = $this->projects->getProjectImages($row->project_id);
@@ -260,39 +262,31 @@ class Projects extends CI_Controller
                 }
             }
 
-            $company = $row->{$this->data['qgroup']};
-            if (!isset($groups[$company])) {
-                if ($this->data['qgroup'] === 'project_title') {
-                    $groups[$company] = $this->users->getCompanyByName('Taylor Made Traffic');
-                } else {
-                    $groups[$company] = $this->users->getCompanyByName($company);
-                }
-
-                if (!$groups[$company]) {
-                    $groups[$company] = array('company_tagname' => $company, 'company_screenname' => $company, 'company_status' => 1);
-                    if (empty($groups[$company]['company_startdate']))
-                        $groups[$company]['company_startdate'] = $row->project_startdate;
-                    if (empty($groups[$company]['company_enddate']))
-                        $groups[$company]['company_enddate'] = null;
-
-                    $groups[$company]['company_id'] = $this->users->insertCompany($groups[$company]);
-                    $groups[$company] = $this->users->getCompanyByName($company);
-                }
-                $groups[$company]['startDate'] = (!empty($groups[$company]['company_startdate'])) ?
-                    strtotime($groups[$company]['company_startdate']) :
+            $companyName = $row->{$this->data['qgroup']};
+            $companyGroup = $companyName;
+            if ($this->data['qgroup'] === 'project_title') {
+                $companyName = $row->project_client;
+                $companyGroup = $row->project_id;
+            }
+            if (!isset($groups[$companyGroup])) {
+                $company = $this->users->getCompanyByName($companyName);
+                $company['startDate'] = (isset($company['company_startdate']) && !empty($company['company_startdate'])) ?
+                    strtotime($company['company_startdate']) :
                     strtotime($row->project_startdate);
-                $groups[$company]['endDate'] = (!empty($groups[$company]['company_enddate'])) ?
-                    strtotime($groups[$company]['company_enddate']) :
+                $company['endDate'] = (isset($company['company_enddate']) && !empty($company['company_enddate'])) ?
+                    strtotime($company['company_enddate']) :
                     time();
-                $groups[$company]['projects'] = array();
+                $company['projects'] = array();
+                $groups[$companyGroup] = $company;
+            } else {
+                $company = $groups[$companyGroup];
             }
-            $groups[$company]['startDate'] = min($groups[$company]['startDate'], strtotime($row->project_startdate));
+            $company['startDate'] = min($company['startDate'], strtotime($row->project_startdate));
             if ($this->data['showGroup'] === false && isset($_GET['cv'])) {
-                $row = (object)array_merge((array)$row, (array)$groups[$company]);
+                $row = (object)array_merge((array)$row, (array)$company);
+                unset($row->projects);
             }
-            array_push($groups[$company]['projects'], $row);
-
-
+            array_push($groups[$companyGroup]['projects'], $row);
         }
 
         if (count($groups) > 0 && $this->data['showGroup'] === true) {
@@ -332,7 +326,7 @@ class Projects extends CI_Controller
     {
         $this->data['qtfilter'] = 'Taylor Made Traffic';
         $this->data['qtags'] = 'companies';
-        $this->data['qgroup'] = 'project_copyright';
+        $this->data['qgroup'] = 'project_title';
 
         $this->data['qtagOptions'] = $this->projects->getTags($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
         $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
@@ -464,55 +458,13 @@ class Projects extends CI_Controller
         $minYear = $this->input->get_post('year_min');
 
         $seg = $this->uri->segment(2);
-        if ($seg == 'development' || $seg == 'design') $rows = $this->projects->getProjectsByType($seg);
+        if ($seg == 'development' || $seg == 'design') $this->data['tableRows'] = $this->projects->getProjectsByType($seg);
         else if ($this->input->get_post('pids')) {
             $pids = explode(',', $this->input->get_post('pids'));
-            $rows = $this->projects->getProjectsByIds($pids);
-        } else $rows = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
+            $this->data['tableRows'] = $this->projects->getProjectsByIds($pids);
+        } else $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving']);
 
-        $this->data['projects_count'] = 0;
-        $groups = array();
-        foreach ($rows as $index => &$row) {
-
-            if (empty($row->project_startdate)) $row->project_startdate = date('Y-m-d');
-            // if (empty($row->project_launchdate)) $row->project_launchdate = $row->project_startdate;
-
-            if ($minYear && intval($minYear)) {
-                if (intval($minYear) > intval($row->project_launchyear)) {
-                    continue;
-                }
-            }
-
-            $company = $row->{$this->data['qgroup']};
-            if (!isset($groups[$company])) {
-                if ($this->data['qgroup'] === 'project_title') {
-                    $groups[$company] = $this->users->getCompanyByName('Taylor Made Traffic');
-                } else {
-                    $groups[$company] = $this->users->getCompanyByName($company);
-                }
-                $groups[$company]['startDate'] = (!empty($groups[$company]['company_startdate'])) ?
-                    strtotime($groups[$company]['company_startdate']) :
-                    strtotime($row->project_startdate);
-                $groups[$company]['endDate'] = (!empty($groups[$company]['company_enddate'])) ?
-                    strtotime($groups[$company]['company_enddate']) :
-                    time();
-                $groups[$company]['projects'] = array();
-
-            }
-            $this->data['projects_count']++;
-            $images = $this->projects->getProjectImages($row->project_id);
-            $row = (object)array_merge((array)$row, (array)$images[0]);
-            $row->images = $images;
-            $row->totalImages = count($row->images);
-            if ($this->data['qgroup'] === 'project_title') {
-                foreach ($this->users->getCompanyByName($row->project_client) as $key => $value) {
-                    $row->$key = $value;
-                }
-            }
-            array_push($groups[$company]['projects'], $row);
-        }
-
-        $this->data['groups'] = $groups;
+        $this->regroupProjects();
     }
 
     private function viewSettings()
