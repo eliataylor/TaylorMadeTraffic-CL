@@ -63,6 +63,7 @@ class Projects extends CI_Controller
         $this->data['qtags'] = $this->input->get_post('qtags');
         if (empty($this->data['qtags'])) $this->data['qtags'] = $this->uri->segment(1);
         if (empty($this->data['qtags'])) $this->data['qtags'] = 'technologies';
+
         $this->data['qtfilter'] = $this->input->get_post('qtfilter');
         if (empty($this->data['qtfilter'])) $this->data['qtfilter'] = $this->uri->segment(2);
 
@@ -212,13 +213,16 @@ class Projects extends CI_Controller
             $this->sendOut('tags_table');
         } else {
 
+
             if ($this->data['qtags'] == "roles") $this->data['qtagOptions'] = $this->projects->getTagsTeamRoles();
             else $this->data['qtagOptions'] = $this->projects->getTagsTeamMembers();
+
             if ($this->data['qtags'] == "roles") {
                 $this->data['tableRows'] = $this->projects->getTagsTeamRoles($this->data['qtfilter']);
             } else {
                 $this->data['tableRows'] = $this->projects->getProjectsByTag($this->data['qtags'], $this->data['qtfilter'], $this->data['qhaving'], $this->data['qgroup']);
             }
+
 
             $this->regroupProjects();
 
@@ -360,8 +364,12 @@ class Projects extends CI_Controller
 
     public function eli()
     {
-        $this->data['qtags'] = 'team';
-        $this->data['qtfilter'] = 'E.A.Taylor';
+        if (empty($this->data['qtfilter'])) {
+            $this->data['qtags'] = 'team';
+            $this->data['qtfilter'] = 'E.A.Taylor';
+        } else {
+            $this->data['qtags'] = 'technologies';
+        }
         // $this->data['qgroup'] = 'project_client';
         //$this->data['qhaving'] = 2
         $this->team();

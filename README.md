@@ -24,6 +24,8 @@ Style Params:
 - https://localhost.taylormadetraffic.com/eli?cv&hide_desc&hide_subtitle&allDates&education&picSize=0
 
 
+- https://localhost.taylormadetraffic.com/eli?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&picSize=0&qtfilter=React%20Native,ReactJS,NodeJS
+
 - CV by Tech Tag
 Ex: https://taylormadetraffic.com/eli?cv&picSize=0&condensed&year_min=2017&education&cover
 
