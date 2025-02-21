@@ -65,7 +65,6 @@ class Projects extends CI_Controller
         if (empty($this->data['qtags'])) $this->data['qtags'] = 'technologies';
 
         $this->data['qtfilter'] = $this->input->get_post('qtfilter');
-        if (empty($this->data['qtfilter'])) $this->data['qtfilter'] = $this->uri->segment(2);
 
         $this->data['qgroup'] = $this->input->get_post('qgroup');
         if (empty($this->data['qgroup'])) $this->data['qgroup'] = $this->uri->segment(3);
@@ -463,7 +462,6 @@ class Projects extends CI_Controller
         $this->data['headers'] = array('image_src' => $this->lang->en("Pics"));
         $this->data['headers']['project_title'] = $this->lang->en("Info");
         $this->data['headers']['project_startdate'] = $this->lang->en("Tags");
-        $minYear = $this->input->get_post('year_min');
 
         $seg = $this->uri->segment(2);
         if ($seg == 'development' || $seg == 'design') $this->data['tableRows'] = $this->projects->getProjectsByType($seg);

@@ -122,7 +122,7 @@ order by project_id, image_weight;
 select * from tags where tag_key like '%CSS3%' order by tag_date desc;
 select project_id, project_title, project_devtools from projects where project_devtools like '%Node-Red%' order by project_startdate desc;
 
-select * from tags where project_id = 67;
+select * from tags where project_id = 49;
 
 
 select project_id, project_title, project_startdate, project_launchdate from projects where projects.project_type = 'development' order by project_title, project_id desc;
