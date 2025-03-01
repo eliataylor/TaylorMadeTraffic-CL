@@ -16,15 +16,15 @@
             This resume begins in 2017 when I met a talented graphic designer and launched a design and development agency. We spent the next eight years building teams, products, and applications while traveling the world and starting a family.
         </p>
         <p>
-            For evidence of my leadership, please review our full portfolio - <a href="https://taylormadetraffic.com/years" target="_blank">taylormadetraffic.com/years</a> - which includes many other projects and the teams I led to successful launches.
-            However, this resume lists specifically my own technical achievements and contributions.
+            For evidence of my leadership, please review our full portfolio - <a href="https://taylormadetraffic.com/years" target="_blank">taylormadetraffic.com/years</a> - which includes many other projects and the teams I led through successful launches.
+            Meanwhile, this resume is a list of my own technical achievements and contributions.
         </p>
         <p>
             As you'll note from the overlapping dates, FieldWorks, Cypher LLC, and Flexible Assembly Systems have been my most consistent clients over these years.
-            Any concern about conflicts of interest can be alleviated by reading their respective recommendations on my LinkedIn or speaking with superiors who can attest to my work ethic, execution, and technical skill.
+            Any concern about conflicts of interest can be alleviated by reading their respective recommendations on my LinkedIn or speaking with my superiors who can attest to my work ethic, execution, and technical skill.
         </p>
         <p>
-            My work was valued so highly that I eventually took on a full-time role with Cypher for several years as Director of three teams of three to five engineers each, in addition to steering ongoing RFPs and overall business development.
+            My work was valued so highly that I eventually took on a full-time role with Cypher for several years as Director of two teams, each with three to five members, in addition to steering ongoing RFPs and business development overall.
         <p>
             Now that our son is four, we've decided to settle back home in the Bay Area to be near family and give him a more stable environment and community. In turn, it seems like an ideal time to consolidate my efforts and take on a more focused opportunity like yours.
         </p>

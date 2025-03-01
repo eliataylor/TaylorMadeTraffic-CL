@@ -129,7 +129,7 @@ select project_id, project_title, project_startdate, project_launchdate from pro
 
 select project_id, project_title, project_startdate, project_launchdate from projects where projects.project_type = 'development' order by project_startdate desc;∂
 
-select project_id, project_title, project_technotes, project_devtools from projects where projects.project_type = 'development' order by project_id desc;
+select project_id, project_status, project_title, project_technotes, project_devtools from projects where projects.project_type = 'development' order by project_id desc;
 
 select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 

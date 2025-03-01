@@ -10,7 +10,7 @@
     <meta name="language" content="<?php echo $me['con']['lang']?>" />
     <link rel="stylesheet" type="text/css" href="/wwwroot/css/jquery.fancybox.css?v=2.1.5" media="screen" />
     <link type="text/css" rel="stylesheet" media="all" href="/wwwroot/css/cubes.css" />
-    <link type="text/css" rel="stylesheet" media="<?php echo (isset($_GET['cv'])) ? 'all' : 'print'; ?>" href="/wwwroot/css/print.css?v=2" />
+    <link type="text/css" rel="stylesheet" media="<?php echo (isset($_GET['cv'])) ? 'all' : 'print'; ?>" href="/wwwroot/css/print.css?v=4" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap" rel="stylesheet">
