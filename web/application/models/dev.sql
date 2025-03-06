@@ -131,6 +131,10 @@ select project_id, project_title, project_startdate, project_launchdate from pro
 
 select project_id, project_status, project_title, project_technotes, project_devtools from projects where projects.project_type = 'development' order by project_id desc;
 
+select project_id, project_title, project_desc, project_subtitle, project_technotes, project_tech_short from projects order by project_id desc;
+
+select project_id, project_title, project_desc, project_subtitle, project_technotes from projects where project_subtitle  like '%timelineNote%' order by project_id desc;
+
 select project_id, project_technotes, project_desc, project_devtools, project_startdate, project_launchdate from projects where project_title like '%Refined%';
 
 select project_id, project_title, project_technotes, project_launchdate from projects order by projects.project_launchdate is null desc, project_launchdate desc;

@@ -6,7 +6,6 @@ Style Params:
 - `allDates`: show dates for actual projects
 - `picSize`: image size 0-100% 
 - `picCount`: number of pics to show 
-- `condensed`: removes subtitles
 - `bio`: show bio
 - `year_min`: oldest project to show as full digit year ex. 2017
 - `cover`: show cover letter
@@ -14,16 +13,18 @@ Style Params:
 - `logos`: show company logos
 - `qtfilter`: comma-deliminated list of tech tags. This also sorts the list of technology tag below each project
 - `intro`: show short intro paragraph
-- `hide_subtitle`: hides the subtitle often not useful on printable CVs
-- `hide_desc`: hides the project descriptions
 
 - BY DATE:
 - CURRENT: https://localhost.taylormadetraffic.com/eli?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&picSize=0
 - ALL: https://localhost.taylormadetraffic.com/eli/cv?qtags=technologies&qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&picSize=0
+- ALL BY TAGS: https://localhost.taylormadetraffic.com/eli/cv?qtags=technologies&qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&picSize=0&qtfilter=ReactJS,React%20Native,Flutter&qtags=technologies
+- 
 - 
 - BY  CLIENT
 - CURRENT: https://localhost.taylormadetraffic.com/eli?cv&hide_desc&hide_subtitle&allDates&education&picSize=0
+- CURRENT BY TAG: https://localhost.taylormadetraffic.com/eli?cv&hide_desc&hide_subtitle&allDates&education&picSize=0&qtfilter=ReactJS,React%20Native,Flutter&qtags=technologies
 - ALL: https://localhost.taylormadetraffic.com/eli/cv?qtags=technologies&cv&hide_desc&hide_subtitle&allDates&education&picSize=0
+- ALL BY TAG: https://localhost.taylormadetraffic.com/eli/cv?qtags=technologies&cv&hide_desc&hide_subtitle&allDates&education&picSize=0&qtfilter=ReactJS,React%20Native,Flutter&qtags=technologies
 
 
 - https://localhost.taylormadetraffic.com/eli?qgroup=project_title&cv&hide_desc&hide_subtitle&allDates&education&picSize=0&qtfilter=React%20Native,ReactJS,NodeJS

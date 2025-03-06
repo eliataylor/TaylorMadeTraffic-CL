@@ -9,9 +9,6 @@ $variant = ($index || 1) % 2 == 0 ? 'footer' : 'header';
                 <h3>
                     <a href='/projects?pid=<?php echo $row->project_id; ?>'><?php echo $row->project_title; ?></a>
                 </h3>
-                <?php if (!isset($_GET['hide_subtitle']) && !empty($row->project_subtitle)): ?>
-                    <small><em><?php echo $row->project_subtitle; ?></em></small>
-                <?php endif; ?>
 
                 <?php
                 $dateRange = dateRange($row->project_startdate, $row->project_launchdate, 'month');
