@@ -102,7 +102,7 @@
                         </ul>
                     </div>
 
-                    <a id="menuBoxBottom" href="/taylormade" title="<?php echo $this->lang->en("Taylor Made")?>" class="menuBox bc">
+                    <a id="menuBoxBottom" href="/brands" title="<?php echo $this->lang->en("Taylor Made")?>" class="menuBox bc">
 <!--                        <img src="/wwwroot/images/cubeCorner.png" />-->
                     </a>
 

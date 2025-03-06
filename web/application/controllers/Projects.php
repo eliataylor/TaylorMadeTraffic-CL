@@ -27,9 +27,10 @@ class Projects extends CI_Controller
             "companies" => array("role" => -1, 'icon' => '', "title" => $this->lang->en("Companies")),
             "years" => array("role" => -1, 'icon' => '', "title" => $this->lang->en("Years")),
 
-            "taylormade" => array("role" => 0, 'icon' => '', "title" => "TMT"),
+            "taylormade" => array("role" => 0, 'icon' => '', "title" => "Our Brands"),
             "brands" => array("role" => 0, 'icon' => '', "title" => "Our Brands"),
-            "taylormade/development" => array("role" => 0, 'icon' => '', "title" => "TaylorMade " . $this->lang->en("Development")),
+            "taylormade/development" => array("role" => 0, 'icon' => '', "title" => "Our Applications"),
+            "taylormade/design" => array("role" => 0, 'icon' => '', "title" => "Our Designs"),
             "eli" => array("role" => 0, 'icon' => '', "title" => $this->lang->en("Eli")),
             "eli/cv" => array("role" => 0, 'icon' => '', "title" => $this->lang->en("CV")),
             "saman" => array("role" => 0, 'icon' => '', "title" => $this->lang->en("Saman")),
