@@ -15,6 +15,7 @@ $route['settings'] = "projects/viewSettings";
 
 $route['taylormade/development'] = "projects/taylormade";
 $route['taylormade/design'] = "projects/taylormade";
+$route['brands'] = "projects/taylormade";
 $route['taylormade'] = "projects/taylormade";
 
 $route['eli'] = "projects/eli";
